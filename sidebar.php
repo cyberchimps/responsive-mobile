@@ -19,7 +19,7 @@ if( 'full-width-page' == responsive_get_layout() ) {
 		<?php if ( ! dynamic_sidebar( 'main-sidebar' ) ) : ?>
 
 			<aside id="archives" class="widget-wrapper">
-				<h1 class="widget-title"><?php _e( 'Archives', 'responsive' ); ?></h1>
+				<h1 class="widget-title"><?php _e( 'In Archive', 'responsive' ); ?></h1>
 				<ul>
 					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 				</ul>

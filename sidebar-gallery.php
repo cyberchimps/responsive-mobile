@@ -21,67 +21,53 @@ if( !defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php responsive_widgets_before(); // above widgets container hook ?>
-	<div id="widgets" class="grid col-300 fit gallery-meta">
+	<div id="widgets" class="widget-area grid col-300 fit gallery-meta" role="complementary">
 		<?php responsive_widgets(); // above widgets hook ?>
-		<div class="widget-wrapper">
+		<aside class="widget-wrapper">
 
-			<div class="widget-title"><h3><?php _e( 'Image Information', 'responsive' ); ?></h3></div>
+			<h1 class="widget-title"><?php _e( 'Image Information', 'responsive' ); ?></h1>
 			<ul>
-				<?php
-				$responsive_data = get_post_meta( $post->ID, '_wp_attachment_metadata', true );
+				<?php $responsive_data = get_post_meta( $post->ID, '_wp_attachment_metadata', true ); ?>
+				<?php if( is_array( $responsive_data ) ) : ?>
+					<span class="full-size"><?php _e( 'Full Size:', 'responsive' ); ?> <a href="<?php echo wp_get_attachment_url( $post->ID ); ?>"><?php echo $responsive_data['width'] . '&#215;' . $responsive_data['height']; ?></a>px</span>
 
-				if( is_array( $responsive_data ) ) {
-					?>
-					<span class="full-size"><?php _e( 'Full Size:', 'responsive' ); ?> <a
-							href="<?php echo wp_get_attachment_url( $post->ID ); ?>"><?php echo $responsive_data['width'] . '&#215;' . $responsive_data['height']; ?></a>px</span>
-
-					<?php
-					if( is_array( $responsive_data['image_meta'] ) ) {
-						?>
-						<?php if( $responsive_data['image_meta']['aperture'] ) { ?>
+					<?php if( is_array( $responsive_data['image_meta'] ) ) : ?>
+						<?php if( $responsive_data['image_meta']['aperture'] ) : ?>
 							<span class="aperture"><?php _e( 'Aperture: f&#47;', 'responsive' ); ?><?php echo $responsive_data['image_meta']['aperture']; ?></span>
-						<?php } ?>
+						<?php endif; ?>
 
-						<?php if( $responsive_data['image_meta']['focal_length'] ) { ?>
-							<span
-								class="focal-length"><?php _e( 'Focal Length:', 'responsive' ); ?> <?php echo $responsive_data['image_meta']['focal_length']; ?><?php _e( 'mm', 'responsive' ); ?></span>
-						<?php } ?>
+						<?php if( $responsive_data['image_meta']['focal_length'] ) : ?>
+							<span class="focal-length"><?php _e( 'Focal Length:', 'responsive' ); ?> <?php echo $responsive_data['image_meta']['focal_length']; ?><?php _e( 'mm', 'responsive' ); ?></span>
+						<?php endif; ?>
 
-						<?php if( $responsive_data['image_meta']['iso'] ) { ?>
+						<?php if( $responsive_data['image_meta']['iso'] ) : ?>
 							<span class="iso"><?php _e( 'ISO:', 'responsive' ); ?> <?php echo $responsive_data['image_meta']['iso']; ?></span>
-						<?php } ?>
+						<?php endif; ?>
 
-						<?php if( $responsive_data['image_meta']['shutter_speed'] ) { ?>
+						<?php if( $responsive_data['image_meta']['shutter_speed'] ) : ?>
 							<span class="shutter"><?php _e( 'Shutter:', 'responsive' ); ?>
-								<?php
-								if( ( 1 / $responsive_data['image_meta']['shutter_speed'] ) > 1 ) {
+								<?php if( ( 1 / $responsive_data['image_meta']['shutter_speed'] ) > 1 ) {
 									echo "1/";
 									if( number_format( ( 1 / $responsive_data['image_meta']['shutter_speed'] ), 1 ) == number_format( ( 1 / $responsive_data['image_meta']['shutter_speed'] ), 0 ) ) {
 										echo number_format( ( 1 / $responsive_data['image_meta']['shutter_speed'] ), 0, '.', '' ) . ' sec';
-									}
-									else {
+									} else {
 										echo number_format( ( 1 / $responsive_data['image_meta']['shutter_speed'] ), 1, '.', '' ) . ' sec';
 									}
-								}
-								else {
+								} else {
 									echo $responsive_data['image_meta']['shutter_speed'] . ' sec';
-								}
-								?>
-								</span>
-						<?php } ?>
+								} ?>
+							</span>
+						<?php endif; ?>
 
-						<?php if( $responsive_data['image_meta']['camera'] ) { ?>
+						<?php if( $responsive_data['image_meta']['camera'] ) : ?>
 							<span class="camera"><?php _e( 'Camera:', 'responsive' ); ?> <?php echo $responsive_data['image_meta']['camera']; ?></span>
-						<?php
-						}
-					}
-				}
-				?>
+						<?php endif;?>
+					<?php endif; ?>
+				<?php endif; ?>
 			</ul>
 
-		</div>
-		<!-- end of .widget-wrapper -->
-	</div><!-- end of #widgets -->
+		</aside><!-- .widget-wrapper -->
+	</div><!-- #widgets -->
 
 <?php if( !is_active_sidebar( 'gallery-widget' ) ) {
 	return;
@@ -89,7 +75,7 @@ if( !defined( 'ABSPATH' ) ) {
 
 <?php if( is_active_sidebar( 'gallery-widget' ) ) : ?>
 
-	<div id="widgets" class="grid col-300 fit">
+	<div id="widgets" class="widget-area grid col-300 fit" role="complementary">
 
 		<?php responsive_widgets(); // above widgets hook ?>
 

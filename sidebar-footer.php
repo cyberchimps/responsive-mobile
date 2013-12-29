@@ -25,16 +25,14 @@ if( !is_active_sidebar( 'footer-widget' ) ) {
 	return;
 }
 ?>
-<?php responsive_widgets_before(); // above widgets container hook ?>
-	<div id="footer_widget" class="grid col-940">
-		<?php responsive_widgets(); // above widgets hook ?>
-
-		<?php if( is_active_sidebar( 'footer-widget' ) ) : ?>
+	<?php responsive_widgets_before(); ?>
+	<div id="footer_widget" class="widget-area grid col-940" role="complementary">
+		<?php responsive_widgets(); ?>
+		<?php if ( ! dynamic_sidebar( 'footer-sidebar' ) ) : ?>
 
 			<?php dynamic_sidebar( 'footer-widget' ); ?>
 
-		<?php endif; //end of colophon-widget ?>
-
-		<?php responsive_widgets_end(); // after widgets hook ?>
-	</div><!-- end of #footer-widget -->
-<?php responsive_widgets_after(); // after widgets container hook ?>
+		<?php endif; // end sidebar widget area ?>
+		<?php responsive_widgets_end(); ?>
+	</div><!-- #secondary -->
+	<?php responsive_widgets_after(); ?>

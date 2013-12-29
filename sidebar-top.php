@@ -27,7 +27,7 @@ if( !is_active_sidebar( 'top-widget' )
 }
 ?>
 <?php responsive_widgets_before(); // above widgets container hook ?>
-	<div id="top-widget" class="top-widget">
+	<div id="top-widget" class="top-widget" role="complementary">
 		<?php responsive_widgets(); // above widgets hook ?>
 
 		<?php if( is_active_sidebar( 'top-widget' ) ) : ?>

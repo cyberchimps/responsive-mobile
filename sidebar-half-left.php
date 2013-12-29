@@ -20,21 +20,19 @@ if( !defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 ?>
-<?php responsive_widgets_before(); // above widgets container hook ?>
-	<div id="widgets" class="grid-right col-300">
+<?php responsive_widgets_before(); ?>
+	<div id="widgets" class="widget-area grid-right col-300" role="complementary">
 		<?php responsive_widgets(); // above widgets hook ?>
 
 		<?php if( !dynamic_sidebar( 'right-left' ) ) : ?>
-			<div class="widget-wrapper">
-
-				<div class="widget-title"><h3><?php _e( 'In Archive', 'responsive' ); ?></h3></div>
+			<aside id="archives" class="widget-wrapper">
+				<h1 class="widget-title"><?php _e( 'In Archive', 'responsive' ); ?></h1>
 				<ul>
 					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 				</ul>
-
-			</div><!-- end of .widget-wrapper -->
+			</aside>
 		<?php endif; //end of right-left ?>
 
-		<?php responsive_widgets_end(); // after widgets hook ?>
+		<?php responsive_widgets_end(); ?>
 	</div><!-- end of #widgets -->
-<?php responsive_widgets_after(); // after widgets container hook ?>
+<?php responsive_widgets_after(); ?>

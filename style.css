@@ -49,7 +49,7 @@ and Blueprint http://www.blueprintcss.org/
  * RESET...............Set our reset defaults
  * FONT-FACE...........Import brand font files
  */
-
+@import url("responsive.css");
 /* =Reset
 -------------------------------------------------------------- */
 
