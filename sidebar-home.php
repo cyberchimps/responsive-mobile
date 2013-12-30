@@ -43,7 +43,7 @@ if( !defined( 'ABSPATH' ) ) {
 			<?php if( !dynamic_sidebar( 'home-widget-2' ) ) : ?>
 				<aside class="widget-wrapper">
 
-					<h1 class="widget-title-home"><?php _e( 'Home Widget 2', 'responsive' ); ?></h3></div>
+					<h1 class="widget-title-home"><?php _e( 'Home Widget 2', 'responsive' ); ?></h1>
 					<div class="textwidget"><?php _e( 'This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well.', 'responsive' ); ?></div>
 
 				</aside><!-- end of .widget-wrapper -->

@@ -65,9 +65,7 @@ Class Responsive_Options {
 	 */
 	protected function container( $title, $sub ) {
 
-		echo '<h3 class="rwd-toggle"><a href="#">' . esc_html( $title ) . '</a></h3>
-                <div class="rwd-container">
-                <div class="rwd-block">';
+		echo '<h3 class="rwd-toggle"><a href="#">' . esc_html( $title ) . '</a></h3><div class="rwd-container"><div class="rwd-block">';
 		foreach( $sub as $opt ) {
 			echo $this->sub_heading( $this->parse_args( $opt ) );
 			echo $this->section( $this->parse_args( $opt ) );
@@ -96,7 +94,7 @@ Class Responsive_Options {
 
 			echo $args['subtitle'];
 
-			echo '</div><!-- end of .grid col-300 -->';
+			echo '</div><!-- .grid col-300 -->';
 
 		}
 	}
@@ -134,11 +132,7 @@ Class Responsive_Options {
 
 		$value = ( !empty( $this->responsive_options[$id] ) ) ? ( $this->responsive_options[$id] ) : '';
 
-		$html = '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" class="regular-text" type="text" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" value="'
-			. esc_html( $value ) . '"
-        placeholder="' .
-			esc_attr( $placeholder ) . '" />
-                 <label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
+		$html = '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" class="regular-text" type="text" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" value="' . esc_html( $value ) . '" placeholder="' . esc_attr( $placeholder ) . '" /><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
 
 		return $html;
 	}
@@ -159,15 +153,7 @@ Class Responsive_Options {
 
 		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
 
-		$html = '<p>' . esc_html( $heading ) . '</p>
-                <textarea id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" class="' . esc_attr( $classes ) . '" cols="50" rows="30" name="' . esc_attr(
-				'responsive_theme_options[' . $id .
-				']'
-			) . '"
-                 placeholder="' . $placeholder . '">' .
-			esc_html( $value ) .
-			'</textarea>
-			<label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
+		$html = '<p>' . esc_html( $heading ) . '</p><textarea id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" class="' . esc_attr( $classes ) . '" cols="50" rows="30" name="' . esc_attr('responsive_theme_options[' . $id .']') . '"placeholder="' . $placeholder . '">' . esc_html( $value ) . '</textarea><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
 
 		return $html;
 	}
@@ -208,9 +194,7 @@ Class Responsive_Options {
 
 		$checked = ( isset( $this->responsive_options[$id] ) ) ? checked( '1', esc_attr( $this->responsive_options[$id] ), false ) : checked( 0, 1 );
 
-		$html = '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" type="checkbox" value="1" ' . $checked . '
-         />
-                <label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . wp_kses_post( $description ) . '</label>';
+		$html = '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" type="checkbox" value="1" ' . $checked . '/><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . wp_kses_post( $description ) . '</label>';
 
 		return $html;
 	}
@@ -233,13 +217,7 @@ Class Responsive_Options {
 	 * @return string
 	 */
 	protected function save() {
-		echo '<div class="grid col-940">
-                <p class="submit">
-				' . get_submit_button( __( 'Save Options', 'responsive' ), 'primary', 'responsive_theme_options[submit]', false ) .
-			get_submit_button( __( 'Restore Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false, $this->attributes ) . '
-                <a href="http://cyberchimps.com/store/responsivepro/" class="button">' . __( 'Upgrade', 'responsive' ) . '</a>
-                </p>
-                </div>';
+		echo '<div class="grid col-940"><p class="submit">' . get_submit_button( __( 'Save Options', 'responsive' ), 'primary', 'responsive_theme_options[submit]', false ) . get_submit_button( __( 'Restore Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false, $this->attributes ) . '<a href="http://cyberchimps.com/store/responsivepro/" class="button upgrade">' . __( 'Upgrade', 'responsive' ) . '</a></p></div>';
 
 	}
 
@@ -308,7 +286,7 @@ Class Responsive_Options {
 			'editor_class'  => esc_attr( $classes )
 		);
 
-		echo '<div class="grid col-620 fit tinymce-editor">';
+		echo '<div class="tinymce-editor">';
 		echo '<p>' . esc_html( $heading ) . '</p>';
 
 		wp_editor( $value, 'responsive_theme_options[' . $id . ']', $editor_settings );

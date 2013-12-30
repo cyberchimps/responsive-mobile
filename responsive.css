@@ -125,7 +125,7 @@ html {
 body {
 	-moz-font-smoothing: antialiased;
 	-webkit-font-smoothing: antialiased;
-	background: #efefef;
+	background: #ffffff;
 	color: #555555;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
@@ -2602,21 +2602,21 @@ table.cart td.actions .coupon .input-text {
 	text-align: right;
 }
 
+#footer .rss-icon,
 #footer .yelp-icon,
 #footer .vimeo-icon,
 #footer .youtube-icon,
 #footer .twitter-icon,
 #footer .facebook-icon,
 #footer .linkedin-icon,
-#footer .rss-feed-icon,
 #footer .instagram-icon,
 #footer .pinterest-icon,
 #footer .foursquare-icon,
-#footer .google-plus-icon,
-#footer .stumble-upon-icon {
+#footer .googleplus-icon,
+#footer .stumbleupon-icon {
 	display: inline;
 	margin: 1px;
-	padding-left: 3px;
+	padding-left: 2px;
 }
 
 /* =Alignments Extras

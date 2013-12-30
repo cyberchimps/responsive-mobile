@@ -65,22 +65,18 @@ function responsive_get_sidebar_classes() {
 		$sidebar_classes[] = 'grid';
 		$sidebar_classes[] = 'col-300';
 		$sidebar_classes[] = 'fit';
-	}
-	elseif( 'sidebar-content-page' == $layout ) {
+	} elseif ( 'sidebar-content-page' == $layout ) {
 		$sidebar_classes[] = 'grid-right';
 		$sidebar_classes[] = 'col-300';
 		$sidebar_classes[] = 'rtl-fit';
-	}
-	elseif( 'content-sidebar-half-page' == $layout ) {
+	} elseif ( 'content-sidebar-half-page' == $layout ) {
 		$sidebar_classes[] = 'grid';
 		$sidebar_classes[] = 'col-460';
 		$sidebar_classes[] = 'fit';
-	}
-	elseif( 'sidebar-content-half-page' == $layout ) {
+	} elseif ( 'sidebar-content-half-page' == $layout ) {
 		$sidebar_classes[] = 'grid-right';
 		$sidebar_classes[] = 'col-460';
 		$sidebar_classes[] = 'rtl-fit';
-
 	}
 
 	return apply_filters( 'responsive_sidebar_classes', $sidebar_classes );
@@ -113,8 +109,7 @@ function responsive_get_layout() {
 		if( 'default' != $page_template ) {
 			if( in_array( $page_template, array( 'blog.php', 'blog-excerpt.php' ) ) ) {
 				$layout = $responsive_options['blog_posts_index_layout_default'];
-			}
-			else {
+			} else {
 				$layout = $responsive_options['static_page_layout_default'];
 			}
 		}

@@ -28,7 +28,7 @@
 					} ?>
 				</div><!-- .col-540 -->
 				<div class="grid col-380 fit">
-				<?php responsive_social_icons() ?>
+				<?php echo responsive_social_icons() ?>
 				</div><!-- .col-380 fit -->
 			</div><!-- .col-940 -->
 			<?php get_sidebar( 'colophon' ); ?>
@@ -39,7 +39,7 @@
 
 			<div class="grid col-300 scroll-top">
 				<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a>
-			</div>!-- .scroll-top -->
+			</div><!-- .scroll-top -->
 
 			<div class="grid col-300 fit powered">
 				<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>">Responsive Theme</a><?php esc_attr_e( 'powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" title="<?php esc_attr_e( 'WordPress', 'responsive' ); ?>">
