@@ -47,7 +47,7 @@ require $template_directory . '/core/includes/upsell/theme-upsell.php';
 /**
  * Implement the Custom Header feature.
  */
-//require $template_directory . '/core/custom-header.php';
+require $template_directory . '/core/includes/custom-header.php';
 
 /**
  * Custom functions that act independently of the theme templates.
@@ -55,9 +55,24 @@ require $template_directory . '/core/includes/upsell/theme-upsell.php';
 require $template_directory . '/core/includes/extras.php';
 
 /**
+ * Custom functions that act independently of the theme templates.
+ */
+require $template_directory . '/core/includes/functions-menu.php';
+
+/**
+ * Custom functions that act independently of the theme templates.
+ */
+require $template_directory . '/core/includes/functions-plus.php';
+
+/**
+ * Custom functions that act independently of the theme templates.
+ */
+require $template_directory . '/core/includes/functions-sidebar.php';
+
+/**
  * Customizer additions.
  */
-require $template_directory . '/core/includes/customizer.php';
+require $template_directory . '/core/includes/theme-options/customizer.php';
 
 /**
  * Load Jetpack compatibility file.

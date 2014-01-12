@@ -3,15 +3,6 @@
  * Sample implementation of the Custom Header feature
  * http://codex.wordpress.org/Custom_Headers
  *
- * You can add an optional custom header image to header.php like so ...
-
-	<?php if ( get_header_image() ) : ?>
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-		<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="">
-	</a>
-	<?php endif; // End header image check. ?>
-
- *
  * @package Responsive
  */
 
@@ -26,19 +17,20 @@
  */
 function responsive_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'responsive_custom_header_args', array(
-		'default-image'          => '',
-		'default-text-color'     => '000000',
-		'width'                  => 1000,
-		'height'                 => 250,
+		'default-image'          => get_template_directory_uri() . '/core/images/default-logo.png',
+		'width'                  => 300,
+		'height'                 => 100,
+		'flex-width'             => true,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'responsive_header_style',
 		'admin-head-callback'    => 'responsive_admin_header_style',
 		'admin-preview-callback' => 'responsive_admin_header_image',
 	) ) );
+	set_theme_mod( $name, $value );
 }
 add_action( 'after_setup_theme', 'responsive_custom_header_setup' );
 
-if ( ! function_exists( 'responsive_header_style' ) ) :
+if ( ! function_exists( 'responsive_header_style' ) ) {
 /**
  * Styles the header image and text displayed on the blog
  *
@@ -77,9 +69,9 @@ function responsive_header_style() {
 	</style>
 	<?php
 }
-endif; // responsive_header_style
+}
 
-if ( ! function_exists( 'responsive_admin_header_style' ) ) :
+if ( ! function_exists( 'responsive_admin_header_style' ) ) {
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
@@ -89,6 +81,7 @@ function responsive_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
+			background-repeat: no-repeat;
 			border: none;
 		}
 		#headimg h1,
@@ -97,6 +90,9 @@ function responsive_admin_header_style() {
 		#headimg h1 {
 		}
 		#headimg h1 a {
+			color: #333333!important;
+			font-weight: 700;
+			text-decoration: none;
 		}
 		#desc {
 		}
@@ -105,9 +101,9 @@ function responsive_admin_header_style() {
 	</style>
 <?php
 }
-endif; // responsive_admin_header_style
+} // responsive_admin_header_style
 
-if ( ! function_exists( 'responsive_admin_header_image' ) ) :
+if ( ! function_exists( 'responsive_admin_header_image' ) ) {
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
@@ -117,12 +113,10 @@ function responsive_admin_header_image() {
 	$style = sprintf( ' style="color:#%s;"', get_header_textcolor() );
 ?>
 	<div id="headimg">
-		<h1 class="displaying-header-text"><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-		<div class="displaying-header-text" id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></div>
 		<?php if ( get_header_image() ) : ?>
-		<img src="<?php header_image(); ?>" alt="">
+			<img src="<?php header_image(); ?>" alt="">
 		<?php endif; ?>
 	</div>
 <?php
 }
-endif; // responsive_admin_header_image
+}

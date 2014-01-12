@@ -85,8 +85,8 @@ function responsive_get_option_defaults() {
 function responsive_admin_enqueue_scripts( $hook_suffix ) {
 	$template_directory_uri = get_template_directory_uri();
 
-	wp_enqueue_style( 'responsive-theme-options', $template_directory_uri . '/core/includes/theme-options.css', false, '1.0' );
-	wp_enqueue_script( 'responsive-theme-options', $template_directory_uri . '/core/includes/theme-options.js', array( 'jquery' ), '1.0' );
+	wp_enqueue_style( 'responsive-theme-options', $template_directory_uri . '/core/includes/theme-options/theme-options.css', false, '1.0' );
+	wp_enqueue_script( 'responsive-theme-options', $template_directory_uri . '/core/includes/theme-options/theme-options.js', array( 'jquery' ), '1.0' );
 }
 
 add_action( 'admin_print_styles-appearance_page_theme_options', 'responsive_admin_enqueue_scripts' );
@@ -232,6 +232,15 @@ function responsive_theme_options_do_page() {
 	 */
 	$options = apply_filters( 'responsive_options_filter', array(
 		'theme_elements' => array(
+			array(
+				'title'       => __( 'Backward Compatibility', 'responsive' ),
+				'subtitle'    => '',
+				'heading'     => '',
+				'type'        => 'checkbox',
+				'id'          => 'compatibility',
+				'description' => __( 'check to enable', 'responsive' ),
+				'placeholder' => ''
+			),
 			array(
 				'title'       => __( 'Disable breadcrumb list?', 'responsive' ),
 				'subtitle'    => '',
@@ -559,6 +568,7 @@ function responsive_theme_options_validate( $input ) {
 
 		// checkbox value is either 0 or 1
 		$checkboxs = array(
+			'compatibility',
 			'breadcrumb',
 			'cta_button',
 			'front_page'
@@ -596,9 +606,9 @@ function responsive_theme_options_validate( $input ) {
 		$input['facebook_uid']                = esc_url_raw( $input['facebook_uid'] );
 		$input['linkedin_uid']                = esc_url_raw( $input['linkedin_uid'] );
 		$input['youtube_uid']                 = esc_url_raw( $input['youtube_uid'] );
-		$input['stumble_uid']                 = esc_url_raw( $input['stumble_uid'] );
+		$input['stumbleupon_uid']             = esc_url_raw( $input['stumbleupon_uid'] );
 		$input['rss_uid']                     = esc_url_raw( $input['rss_uid'] );
-		$input['google_plus_uid']             = esc_url_raw( $input['google_plus_uid'] );
+		$input['googleplus_uid']              = esc_url_raw( $input['googleplus_uid'] );
 		$input['instagram_uid']               = esc_url_raw( $input['instagram_uid'] );
 		$input['pinterest_uid']               = esc_url_raw( $input['pinterest_uid'] );
 		$input['yelp_uid']                    = esc_url_raw( $input['yelp_uid'] );

@@ -49,9 +49,19 @@
 		} ?>
 		<?php responsive_in_header(); // header hook ?>
 		<div id="logo" class="site-branding">
-			<h1 class="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+			<?php if ( get_header_image() ) : ?>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="">
+				</a>
+			<?php endif; // End header image check. ?>
 		</div>
+		<div id="site-header-text" class="site-branding">
+			<?php if ( display_header_text() ) : ?>
+				<h1 class="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+			<?php endif; // End header text check. ?>
+		</div>
+
 
 		<?php get_sidebar( 'top' ); ?>
 
