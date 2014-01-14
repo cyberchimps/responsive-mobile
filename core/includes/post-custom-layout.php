@@ -27,21 +27,6 @@ $responsive_options = responsive_get_options();
 
 //get_responsive_grid( 'col-4' );
 
-/*$grid = array (
-	'col-1'  => 'col-md-1 ',
-	'col-2'  => 'col-md-2 ',
-	'col-3'  => 'col-md-3 ',
-	'col-4'  => 'col-md-4 ',
-	'col-5'  => 'col-md-5 ',
-	'col-6'  => 'col-md-6 ',
-	'col-7'  => 'col-md-7 ',
-	'col-8'  => 'col-md-8 ',
-	'col-9'  => 'col-md-9 ',
-	'col-10' => 'col-md-10 ',
-	'col-11' => 'col-md-11 ',
-	'col-12' => 'col-md-12 ',
-);*/
-
 //'grid-right'
 //'rtl-fit'
 
@@ -49,75 +34,47 @@ function get_responsive_grid( $col, $last = false ) {
 
 	global $responsive_options;
 	$responsive_options = responsive_get_options();
-	$grid = $responsive_options['front_page'];
+	$grid = $responsive_options['compatibility'];
 
-	if ( 1 == $grid ) {
-		$col_1  = 'col-md-1 ';
-		$col_2  = 'col-md-2 ';
-		$col_3  = 'col-md-3 ';
-		$col_4  = 'col-md-4 ';
-		$col_5  = 'col-md-5 ';
-		$col_6  = 'col-md-6 ';
-		$col_7  = 'col-md-7 ';
-		$col_8  = 'col-md-8 ';
-		$col_9  = 'col-md-9 ';
-		$col_10 = 'col-md-10 ';
-		$col_11 = 'col-md-11 ';
-		$col_12 = 'col-md-12 ';
+	$col_bs = array (
+		'col-1'  => 'col-md-1',
+		'col-2'  => 'col-md-2',
+		'col-3'  => 'col-md-3',
+		'col-4'  => 'col-md-4',
+		'col-5'  => 'col-md-5',
+		'col-6'  => 'col-md-6',
+		'col-7'  => 'col-md-7',
+		'col-8'  => 'col-md-8',
+		'col-9'  => 'col-md-9',
+		'col-10' => 'col-md-10',
+		'col-11' => 'col-md-11',
+		'col-12' => 'col-md-12',
+	);
+
+	$col_r1 = array (
+		'col-1'  => 'col-60',
+		'col-2'  => 'col-140',
+		'col-3'  => 'col-220',
+		'col-4'  => 'col-300',
+		'col-5'  => 'col-380',
+		'col-6'  => 'col-460',
+		'col-7'  => 'col-540',
+		'col-8'  => 'col-620',
+		'col-9'  => 'col-700',
+		'col-10' => 'col-780',
+		'col-11' => 'col-860',
+		'col-12' => 'col-940',
+	);
+
+	if ( 0 == $grid ) {
+		$classes[] = $col_bs[ $col ];
 	} else {
-		$fit    = false == $last ? '' : 'fit';
-		$col_1  = 'grid col-60 ' . $fit;
-		$col_2  = 'grid col-140 ' . $fit;
-		$col_3  = 'grid col-220 ' . $fit;
-		$col_4  = 'grid col-300 ' . $fit;
-		$col_5  = 'grid col-380 ' . $fit;
-		$col_6  = 'grid col-460 ' . $fit;
-		$col_7  = 'grid col-540 ' . $fit;
-		$col_8  = 'grid col-620 ' . $fit;
-		$col_9  = 'grid col-700 ' . $fit;
-		$col_10 = 'grid col-780 ' . $fit;
-		$col_11 = 'grid col-860 ' . $fit;
-		$col_12 = 'grid col-940 ' . $fit;
+		$classes[] = 'grid';
+		$classes[] = $col_r1[ $col ];
+		$classes[] = false == $last ? '' : 'fit';
 	}
 
-	switch ( $col ) {
-		case 'col-1':
-			$classes = $col_1;
-			break;
-		case 'col-2':
-			$classes = $col_2;
-			break;
-		case 'col-3':
-			$classes = $col_3;
-			break;
-		case 'col-4':
-			$classes = $col_4;
-			break;
-		case 'col-5':
-			$classes = $col_5;
-			break;
-		case 'col-6':
-			$classes = $col_6;
-			break;
-		case 'col-7':
-			$classes = $col_7;
-			break;
-		case 'col-8':
-			$classes = $col_8;
-			break;
-		case 'col-9':
-			$classes = $col_9;
-			break;
-		case 'col-10':
-			$classes = $col_10;
-			break;
-		case 'col-11':
-			$classes = $col_11;
-			break;
-		case 'col-12':
-			$classes = $col_12;
-			break;
-	}
+	$classes = implode( ' ', $classes );
 
 	return $classes;
 

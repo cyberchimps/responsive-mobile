@@ -43,6 +43,7 @@ function responsive_get_options() {
  */
 function responsive_get_option_defaults() {
 	$defaults = array(
+		'compatibility'                   => 0,
 		'breadcrumb'                      => false,
 		'cta_button'                      => false,
 		'front_page'                      => 1,
@@ -577,7 +578,7 @@ function responsive_theme_options_validate( $input ) {
 			if( !isset( $input[$checkbox] ) ) {
 				$input[$checkbox] = null;
 			}
-			$input[$checkbox] = ( $input[$checkbox] == 1 ? 1 : 0 );
+			$input[$checkbox] = ( 1 == $input[$checkbox] ? 1 : 0 );
 		}
 		$layouts = array(
 			'static_page_layout_default',
