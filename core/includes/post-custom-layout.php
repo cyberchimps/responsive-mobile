@@ -47,9 +47,11 @@ $responsive_options = responsive_get_options();
 
 function get_responsive_grid( $col, $last = false ) {
 
+	global $responsive_options;
+	$responsive_options = responsive_get_options();
 	$grid = $responsive_options['front_page'];
 
-	if ( 0 = $grid ) {
+	if ( 1 == $grid ) {
 		$col_1  = 'col-md-1 ';
 		$col_2  = 'col-md-2 ';
 		$col_3  = 'col-md-3 ';
@@ -63,57 +65,57 @@ function get_responsive_grid( $col, $last = false ) {
 		$col_11 = 'col-md-11 ';
 		$col_12 = 'col-md-12 ';
 	} else {
-		$col_1  = 'grid col-60 ';
-		$col_2  = 'grid col-140 ';
-		$col_3  = 'grid col-220 ';
-		$col_4  = 'grid col-300 ';
-		$col_5  = 'grid col-380 ';
-		$col_6  = 'grid col-460 ';
-		$col_7  = 'grid col-540 ';
-		$col_8  = 'grid col-620 ';
-		$col_9  = 'grid col-700 ';
-		$col_10 = 'grid col-780 ';
-		$col_11 = 'grid col-860 ';
-		$col_12 = 'grid col-940 ';
-		$fit    = ( $last = true ? 'fit' : '' );
+		$fit    = false == $last ? '' : 'fit';
+		$col_1  = 'grid col-60 ' . $fit;
+		$col_2  = 'grid col-140 ' . $fit;
+		$col_3  = 'grid col-220 ' . $fit;
+		$col_4  = 'grid col-300 ' . $fit;
+		$col_5  = 'grid col-380 ' . $fit;
+		$col_6  = 'grid col-460 ' . $fit;
+		$col_7  = 'grid col-540 ' . $fit;
+		$col_8  = 'grid col-620 ' . $fit;
+		$col_9  = 'grid col-700 ' . $fit;
+		$col_10 = 'grid col-780 ' . $fit;
+		$col_11 = 'grid col-860 ' . $fit;
+		$col_12 = 'grid col-940 ' . $fit;
 	}
 
 	switch ( $col ) {
 		case 'col-1':
-			$classes = $col_1 . $fit;
+			$classes = $col_1;
 			break;
 		case 'col-2':
-			$classes = $col_2 . $fit;
+			$classes = $col_2;
 			break;
 		case 'col-3':
-			$classes = $col_3 . $fit;
+			$classes = $col_3;
 			break;
 		case 'col-4':
-			$classes = $col_4 . $fit;
+			$classes = $col_4;
 			break;
 		case 'col-5':
-			$classes = $col_5 . $fit;
+			$classes = $col_5;
 			break;
 		case 'col-6':
-			$classes = $col_6 . $fit;
+			$classes = $col_6;
 			break;
 		case 'col-7':
-			$classes = $col_7 . $fit;
+			$classes = $col_7;
 			break;
 		case 'col-8':
-			$classes = $col_8 . $fit;
+			$classes = $col_8;
 			break;
 		case 'col-9':
-			$classes = $col_9 . $fit;
+			$classes = $col_9;
 			break;
 		case 'col-10':
-			$classes = $col_10 . $fit;
+			$classes = $col_10;
 			break;
 		case 'col-11':
-			$classes = $col_11 . $fit;
+			$classes = $col_11;
 			break;
 		case 'col-12':
-			$classes = $col_12 . $fit;
+			$classes = $col_12;
 			break;
 	}
 

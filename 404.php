@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-	<div id="content-full" class="content-area grid col-940">
+	<div id="content-full" class="content-area <?php echo get_responsive_grid( 'col-12' ); ?>">
 		<main id="main" class="site-main" role="main">
 
 			<?php responsive_entry_before(); ?>
