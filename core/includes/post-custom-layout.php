@@ -25,10 +25,9 @@ if( !defined( 'ABSPATH' ) ) {
 global $responsive_options;
 $responsive_options = responsive_get_options();
 
-//get_responsive_grid( 'col-4' );
+// e.g. get_responsive_grid( 'col-4' );
 
-//'grid-right'
-//'rtl-fit'
+// @TODO Add support for 'grid-right' & 'rtl-fit'
 
 function get_responsive_grid( $col, $last = false ) {
 
