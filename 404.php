@@ -7,8 +7,8 @@
 
 get_header(); ?>
 
-	<div id="content-full" class="content-area <?php echo get_responsive_grid( 'col-12' ); ?>">
-		<main id="main" class="site-main" role="main">
+	<div id="content-full" class="content-area">
+		<main id="main" class="site-main <?php echo get_responsive_grid( 'col-12' ); ?>" role="main">
 
 			<?php responsive_entry_before(); ?>
 			<section id="post-0" class="error404 not-found">

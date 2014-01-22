@@ -22,7 +22,7 @@ if( !defined( 'ABSPATH' ) ) {
 get_header(); ?>
 
 	<div id="content-blog" class="content-area">
-		<main id="main" class="site-main grid col-620" role="main">
+		<main id="main" class="site-main <?php echo get_responsive_grid( 'col-8' ); ?>" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -48,7 +48,7 @@ get_header(); ?>
 		<?php endif; ?>
 
 		</main><!-- #main -->
+		<?php get_sidebar(); ?>
 	</div><!-- #content-blog -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

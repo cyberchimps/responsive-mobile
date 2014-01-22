@@ -23,7 +23,7 @@ Template Name: Blog (full posts)
 get_header(); ?>
 
 	<div id="content-blog" class="content-area">
-		<main id="main" class="<?php echo implode( ' ', responsive_get_content_classes() ); ?>" role="main">
+		<main id="main" class="<?php echo get_responsive_grid( 'col-8' ); ?>" role="main">
 
 		<?php get_template_part( 'loop-header' ); ?>
 
@@ -67,7 +67,7 @@ get_header(); ?>
 		<?php wp_reset_postdata(); ?>
 
 		</main><!-- #main -->
+		<?php get_sidebar(); ?>
 	</div><!-- #content-blog -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

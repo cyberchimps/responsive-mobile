@@ -72,7 +72,7 @@ if ( !function_exists( 'responsive_post_nav' ) ) {
 if ( !function_exists( 'responsive_post_thumbnail' ) ) {
 	/**
 	 * Creates the post thumbnail used throughout the templates
-	 * 
+	 *
 	 * @param string $size
 	 * @param null $attr
 	 */

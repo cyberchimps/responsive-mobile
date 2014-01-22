@@ -13,7 +13,7 @@
 get_header(); ?>
 
 	<div id="content" class="content-area">
-		<main id="main" class="site-main <?php echo responsive_get_content_classes() ?>" role="main">
+		<main id="main" class="site-main <?php echo get_responsive_grid( 'col-8' ); ?>" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
@@ -29,7 +29,7 @@ get_header(); ?>
 			<?php endwhile; // end of the loop. ?>
 
 		</main><!-- #main -->
+		<?php get_sidebar(); ?>
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

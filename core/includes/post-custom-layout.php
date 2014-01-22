@@ -80,6 +80,7 @@ function get_responsive_grid( $col, $last = false ) {
 
 }
 
+//TODO not sure how this will work with the BS classes
 /**
  * Get content classes
  */
@@ -105,11 +106,14 @@ function responsive_get_content_classes() {
 		$content_classes[] = 'col-940';
 	}
 
+	$content_classes = apply_filters( 'responsive_content_classes', $content_classes );
+
 	$content_classes = implode( ' ', $content_classes );
 
-	return apply_filters( 'responsive_content_classes', $content_classes );
+	return $content_classes;
 }
 
+//TODO not sure how this will work with the BS classes
 /**
  * Get sidebar classes
  */
@@ -134,7 +138,11 @@ function responsive_get_sidebar_classes() {
 		$sidebar_classes[] = 'rtl-fit';
 	}
 
-	return apply_filters( 'responsive_sidebar_classes', $sidebar_classes );
+	$sidebar_classes = apply_filters( 'responsive_sidebar_classes', $sidebar_classes );
+
+	$sidebar_classes = implode( ' ', $sidebar_classes );
+
+	return $sidebar_classes;
 }
 
 /**

@@ -40,7 +40,7 @@ get_header(); ?>
 		<?php endif; ?>
 
 		</main><!-- #main -->
+		<?php get_sidebar(); ?>
 	</div><!-- #content -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
