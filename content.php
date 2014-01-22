@@ -18,7 +18,7 @@
 		<?php else : ?>
 		<div class="entry-content">
 			<?php if( has_post_thumbnail() ) : ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( apply_filters( responsive_filter_the_post_thumbnail, '', $size, $attr  ); ); ?></a>
+				<?php responsive_post_thumbnail(); ?>
 			<?php endif; ?>
 			<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
 			<?php

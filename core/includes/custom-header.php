@@ -26,7 +26,8 @@ function responsive_custom_header_setup() {
 		'admin-head-callback'    => 'responsive_admin_header_style',
 		'admin-preview-callback' => 'responsive_admin_header_image',
 	) ) );
-	set_theme_mod( $name, $value );
+//	TODO @Ulrich wasn't sure why this was here?
+//	set_theme_mod( $name, $value );
 }
 add_action( 'after_setup_theme', 'responsive_custom_header_setup' );
 
