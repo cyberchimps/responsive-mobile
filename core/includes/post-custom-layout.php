@@ -112,17 +112,19 @@ function responsive_get_grid( $classes ) {
 //		'col-12' => 'col-940',
 //	);
 //
-//	if ( 0 == $grid ) {
-//		$classes[] = $col_bs[ $col ];
-//	} else {
+//	if ( $responsive_options['compatibility'] && array_key_exists ( $col, $col_r1 ) ) {
 //		$classes[] = 'grid';
 //		$classes[] = $col_r1[ $col ];
 //		$classes[] = false == $last ? '' : 'fit';
+//	} elseif ( array_key_exists ( $col, $col_bs ) ) {
+//		$classes[] = $col_bs[ $col ];
+//	} else {
+//		$classes[] = $col;
 //	}
 //
 //	$classes = implode( ' ', $classes );
 //
-//	return $classes;
+//	return trim( $classes );
 //
 //}
 
