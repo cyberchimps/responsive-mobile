@@ -86,7 +86,7 @@ require $template_directory . '/core/includes/jetpack.php';
 
 // Return value of the supplied responsive free theme option.
 function responsive_free_get_option( $option, $default = false ) {
-	global $responsive_options;
+	$responsive_options = responsive_get_options();
 
 	// If the option is set then return it's value, otherwise return false.
 	if( isset( $responsive_options[$option] ) ) {

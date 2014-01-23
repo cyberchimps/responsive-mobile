@@ -19,7 +19,7 @@ function responsive_body_classes( $classes ) {
 		$classes[] = 'group-blog';
 	}
 	// Get Responsive theme option.
-	global $responsive_options;
+	$responsive_options = responsive_get_options();
 	if( $responsive_options['front_page'] == 1 && is_front_page() ) {
 		$classes[] = 'front-page';
 	}
@@ -239,7 +239,7 @@ add_filter( 'the_category', 'responsive_category_rel_removal' );
  * Front Page function starts here. The Front page overides WP's show_on_front option. So when show_on_front option changes it sets the themes front_page to 0 therefore displaying the new option
  */
 function responsive_front_page_override( $new, $orig ) {
-	global $responsive_options;
+	$responsive_options = responsive_get_options();
 
 	if( $orig !== $new ) {
 		$responsive_options['front_page'] = 0;
