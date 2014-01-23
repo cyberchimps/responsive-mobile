@@ -79,6 +79,11 @@ require $template_directory . '/core/includes/theme-options/customizer.php';
  */
 require $template_directory . '/core/includes/jetpack.php';
 
+/**
+ * Load plugin dependancy file.
+ */
+//require $template_directory . '/core/includes/classes/class-theme-plugin-dependency.php';
+
 // Return value of the supplied responsive free theme option.
 function responsive_free_get_option( $option, $default = false ) {
 	global $responsive_options;
