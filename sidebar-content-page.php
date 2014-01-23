@@ -24,7 +24,6 @@ Template Name:  Sidebar/Content
 <?php get_header(); ?>
 
 	<div id="content" class="content-area">
-		<?php get_sidebar( 'left' ); ?>
 		<main id="main" class="site-main <?php echo get_responsive_grid( 'col-8' ); ?>" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -51,6 +50,7 @@ Template Name:  Sidebar/Content
 		<?php endif; ?>
 
 		</main><!-- #main -->
+		<?php get_sidebar( 'left' ); ?>
 	</div><!-- #content -->
 
 <?php get_footer(); ?>
