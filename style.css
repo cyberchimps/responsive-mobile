@@ -19,8 +19,8 @@ Responsive is based on Underscores http://underscores.me/, (C) 2012-2013 Automat
 --------------------------------------------------------------
 WARNING: (BEFORE YOU MAKE ANY CHANGES)
 --------------------------------------------------------------
-Please do not edit style.css or any other Theme files or 
-Templates directly. If you do, your customizations will be lost 
+Please do not edit style.css or any other Theme files or
+Templates directly. If you do, your customizations will be lost
 as soon as you update Responsive.
 
 WordPress and ThemeID highly recommends Child Theme.
@@ -50,6 +50,7 @@ and Blueprint http://www.blueprintcss.org/
  * FONT-FACE...........Import brand font files
  */
 @import url("responsive.css");
+@import url("core/css/deprecated.css");
 /* =Reset
 -------------------------------------------------------------- */
 

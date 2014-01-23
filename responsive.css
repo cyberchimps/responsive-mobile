@@ -1,50 +1,4 @@
-/* 
-Theme Name: Responsive 
-Theme URI: http://cyberchimps.com/responsive-theme/
-Description: Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. No paid memberships or clubs to get Responsive help. http://cyberchimps.com/forum/free/responsive/
-
-Version: 1.9.4.0
-Author: CyberChimps.com
-Author URI: http://cyberchimps.com
-Tags: white, black, gray, light, custom-menu, custom-header, custom-background, one-column, two-columns, left-sidebar, right-sidebar, flexible-width, theme-options, threaded-comments, full-width-template, sticky-post, translation-ready, flexible-width, rtl-language-support
-
-Text Domain: responsive
-
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-Responsive WordPress Theme, Copyright (C) 2003-2013 Emil Uzelac, CyberChimps Inc
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
---------------------------------------------------------------
-WARNING: (BEFORE YOU MAKE ANY CHANGES)
---------------------------------------------------------------
-Please do not edit style.css or any other Theme files or 
-Templates directly. If you do, your customizations will be lost 
-as soon as you update Responsive.
-
-WordPress and ThemeID highly recommends Child Theme.
-
-Read More:
-
-- http://codex.wordpress.org/Child_Themes  
-- http://themeid.com/docs/child-theme-example/
-- http://themeid.com/docs/category/child-theme/
-
---------------------------------------------------------------
-
+/*
 CSS Rules: Sorted alphabetically for better organization.
 */
 
@@ -226,89 +180,6 @@ sup {
 
 sub {
 	vertical-align: sub;
-}
-
-/* =Responsive 12 Column Grid
-    http://themeid.com/responsive-grid/
--------------------------------------------------------------- */
-.grid {
-	float: left;
-	margin-bottom: 2.127659574468%;
-	padding-top: 0;
-}
-
-.grid-right {
-	float: right;
-	margin-bottom: 2.127659574468%;
-	padding-top: 0;
-}
-
-.col-60,
-.col-140,
-.col-220,
-.col-300,
-.col-380,
-.col-460,
-.col-540,
-.col-620,
-.col-700,
-.col-780,
-.col-860 {
-	display: inline;
-	margin-right: 2.127659574468%;
-}
-
-.col-60 {
-	width: 6.382978723404%;
-}
-
-.col-140 {
-	width: 14.893617021277%;
-}
-
-.col-220 {
-	width: 23.404255319149%;
-}
-
-.col-300 {
-	width: 31.914893617021%;
-}
-
-.col-380 {
-	width: 40.425531914894%;
-}
-
-.col-460 {
-	width: 48.936170212766%;
-}
-
-.col-540 {
-	width: 57.446808510638%;
-}
-
-.col-620 {
-	width: 65.957446808511%;
-}
-
-.col-700 {
-	width: 74.468085106383%;
-}
-
-.col-780 {
-	width: 82.978723404255%;
-}
-
-.col-860 {
-	width: 91.489361702128%;
-}
-
-.col-940 {
-	width: 100%;
-}
-
-.fit {
-	margin-left: 0 !important;
-	margin-right: 0 !important;
 }
 
 /* =Visibility
@@ -1132,7 +1003,7 @@ form div {
 	color: #993333;
 }
 
-/* =404 Page 
+/* =404 Page
 -------------------------------------------------------------- */
 .error404 select,
 .error404 input[type="text"],
@@ -1922,7 +1793,7 @@ img.wp-smiley {
 	display: block;
 }
 
-/* =Post Thumbnails 
+/* =Post Thumbnails
 -------------------------------------------------------------- */
 img.wp-post-image,
 img.attachment-full,
