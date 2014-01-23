@@ -113,7 +113,7 @@ function responsive_theme_options_add_page() {
 add_action( 'admin_menu', 'responsive_theme_options_add_page' );
 
 function responsive_inline_css() {
-	global $responsive_options;
+	$responsive_options = responsive_get_options();
 	if( !empty( $responsive_options['responsive_inline_css'] ) ) {
 		echo '<!-- Custom CSS Styles -->' . "\n";
 		echo '<style type="text/css" media="screen">' . "\n";
@@ -125,7 +125,7 @@ function responsive_inline_css() {
 add_action( 'wp_head', 'responsive_inline_css', 110 );
 
 function responsive_inline_js_head() {
-	global $responsive_options;
+	$responsive_options = responsive_get_options();
 	if( !empty( $responsive_options['responsive_inline_js_head'] ) ) {
 		echo '<!-- Custom Scripts -->' . "\n";
 		echo $responsive_options['responsive_inline_js_head'];
@@ -136,7 +136,7 @@ function responsive_inline_js_head() {
 add_action( 'wp_head', 'responsive_inline_js_head' );
 
 function responsive_inline_js_footer() {
-	global $responsive_options;
+	$responsive_options = responsive_get_options();
 	if( !empty( $responsive_options['responsive_inline_js_footer'] ) ) {
 		echo '<!-- Custom Scripts -->' . "\n";
 		echo $responsive_options['responsive_inline_js_footer'];
@@ -540,7 +540,7 @@ function responsive_theme_options_do_page() {
 	?>
 	<form method="post" action="options.php">
 		<?php settings_fields( 'responsive_options' ); ?>
-		<?php global $responsive_options; ?>
+		<?php $responsive_options = responsive_get_options(); ?>
 
 		<div id="rwd" class="grid col-940">
 			<?php
@@ -557,7 +557,7 @@ function responsive_theme_options_do_page() {
  */
 function responsive_theme_options_validate( $input ) {
 
-	global $responsive_options;
+	$responsive_options = responsive_get_options();
 	$defaults = responsive_get_option_defaults();
 
 	if( isset( $input['reset'] ) ) {
