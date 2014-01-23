@@ -23,7 +23,7 @@ Template Name: Blog (full posts)
 get_header(); ?>
 
 	<div id="content-blog" class="content-area">
-		<main id="main" class="<?php echo get_responsive_grid( 'col-8' ); ?>" role="main">
+		<main id="main" class="<?php echo responsive_get_grid( 'col-md-8' ); ?>" role="main">
 
 		<?php get_template_part( 'loop-header' ); ?>
 

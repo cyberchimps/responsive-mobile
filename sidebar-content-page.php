@@ -22,9 +22,8 @@ Template Name:  Sidebar/Content
  */
 ?>
 <?php get_header(); ?>
-
 	<div id="content" class="content-area">
-		<main id="main" class="site-main <?php echo get_responsive_grid( 'col-8' ); ?>" role="main">
+		<main id="main" class="site-main <?php echo responsive_get_grid( array( 'col-md-8', 'col-md-push-4' ) ); ?>" role="main">
 
 		<?php if ( have_posts() ) : ?>
 

@@ -24,7 +24,7 @@ Template Name:  Landing Page (no menu)
 get_header(); ?>
 
 	<div id="content-full" class="content-area">
-		<main id="main" class="site-main <?php echo get_responsive_grid( 'col-12' ); ?>" role="main">
+		<main id="main" class="site-main <?php echo responsive_get_grid( 'col-12' ); ?>" role="main">
 
 		<?php if ( have_posts() ) : ?>
 

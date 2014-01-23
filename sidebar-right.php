@@ -21,7 +21,7 @@ if( !defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php responsive_widgets_before(); // above widgets container hook ?>
-	<div id="widgets" class="widget-area <?php echo get_responsive_grid( 'col-4' ); ?>" role="complementary">
+	<div id="widgets" class="widget-area <?php echo responsive_get_grid( 'col-md-4' ); ?>" role="complementary">
 		<?php responsive_widgets(); // above widgets hook ?>
 
 		<?php if( !dynamic_sidebar( 'right-sidebar' ) ) : ?>

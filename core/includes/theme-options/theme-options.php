@@ -29,8 +29,7 @@ require( get_template_directory() . '/core/includes/classes/class-responsive-opt
  * Retrieve Theme option settings
  */
 function responsive_get_options() {
-	// Globalize the variable that holds the Theme options
-	global $responsive_options;
+
 	// Parse array of option defaults against user-configured Theme options
 	$responsive_options = wp_parse_args( get_option( 'responsive_theme_options', array() ), responsive_get_option_defaults() );
 
