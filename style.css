@@ -33,8 +33,6 @@ Read More:
 
 --------------------------------------------------------------
 
-CSS Rules: Sorted alphabetically for better organization.
-
 Resetting and rebuilding styles have been helped along thanks to the fine work of
 Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
 along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
@@ -49,8 +47,7 @@ and Blueprint http://www.blueprintcss.org/
  * RESET...............Set our reset defaults
  * FONT-FACE...........Import brand font files
  */
-@import url("responsive.css");
-@import url("core/css/deprecated.css");
+/*@import url("responsive.css");*/
 /* =Reset
 -------------------------------------------------------------- */
 
@@ -349,15 +346,15 @@ textarea {
 
 /* Links */
 a {
-	color: royalblue;
+	color: #4169e1;
 }
 a:visited {
-	color: purple;
+	color: #183e80;
 }
 a:hover,
 a:focus,
 a:active {
-	color: midnightblue;
+	color: #183e80;
 }
 
 /* Alignment */
@@ -452,6 +449,7 @@ a:active {
 .main-navigation a {
 	display: block;
 	text-decoration: none;
+	color: #eeeeee;
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -651,101 +649,58 @@ object {
 	display: block;
 }
 
-/* =Responsive 12 Column Grid
-    http://demos.cyberchimps.com/responsivepro/responsive-grid/
--------------------------------------------------------------- */
-.grid {
-	float: left;
-	margin-bottom: 2.127659574468%;
-	padding-top: 0;
+/* Bootstrap ===================*/
+
+.container {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
-.grid-right {
-	float: right;
-	margin-bottom: 2.127659574468%;
-	padding-top: 0;
+.container:before,
+.container:after {
+	display: table;
+	content: " ";
 }
 
-.col-60,
-.col-140,
-.col-220,
-.col-300,
-.col-380,
-.col-460,
-.col-540,
-.col-620,
-.col-700,
-.col-780,
-.col-860 {
-	display: inline;
-	margin-right: 2.127659574468%;
+.container:after {
+	clear: both;
 }
 
-.col-60 {
-	width: 6.382978723404%;
+@media (min-width: 768px) {
+	.container {
+		width: 750px;
+	}
 }
 
-.col-140 {
-	width: 14.893617021277%;
+@media (min-width: 992px) {
+	.container {
+		width: 970px;
+	}
 }
 
-.col-220 {
-	width: 23.404255319149%;
+@media (min-width: 1200px) {
+	.container {
+		width: 1170px;
+	}
 }
 
-.col-300 {
-	width: 31.914893617021%;
+.row {
+	margin-right: -15px;
+	margin-left: -15px;
 }
 
-.col-380 {
-	width: 40.425531914894%;
+.row:before,
+.row:after {
+	display: table;
+	content: " ";
 }
 
-.col-460 {
-	width: 48.936170212766%;
+.row:after {
+	clear: both;
 }
 
-.col-540 {
-	width: 57.446808510638%;
-}
-
-.col-620 {
-	width: 65.957446808511%;
-}
-
-.col-700 {
-	width: 74.468085106383%;
-}
-
-.col-780 {
-	width: 82.978723404255%;
-}
-
-.col-860 {
-	width: 91.489361702128%;
-}
-
-.col-940 {
-	width: 100%;
-}
-
-.fit {
-	margin-left: 0 !important;
-	margin-right: 0 !important;
-}
-
-.bootstrap .row {
-  margin-left: -15px;
-  margin-right: -15px;
-}
-.bootstrap .row:before,
-.bootstrap .row:after {
-  content: " ";
-  display: table;
-}
-.bootstrap .row:after {
-  clear: both;
-}
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
@@ -1381,4 +1336,58 @@ object {
   .col-lg-offset-0 {
 	margin-left: 0%;
   }
+}
+
+/* STRUCTURE ===================*/
+
+.container-full-width {
+	width: 100%;
+	padding: 0;
+}
+
+.container-full-width:before,
+.container-full-width:after {
+	display: table;
+	content: " ";
+}
+
+.container-full-width:after {
+	clear: both;
+}
+
+/* TOP MENU ===================*/
+
+#top-menu {
+	background-color: #333333;
+	padding: 5px 0;
+}
+
+#top-menu .top-menu {
+	padding: 0;
+	margin: 0;
+	float: right;
+}
+
+#top-menu .top-menu li {
+	float: left;
+	list-style: none;
+	margin-left: 10px;
+}
+
+#top-menu .top-menu li:after {
+	content: '|';
+	color: #eeeeee;
+	margin-left: 10px;
+	font-weight: 100;
+}
+
+#top-menu .top-menu li:last-child:after {
+	content: '';
+	margin-left: 0;
+}
+
+#top-menu .top-menu li a {
+	color: #eeeeee;
+	text-decoration: none;
+	font-size: 0.8em;
 }
