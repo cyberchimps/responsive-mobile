@@ -1,4 +1,17 @@
 <?php
+
+// TODO Extend this with further link. Add css to hide #message2
+function responsive_activation_notice() {
+	if ( isset( $_GET['activated'] ) ) {
+		if ( ! isset( $_GET['previewed'] ) ) {
+			echo '<div class="updated"><p>' . sprintf( __( 'New theme activated. <a href="%s">Visit site</a>' ), home_url( '/' ) ) . '</p></div>';
+		}
+	}
+}
+add_action( 'admin_notices', 'responsive_activation_notice' );
+
+
+
 /**
  * Add plugin automation file
  */
