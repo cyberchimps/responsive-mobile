@@ -5,17 +5,17 @@
  * Load the plugin from the plugin that is installed.
  *
  */
-function get_responsive_breadcrumb_lists() {
+function responsive_get_breadcrumb_lists() {
 	$responsive_options = get_option( 'responsive_theme_options' );
-	if ( 1 == $responsive_options['breadcrumb'] && is_search() ) {
+	if ( 1 == $responsive_options['breadcrumb'] ) {
 		return;
-	} elseif( function_exists( 'bcn_display' ) ) {
+	} elseif ( function_exists( 'bcn_display' ) ) {
 		bcn_display();
-	} elseif ( function_exists( 'breadcrumb_trail' ) ){
+	} elseif ( function_exists( 'breadcrumb_trail' ) ) {
 		breadcrumb_trail();
 	} elseif ( function_exists( 'yoast_breadcrumb' ) ) {
-		yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-	} else {
+		yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
+	} elseif ( ! is_search() ) {
 		responsive_breadcrumb_lists();
 	}
 }
@@ -27,7 +27,7 @@ function get_responsive_breadcrumb_lists() {
  * Adopted from Dimox
  *
  */
-if( !function_exists( 'responsive_breadcrumb_lists' ) ) {
+if ( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 	function responsive_breadcrumb_lists() {
 
@@ -59,22 +59,22 @@ if( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 		$html_output = '';
 
-		if( is_front_page() ) {
-			if( 1 == $show['home'] ) {
+		if ( is_front_page() ) {
+			if ( 1 == $show['home'] ) {
 				$html_output .= '<div class="breadcrumb-list"><a href="' . $home_link . '">' . $text['home'] . '</a></div>';
 			}
 
 		} else {
 			$html_output .= '<div class="breadcrumb-list" xmlns:v="http://rdf.data-vocabulary.org/#">' . sprintf( $link, $home_link, $text['home'] ) . $delimiter;
 
-			if( is_home() ) {
-				if( 1 == $show['current'] ) {
+			if ( is_home() ) {
+				if ( 1 == $show['current'] ) {
 					$html_output .= $before . get_the_title( get_option( 'page_for_posts', true ) ) . $after;
 				}
 
-			} elseif( is_category() ) {
+			} elseif ( is_category() ) {
 				$this_cat = get_category( get_query_var( 'cat' ), false );
-				if( 0 != $this_cat->parent ) {
+				if ( 0 != $this_cat->parent ) {
 					$cats = get_category_parents( $this_cat->parent, true, $delimiter );
 					$cats = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
 					$cats = str_replace( '</a>', '</a>' . $after_link, $cats );
@@ -82,25 +82,25 @@ if( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 				}
 				$html_output .= $before . sprintf( $text['category'], single_cat_title( '', false ) ) . $after;
 
-			} elseif( is_search() ) {
-				if( 1 == $show['search'] ) {
+			} elseif ( is_search() ) {
+				if ( 1 == $show['search'] ) {
 					$html_output .= $before . sprintf( $text['search'], get_search_query() ) . $after;
 				}
 
-			} elseif( is_day() ) {
+			} elseif ( is_day() ) {
 				$html_output .= sprintf( $link, get_year_link( get_the_time( 'Y' ) ), get_the_time( 'Y' ) ) . $delimiter;
 				$html_output .= sprintf( $link, get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ), get_the_time( 'F' ) ) . $delimiter;
 				$html_output .= $before . get_the_time( 'd' ) . $after;
 
-			} elseif( is_month() ) {
+			} elseif ( is_month() ) {
 				$html_output .= sprintf( $link, get_year_link( get_the_time( 'Y' ) ), get_the_time( 'Y' ) ) . $delimiter;
 				$html_output .= $before . get_the_time( 'F' ) . $after;
 
-			} elseif( is_year() ) {
+			} elseif ( is_year() ) {
 				$html_output .= $before . get_the_time( 'Y' ) . $after;
 
-			} elseif( is_single() && !is_attachment() ) {
-				if( 'post' != get_post_type() ) {
+			} elseif ( is_single() && !is_attachment() ) {
+				if ( 'post' != get_post_type() ) {
 					$post_type    = get_post_type_object( get_post_type() );
 					$archive_link = get_post_type_archive_link( $post_type->name );
 					$html_output .= sprintf( $link, $archive_link, $post_type->labels->singular_name );
@@ -111,22 +111,22 @@ if( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 					$cat  = get_the_category();
 					$cat  = $cat[0];
 					$cats = get_category_parents( $cat, true, $delimiter );
-					if( 0 == $show['current'] ) {
+					if ( 0 == $show['current'] ) {
 						$cats = preg_replace( "#^(.+)$delimiter$#", "$1", $cats );
 					}
 					$cats = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
 					$cats = str_replace( '</a>', '</a>' . $after_link, $cats );
 					$html_output .= $cats;
-					if( 1 == $show['current'] ) {
+					if ( 1 == $show['current'] ) {
 						$html_output .= $before . get_the_title() . $after;
 					}
 				}
 
-			} elseif( !is_single() && !is_page() && !is_404() && 'post' != get_post_type() ) {
+			} elseif ( !is_single() && !is_page() && !is_404() && 'post' != get_post_type() ) {
 				$post_type = get_post_type_object( get_post_type() );
 				$html_output .= $before . $post_type->labels->singular_name . $after;
 
-			} elseif( is_attachment() ) {
+			} elseif ( is_attachment() ) {
 				$parent = get_post( $parent_id );
 				$cat    = get_the_category( $parent->ID );
 
@@ -134,7 +134,7 @@ if( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 					$cat = $cat[0];
 				}
 
-				if( $cat ) {
+				if ( $cat ) {
 					$cats = get_category_parents( $cat, true, $delimiter );
 					$cats = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
 					$cats = str_replace( '</a>', '</a>' . $after_link, $cats );
@@ -142,16 +142,16 @@ if( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 				}
 
 				$html_output .= sprintf( $link, get_permalink( $parent ), $parent->post_title );
-				if( 1 == $show['current'] ) {
+				if ( 1 == $show['current'] ) {
 					$html_output .= $delimiter . $before . get_the_title() . $after;
 				}
 
-			} elseif( is_page() && !$parent_id ) {
+			} elseif ( is_page() && !$parent_id ) {
 				if( 1 == $show['current'] ) {
 					$html_output .=  $before . get_the_title() . $after;
 				}
 
-			} elseif( is_page() && $parent_id ) {
+			} elseif ( is_page() && $parent_id ) {
 				$breadcrumbs = array();
 				while( $parent_id ) {
 					$page_child    = get_page( $parent_id );
@@ -169,20 +169,20 @@ if( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 					$html_output .= $delimiter . $before . get_the_title() . $after;
 				}
 
-			} elseif( is_tag() ) {
+			} elseif ( is_tag() ) {
 				$html_output .= $before . sprintf( $text['tag'], single_tag_title( '', false ) ) . $after;
 
-			} elseif( is_author() ) {
+			} elseif ( is_author() ) {
 				$user_id = get_query_var( 'author' );
 				$userdata = get_the_author_meta( 'display_name', $user_id );
 				$html_output .= $before . sprintf( $text['author'], $userdata ) . $after;
 
-			} elseif( is_404() ) {
+			} elseif ( is_404() ) {
 				$html_output .= $before . $text['404'] . $after;
 
 			}
 
-			if( get_query_var( 'paged' ) || get_query_var( 'page' ) ) {
+			if ( get_query_var( 'paged' ) || get_query_var( 'page' ) ) {
 				$page_num = get_query_var( 'page' ) ? get_query_var( 'page' ) : get_query_var( 'paged' );
 				$html_output .= $delimiter . sprintf( __( 'Page %s', 'responsive' ), $page_num );
 
@@ -198,7 +198,7 @@ if( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 }
 
-function responsive_social_icons() {
+function responsive_get_social_icons() {
 
 	$responsive_options = responsive_get_options();
 
@@ -236,72 +236,75 @@ function responsive_social_icons() {
  */
 function responsive_gallery_atts( $out, $pairs, $atts ) {
 
-	$responsive_options = responsive_get_options();
-	$default = ( 'none' == $out['square'] );
 	$full_width = is_page_template( 'full-width-page.php' ) || is_page_template( 'landing-page.php' );
 
-	if ( $default ) {
-		$size = $out['size'];
-	} elseif ( $full_width ) {
-		switch ( $out['columns'] ) {
-			case 1:
-				$size = 'responsive-900'; //900
-				break;
-			case 2:
-				$size = 'responsive-450'; //450
-				break;
-			case 3:
-				$size = 'responsive-300'; //300
-				break;
-			case 4:
-				$size = 'responsive-200'; //225
-				break;
-			case 5:
-				$size = 'responsive-200'; //180
-				break;
-			case 6:
-				$size = 'responsive-150'; //150
-				break;
-			case 7:
-				$size = 'responsive-150'; //125
-				break;
-			case 8:
-				$size = 'responsive-150'; //112
-				break;
-			case 9:
-				$size = 'responsive-100'; //100
-				break;
-		}
+	// Check if the size attribute has been set, if so use it and skip the responsive sizes
+	if ( array_key_exists( 'size', $atts ) ) {
+		$size = $atts['size'];
 	} else {
-		switch ( $out['columns'] ) {
-			case 1:
-				$size = 'responsive-600'; //600
-				break;
-			case 2:
-				$size = 'responsive-300'; //300
-				break;
-			case 3:
-				$size = 'responsive-200'; //200
-				break;
-			case 4:
-				$size = 'responsive-150'; //150
-				break;
-			case 5:
-				$size = 'responsive-150'; //120
-				break;
-			case 6:
-				$size = 'responsive-100'; //100
-				break;
-			case 7:
-				$size = 'responsive-100'; //85
-				break;
-			case 8:
-				$size = 'responsive-100'; //75
-				break;
-			case 9:
-				$size = 'responsive-100'; //66
-				break;
+
+		if ( $full_width ) {
+			switch ( $out['columns'] ) {
+				case 1:
+					$size = 'responsive-900'; //900
+					break;
+				case 2:
+					$size = 'responsive-450'; //450
+					break;
+				case 3:
+					$size = 'responsive-300'; //300
+					break;
+				case 4:
+					$size = 'responsive-200'; //225
+					break;
+				case 5:
+					$size = 'responsive-200'; //180
+					break;
+				case 6:
+					$size = 'responsive-150'; //150
+					break;
+				case 7:
+					$size = 'responsive-150'; //125
+					break;
+				case 8:
+					$size = 'responsive-150'; //112
+					break;
+				case 9:
+					$size = 'responsive-100'; //100
+					break;
+			}
+		} else {
+			switch ( $out['columns'] ) {
+				case 1:
+					$size = 'responsive-600'; //600
+					break;
+				case 2:
+					$size = 'responsive-300'; //300
+					break;
+				case 3:
+					$size = 'responsive-200'; //200
+					break;
+				case 4:
+					$size = 'responsive-150'; //150
+					break;
+				case 5:
+					$size = 'responsive-150'; //120
+					break;
+				case 6:
+					$size = 'responsive-100'; //100
+					break;
+				case 7:
+					$size = 'responsive-100'; //85
+					break;
+				case 8:
+					$size = 'responsive-100'; //75
+					break;
+				case 9:
+					$size = 'responsive-100'; //66
+					break;
+			}
 		}
+
 	}
 
 	$atts = shortcode_atts(

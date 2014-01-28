@@ -6,7 +6,7 @@
 /**
  * Display breadcrumb
  */
-get_responsive_breadcrumb_lists();
+responsive_get_breadcrumb_lists();
 
 /**
  * Display archive information

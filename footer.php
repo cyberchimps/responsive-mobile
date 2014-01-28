@@ -29,7 +29,7 @@
 						} ?>
 					</div><!-- .col-540 -->
 					<div class="<?php echo responsive_get_grid( 'col-5', true ); ?>">
-					<?php echo responsive_social_icons() ?>
+					<?php echo responsive_get_social_icons() ?>
 					</div><!-- .col-380 fit -->
 				</div>
 			</div><!-- .col-940 -->
