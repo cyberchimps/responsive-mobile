@@ -18,6 +18,7 @@ $template_directory = get_template_directory();
  * Basic theme functionality
  */
 require $template_directory . '/core/includes/functions.php';
+
 /**
  * Theme Options
  */
@@ -82,6 +83,7 @@ require $template_directory . '/core/includes/jetpack.php';
 /**
  * Load plugin dependancy file.
  */
+require $template_directory . '/core/includes/functions-install.php';
 //require $template_directory . '/core/includes/classes/class-theme-plugin-dependency.php';
 
 // Return value of the supplied responsive free theme option.
