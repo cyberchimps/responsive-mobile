@@ -1,10 +1,4 @@
 <?php
-
-// Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Blog Template
  *
@@ -18,37 +12,44 @@ if( !defined( 'ABSPATH' ) ) {
  * @link           http://codex.wordpress.org/Templates
  * @since          available since Release 1.0
  */
+// Exit if accessed directly
+if ( !defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 get_header(); ?>
 
-	<div id="content-blog" class="content-area">
-		<main id="main" class="site-main <?php echo responsive_get_grid( 'col-md-8' ); ?>" role="main">
+	<div id="content-blog" class="content-area container">
+		<div class="row">
+			<main id="main" class="site-main <?php echo responsive_get_grid( 'col-md-8' ); ?>" role="main">
 
-		<?php if ( have_posts() ) : ?>
+				<?php if ( have_posts() ) : ?>
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+					<?php /* Start the Loop */ ?>
+					<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
-				?>
+						<?php
+						/* Include the Post-Format-specific template for the content.
+						 * If you want to override this in a child theme, then include a file
+						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+						 */
+						get_template_part( 'content', get_post_format() );
+						?>
 
-			<?php endwhile; ?>
+					<?php endwhile; ?>
 
-			<?php get_template_part( 'loop-nav' ); ?>
+					<?php get_template_part( 'loop-nav' ); ?>
 
-		<?php else : ?>
+				<?php else : ?>
 
-			<?php get_template_part( 'loop-no-posts' ); ?>
+					<?php get_template_part( 'loop-no-posts' ); ?>
 
-		<?php endif; ?>
+				<?php endif; ?>
 
-		</main><!-- #main -->
-		<?php get_sidebar(); ?>
+			</main>
+			<!-- #main -->
+			<?php get_sidebar(); ?>
+		</div>
 	</div><!-- #content-blog -->
 
 <?php get_footer(); ?>

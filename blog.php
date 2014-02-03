@@ -1,14 +1,9 @@
 <?php
 
-// Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Blog Template
  *
-Template Name: Blog (full posts)
+ * Template Name: Blog (full posts)
  *
  * @file           blog.php
  * @package        Responsive
@@ -20,54 +15,62 @@ Template Name: Blog (full posts)
  * @link           http://codex.wordpress.org/Templates
  * @since          available since Release 1.0
  */
+
+// Exit if accessed directly
+if ( !defined( 'ABSPATH' ) ) {
+	exit;
+}
 get_header(); ?>
 
-	<div id="content-blog" class="content-area">
-		<main id="main" class="<?php echo responsive_get_grid( 'col-md-8' ); ?>" role="main">
+	<div id="content-blog" class="content-area container">
+		<div class="row">
+			<main id="main" class="col-md-8" role="main">
 
-		<?php get_template_part( 'loop-header' ); ?>
-
-		<?php
-			if( get_query_var( 'paged' ) ) {
-				$paged = get_query_var( 'paged' );
-			} elseif ( get_query_var( 'page' ) ) {
-				$paged = get_query_var( 'page' );
-			} else {
-				$paged = 1;
-			}
-			$blog_query = new WP_Query( array(
-				'post_type' => 'post',
-				'paged' => $paged
-			) );
-		?>
-
-		<?php if ( $blog_query->have_posts() ) : ?>
-
-			<?php /* Start the Loop */ ?>
-			<?php while ( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
+				<?php get_template_part( 'loop-header' ); ?>
 
 				<?php
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
+				if ( get_query_var( 'paged' ) ) {
+					$paged = get_query_var( 'paged' );
+				} elseif ( get_query_var( 'page' ) ) {
+					$paged = get_query_var( 'page' );
+				} else {
+					$paged = 1;
+				}
+				$blog_query = new WP_Query( array(
+												'post_type' => 'post',
+												'paged'     => $paged
+											) );
 				?>
 
-			<?php endwhile; ?>
+				<?php if ( $blog_query->have_posts() ) : ?>
 
-			<?php get_template_part( 'loop-nav' ); ?>
+					<?php /* Start the Loop */ ?>
+					<?php while ( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
 
-		<?php else : ?>
+						<?php
+						/* Include the Post-Format-specific template for the content.
+						 * If you want to override this in a child theme, then include a file
+						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+						 */
+						get_template_part( 'content', get_post_format() );
+						?>
 
-			<?php get_template_part( 'loop-no-posts' ); ?>
+					<?php endwhile; ?>
 
-		<?php endif; ?>
+					<?php get_template_part( 'loop-nav' ); ?>
 
-		<?php wp_reset_postdata(); ?>
+				<?php else : ?>
 
-		</main><!-- #main -->
-		<?php get_sidebar(); ?>
+					<?php get_template_part( 'loop-no-posts' ); ?>
+
+				<?php endif; ?>
+
+				<?php wp_reset_postdata(); ?>
+
+			</main>
+			<!-- #main -->
+			<?php get_sidebar(); ?>
+		</div>
 	</div><!-- #content-blog -->
 
 <?php get_footer(); ?>

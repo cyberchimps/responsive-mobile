@@ -1,0 +1,270 @@
+/*
+Theme Name: Responsive 2
+Theme URI: http://cyberchimps.com/responsive-theme/
+Author: CyberChimps
+Author URI: https://cyberchimps.com/
+Description: Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. No paid memberships or clubs to get Responsive help. http://cyberchimps.com/forum/free/responsive/
+Version: 2.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: responsive
+Domain Path: /languages/
+Tags: white, black, gray, light, custom-menu, custom-header, custom-background, one-column, two-columns, left-sidebar, right-sidebar, flexible-width, theme-options, threaded-comments, full-width-template, sticky-post, translation-ready, rtl-language-support, responsive-layout, fluid-layout
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Responsive is based on Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.
+
+--------------------------------------------------------------
+WARNING: (BEFORE YOU MAKE ANY CHANGES)
+--------------------------------------------------------------
+Please do not edit style.css or any other Theme files or
+Templates directly. If you do, your customizations will be lost
+as soon as you update Responsive.
+
+WordPress and ThemeID highly recommends Child Theme.
+
+Read More:
+
+- http://codex.wordpress.org/Child_Themes
+- http://cyberchimps.com/guide/child-theme-example/
+- http://cyberchimps.com/guide-tags/child-theme-2/
+
+
+/***************************/
+/* CONTENTS ****************/
+/***************************/
+/**
+ * CONTENTS............You’re reading it!
+ * RESET...............Set our reset defaults
+ * FONT-FACE...........Import brand font files
+ */
+// TODO delete responsive.css import
+/*@import url("responsive.css");*/
+// Import core variables and mixins
+@import "/core/less/variables";
+@import "/core/less/mixins";
+/***************************/
+/* NORMALIZE ***************/
+/***************************/
+@import "/core/less/normalize";
+@import "/core/less/print";
+/***************************/
+/* HTML ********************/
+/***************************/
+@import "/core/less/scaffolding";
+@import "/core/less/type";
+@import "/core/less/code";
+@import "/core/less/forms";
+@import "/core/less/tables";
+@import "/core/less/utilities";
+/***************************/
+/* GRID ********************/
+/***************************/
+@import "/core/less/grid";
+@import "/core/less/responsive-utilities";
+
+/***************************/
+/* BASICS ******************/
+/***************************/
+
+// RESPONSIVE 2.0 VARIABLES
+@shadow: 0 1px 1px rgba(0, 0, 0, .075);
+
+/* ALIGNMENT ===================*/
+
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+}
+
+/* SCREEN READERS ===================*/
+
+// TODO these styles need checking
+
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: darken(@body-bg, 5%);
+	border-radius: @border-radius-small;
+	box-shadow: @shadow;
+	clip: auto !important;
+	color: @link-color;
+	display: block;
+	font-size: @font-size-base;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar */
+}
+
+/***************************/
+/* MEDIA *******************/
+/***************************/
+
+// TODO all these styles need checking
+
+.page-content img.wp-smiley,
+.entry-content img.wp-smiley,
+.comment-content img.wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+.wp-caption {
+	border: 1px solid #cccccc;
+	margin-bottom: 1.5em;
+	max-width: 100%;
+	img[class*="wp-image-"] {
+		display: block;
+		margin: 1.2% auto 0;
+		max-width: 98%;
+	}
+	.wp-caption-text {
+		margin: 0.8075em 0;
+	}
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+.site-main .gallery {
+	margin-bottom: 1.5em;
+	a img {
+		border: none;
+		height: auto;
+		max-width: 90%;
+	}
+}
+
+.gallery-caption {
+}
+
+.site-main .gallery dd {
+	margin: 0;
+}
+
+.site-main .gallery-columns-4 .gallery-item {
+}
+
+.site-main .gallery-columns-4 .gallery-item img {
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: none;
+}
+
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/***************************/
+/* TOP MENU ****************/
+/***************************/
+
+#top-menu {
+	padding: 5px 0;
+	background-color: #333333;
+	.top-menu {
+		padding: 0;
+		margin: 0;
+		float: right;
+		li {
+			float: left;
+			list-style: none;
+			margin-left: 10px;
+			&:after {
+				content: '|';
+				color: #eeeeee;
+				margin-left: 10px;
+				font-weight: 100;
+			}
+			&:last-child:after {
+				content: '';
+				margin-left: 0;
+			}
+			a {
+				color: #eeeeee;
+				text-decoration: none;
+				font-size: 0.8em;
+			}
+		}
+	}
+}
+
+/***************************/
+/* CONTENT *****************/
+/***************************/
+
+/* NAVIGATION ===================*/
+
+.site-main [class*="navigation"] {
+	margin: 0 0 1.5em;
+	overflow: hidden;
+}
+
+[class*="navigation"] .nav-previous {
+	float: left;
+	width: 50%;
+}
+
+[class*="navigation"] .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+/* COMMENTS ===================*/
+
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+}
+
+/* INFINITE SCROLL ===================*/
+
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
+.infinite-scroll.neverending .site-footer {
+	/* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
