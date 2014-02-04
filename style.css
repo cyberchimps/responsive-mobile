@@ -1368,7 +1368,9 @@ table th[class*="col-"] {
 .container-fluid:before,
 .container-fluid:after,
 .row:before,
-.row:after {
+.row:after,
+.content-area:before,
+.content-area:after {
   content: " ";
   display: table;
 }
@@ -1376,7 +1378,8 @@ table th[class*="col-"] {
 .form-horizontal .form-group:after,
 .container:after,
 .container-fluid:after,
-.row:after {
+.row:after,
+.content-area:after {
   clear: both;
 }
 .center-block {
@@ -2234,6 +2237,12 @@ td.visible-print {
 /***************************/
 /* BASICS ******************/
 /***************************/
+/***************************/
+/* HTML ********************/
+/***************************/
+li {
+  margin-bottom: 5px;
+}
 /* ALIGNMENT ===================*/
 .alignleft {
   display: inline;
@@ -2246,35 +2255,35 @@ td.visible-print {
   margin-left: 1.5em;
 }
 .aligncenter {
-  clear: both;
   display: block;
+  clear: both;
   margin: 0 auto;
 }
 /* SCREEN READERS ===================*/
 .screen-reader-text {
-  clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
 }
 .screen-reader-text:hover,
 .screen-reader-text:active,
 .screen-reader-text:focus {
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
-  clip: auto !important;
-  color: #428bca;
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  height: auto;
-  left: 5px;
-  line-height: normal;
-  padding: 15px 23px 14px;
-  text-decoration: none;
-  top: 5px;
-  width: auto;
   z-index: 100000;
   /* Above WP toolbar */
+  top: 5px;
+  left: 5px;
+  display: block;
+  clip: auto !important;
+  width: auto;
+  height: auto;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  color: #428bca;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  font-size: 14px;
+  font-weight: bold;
+  line-height: normal;
 }
 /***************************/
 /* MEDIA *******************/
@@ -2282,20 +2291,20 @@ td.visible-print {
 .page-content img.wp-smiley,
 .entry-content img.wp-smiley,
 .comment-content img.wp-smiley {
-  border: none;
-  margin-bottom: 0;
   margin-top: 0;
+  margin-bottom: 0;
   padding: 0;
+  border: none;
 }
 .wp-caption {
-  border: 1px solid #cccccc;
-  margin-bottom: 1.5em;
   max-width: 100%;
+  margin-bottom: 1.5em;
+  border: 1px solid #cccccc;
 }
 .wp-caption img[class*="wp-image-"] {
   display: block;
-  margin: 1.2% auto 0;
   max-width: 98%;
+  margin: 1.2% auto 0;
 }
 .wp-caption .wp-caption-text {
   margin: 0.8075em 0;
@@ -2307,9 +2316,9 @@ td.visible-print {
   margin-bottom: 1.5em;
 }
 .site-main .gallery a img {
-  border: none;
-  height: auto;
   max-width: 90%;
+  height: auto;
+  border: none;
 }
 .site-main .gallery dd {
   margin: 0;
@@ -2325,44 +2334,172 @@ object {
   max-width: 100%;
 }
 /***************************/
-/* TOP MENU ****************/
+/* MENUS *******************/
 /***************************/
-#top-menu {
+/* TOP MENU ===================*/
+#top-menu-container {
   padding: 5px 0;
   background-color: #333333;
 }
-#top-menu .top-menu {
-  padding: 0;
-  margin: 0;
+#top-menu-container .top-menu {
   float: right;
+  margin: 0;
+  padding: 0;
 }
-#top-menu .top-menu li {
+#top-menu-container .top-menu li {
   float: left;
+  margin-left: 10px;
   list-style: none;
-  margin-left: 10px;
 }
-#top-menu .top-menu li:after {
-  content: '|';
-  color: #eeeeee;
+#top-menu-container .top-menu li:after {
   margin-left: 10px;
+  content: '|';
+  color: #999999;
   font-weight: 100;
 }
-#top-menu .top-menu li:last-child:after {
-  content: '';
+#top-menu-container .top-menu li:last-child:after {
   margin-left: 0;
+  content: '';
 }
-#top-menu .top-menu li a {
-  color: #eeeeee;
+#top-menu-container .top-menu li a {
   text-decoration: none;
+  color: #eeeeee;
   font-size: 0.8em;
+}
+#top-menu-container .top-menu li a:hover {
+  color: #428bca;
+}
+/* MAIN MENU ===================*/
+#main-menu {
+  padding-top: 10px;
+  margin-bottom: 20px;
+  background-color: #333333;
+}
+#site-navigation:before,
+#site-navigation:after {
+  content: " ";
+  display: table;
+}
+#site-navigation:after {
+  clear: both;
+}
+#site-navigation:before,
+#site-navigation:after {
+  content: " ";
+  display: table;
+}
+#site-navigation:after {
+  clear: both;
+}
+#site-navigation .menu {
+  margin: 0;
+  padding: 0;
+}
+#site-navigation .menu:before,
+#site-navigation .menu:after {
+  content: " ";
+  display: table;
+}
+#site-navigation .menu:after {
+  clear: both;
+}
+#site-navigation .menu:before,
+#site-navigation .menu:after {
+  content: " ";
+  display: table;
+}
+#site-navigation .menu:after {
+  clear: both;
+}
+#site-navigation .menu li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#site-navigation .menu > li {
+  position: relative;
+  float: left;
+  padding-bottom: 10px;
+}
+#site-navigation .menu > li:hover .sub-menu {
+  display: block;
+}
+#site-navigation .menu > li a {
+  margin-right: 20px;
+  color: #eeeeee;
+}
+#site-navigation .menu > li a:hover {
+  text-decoration: none;
+  color: #999999;
+}
+#site-navigation .menu > li .sub-menu {
+  display: none;
+  padding: 10px 0 0 5px;
+}
+#site-navigation .menu > li .sub-menu li {
+  margin-bottom: 10px;
+}
+#site-navigation .menu > li > .sub-menu {
+  position: absolute;
+  z-index: 999;
+  width: 200%;
+  min-width: 200px;
+  padding: 10px;
+  background-color: #333333;
+}
+/* FOOTER MENU ===================*/
+#footer-menu-container .footer-menu {
+  padding: 0;
+}
+#footer-menu-container .footer-menu li {
+  float: left;
+  margin-right: 10px;
+  list-style: none;
 }
 /***************************/
 /* CONTENT *****************/
 /***************************/
+/* STRUCTURE ===================*/
+.content-area {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .content-area {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .content-area {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .content-area {
+    width: 1170px;
+  }
+}
+/* POSTS & PAGES ===================*/
+#main article {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #333333;
+}
+.single #main article {
+  border-bottom: none;
+}
+.entry-header {
+  margin-bottom: 20px;
+}
+.entry-thumbnail {
+  margin-bottom: 20px;
+}
 /* NAVIGATION ===================*/
 .site-main [class*="navigation"] {
-  margin: 0 0 1.5em;
   overflow: hidden;
+  margin: 0 0 1.5em;
 }
 [class*="navigation"] .nav-previous {
   float: left;
@@ -2370,13 +2507,95 @@ object {
 }
 [class*="navigation"] .nav-next {
   float: right;
-  text-align: right;
   width: 50%;
+  text-align: right;
 }
 /* COMMENTS ===================*/
 .comment-content a {
   word-wrap: break-word;
 }
+/***************************/
+/* SIDEBAR *****************/
+/***************************/
+#widgets .widget-title {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #333333;
+}
+#widgets ul {
+  padding-left: 5px;
+}
+#widgets ul li {
+  list-style: none;
+}
+/***************************/
+/* FOOTER ******************/
+/***************************/
+#footer {
+  background-color: #333333;
+  color: #999999;
+}
+/* FOOTER WIDGETS ===================*/
+#footer-widget {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+#footer-widget:before,
+#footer-widget:after {
+  content: " ";
+  display: table;
+}
+#footer-widget:after {
+  clear: both;
+}
+#footer-widget:before,
+#footer-widget:after {
+  content: " ";
+  display: table;
+}
+#footer-widget:after {
+  clear: both;
+}
+#footer-widget .widget-title {
+  color: #999999;
+}
+#footer-widget ul {
+  padding: 0;
+}
+#footer-widget ul li {
+  list-style: none;
+}
+/* SOCIAL ===================*/
+#menu-social-container {
+  padding: 10px 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #555555;
+}
+.social-icons {
+  padding: 0;
+  float: right;
+}
+.social-icons li {
+  float: left;
+  list-style: none;
+  margin-left: 5px;
+}
+.social-icons li a:hover {
+  opacity: 0.8;
+}
+/* COPYRIGHT & POWERED ===================*/
+#footer-base {
+  padding: 10px 0;
+}
+#footer-base .scroll-top {
+  text-align: center;
+}
+#footer-base .powered {
+  text-align: right;
+  padding-bottom: 10px;
+}
+/***************************/
+/* EXTRAS ******************/
+/***************************/
 /* INFINITE SCROLL ===================*/
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
 .infinite-scroll .paging-navigation,

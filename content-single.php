@@ -7,13 +7,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php responsive_entry_top(); ?>
 	<?php get_template_part( 'post-meta' ); ?>
-	<header class="entry-header">
-		<h1 class="entry-title"><?php the_title(); ?></h1>
-
-		<div class="entry-meta">
-			<?php responsive_posted_on(); ?>
-		</div><!-- .entry-meta -->
-	</header><!-- .entry-header -->
 
 	<div class="post-entry">
 		<?php the_content(); ?>

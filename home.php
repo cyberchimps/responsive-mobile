@@ -19,9 +19,9 @@ if ( !defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-	<div id="content-blog" class="content-area container">
+	<div id="content-blog" class="content-area">
 		<div class="row">
-			<main id="main" class="site-main <?php echo responsive_get_grid( 'col-md-8' ); ?>" role="main">
+			<main id="main" class="site-main col-md-8" role="main">
 
 				<?php if ( have_posts() ) : ?>
 

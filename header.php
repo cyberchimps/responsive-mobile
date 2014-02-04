@@ -34,8 +34,8 @@
 <?php responsive_container(); // before container hook ?>
 <div id="container" class="hfeed site">
 <?php do_action( 'before' ); ?>
-	<nav id="top-menu" class="container-full-width">
-		<div class="container">
+	<div id="top-menu-container" class="container-full-width">
+		<nav id="top-menu" class="container">
 			<?php responsive_header_top(); // before header content hook ?>
 			<?php if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
 				wp_nav_menu(
@@ -48,8 +48,9 @@
 					)
 				);
 			} ?>
-		</div>
-	</nav>
+		</nav>
+	</div>
+	<!-- top menu container -->
 <?php responsive_header(); // before header hook ?>
 	<header id="header" class="container-full-width site-header" role="banner">
 		<div class="container">
@@ -71,24 +72,29 @@
 
 		<?php get_sidebar( 'top' ); ?>
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<h1 class="menu-toggle"><?php _e( 'Menu', 'responsive' ); ?></h1>
-			<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'responsive' ); ?></a>
-
-			<?php wp_nav_menu(
-				array(
-					'container'       => 'div',
-					'container_class' => 'main-nav',
-					'fallback_cb'     => 'responsive_fallback_menu',
-					'theme_location'  => 'header-menu'
-				)
-			); ?>
-		</nav>
-		<!-- #site-navigation -->
 		<?php responsive_header_bottom(); // after header content hook ?>
-	</header><!-- #header -->
+	</header>
+	<!-- #header -->
 <?php responsive_header_end(); // after header container hook ?>
 
+	<div id="main-menu-container" class="container-full-width">
+		<div id="main-menu" class="container">
+			<nav id="site-navigation" class="main-navigation" role="navigation">
+				<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'responsive' ); ?></a>
+
+				<?php wp_nav_menu(
+					array(
+						'container'       => false,
+						'fallback_cb'     => 'responsive_fallback_menu',
+						'theme_location'  => 'header-menu'
+					)
+				); ?>
+			</nav>
+			<!-- #site-navigation -->
+		</div>
+		<!-- #main-menu -->
+	</div>
+	<!-- #main-menu-container -->
 <?php responsive_wrapper(); // before wrapper container hook ?>
 	<div id="wrapper" class="site-content container-full-width">
 <?php responsive_wrapper_top(); // before wrapper content hook ?>

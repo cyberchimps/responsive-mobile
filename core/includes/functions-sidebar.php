@@ -128,31 +128,8 @@ function responsive_widgets_init() {
 		'id'            => 'footer-widget',
 		'before_title'  => '<div class="widget-title"><h3>',
 		'after_title'   => '</h3></div>',
-		'before_widget' => '<div id="%1$s" class="grid col-300 %2$s"><div class="widget-wrapper">',
+		'before_widget' => '<div id="%1$s" class="col-md-4 %2$s"><div class="widget-wrapper">',
 		'after_widget'  => '</div></div>'
 	) );
 }
 add_action( 'widgets_init', 'responsive_widgets_init' );
-
-
-/* Add fit class to third footer widget */
-function footer_widgets( $params ) {
-
-	global $footer_widget_num; //Our widget counter variable
-
-	//Check if we are displaying "Footer Sidebar"
-	if( $params[0]['id'] == 'footer-widget' ){
-		$footer_widget_num++;
-		$divider = 3; //This is number of widgets that should fit in one row
-
-		//If it's third widget, add last class to it
-		if( $footer_widget_num % $divider == 0 ){
-			$class = 'class="fit ';
-			$params[0]['before_widget'] = str_replace( 'class="', $class, $params[0]['before_widget'] );
-		}
-
-	}
-
-	return $params;
-}
-add_filter( 'dynamic_sidebar_params', 'footer_widgets' );

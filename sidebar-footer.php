@@ -1,10 +1,4 @@
 <?php
-
-// Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Footer Widget Template
  *
@@ -20,13 +14,17 @@ if( !defined( 'ABSPATH' ) ) {
  * @link     http://www.cyberchimps.com/
  */
 
+// Exit if accessed directly
+if( !defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 if( !is_active_sidebar( 'footer-widget' ) ) {
 	return;
 }
 ?>
 	<?php responsive_widgets_before(); ?>
-	<div id="footer_widget" class="widget-area grid col-940" role="complementary">
+	<div id="footer-widget" class="widget-area" role="complementary">
 		<?php responsive_widgets(); ?>
 		<?php if ( ! dynamic_sidebar( 'footer-sidebar' ) ) : ?>
 

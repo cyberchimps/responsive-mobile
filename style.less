@@ -72,23 +72,34 @@ Read More:
 // RESPONSIVE 2.0 VARIABLES
 @shadow: 0 1px 1px rgba(0, 0, 0, .075);
 
+/***************************/
+/* HTML ********************/
+/***************************/
+
+li {
+	margin-bottom: 5px;
+}
+
 /* ALIGNMENT ===================*/
 
 .alignleft {
 	display: inline;
 	float: left;
+
 	margin-right: 1.5em;
 }
 
 .alignright {
 	display: inline;
 	float: right;
+
 	margin-left: 1.5em;
 }
 
 .aligncenter {
-	clear: both;
 	display: block;
+	clear: both;
+
 	margin: 0 auto;
 }
 
@@ -97,29 +108,35 @@ Read More:
 // TODO these styles need checking
 
 .screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
+
+	clip: rect(1px, 1px, 1px, 1px);
 }
 
 .screen-reader-text:hover,
 .screen-reader-text:active,
 .screen-reader-text:focus {
-	background-color: darken(@body-bg, 5%);
-	border-radius: @border-radius-small;
-	box-shadow: @shadow;
-	clip: auto !important;
-	color: @link-color;
+	z-index: 100000; /* Above WP toolbar */
+	top: 5px;
+	left: 5px;
+
 	display: block;
+	clip: auto !important;
+
+	width: auto;
+	height: auto;
+	padding: 15px 23px 14px;
+
+	text-decoration: none;
+
+	color: @link-color;
+	border-radius: @border-radius-small;
+	background-color: darken(@body-bg, 5%);
+	box-shadow: @shadow;
+
 	font-size: @font-size-base;
 	font-weight: bold;
-	height: auto;
-	left: 5px;
 	line-height: normal;
-	padding: 15px 23px 14px;
-	text-decoration: none;
-	top: 5px;
-	width: auto;
-	z-index: 100000; /* Above WP toolbar */
 }
 
 /***************************/
@@ -131,20 +148,23 @@ Read More:
 .page-content img.wp-smiley,
 .entry-content img.wp-smiley,
 .comment-content img.wp-smiley {
-	border: none;
-	margin-bottom: 0;
 	margin-top: 0;
+	margin-bottom: 0;
 	padding: 0;
+
+	border: none;
 }
 
 .wp-caption {
-	border: 1px solid #cccccc;
-	margin-bottom: 1.5em;
 	max-width: 100%;
+	margin-bottom: 1.5em;
+
+	border: 1px solid #cccccc;
 	img[class*="wp-image-"] {
 		display: block;
-		margin: 1.2% auto 0;
+
 		max-width: 98%;
+		margin: 1.2% auto 0;
 	}
 	.wp-caption-text {
 		margin: 0.8075em 0;
@@ -158,9 +178,10 @@ Read More:
 .site-main .gallery {
 	margin-bottom: 1.5em;
 	a img {
-		border: none;
-		height: auto;
 		max-width: 90%;
+		height: auto;
+
+		border: none;
 	}
 }
 
@@ -180,7 +201,6 @@ Read More:
 img {
 	max-width: 100%;
 	height: auto;
-	display: none;
 }
 
 /* Make sure embeds and iframes fit their containers */
@@ -191,35 +211,124 @@ object {
 }
 
 /***************************/
-/* TOP MENU ****************/
+/* MENUS *******************/
 /***************************/
 
-#top-menu {
+/* TOP MENU ===================*/
+
+#top-menu-container {
 	padding: 5px 0;
-	background-color: #333333;
+
+	background-color: @gray-dark;
 	.top-menu {
-		padding: 0;
-		margin: 0;
 		float: right;
+
+		margin: 0;
+		padding: 0;
 		li {
 			float: left;
-			list-style: none;
+
 			margin-left: 10px;
+
+			list-style: none;
 			&:after {
-				content: '|';
-				color: #eeeeee;
 				margin-left: 10px;
+
+				content: '|';
+
+				color: @gray-light;
+
 				font-weight: 100;
 			}
 			&:last-child:after {
-				content: '';
 				margin-left: 0;
+
+				content: '';
 			}
 			a {
-				color: #eeeeee;
 				text-decoration: none;
+
+				color: @gray-lighter;
+
 				font-size: 0.8em;
+				&:hover {
+					color: @link-color;
+				}
 			}
+		}
+	}
+}
+
+/* MAIN MENU ===================*/
+
+#main-menu {
+	padding-top: 10px;
+	margin-bottom: 20px;
+	background-color: @gray-dark;
+}
+
+#site-navigation {
+	.clearfix;
+	.menu {
+		.clearfix;
+		margin: 0;
+		padding: 0;
+		li {
+			margin: 0;
+			padding: 0;
+
+			list-style: none;
+		}
+		> li {
+			position: relative;
+
+			float: left;
+
+			padding-bottom: 10px;
+			&:hover .sub-menu {
+				display: block;
+			}
+			a {
+				margin-right: 20px;
+
+				color: @gray-lighter;
+				&:hover {
+					text-decoration: none;
+
+					color: @gray-light;
+				}
+			}
+		.sub-menu {
+			display: none;
+
+			padding: 10px 0 0 5px;
+			li {
+				margin-bottom: 10px;
+			}
+		}
+		> .sub-menu {
+			position: absolute;
+			z-index: 999;
+
+			width: 200%;
+			min-width: 200px;
+			padding: 10px;
+
+			background-color: @gray-dark;
+		}
+		}
+	}
+}
+
+/* FOOTER MENU ===================*/
+
+#footer-menu-container {
+	.footer-menu {
+		padding: 0;
+		li {
+			float: left;
+			margin-right: 10px;
+			list-style: none;
 		}
 	}
 }
@@ -228,22 +337,52 @@ object {
 /* CONTENT *****************/
 /***************************/
 
+/* STRUCTURE ===================*/
+
+.content-area {
+	.container;
+}
+
+/* POSTS & PAGES ===================*/
+
+#main article {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid @gray-dark;
+}
+
+.single #main article {
+	border-bottom: none;
+}
+
+.entry-header {
+	margin-bottom: 20px;
+}
+
+.entry-thumbnail {
+	margin-bottom: 20px;
+}
+
 /* NAVIGATION ===================*/
 
 .site-main [class*="navigation"] {
-	margin: 0 0 1.5em;
 	overflow: hidden;
+
+	margin: 0 0 1.5em;
 }
 
 [class*="navigation"] .nav-previous {
 	float: left;
+
 	width: 50%;
 }
 
 [class*="navigation"] .nav-next {
 	float: right;
-	text-align: right;
+
 	width: 50%;
+
+	text-align: right;
 }
 
 /* COMMENTS ===================*/
@@ -255,11 +394,96 @@ object {
 .bypostauthor {
 }
 
+/***************************/
+/* SIDEBAR *****************/
+/***************************/
+
+#widgets {
+	.widget-title {
+		margin-bottom: 20px;
+		border-bottom: 1px solid @gray-dark;
+	}
+	ul {
+		padding-left: 5px;
+		li {
+			list-style: none;
+		}
+	}
+}
+
+/***************************/
+/* FOOTER ******************/
+/***************************/
+
+#footer {
+	background-color: @gray-dark;
+	color: @gray-light;
+}
+
+/* FOOTER WIDGETS ===================*/
+
+#footer-widget {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	.clearfix;
+	.widget-title {
+		color: @gray-light;
+	}
+	ul {
+		padding: 0;
+		li {
+			list-style: none;
+		}
+	}
+}
+
+/* SOCIAL ===================*/
+
+#menu-social-container {
+	padding: 10px 0;
+	margin-bottom: 10px;
+	border-bottom: 1px solid @gray;
+}
+
+.social-icons {
+		padding: 0;
+		float: right;
+		li {
+			float: left;
+			list-style: none;
+			margin-left: 5px;
+			a {
+				&:hover {
+					opacity: 0.8;
+				}
+			}
+		}
+}
+
+/* COPYRIGHT & POWERED ===================*/
+
+#footer-base {
+	padding: 10px 0;
+	.scroll-top {
+		text-align: center;
+	}
+	.powered {
+		text-align: right;
+		padding-bottom: 10px;
+	}
+}
+
+/***************************/
+/* EXTRAS ******************/
+/***************************/
+
 /* INFINITE SCROLL ===================*/
 
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
 .infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
 .infinite-scroll.neverending .site-footer {
+
+
 	/* Theme Footer (when set to scrolling) */
 	display: none;
 }
