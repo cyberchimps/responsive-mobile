@@ -76,138 +76,13 @@ Read More:
 /* HTML ********************/
 /***************************/
 
+body {
+	-ms-word-break: break-all;
+	word-break: break-all;
+}
+
 li {
 	margin-bottom: 5px;
-}
-
-/* ALIGNMENT ===================*/
-
-.alignleft {
-	display: inline;
-	float: left;
-
-	margin-right: 1.5em;
-}
-
-.alignright {
-	display: inline;
-	float: right;
-
-	margin-left: 1.5em;
-}
-
-.aligncenter {
-	display: block;
-	clear: both;
-
-	margin: 0 auto;
-}
-
-/* SCREEN READERS ===================*/
-
-// TODO these styles need checking
-
-.screen-reader-text {
-	position: absolute !important;
-
-	clip: rect(1px, 1px, 1px, 1px);
-}
-
-.screen-reader-text:hover,
-.screen-reader-text:active,
-.screen-reader-text:focus {
-	z-index: 100000; /* Above WP toolbar */
-	top: 5px;
-	left: 5px;
-
-	display: block;
-	clip: auto !important;
-
-	width: auto;
-	height: auto;
-	padding: 15px 23px 14px;
-
-	text-decoration: none;
-
-	color: @link-color;
-	border-radius: @border-radius-small;
-	background-color: darken(@body-bg, 5%);
-	box-shadow: @shadow;
-
-	font-size: @font-size-base;
-	font-weight: bold;
-	line-height: normal;
-}
-
-/***************************/
-/* MEDIA *******************/
-/***************************/
-
-// TODO all these styles need checking
-
-.page-content img.wp-smiley,
-.entry-content img.wp-smiley,
-.comment-content img.wp-smiley {
-	margin-top: 0;
-	margin-bottom: 0;
-	padding: 0;
-
-	border: none;
-}
-
-.wp-caption {
-	max-width: 100%;
-	margin-bottom: 1.5em;
-
-	border: 1px solid #cccccc;
-	img[class*="wp-image-"] {
-		display: block;
-
-		max-width: 98%;
-		margin: 1.2% auto 0;
-	}
-	.wp-caption-text {
-		margin: 0.8075em 0;
-	}
-}
-
-.wp-caption-text {
-	text-align: center;
-}
-
-.site-main .gallery {
-	margin-bottom: 1.5em;
-	a img {
-		max-width: 90%;
-		height: auto;
-
-		border: none;
-	}
-}
-
-.gallery-caption {
-}
-
-.site-main .gallery dd {
-	margin: 0;
-}
-
-.site-main .gallery-columns-4 .gallery-item {
-}
-
-.site-main .gallery-columns-4 .gallery-item img {
-}
-
-img {
-	max-width: 100%;
-	height: auto;
-}
-
-/* Make sure embeds and iframes fit their containers */
-embed,
-iframe,
-object {
-	max-width: 100%;
 }
 
 /***************************/
@@ -218,38 +93,28 @@ object {
 
 #top-menu-container {
 	padding: 5px 0;
-
 	background-color: @gray-dark;
 	.top-menu {
 		float: right;
-
 		margin: 0;
 		padding: 0;
 		li {
 			float: left;
-
 			margin-left: 10px;
-
 			list-style: none;
 			&:after {
-				margin-left: 10px;
-
 				content: '|';
-
 				color: @gray-light;
-
 				font-weight: 100;
+				margin-left: 10px;
 			}
 			&:last-child:after {
 				margin-left: 0;
-
 				content: '';
 			}
 			a {
 				text-decoration: none;
-
 				color: @gray-lighter;
-
 				font-size: 0.8em;
 				&:hover {
 					color: @link-color;
@@ -276,12 +141,10 @@ object {
 		li {
 			margin: 0;
 			padding: 0;
-
 			list-style: none;
 		}
 		> li {
 			position: relative;
-
 			float: left;
 
 			padding-bottom: 10px;
@@ -349,6 +212,10 @@ object {
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 	border-bottom: 1px solid @gray-dark;
+	.clearfix();
+	&:last-child {
+		border-bottom: none;
+	}
 }
 
 .single #main article {
@@ -394,11 +261,64 @@ object {
 .bypostauthor {
 }
 
+/* GALLERY ===================*/
+
+.gallery {
+	.row;
+	&.gallery-columns-1 {
+		.gallery-item {
+			.make-xs-column(12);
+		}
+	}
+	&.gallery-columns-2 {
+		.gallery-item {
+			.make-xs-column(6);
+		}
+	}
+	&.gallery-columns-3 {
+		.gallery-item {
+			.make-xs-column(4);
+		}
+	}
+	&.gallery-columns-4 {
+		.gallery-item {
+			.make-xs-column(3);
+		}
+	}
+	&.gallery-columns-5 {
+		.gallery-item {
+			.make-xs-column(12/5);
+		}
+	}
+	&.gallery-columns-6 {
+		.gallery-item {
+			.make-xs-column(2);
+		}
+	}
+	&.gallery-columns-7 {
+		.gallery-item {
+			.make-xs-column(12/7);
+		}
+	}
+	&.gallery-columns-8 {
+		.gallery-item {
+			.make-xs-column(12/8);
+		}
+	}
+	&.gallery-columns-9 {
+		.gallery-item {
+			.make-xs-column(12/9);
+		}
+	}
+
+}
+
 /***************************/
 /* SIDEBAR *****************/
 /***************************/
 
 #widgets {
+	margin-bottom: 20px;
 	.widget-title {
 		margin-bottom: 20px;
 		border-bottom: 1px solid @gray-dark;
@@ -474,8 +394,117 @@ object {
 }
 
 /***************************/
+/* MEDIA *******************/
+/***************************/
+
+// TODO all these styles need checking
+
+.page-content img.wp-smiley,
+.entry-content img.wp-smiley,
+.comment-content img.wp-smiley {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+	border: none;
+}
+
+.wp-caption {
+	max-width: 100%;
+	margin-bottom: 1.5em;
+
+	border: 1px solid #cccccc;
+	img[class*="wp-image-"] {
+		display: block;
+
+		max-width: 98%;
+		margin: 1.2% auto 0;
+	}
+	.wp-caption-text {
+		margin: 0.8075em 0;
+	}
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+.gallery-caption {
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/***************************/
 /* EXTRAS ******************/
 /***************************/
+
+/* ALIGNMENT ===================*/
+
+.alignleft {
+	display: inline;
+	float: left;
+
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	display: block;
+	clear: both;
+
+	margin: 0 auto;
+}
+
+/* SCREEN READERS ===================*/
+
+// TODO these styles need checking
+
+.screen-reader-text {
+	position: absolute !important;
+
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	z-index: 100000; /* Above WP toolbar */
+	top: 5px;
+	left: 5px;
+
+	display: block;
+	clip: auto !important;
+
+	width: auto;
+	height: auto;
+	padding: 15px 23px 14px;
+
+	text-decoration: none;
+
+	color: @link-color;
+	border-radius: @border-radius-small;
+	background-color: darken(@body-bg, 5%);
+	box-shadow: @shadow;
+
+	font-size: @font-size-base;
+	font-weight: bold;
+	line-height: normal;
+}
 
 /* INFINITE SCROLL ===================*/
 

@@ -23,15 +23,17 @@ CSS Rules: Sorted alphabetically for better organization.
 
 /* =Base
 -------------------------------------------------------------- */
-body {
-	direction: rtl;
-	unicode-bidi: embed;
+body
+{
+    direction: rtl;
+    unicode-bidi: embed;
 }
 
 /* =Responsive 12 Column Grid
 -------------------------------------------------------------- */
-.grid {
-	float: right;
+.grid
+{
+    float: right;
 }
 
 .col-60,
@@ -44,14 +46,16 @@ body {
 .col-620,
 .col-700,
 .col-780,
-.col-860 {
-	margin-left: 2.127659574468%;
-	margin-right: 0;
+.col-860
+{
+    margin-right: 0;
+    margin-left: 2.127659574468%;
 }
 
-.rtl-fit {
-	margin-left: 0 !important;
-	margin-right: 0 !important;
+.rtl-fit
+{
+    margin-right: 0 !important;
+    margin-left: 0 !important;
 }
 
 /* =Templates
@@ -77,192 +81,231 @@ body {
 .page-template-content-sidebar-half-page-php .col-620,
 .page-template-content-sidebar-half-page-php .col-700,
 .page-template-content-sidebar-half-page-php .col-780,
-.page-template-content-sidebar-half-page-php .col-860 {
-	margin-left: 0;
-	margin-right: 2.127659574468%;
-	float: left;
+.page-template-content-sidebar-half-page-php .col-860
+{
+    float: left;
+
+    margin-right: 2.127659574468%;
+    margin-left: 0;
 }
 
 .page-template-sidebar-content-page-php .fit,
-.page-template-sidebar-content-half-page-php .fit {
-	margin-left: 2.127659574468% !important;
+.page-template-sidebar-content-half-page-php .fit
+{
+    margin-left: 2.127659574468% !important;
 }
 
 /* =Lists
 -------------------------------------------------------------- */
 ol,
-ul {
-	margin-right: 2.35em;
+ul
+{
+    margin-right: 2.35em;
 }
 
 /* =Header
 -------------------------------------------------------------- */
-#header #logo {
-	float: right;
+#header #logo
+{
+    float: right;
 }
 
 /* =Author Meta (Author's Box)
 -------------------------------------------------------------- */
-#author-meta img {
-	float: right;
+#author-meta img
+{
+    float: right;
 }
 
 /* =Widgets
 -------------------------------------------------------------- */
-#widgets ul li {
-	margin-right: 10px;
+#widgets ul li
+{
+    margin-right: 10px;
 }
 
-#widgets .widget-title img {
-	float: left;
+#widgets .widget-title img
+{
+    float: left;
 }
 
-.top-widget {
-	clear: left;
-	float: left;
-	text-align: left;
+.top-widget
+{
+    float: left;
+    clear: left;
+
+    text-align: left;
 }
 
 /* =Titles
 -------------------------------------------------------------- */
 .widget-title h3,
-.widget-title-home h3 {
-	text-align: right;
+.widget-title-home h3
+{
+    text-align: right;
 }
 
 /* =Top Menu
 -------------------------------------------------------------- */
-.top-menu {
-	float: left;
+.top-menu
+{
+    float: left;
 }
 
-.top-menu li {
-	float: right;
+.top-menu li
+{
+    float: right;
 }
 
-.top-menu > li:first-child > a {
-	border-right: medium none;
-	padding: 0 0 0 8px;
+.top-menu > li:first-child > a
+{
+    padding: 0 0 0 8px;
+
+    border-right: medium none;
 }
 
-.top-menu li a {
-	border-right: 1px solid #cccccc;
-	border-left: medium none;
+.top-menu li a
+{
+    border-right: 1px solid #ccc;
+    border-left: medium none;
 }
 
 /* =Primary Menu
 -------------------------------------------------------------- */
-.menu ul {
-	right: 0;
-	left: auto
+.menu ul
+{
+    right: 0;
+    left: auto;
 }
 
-.menu li li:hover > ul {
-	left: auto;
-	right: 100%;
+.menu li li:hover > ul
+{
+    right: 100%;
+    left: auto;
 }
 
-.menu li {
-	float: right;
+.menu li
+{
+    float: right;
 }
 
-.menu > li:first-child > a {
-	border-left: 1px solid #585858;
+.menu > li:first-child > a
+{
+    border-left: 1px solid #585858;
 }
 
-.menu > li:last-child > a {
-	border-left: medium none;
+.menu > li:last-child > a
+{
+    border-left: medium none;
 }
 
 /* =Sub Header Menu
 -------------------------------------------------------------- */
-.sub-header-menu li {
-	float: right;
+.sub-header-menu li
+{
+    float: right;
 }
 
-.sub-header-menu > li:first-child > a {
-	border-right: medium none;
+.sub-header-menu > li:first-child > a
+{
+    border-right: medium none;
 }
 
-.sub-header-menu a {
-	border-right: 1px solid #e2e2e2;
-	border-left: medium none;
+.sub-header-menu a
+{
+    border-right: 1px solid #e2e2e2;
+    border-left: medium none;
 }
 
-.sub-header-menu ul {
-	right: 0;
-	left: auto;
+.sub-header-menu ul
+{
+    right: 0;
+    left: auto;
 }
 
-.sub-header-menu li li:hover > ul {
-	left: auto;
-	right: 100%;
+.sub-header-menu li li:hover > ul
+{
+    right: 100%;
+    left: auto;
 }
 
 /* =Footer Menu
 -------------------------------------------------------------- */
-.footer-menu {
-	margin: 0;
+.footer-menu
+{
+    margin: 0;
 }
 
-.footer-menu li {
-	float: right;
+.footer-menu li
+{
+    float: right;
 }
 
-.footer-menu > li:first-child > a {
-	border-right: medium none;
-	padding: 0 0 0 8px;
+.footer-menu > li:first-child > a
+{
+    padding: 0 0 0 8px;
+
+    border-right: medium none;
 }
 
-.footer-menu li a {
-	border-right: 1px solid #cccccc;
-	border-left: medium none;
+.footer-menu li a
+{
+    border-right: 1px solid #ccc;
+    border-left: medium none;
 }
 
 /* =Navigation
 -------------------------------------------------------------- */
-.navigation .next {
-	float: left;
+.navigation .next
+{
+    float: left;
 }
 
-.navigation .previous {
-	float: right;
+.navigation .previous
+{
+    float: right;
 }
 
 /* =Responsive Menu
 -------------------------------------------------------------- */
-.sb-toggle {
-	left: 0;
-	right: auto;
+.sb-toggle
+{
+    right: auto;
+    left: 0;
 }
 
 /* =Comments
 -------------------------------------------------------------- */
 #comments,
-#pings {
-	text-align: right;
+#pings
+{
+    text-align: right;
 }
 
 /* =Gallery
 -------------------------------------------------------------- */
-.gallery .gallery-item {
-	float: right;
+.gallery .gallery-item
+{
+    float: right;
 }
 
 /* =Footer
 -------------------------------------------------------------- */
-.powered {
-	text-align: left;
+.powered
+{
+    text-align: left;
 }
 
-.copyright {
-	text-align: right;
+.copyright
+{
+    text-align: right;
 }
 
 /* =Social Icons
 -------------------------------------------------------------- */
-#footer .social-icons {
-	text-align: left;
+#footer .social-icons
+{
+    text-align: left;
 }
 
 #footer .twitter-icon,
@@ -273,33 +316,38 @@ ul {
 #footer .google-plus-icon,
 #footer .stumble-upon-icon,
 #footer .instagram-icon,
-#footer .pinterest-icon {
-	padding-right: 3px;
-	padding-left: 0;
+#footer .pinterest-icon
+{
+    padding-right: 3px;
+    padding-left: 0;
 }
 
 /* =Media Print
 -------------------------------------------------------------- */
-@media print {
+@media print
+{
 
-	h1 {
-		page-break-before: always;
-	}
+    h1
+    {
+        page-break-before: always;
+    }
 
-	h1,
+    h1,
 	h2,
 	h3,
 	h4,
 	h5,
-	h6 {
-		page-break-after: avoid;
-	}
+	h6
+    {
+        page-break-after: avoid;
+    }
 
-	ul,
+    ul,
 	ol,
-	dl {
-		page-break-before: avoid;
-	}
+	dl
+    {
+        page-break-before: avoid;
+    }
 }
 
 /* =Responsive Design
@@ -307,23 +355,27 @@ ul {
     If you're working on a Child Theme, make sure that all
     media queries are included in your style.css
 -------------------------------------------------------------- */
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 980px)
+{
 
-	body {
-	}
+    body
+    {
+    }
 
-	.grid,
-	.grid-right {
-		float: none;
-	}
+    .grid,
+	.grid-right
+    {
+        float: none;
+    }
 
-	.copyright,
+    .copyright,
 	.scroll-top,
-	.powered {
-		float: right;
-	}
+	.powered
+    {
+        float: right;
+    }
 
-	.page-template-content-sidebar-page-php .col-60,
+    .page-template-content-sidebar-page-php .col-60,
 	.page-template-content-sidebar-page-php .col-140,
 	.page-template-content-sidebar-page-php .col-220,
 	.page-template-content-sidebar-page-php .col-300,
@@ -344,31 +396,38 @@ ul {
 	.page-template-content-sidebar-half-page-php .col-620,
 	.page-template-content-sidebar-half-page-php .col-700,
 	.page-template-content-sidebar-half-page-php .col-780,
-	.page-template-content-sidebar-half-page-php .col-860 {
-		float: none;
-	}
+	.page-template-content-sidebar-half-page-php .col-860
+    {
+        float: none;
+    }
 
-	#featured-image .fluid-width-video-wrapper {
-		margin: 20px 0 0 0;
-	}
+    #featured-image .fluid-width-video-wrapper
+    {
+        margin: 20px 0 0 0;
+    }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 650px)
+{
 
-	body {
-	}
+    body
+    {
+    }
 
-	#logo {
-		float: none;
-		text-align: center;
-	}
+    #logo
+    {
+        float: none;
 
-	.grid,
-	.grid-right {
-		float: none;
-	}
+        text-align: center;
+    }
 
-	.page-template-content-sidebar-page-php .col-60,
+    .grid,
+	.grid-right
+    {
+        float: none;
+    }
+
+    .page-template-content-sidebar-page-php .col-60,
 	.page-template-content-sidebar-page-php .col-140,
 	.page-template-content-sidebar-page-php .col-220,
 	.page-template-content-sidebar-page-php .col-300,
@@ -389,57 +448,72 @@ ul {
 	.page-template-content-sidebar-half-page-php .col-620,
 	.page-template-content-sidebar-half-page-php .col-700,
 	.page-template-content-sidebar-half-page-php .col-780,
-	.page-template-content-sidebar-half-page-php .col-860 {
-		float: none;
-	}
+	.page-template-content-sidebar-half-page-php .col-860
+    {
+        float: none;
+    }
 
-	#featured-image .fluid-width-video-wrapper {
-		margin: 20px 0 0 0;
-	}
+    #featured-image .fluid-width-video-wrapper
+    {
+        margin: 20px 0 0 0;
+    }
 
-	.top-widget {
-		float: none;
-		text-align: center;
-		clear: right;
-	}
+    .top-widget
+    {
+        float: none;
+        clear: right;
 
-	.js .menu,
-	.sub-header-menu {
-		display: none;
-	}
+        text-align: center;
+    }
 
-	.top-menu,
-	.footer-menu li {
-		float: none;
-		text-align: center;
-	}
+    .js .menu,
+	.sub-header-menu
+    {
+        display: none;
+    }
 
-	#footer {
-		text-align: center;
-	}
+    .top-menu,
+	.footer-menu li
+    {
+        float: none;
 
-	#footer .social-icons {
-		text-align: center;
-	}
+        text-align: center;
+    }
+
+    #footer
+    {
+        text-align: center;
+    }
+
+    #footer .social-icons
+    {
+        text-align: center;
+    }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 480px)
+{
 
-	body {
-	}
+    body
+    {
+    }
 
-	#logo {
-		float: none;
-		position: relative;
-		text-align: center;
-	}
+    #logo
+    {
+        position: relative;
 
-	.grid,
-	.grid-right {
-		float: none;
-	}
+        float: none;
 
-	.page-template-content-sidebar-page-php .col-60,
+        text-align: center;
+    }
+
+    .grid,
+	.grid-right
+    {
+        float: none;
+    }
+
+    .page-template-content-sidebar-page-php .col-60,
 	.page-template-content-sidebar-page-php .col-140,
 	.page-template-content-sidebar-page-php .col-220,
 	.page-template-content-sidebar-page-php .col-300,
@@ -460,75 +534,95 @@ ul {
 	.page-template-content-sidebar-half-page-php .col-620,
 	.page-template-content-sidebar-half-page-php .col-700,
 	.page-template-content-sidebar-half-page-php .col-780,
-	.page-template-content-sidebar-half-page-php .col-860 {
-		float: none;
-	}
+	.page-template-content-sidebar-half-page-php .col-860
+    {
+        float: none;
+    }
 
-	#featured-image .fluid-width-video-wrapper {
-		margin: 20px 0 0 0;
-	}
+    #featured-image .fluid-width-video-wrapper
+    {
+        margin: 20px 0 0 0;
+    }
 
-	.featured-title {
-		font-size: 40px;
-		padding: 40px 20px 0 20px
-	}
+    .featured-title
+    {
+        font-size: 40px;
 
-	.menu ul,
+        padding: 40px 20px 0 20px;
+    }
+
+    .menu ul,
 	.menu li,
 	.top-menu,
 	.footer-menu li,
-	.sub-header-menu li {
-		float: none;
-		text-align: center;
-	}
+	.sub-header-menu li
+    {
+        float: none;
 
-	#footer {
-		text-align: center;
-	}
+        text-align: center;
+    }
 
-	#footer .social-icons {
-		text-align: center;
-	}
+    #footer
+    {
+        text-align: center;
+    }
+
+    #footer .social-icons
+    {
+        text-align: center;
+    }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 320px)
+{
 
-	#featured p {
-		font-size: 12px;
-		line-height: 1.2em;
-	}
+    #featured p
+    {
+        font-size: 12px;
+        line-height: 1.2em;
+    }
 
-	.featured-title {
-		font-size: 35px;
-	}
+    .featured-title
+    {
+        font-size: 35px;
+    }
 
-	.featured-subtitle {
-		font-size: 15px;
-	}
+    .featured-subtitle
+    {
+        font-size: 15px;
+    }
 
-	.call-to-action a.button {
-		font-size: 14px;
-		padding: 7px 17px;
-	}
+    .call-to-action a.button
+    {
+        font-size: 14px;
+
+        padding: 7px 17px;
+    }
 }
 
-@media screen and (max-width: 240px) {
+@media screen and (max-width: 240px)
+{
 
-	#featured p {
-		font-size: 11px;
-		line-height: 1.1em;
-	}
+    #featured p
+    {
+        font-size: 11px;
+        line-height: 1.1em;
+    }
 
-	.featured-title {
-		font-size: 20px;
-	}
+    .featured-title
+    {
+        font-size: 20px;
+    }
 
-	.featured-subtitle {
-		font-size: 11px;
-	}
+    .featured-subtitle
+    {
+        font-size: 11px;
+    }
 
-	.call-to-action a.button {
-		font-size: 12px;
-		padding: 5px 15px;
-	}
+    .call-to-action a.button
+    {
+        font-size: 12px;
+
+        padding: 5px 15px;
+    }
 }
