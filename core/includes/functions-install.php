@@ -4,17 +4,18 @@
 
 function responsive_activation_notice() {
 	if ( isset( $_GET['activated'] ) ) {
-		if ( ! isset( $_GET['previewed'] ) ) {
-			$my_theme = wp_get_theme();
-			$return = '<div class="updated activation"><p><strong>';
-			$return .= sprintf( __( '%s activated successfuly.' ), $my_theme->get( 'Name' ) );
-			$return .= '</strong> <a href="' . home_url( '/' ) . '">' . __( 'Visit site', 'responsive' ) . '</a>';
-			$return .= '</p><p>';
-			$return .= '<a class="button button-primary customize load-customize" href="' . admin_url( 'customize.php?theme=' . get_stylesheet() ) . '">' . __( 'Customize', 'responsive' ) . '</a>';
-			$return .= ' <a class="button button-primary theme-options" href="' . admin_url( 'themes.php?page=theme_options' ) . '">' . __( 'Theme Options', 'responsive' ) . '</a>';
-			$return .= ' <a class="button button-primary help" href="http://cyberchimps.com/">' . __( 'Help', 'responsive' ) . '</a>';
-			$return .= '</p></div>';
+		$return = '<div class="updated activation"><p><strong>';
+					$my_theme = wp_get_theme();
+		if ( isset( $_GET['previewed'] ) ) {
+			$return .= sprintf( __( 'Settings saved and %s activated successfully.' ), $my_theme->get( 'Name' ) );
+		} else {
+			$return .= sprintf( __( '%s activated successfully.' ), $my_theme->get( 'Name' ) );
 		}
+		$return .= '</strong> <a href="' . home_url( '/' ) . '">' . __( 'Visit site', 'responsive' ) . '</a></p>';
+		//$return .= '<p><a class="button button-primary customize load-customize" href="' . admin_url( 'customize.php?theme=' . get_stylesheet() ) . '">' . __( 'Customize', 'responsive' ) . '</a>';
+		$return .= ' <a class="button button-primary theme-options" href="' . admin_url( 'themes.php?page=theme_options' ) . '">' . __( 'Theme Options', 'responsive' ) . '</a>';
+		$return .= ' <a class="button button-primary help" href="https://cyberchimps.com/forum/free/responsive/">' . __( 'Help', 'responsive' ) . '</a>';
+		$return .= '</p></div>';
 		echo $return;
 	}
 }
