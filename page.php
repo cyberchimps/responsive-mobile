@@ -14,7 +14,7 @@ get_header(); ?>
 
 	<div id="content" class="content-area">
 		<div class="row">
-			<main id="main" class="site-main <?php echo responsive_get_grid( 'col-md-8' ); ?>" role="main">
+			<main id="main" class="site-main col-md-8" role="main">
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
