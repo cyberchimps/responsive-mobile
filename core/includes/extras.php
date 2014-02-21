@@ -252,7 +252,6 @@ function responsive_front_page_override( $new, $orig ) {
 
 add_filter( 'pre_update_option_show_on_front', 'responsive_front_page_override', 10, 2 );
 
-
 /**
  * Helps file locations in child themes. If the file is not being overwritten by the child theme then
  * return the parent theme location of the file. Great for images.
