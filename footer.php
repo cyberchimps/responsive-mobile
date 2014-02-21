@@ -45,9 +45,7 @@
 
 		<div id="footer-base" class="row">
 			<div class="col-md-4 copyright">
-				<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php _e( date( 'Y' ) ); ?> <a href="<?php echo home_url( '/' ) ?>"
-																							  title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?>
-				</a>
+				<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php _e( date( 'Y' ) ); ?> <a href="<?php echo home_url( '/' ) ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
 			</div>
 			<!-- .copyright -->
 
@@ -57,9 +55,12 @@
 			<!-- .scroll-top -->
 
 			<div class="col-md-4 powered">
-				<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>">Responsive
-					Theme</a><?php esc_attr_e( 'powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" title="<?php esc_attr_e( 'WordPress', 'responsive' ); ?>">
-					WordPress</a>
+			<?php sprintf(
+				/* Translators: Responsive Theme powered by WordPress */
+				__( '%1$s powered by %2$s', 'responsive' ),
+				'<a href="' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . '">' . __( 'Responsive Theme', 'responsive' ) . '</a>',
+				'<a href="' . esc_url( 'http://wordpress.org/' ) . '">' . __( 'WordPress', 'responsive' ) . '</a>'
+			) ?>
 			</div>
 			<!-- end .powered -->
 		</div>
