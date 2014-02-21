@@ -2338,7 +2338,7 @@ li {
   float: left;
   padding-bottom: 10px;
 }
-#site-navigation .menu > li:hover .sub-menu {
+#site-navigation .menu > li:hover ul {
   display: block;
 }
 #site-navigation .menu > li a {
@@ -2349,14 +2349,14 @@ li {
   text-decoration: none;
   color: #999999;
 }
-#site-navigation .menu > li .sub-menu {
+#site-navigation .menu > li ul {
   display: none;
   padding: 10px 0 0 5px;
 }
-#site-navigation .menu > li .sub-menu li {
+#site-navigation .menu > li ul li {
   margin-bottom: 10px;
 }
-#site-navigation .menu > li > .sub-menu {
+#site-navigation .menu > li > ul {
   position: absolute;
   z-index: 999;
   width: 200%;

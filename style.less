@@ -148,7 +148,7 @@ li {
 			float: left;
 
 			padding-bottom: 10px;
-			&:hover .sub-menu {
+			&:hover ul {
 				display: block;
 			}
 			a {
@@ -157,11 +157,10 @@ li {
 				color: @gray-lighter;
 				&:hover {
 					text-decoration: none;
-
 					color: @gray-light;
 				}
 			}
-		.sub-menu {
+		ul {
 			display: none;
 
 			padding: 10px 0 0 5px;
@@ -169,7 +168,7 @@ li {
 				margin-bottom: 10px;
 			}
 		}
-		> .sub-menu {
+		> ul {
 			position: absolute;
 			z-index: 999;
 
