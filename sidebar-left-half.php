@@ -18,7 +18,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 responsive_widgets_before(); // above widgets container hook ?>
-	<div id="widgets" class="widget-area col-md-6 col-md-pull-6" role="complementary">
+	<div id="widgets" class="widget-area col-md-6 col-md-pull-6" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
 		<?php responsive_widgets(); // above widgets hook ?>
 
 		<?php if ( !dynamic_sidebar( 'left-sidebar-half' ) ) : ?>

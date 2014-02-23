@@ -22,7 +22,7 @@ get_header(); ?>
 
 	<div id="content-blog" class="content-area">
 		<div class="row">
-			<main id="main" class="site-main col-md-8" role="main">
+			<main id="main" class="site-main col-md-8" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
 
 				<?php if ( have_posts() ) : ?>
 

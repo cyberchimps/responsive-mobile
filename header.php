@@ -42,7 +42,7 @@ if ( !defined( 'ABSPATH' ) ) {
 		<?php wp_head(); ?>
 	</head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> itemscope="itemscope" itemtype="http://schema.org/WebPage">
 <?php responsive_container(); // before container hook ?>
 <div id="container" class="hfeed site">
 <?php do_action( 'before' ); ?>
@@ -64,7 +64,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	</div>
 	<!-- top menu container -->
 <?php responsive_header(); // before header hook ?>
-	<header id="header" class="container-full-width site-header" role="banner">
+	<header id="header" class="container-full-width site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
 		<div class="container">
 			<?php responsive_in_header(); // header hook ?>
 			<div id="logo" class="site-branding">
@@ -91,7 +91,7 @@ if ( !defined( 'ABSPATH' ) ) {
 
 	<div id="main-menu-container" class="container-full-width">
 		<div id="main-menu" class="container">
-			<nav id="site-navigation" class="main-navigation" role="navigation">
+			<nav id="site-navigation" class="main-navigation" role="navigation"  itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 				<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'responsive' ); ?></a>
 
 				<?php wp_nav_menu(

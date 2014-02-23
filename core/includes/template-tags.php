@@ -163,19 +163,24 @@ if ( !function_exists( 'responsive_comment' ) ) {
 if ( !function_exists( 'responsive_post_meta_data' ) ) {
 
 	function responsive_post_meta_data() {
-		printf( __( '<span class="%1$s">Posted on </span>%2$s<span class="%3$s"> by </span>%4$s', 'responsive' ),
-				'meta-prep meta-prep-author posted',
-				sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="timestamp updated">%3$s</span></a>',
-						 esc_url( get_permalink() ),
-						 esc_attr( get_the_time() ),
-						 esc_html( get_the_date() )
-				),
-				'byline',
-				sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
-						 get_author_posts_url( get_the_author_meta( 'ID' ) ),
-						 sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
-						 esc_attr( get_the_author() )
-				)
+		sprintf(
+			/* Translators: (Posted on )(Date)( by )(Author) */
+			__( '%1$s %2$s %3$s %4$s', 'responsive' ),
+			'<span class="meta-prep meta-prep-author posted">' . __( 'Posted on', 'responsive' ) . ' </span>',
+			sprintf(
+				'<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" itemprop="datePublished" datetime="%3$s">%4$s</time></a>',
+				esc_url( get_permalink() ),
+				esc_attr( get_the_time() ),
+				esc_html( get_the_date('c')),
+				esc_html( get_the_date() )
+			),
+			'<span class="byline"> ' . __( 'by', 'responsive' ) . ' </span>',
+			sprintf(
+				'<span class="author vcard" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><a class="url fn n" href="%1$s" title="%2$s" itemprop="url" rel="author"><span itemprop="name">%3$s</span></a></span>',
+				get_author_posts_url( get_the_author_meta( 'ID' ) ),
+				sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
+				esc_attr( get_the_author() )
+			)
 		);
 	}
 }

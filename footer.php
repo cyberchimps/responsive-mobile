@@ -10,7 +10,7 @@
 
 </div><!-- #content -->
 
-<footer id="footer" class="site-footer container-full-width" role="contentinfo">
+<footer id="footer" class="site-footer container-full-width" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
 	<?php responsive_footer_top(); ?>
 	<div id="footer-wrapper" class="container">
 
