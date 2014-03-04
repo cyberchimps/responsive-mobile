@@ -44,10 +44,10 @@ if ( !defined( 'ABSPATH' ) ) {
 
 <body <?php body_class(); ?> itemscope="itemscope" itemtype="http://schema.org/WebPage">
 <?php responsive_container(); // before container hook ?>
-<div id="container" class="hfeed site">
+<div id="container" class="site">
 <?php do_action( 'before' ); ?>
 	<div id="top-menu-container" class="container-full-width">
-		<nav id="top-menu" class="container">
+		<nav id="top-menu" class="container" itemscope itemtype="http://schema.org/SiteNavigationElement">
 			<?php responsive_header_top(); // before header content hook ?>
 			<?php if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
 				wp_nav_menu(
@@ -69,15 +69,15 @@ if ( !defined( 'ABSPATH' ) ) {
 			<?php responsive_in_header(); // header hook ?>
 			<div id="logo" class="site-branding">
 				<?php if ( get_header_image() ) : ?>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-						<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url">
+						<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" itemprop="image">
 					</a>
 				<?php endif; // End header image check. ?>
 			</div>
 			<div id="site-header-text" class="site-branding">
 				<?php if ( display_header_text() ) : ?>
-					<h2 class="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h2>
-					<h3 class="site-description"><?php bloginfo( 'description' ); ?></h3>
+					<h2 class="site-name" itemprop="name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url"><?php bloginfo( 'name' ); ?></a></h2>
+					<h3 class="site-description" itemprop="description"><?php bloginfo( 'description' ); ?></h3>
 				<?php endif; // End header text check. ?>
 			</div>
 		</div>
