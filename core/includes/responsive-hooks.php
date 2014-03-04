@@ -40,6 +40,26 @@ function responsive_container_end() {
 }
 
 /**
+ * Just after opening <head>
+ *
+ * @see header.php
+ */
+function responsive_head_top() {
+	do_action( 'responsive_head_top' );
+	tha_head_bottom();
+}
+
+/**
+ * Just after closing </head>
+ *
+ * @see header.php
+ */
+function responsive_head_bottom() {
+	do_action( 'responsive_head_bottom' );
+	tha_head_bottom();
+}
+
+/**
  * Just after opening <div id="container">
  *
  * @see header.php

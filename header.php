@@ -31,6 +31,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	<!--[if gt IE 9]><!-->
 <html <?php language_attributes(); ?>>
 	<head>
+		<?php responsive_head_top(); ?>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -38,6 +39,7 @@ if ( !defined( 'ABSPATH' ) ) {
 
 		<link rel="profile" href="http://gmpg.org/xfn/11">
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+		<?php responsive_head_bottom(); ?>
 
 		<?php wp_head(); ?>
 	</head>
