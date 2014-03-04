@@ -21,11 +21,42 @@ if( !defined( 'ABSPATH' ) ) {
  */
 
 /**
+ * Just after opening <html> tag
+ *
+ * @see header.php
+ */
+function tha_html_before() {
+	do_action( 'responsive_html_before' );
+	tha_html_before();
+}
+
+/**
  * Just after opening <body> tag
  *
  * @see header.php
  */
-function responsive_container() {
+function tha_body_top() {
+	do_action( 'responsive_body_top' );
+	tha_body_top();
+}
+
+/**
+ * Just after closing </body>
+ *
+ * @see footer.php
+ */
+function tha_body_bottom() {
+	do_action( 'responsive_container' );
+	do_action( 'responsive_body_bottom' );
+	tha_body_bottom();
+}
+
+/**
+ * Just after opening <div id="container"> tag
+ *
+ * @see header.php
+ */
+function responsive_container_top() {
 	do_action( 'responsive_container' );
 }
 
@@ -34,8 +65,9 @@ function responsive_container() {
  *
  * @see footer.php
  */
-function responsive_container_end() {
+function responsive_container_bottom() {
 	do_action( 'responsive_container_end' );
+	do_action( 'responsive_container_bottom' );
 	tha_footer_before();
 }
 

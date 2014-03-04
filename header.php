@@ -45,9 +45,9 @@ if ( !defined( 'ABSPATH' ) ) {
 	</head>
 
 <body <?php body_class(); ?> itemscope="itemscope" itemtype="http://schema.org/WebPage">
-<?php responsive_container(); // before container hook ?>
+<?php responsive_body_bottom(); ?>
 <div id="container" class="site">
-<?php do_action( 'before' ); ?>
+<?php responsive_container_top(); ?>
 	<div id="top-menu-container" class="container-full-width">
 		<nav id="top-menu" class="container" itemscope itemtype="http://schema.org/SiteNavigationElement">
 			<?php responsive_header_top(); // before header content hook ?>
@@ -109,7 +109,7 @@ if ( !defined( 'ABSPATH' ) ) {
 		<!-- #main-menu -->
 	</div>
 	<!-- #main-menu-container -->
-<?php responsive_wrapper(); // before wrapper container hook ?>
+	<?php responsive_wrapper(); // before wrapper container hook ?>
 	<div id="wrapper" class="site-content container-full-width">
-<?php responsive_wrapper_top(); // before wrapper content hook ?>
-<?php responsive_in_wrapper(); // wrapper hook ?>
+	<?php responsive_wrapper_top(); // before wrapper content hook ?>
+	<?php responsive_in_wrapper(); // wrapper hook ?>

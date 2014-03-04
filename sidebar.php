@@ -15,8 +15,9 @@
 if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
+?>
 
-responsive_widgets_before(); ?>
+<?php responsive_widgets_before(); ?>
 <div id="widgets" class="widget-area col-md-4" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
 	<?php responsive_widgets(); ?>
 	<?php if ( !dynamic_sidebar( 'main-sidebar' ) ) : ?>

@@ -7,8 +7,11 @@
  * @package Responsive
  */
 ?>
-
-</div><!-- #content -->
+<?php responsive_wrapper_bottom(); // after wrapper content hook ?>
+</div><!-- end of #wrapper -->
+<?php responsive_wrapper_end(); // after wrapper hook ?>
+</div><!-- end of #container -->
+<?php responsive_container_bottom();?>
 
 <footer id="footer" class="site-footer container-full-width" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
 	<?php responsive_footer_top(); ?>
@@ -71,8 +74,7 @@
 </footer><!-- #footer -->
 <?php responsive_footer_after(); ?>
 </div><!-- #page -->
-
+<?php responsive_body_bottom(); ?>
 <?php wp_footer(); ?>
-
 </body>
 </html>
