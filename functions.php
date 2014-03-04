@@ -36,10 +36,7 @@ require $template_directory . '/core/includes/post-custom-layout.php';
  */
 require $template_directory . '/core/includes/tha-theme-hooks.php';
 require $template_directory . '/core/includes/hooks.php';
-/**
- * Fetch the current version info
- */
-require $template_directory . '/core/includes/version.php';
+
 /**
  * Theme Upsell
  */
