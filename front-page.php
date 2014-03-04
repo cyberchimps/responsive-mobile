@@ -35,7 +35,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 
 	get_header();
 
-	get_template_part( 'template-parts/featured-area', apply_filters( 'responsive_filter_featured_area_layout', '' ) );
+	get_template_part( 'templates/featured-area', apply_filters( 'responsive_filter_featured_area_layout', '' ) );
 
 	get_sidebar( 'home' );
 
