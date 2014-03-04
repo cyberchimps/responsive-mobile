@@ -35,7 +35,7 @@ require $template_directory . '/core/includes/post-custom-layout.php';
  * Support THA Theme hooks through Responsives own functions.
  */
 require $template_directory . '/core/includes/tha-theme-hooks.php';
-require $template_directory . '/core/includes/hooks.php';
+require $template_directory . '/core/includes/responsive-hooks.php';
 
 /**
  * Theme Upsell
@@ -50,7 +50,7 @@ require $template_directory . '/core/includes/custom-header.php';
 /**
  * Custom functions that act independently of the theme templates.
  */
-require $template_directory . '/core/includes/extras.php';
+require $template_directory . '/core/includes/functions-extras.php';
 
 /**
  * Custom functions that act independently of the theme templates.
@@ -73,9 +73,9 @@ require $template_directory . '/core/includes/functions-sidebar.php';
 require $template_directory . '/core/includes/theme-options/customizer.php';
 
 /**
- * Load Jetpack compatibility file.
+ * Load Plugins compatibility file.
  */
-require $template_directory . '/core/includes/jetpack.php';
+require $template_directory . '/core/includes/functions-plugins.php';
 
 /**
  * Load plugin dependancy file.
