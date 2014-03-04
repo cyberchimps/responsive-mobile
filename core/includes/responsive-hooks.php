@@ -25,7 +25,7 @@ if( !defined( 'ABSPATH' ) ) {
  *
  * @see header.php
  */
-function tha_html_before() {
+function responsive_html_before() {
 	do_action( 'responsive_html_before' );
 	tha_html_before();
 }
@@ -35,7 +35,7 @@ function tha_html_before() {
  *
  * @see header.php
  */
-function tha_body_top() {
+function responsive_body_top() {
 	do_action( 'responsive_body_top' );
 	tha_body_top();
 }
@@ -45,7 +45,7 @@ function tha_body_top() {
  *
  * @see footer.php
  */
-function tha_body_bottom() {
+function responsive_body_bottom() {
 	do_action( 'responsive_container' );
 	do_action( 'responsive_body_bottom' );
 	tha_body_bottom();
