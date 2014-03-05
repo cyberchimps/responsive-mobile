@@ -23,7 +23,7 @@ if( !defined( 'ABSPATH' ) ) {
 /**
  * Call the options class
  */
-require( get_template_directory() . '/core/includes/classes/class-responsive-options.php' );
+require( get_template_directory() . '/core/includes/theme-options/class-responsive-options.php' );
 
 /**
  * Retrieve Theme option settings
@@ -95,7 +95,11 @@ add_action( 'admin_print_styles-appearance_page_theme_options', 'responsive_admi
  * Init plugin options to white list our options
  */
 function responsive_theme_options_init() {
-	register_setting( 'responsive_options', 'responsive_theme_options', 'responsive_theme_options_validate' );
+	register_setting(
+		'responsive_options',
+		'responsive_theme_options',
+		'responsive_theme_options_validate'
+	);
 }
 add_action( 'admin_init', 'responsive_theme_options_init' );
 
@@ -111,40 +115,6 @@ function responsive_theme_options_add_page() {
 	);
 }
 add_action( 'admin_menu', 'responsive_theme_options_add_page' );
-
-function responsive_inline_css() {
-	$responsive_options = responsive_get_options();
-	if( !empty( $responsive_options['responsive_inline_css'] ) ) {
-		echo '<!-- Custom CSS Styles -->' . "\n";
-		echo '<style type="text/css" media="screen">' . "\n";
-		echo $responsive_options['responsive_inline_css'] . "\n";
-		echo '</style>' . "\n";
-	}
-}
-
-add_action( 'wp_head', 'responsive_inline_css', 110 );
-
-function responsive_inline_js_head() {
-	$responsive_options = responsive_get_options();
-	if( !empty( $responsive_options['responsive_inline_js_head'] ) ) {
-		echo '<!-- Custom Scripts -->' . "\n";
-		echo $responsive_options['responsive_inline_js_head'];
-		echo "\n";
-	}
-}
-
-add_action( 'wp_head', 'responsive_inline_js_head' );
-
-function responsive_inline_js_footer() {
-	$responsive_options = responsive_get_options();
-	if( !empty( $responsive_options['responsive_inline_js_footer'] ) ) {
-		echo '<!-- Custom Scripts -->' . "\n";
-		echo $responsive_options['responsive_inline_js_footer'];
-		echo "\n";
-	}
-}
-
-add_action( 'wp_footer', 'responsive_inline_js_footer' );
 
 /**
  * Create the options page
@@ -532,8 +502,7 @@ function responsive_theme_options_do_page() {
 	);
 	if( class_exists( 'Responsive_Pro_Options' ) ) {
 		$display = new Responsive_Pro_Options( $sections, $options );
-	}
-	else {
+	} else {
 		$display = new Responsive_Options( $sections, $options );
 	}
 
