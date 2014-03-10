@@ -180,70 +180,87 @@ function responsive_theme_options_validate( $input ) {
 
 	$responsive_options = responsive_get_options();
 	$defaults = responsive_get_option_defaults();
-
 	if( isset( $input['reset'] ) ) {
 
 		$input = $defaults;
 
 	} else {
+		$settings    = responsive_theme_options_array();
 
-		// checkbox value is either 0 or 1
-		$checkboxs = array(
-			'compatibility',
-			'breadcrumb',
-			'cta_button',
-			'front_page'
-		);
-		foreach( $checkboxs as $checkbox ) {
-			if( !isset( $input[$checkbox] ) ) {
-				$input[$checkbox] = null;
+		// Loop through each section
+		foreach( $settings as $section ) {
+
+			$input      = $input ? $input : array();
+			$input      = apply_filters( 'responsive_settings_sanitize', $input );
+
+			// Loop through each setting being saved and pass it through a sanitization filter
+			foreach( $input as $key => $value ) {
+
+				// Get the setting type (checkbox, select, etc)
+				$type = isset( $section[ $key ]['validate'] ) ? $section[ $key ]['validate'] : false;
+
+				if( $type ) {
+					// Field type specific filter
+					$input[ $key ] = apply_filters( 'responsive_options_validate_' . $validate, $value, $key );
+				}
+
+				// General filter
+				$input[ $key ] = apply_filters( 'responsive_options_validate', $value, $key );
 			}
-			$input[$checkbox] = ( 1 == $input[$checkbox] ? 1 : 0 );
+
 		}
-		$layouts = array(
-			'static_page_layout_default',
-			'single_post_layout_default',
-			'blog_posts_index_layout_default'
-		);
-		foreach( $layouts as $layout ) {
-			$input[$layout] = ( isset( $input[$layout] ) && array_key_exists( $input[$layout], responsive_get_valid_layouts() ) ? $input[$layout] : $responsive_options[$layout] );
-		}
-		$contents = array(
-			'home_headline',
-			'home_subheadline',
-			'home_content_area',
-			'cta_text',
-			'cta_url',
-			'featured_content',
-		);
-		foreach( $contents as $content ) {
-			$input[$content] = ( in_array( $input[$content], array( $defaults[$content], '' ) ) ? $defaults[$content] : wp_kses_stripslashes( $input[$content] ) );
-		}
-		$input['google_site_verification']    = ( isset( $input['google_site_verification'] ) ) ? wp_filter_post_kses( $input['google_site_verification'] ) : null;
-		$input['bing_site_verification']      = ( isset( $input['bing_site_verification'] ) ) ? wp_filter_post_kses( $input['bing_site_verification'] ) : null;
-		$input['yahoo_site_verification']     = ( isset( $input['yahoo_site_verification'] ) ) ? wp_filter_post_kses( $input['yahoo_site_verification'] ) : null;
-		$input['site_statistics_tracker']     = ( isset( $input['site_statistics_tracker'] ) ) ? wp_kses_stripslashes( $input['site_statistics_tracker'] ) : null;
-		$input['twitter_uid']                 = esc_url_raw( $input['twitter_uid'] );
-		$input['facebook_uid']                = esc_url_raw( $input['facebook_uid'] );
-		$input['linkedin_uid']                = esc_url_raw( $input['linkedin_uid'] );
-		$input['youtube_uid']                 = esc_url_raw( $input['youtube_uid'] );
-		$input['stumbleupon_uid']             = esc_url_raw( $input['stumbleupon_uid'] );
-		$input['rss_uid']                     = esc_url_raw( $input['rss_uid'] );
-		$input['googleplus_uid']              = esc_url_raw( $input['googleplus_uid'] );
-		$input['instagram_uid']               = esc_url_raw( $input['instagram_uid'] );
-		$input['pinterest_uid']               = esc_url_raw( $input['pinterest_uid'] );
-		$input['yelp_uid']                    = esc_url_raw( $input['yelp_uid'] );
-		$input['vimeo_uid']                   = esc_url_raw( $input['vimeo_uid'] );
-		$input['foursquare_uid']              = esc_url_raw( $input['foursquare_uid'] );
+
 		$input['responsive_inline_css']       = wp_kses_stripslashes( $input['responsive_inline_css'] );
 		$input['responsive_inline_js_head']   = wp_kses_stripslashes( $input['responsive_inline_js_head'] );
 		$input['responsive_inline_js_footer'] = wp_kses_stripslashes( $input['responsive_inline_js_footer'] );
 
-		$input = apply_filters( 'responsive_options_validate', $input );
 	}
 
 	return $input;
 }
+
+function responsive_settings_sanitize_checkbox( $input ) {
+	foreach( $input as $checkbox ) {
+		if( !isset( $input[$checkbox] ) ) {
+			$input[$checkbox] = null;
+		}
+		$input[$checkbox] = ( 1 == $input[$checkbox] ? 1 : 0 );
+	}
+	return $input;
+}
+add_filter( 'responsive_options_validate_checkbox', 'responsive_settings_sanitize_checkbox' );
+
+function responsive_settings_sanitize_layout( $input ) {
+	foreach( $input as $layout ) {
+		$input[ $layout ] = ( isset( $input[$layout] ) && array_key_exists( $input[$layout], responsive_get_valid_layouts() ) ? $input[$layout] : $responsive_options[$layout] );
+	}
+	return $input;
+}
+add_filter( 'responsive_options_validate_layout', 'responsive_settings_sanitize_layout' );
+
+function responsive_settings_sanitize_editor( $input ) {
+	foreach( $input as $content ) {
+		$input[ $content ] = ( in_array( $input[$content], array( $defaults[$content], '' ) ) ? $defaults[$content] : wp_kses_stripslashes( $input[$content] ) );
+	}
+	return $input;
+}
+add_filter( 'responsive_options_validate_editor', 'responsive_settings_sanitize_editor' );
+
+function responsive_settings_sanitize_url( $input ) {
+	foreach( $input as $content ) {
+		$input[ $content ] = esc_url_raw( $input[ $content ] );
+	}
+	return $input;
+}
+add_filter( 'responsive_options_validate_url', 'responsive_settings_sanitize_url' );
+
+function responsive_settings_sanitize_text( $input ) {
+	foreach( $input as $text ) {
+		$input[ $content ] = sanitize_text_field( $input[ $text ] );
+	}
+	return $input;
+}
+add_filter( 'responsive_options_validate_text', 'responsive_settings_sanitize_text' );
 
 /**
  * Theme options upgrade bar
@@ -361,7 +378,8 @@ function responsive_theme_options_array() {
 				'type'        => 'checkbox',
 				'id'          => 'compatibility',
 				'description' => __( 'check to enable', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'checkbox'
 			),
 			array(
 				'title'       => __( 'Disable breadcrumb list?', 'responsive' ),
@@ -370,7 +388,8 @@ function responsive_theme_options_array() {
 				'type'        => 'checkbox',
 				'id'          => 'breadcrumb',
 				'description' => __( 'check to disable', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'checkbox'
 			),
 			array(
 				'title'       => __( 'Disable Call to Action Button?', 'responsive' ),
@@ -379,7 +398,8 @@ function responsive_theme_options_array() {
 				'type'        => 'checkbox',
 				'id'          => 'cta_button',
 				'description' => __( 'check to disable', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'checkbox'
 			),
 			array(
 				'title'       => __( 'Blog Title Toggle', 'responsive' ),
@@ -387,7 +407,8 @@ function responsive_theme_options_array() {
 				'heading'     => '',
 				'type'        => 'checkbox',
 				'id'          => 'blog_post_title_toggle',
-				'description' => ''
+				'description' => '',
+				'validate'    => 'checkbox'
 			),
 			array(
 				'title'       => __( 'Title Text', 'responsive' ),
@@ -396,7 +417,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'blog_post_title_text',
 				'description' => '',
-				'placeholder' => __( 'Blog', 'responsive' )
+				'placeholder' => __( 'Blog', 'responsive' ),
+				'validate'    => 'text'
 			)
 		),
 		'logo_upload' => array(
@@ -418,7 +440,8 @@ function responsive_theme_options_array() {
 				'type'        => 'checkbox',
 				'id'          => 'front_page',
 				'description' => sprintf( __( 'Overrides the WordPress %1sfront page option%2s', 'responsive' ), '<a href="options-reading.php">', '</a>' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'checkbox'
 			),
 			array(
 				'title'       => __( 'Headline', 'responsive' ),
@@ -427,7 +450,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'home_headline',
 				'description' => __( 'Enter your headline', 'responsive' ),
-				'placeholder' => __( 'Hello, World!', 'responsive' )
+				'placeholder' => __( 'Hello, World!', 'responsive' ),
+				'validate'    => 'text'
 			),
 			array(
 				'title'       => __( 'Subheadline', 'responsive' ),
@@ -436,7 +460,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'home_subheadline',
 				'description' => __( 'Enter your subheadline', 'responsive' ),
-				'placeholder' => __( 'Your H2 subheadline here', 'responsive' )
+				'placeholder' => __( 'Your H2 subheadline here', 'responsive' ),
+				'validate'    => 'text'
 			),
 			array(
 				'title'       => __( 'Content Area', 'responsive' ),
@@ -445,7 +470,8 @@ function responsive_theme_options_array() {
 				'type'        => 'editor',
 				'id'          => 'home_content_area',
 				'description' => __( 'Enter your content', 'responsive' ),
-				'placeholder' => __( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive' )
+				'placeholder' => __( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive' ),
+				'validate'    => 'editor'
 			),
 			array(
 				'title'       => __( 'Call to Action (URL)', 'responsive' ),
@@ -454,7 +480,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'cta_url',
 				'description' => __( 'Enter your call to action URL', 'responsive' ),
-				'placeholder' => '#nogo'
+				'placeholder' => '#nogo',
+				'validate'    => 'url'
 			),
 			array(
 				'title'       => __( 'Call to Action (Text)', 'responsive' ),
@@ -463,7 +490,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'cta_text',
 				'description' => __( 'Enter your call to action text', 'responsive' ),
-				'placeholder' => __( 'Call to Action', 'responsive' )
+				'placeholder' => __( 'Call to Action', 'responsive' ),
+				'validate'    => 'text'
 			),
 			array(
 				'title'       => __( 'Featured Content', 'responsive' ),
@@ -473,7 +501,8 @@ function responsive_theme_options_array() {
 				'type'        => 'editor',
 				'id'          => 'featured_content',
 				'description' => __( 'Paste your shortcode, video or image source', 'responsive' ),
-				'placeholder' => "<img class='aligncenter' src='" . get_template_directory_uri() . "'/core/images/featured-image.png' width='440' height='300' alt='' />"
+				'placeholder' => '<img class="aligncenter" src="' . get_template_directory_uri() . '"/core/images/featured-image.png" width="440" height="300" alt="" />',
+				'validate'    => 'editor'
 			)
 		),
 		'layouts' => array(
@@ -485,7 +514,8 @@ function responsive_theme_options_array() {
 				'id'          => 'static_page_layout_default',
 				'description' => '',
 				'placeholder' => '',
-				'options'     => Responsive_Options::valid_layouts()
+				'options'     => Responsive_Options::valid_layouts(),
+				'validate'    => 'layouts'
 			),
 			array(
 				'title'       => __( 'Default Single Blog Post Layout', 'responsive' ),
@@ -495,7 +525,8 @@ function responsive_theme_options_array() {
 				'id'          => 'single_post_layout_default',
 				'description' => '',
 				'placeholder' => '',
-				'options'     => Responsive_Options::valid_layouts()
+				'options'     => Responsive_Options::valid_layouts(),
+				'validate'    => 'layouts'
 			),
 			array(
 				'title'       => __( 'Default Blog Posts Index Layout', 'responsive' ),
@@ -505,7 +536,8 @@ function responsive_theme_options_array() {
 				'id'          => 'blog_posts_index_layout_default',
 				'description' => '',
 				'placeholder' => '',
-				'options'     => Responsive_Options::valid_layouts()
+				'options'     => Responsive_Options::valid_layouts(),
+				'validate'    => 'layouts'
 			)
 		),
 		'social' => array(
@@ -516,7 +548,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'twitter_uid',
 				'description' => __( 'Enter your Twitter URL', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'url'
 			),
 			array(
 				'title'       => __( 'Facebook', 'responsive' ),
@@ -525,7 +558,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'facebook_uid',
 				'description' => __( 'Enter your Facebook URL', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'url'
 			),
 			array(
 				'title'       => __( 'LinkedIn', 'responsive' ),
@@ -534,7 +568,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'linkedin_uid',
 				'description' => __( 'Enter your LinkedIn URL', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'url'
 			),
 			array(
 				'title'       => __( 'YouTube', 'responsive' ),
@@ -543,7 +578,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'youtube_uid',
 				'description' => __( 'Enter your YouTube URL', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'url'
 			),
 			array(
 				'title'       => __( 'StumbleUpon', 'responsive' ),
@@ -552,7 +588,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'stumbleupon_uid',
 				'description' => __( 'Enter your StumbleUpon URL', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'url'
 			),
 			array(
 				'title'       => __( 'RSS Feed', 'responsive' ),
@@ -561,7 +598,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'rss_uid',
 				'description' => __( 'Enter your RSS Feed URL', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'checkbox'
 			),
 			array(
 				'title'       => __( 'Google+', 'responsive' ),
@@ -570,7 +608,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'googleplus_uid',
 				'description' => __( 'Enter your Google+ URL', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'url'
 			),
 			array(
 				'title'       => __( 'Instagram', 'responsive' ),
@@ -579,7 +618,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'instagram_uid',
 				'description' => __( 'Enter your Instagram URL', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'url'
 			),
 			array(
 				'title'       => __( 'Pinterest', 'responsive' ),
@@ -588,7 +628,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'pinterest_uid',
 				'description' => __( 'Enter your Pinterest URL', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'url'
 			),
 			array(
 				'title'       => __( 'Yelp!', 'responsive' ),
@@ -597,7 +638,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'yelp_uid',
 				'description' => __( 'Enter your Yelp! URL', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'url'
 			),
 			array(
 				'title'       => __( 'Vimeo', 'responsive' ),
@@ -606,7 +648,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'vimeo_uid',
 				'description' => __( 'Enter your Vimeo URL', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'url'
 			),
 			array(
 				'title'       => __( 'foursquare', 'responsive' ),
@@ -615,7 +658,8 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'foursquare_uid',
 				'description' => __( 'Enter your foursquare URL', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'url'
 			)
 		),
 		'css' => array(
@@ -626,7 +670,8 @@ function responsive_theme_options_array() {
 				'type'        => 'textarea',
 				'id'          => 'responsive_inline_css',
 				'description' => __( 'Enter your custom CSS styles.', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'css'
 			)
 		),
 		'scripts' => array(
@@ -637,7 +682,8 @@ function responsive_theme_options_array() {
 				'type'        => 'textarea',
 				'id'          => 'responsive_inline_js_head',
 				'description' => __( 'Enter your custom header script.', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'js'
 			),
 			array(
 				'title'       => '',
@@ -646,7 +692,8 @@ function responsive_theme_options_array() {
 				'type'        => 'textarea',
 				'id'          => 'responsive_inline_js_footer',
 				'description' => __( 'Enter your custom footer script.', 'responsive' ),
-				'placeholder' => ''
+				'placeholder' => '',
+				'validate'    => 'js'
 			)
 		)
 	) );
