@@ -110,7 +110,8 @@ function responsive_theme_options_add_page() {
 	add_theme_page(
 		__( 'Theme Options', 'responsive' ),
 		__( 'Theme Options', 'responsive' ),
-		'edit_theme_options', 'theme_options',
+		'edit_theme_options',
+		'theme_options',
 		'responsive_theme_options_do_page'
 	);
 }
@@ -148,44 +149,195 @@ function responsive_theme_options_do_page() {
 
 	<?php
 
-	/**
-	 * Create array of option sections
-	 *
-	 * @Title The display title
-	 * @id The id that the option array references so the options display in the correct section
-	 */
-	$sections = apply_filters( 'responsive_option_sections_filter', array(
-		array(
-			'title' => __( 'Theme Elements', 'responsive' ),
-			'id'    => 'theme_elements'
-		),
-		array(
-			'title' => __( 'Logo Upload', 'responsive' ),
-			'id'    => 'logo_upload'
-		),
-		array(
-			'title' => __( 'Home Page', 'responsive' ),
-			'id'    => 'home_page'
-		),
-		array(
-			'title' => __( 'Default Layouts', 'responsive' ),
-			'id'    => 'layouts'
-		),
-		array(
-			'title' => __( 'Social Icons', 'responsive' ),
-			'id'    => 'social'
-		),
-		array(
-			'title' => __( 'CSS Styles', 'responsive' ),
-			'id'    => 'css'
-		),
-		array(
-			'title' => __( 'Scripts', 'responsive' ),
-			'id'    => 'scripts'
-		)
+	$sections = responsive_theme_options_sections_array();
+	$options = responsive_theme_options_array();
 
-	) );
+	if( class_exists( 'Responsive_Pro_Options' ) ) {
+		$display = new Responsive_Pro_Options( $sections, $options );
+	} else {
+		$display = new Responsive_Options( $sections, $options );
+	}
 
+	?>
+	<form method="post" action="options.php">
+		<?php settings_fields( 'responsive_options' ); ?>
+		<?php $responsive_options = responsive_get_options(); ?>
+
+		<div id="rwd" class="grid col-940">
+			<?php
+			$display->render_display();
+			?>
+		</div><!-- .grid col-940 -->
+	</form>
+	</div><!-- wrap -->
+<?php
+}
+
+/**
+ * Sanitize and validate input. Accepts an array, return a sanitized array.
+ */
+function responsive_theme_options_validate( $input ) {
+
+	$responsive_options = responsive_get_options();
+	$defaults = responsive_get_option_defaults();
+
+	if( isset( $input['reset'] ) ) {
+
+		$input = $defaults;
+
+	} else {
+
+		// checkbox value is either 0 or 1
+		$checkboxs = array(
+			'compatibility',
+			'breadcrumb',
+			'cta_button',
+			'front_page'
+		);
+		foreach( $checkboxs as $checkbox ) {
+			if( !isset( $input[$checkbox] ) ) {
+				$input[$checkbox] = null;
+			}
+			$input[$checkbox] = ( 1 == $input[$checkbox] ? 1 : 0 );
+		}
+		$layouts = array(
+			'static_page_layout_default',
+			'single_post_layout_default',
+			'blog_posts_index_layout_default'
+		);
+		foreach( $layouts as $layout ) {
+			$input[$layout] = ( isset( $input[$layout] ) && array_key_exists( $input[$layout], responsive_get_valid_layouts() ) ? $input[$layout] : $responsive_options[$layout] );
+		}
+		$contents = array(
+			'home_headline',
+			'home_subheadline',
+			'home_content_area',
+			'cta_text',
+			'cta_url',
+			'featured_content',
+		);
+		foreach( $contents as $content ) {
+			$input[$content] = ( in_array( $input[$content], array( $defaults[$content], '' ) ) ? $defaults[$content] : wp_kses_stripslashes( $input[$content] ) );
+		}
+		$input['google_site_verification']    = ( isset( $input['google_site_verification'] ) ) ? wp_filter_post_kses( $input['google_site_verification'] ) : null;
+		$input['bing_site_verification']      = ( isset( $input['bing_site_verification'] ) ) ? wp_filter_post_kses( $input['bing_site_verification'] ) : null;
+		$input['yahoo_site_verification']     = ( isset( $input['yahoo_site_verification'] ) ) ? wp_filter_post_kses( $input['yahoo_site_verification'] ) : null;
+		$input['site_statistics_tracker']     = ( isset( $input['site_statistics_tracker'] ) ) ? wp_kses_stripslashes( $input['site_statistics_tracker'] ) : null;
+		$input['twitter_uid']                 = esc_url_raw( $input['twitter_uid'] );
+		$input['facebook_uid']                = esc_url_raw( $input['facebook_uid'] );
+		$input['linkedin_uid']                = esc_url_raw( $input['linkedin_uid'] );
+		$input['youtube_uid']                 = esc_url_raw( $input['youtube_uid'] );
+		$input['stumbleupon_uid']             = esc_url_raw( $input['stumbleupon_uid'] );
+		$input['rss_uid']                     = esc_url_raw( $input['rss_uid'] );
+		$input['googleplus_uid']              = esc_url_raw( $input['googleplus_uid'] );
+		$input['instagram_uid']               = esc_url_raw( $input['instagram_uid'] );
+		$input['pinterest_uid']               = esc_url_raw( $input['pinterest_uid'] );
+		$input['yelp_uid']                    = esc_url_raw( $input['yelp_uid'] );
+		$input['vimeo_uid']                   = esc_url_raw( $input['vimeo_uid'] );
+		$input['foursquare_uid']              = esc_url_raw( $input['foursquare_uid'] );
+		$input['responsive_inline_css']       = wp_kses_stripslashes( $input['responsive_inline_css'] );
+		$input['responsive_inline_js_head']   = wp_kses_stripslashes( $input['responsive_inline_js_head'] );
+		$input['responsive_inline_js_footer'] = wp_kses_stripslashes( $input['responsive_inline_js_footer'] );
+
+		$input = apply_filters( 'responsive_options_validate', $input );
+	}
+
+	return $input;
+}
+
+/**
+ * Theme options upgrade bar
+ */
+function responsive_upgrade_bar() {
+	?>
+
+	<div class="upgrade-callout">
+		<p><img src="<?php echo get_template_directory_uri(); ?>/core/includes/images/chimp.png" alt="CyberChimps"/>
+			<?php printf( __( 'Welcome to %1$s! Upgrade to %2$s today.', 'responsive' ),
+				'Responsive',
+				' <a href="http://cyberchimps.com/store/responsivepro/" target="_blank" title="Responsive Pro">Responsive Pro</a> '
+			); ?>
+		</p>
+
+		<div class="social-container">
+			<div class="social">
+				<a href="https://twitter.com/cyberchimps" class="twitter-follow-button" data-show-count="false" data-size="small">Follow @cyberchimps</a>
+				<script>!function (d, s, id) {
+						var js, fjs = d.getElementsByTagName(s)[0];
+						if (!d.getElementById(id)) {
+							js = d.createElement(s);
+							js.id = id;
+							js.src = "//platform.twitter.com/widgets.js";
+							fjs.parentNode.insertBefore(js, fjs);
+						}
+					}(document, "script", "twitter-wjs");</script>
+			</div>
+			<div class="social">
+				<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcyberchimps.com%2F&amp;send=false&amp;layout=button_count&amp;width=200&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:21px;" allowTransparency="true"></iframe>
+			</div>
+		</div>
+	</div>
+
+<?php
+}
+
+add_action( 'responsive_theme_options', 'responsive_upgrade_bar', 1 );
+
+/**
+ * Theme Options Support and Information
+ */
+function responsive_theme_support() {
+	?>
+
+	<div id="info-box-wrapper" class="grid col-940">
+		<div class="info-box notice">
+
+			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/guides/r-free/' ); ?>" title="<?php esc_attr_e( 'Instructions', 'responsive' ); ?>" target="_blank">
+				<?php _e( 'Instructions', 'responsive' ); ?></a>
+
+			<a class="button button-primary" href="<?php echo esc_url( 'http://cyberchimps.com/forum/free/responsive/' ); ?>" title="<?php esc_attr_e( 'Help', 'responsive' ); ?>" target="_blank">
+				<?php _e( 'Help', 'responsive' ); ?></a>
+
+			<a class="button" href="<?php echo esc_url( 'https://webtranslateit.com/en/projects/3598-Responsive-Theme' ); ?>" title="<?php esc_attr_e( 'Translate', 'responsive' ); ?>" target="_blank">
+				<?php _e( 'Translate', 'responsive' ); ?></a>
+
+			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/showcase/' ); ?>" title="<?php esc_attr_e( 'Showcase', 'responsive' ); ?>" target="_blank">
+				<?php _e( 'Showcase', 'responsive' ); ?></a>
+
+			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/store/' ); ?>" title="<?php esc_attr_e( 'More Themes', 'responsive' ); ?>" target="_blank">
+				<?php _e( 'More Themes', 'responsive' ); ?></a>
+
+		</div>
+	</div>
+
+<?php
+}
+
+add_action( 'responsive_theme_options', 'responsive_theme_support', 2 );
+
+/*
+ * Add notification to Reading Settings page to notify if Custom Front Page is enabled.
+ *
+ * @since    1.9.4.0
+ */
+function responsive_front_page_reading_notice() {
+	$screen = get_current_screen();
+	$responsive_options = responsive_get_options();
+	if ( 'options-reading' == $screen->id ) {
+		$html = '<div class="updated">';
+			if ( 1 == $responsive_options['front_page'] ) {
+				$html .= '<p>' . sprintf( __( 'The Custom Front Page is enabled. You can disable it in the <a href="%1$s">theme settings</a>.', 'responsive' ), admin_url( 'themes.php?page=theme_options' ) ) . '</p>';
+			} else {
+				$html .= '<p>' . sprintf( __( 'The Custom Front Page is disabled. You can enable it in the <a href="%1$s">theme settings</a>.', 'responsive' ), admin_url( 'themes.php?page=theme_options' ) ) . '</p>';
+			}
+		$html .= '</div>';
+		echo $html;
+	}
+}
+add_action( 'admin_notices', 'responsive_front_page_reading_notice' );
+
+
+function responsive_theme_options_array() {
 	/**
 	 * Creates and array of options that get added to the relevant sections
 	 *
@@ -497,189 +649,46 @@ function responsive_theme_options_do_page() {
 				'placeholder' => ''
 			)
 		)
+	) );
+	return $options;
+}
+
+function responsive_theme_options_sections_array() {
+	/**
+	 * Create array of option sections
+	 *
+	 * @Title The display title
+	 * @id The id that the option array references so the options display in the correct section
+	 */
+	$sections = apply_filters( 'responsive_option_sections_filter', array(
+		array(
+			'title' => __( 'Theme Elements', 'responsive' ),
+			'id'    => 'theme_elements'
+		),
+		array(
+			'title' => __( 'Logo Upload', 'responsive' ),
+			'id'    => 'logo_upload'
+		),
+		array(
+			'title' => __( 'Home Page', 'responsive' ),
+			'id'    => 'home_page'
+		),
+		array(
+			'title' => __( 'Default Layouts', 'responsive' ),
+			'id'    => 'layouts'
+		),
+		array(
+			'title' => __( 'Social Icons', 'responsive' ),
+			'id'    => 'social'
+		),
+		array(
+			'title' => __( 'CSS Styles', 'responsive' ),
+			'id'    => 'css'
+		),
+		array(
+			'title' => __( 'Scripts', 'responsive' ),
+			'id'    => 'scripts'
 		)
-
-	);
-	if( class_exists( 'Responsive_Pro_Options' ) ) {
-		$display = new Responsive_Pro_Options( $sections, $options );
-	} else {
-		$display = new Responsive_Options( $sections, $options );
-	}
-
-	?>
-	<form method="post" action="options.php">
-		<?php settings_fields( 'responsive_options' ); ?>
-		<?php $responsive_options = responsive_get_options(); ?>
-
-		<div id="rwd" class="grid col-940">
-			<?php
-			$display->render_display();
-			?>
-		</div><!-- .grid col-940 -->
-	</form>
-	</div><!-- wrap -->
-<?php
+	) );
+	return $sections;
 }
-
-/**
- * Sanitize and validate input. Accepts an array, return a sanitized array.
- */
-function responsive_theme_options_validate( $input ) {
-
-	$responsive_options = responsive_get_options();
-	$defaults = responsive_get_option_defaults();
-
-	if( isset( $input['reset'] ) ) {
-
-		$input = $defaults;
-
-	} else {
-
-		// checkbox value is either 0 or 1
-		$checkboxs = array(
-			'compatibility',
-			'breadcrumb',
-			'cta_button',
-			'front_page'
-		);
-		foreach( $checkboxs as $checkbox ) {
-			if( !isset( $input[$checkbox] ) ) {
-				$input[$checkbox] = null;
-			}
-			$input[$checkbox] = ( 1 == $input[$checkbox] ? 1 : 0 );
-		}
-		$layouts = array(
-			'static_page_layout_default',
-			'single_post_layout_default',
-			'blog_posts_index_layout_default'
-		);
-		foreach( $layouts as $layout ) {
-			$input[$layout] = ( isset( $input[$layout] ) && array_key_exists( $input[$layout], responsive_get_valid_layouts() ) ? $input[$layout] : $responsive_options[$layout] );
-		}
-		$contents = array(
-			'home_headline',
-			'home_subheadline',
-			'home_content_area',
-			'cta_text',
-			'cta_url',
-			'featured_content',
-		);
-		foreach( $contents as $content ) {
-			$input[$content] = ( in_array( $input[$content], array( $defaults[$content], '' ) ) ? $defaults[$content] : wp_kses_stripslashes( $input[$content] ) );
-		}
-		$input['google_site_verification']    = ( isset( $input['google_site_verification'] ) ) ? wp_filter_post_kses( $input['google_site_verification'] ) : null;
-		$input['bing_site_verification']      = ( isset( $input['bing_site_verification'] ) ) ? wp_filter_post_kses( $input['bing_site_verification'] ) : null;
-		$input['yahoo_site_verification']     = ( isset( $input['yahoo_site_verification'] ) ) ? wp_filter_post_kses( $input['yahoo_site_verification'] ) : null;
-		$input['site_statistics_tracker']     = ( isset( $input['site_statistics_tracker'] ) ) ? wp_kses_stripslashes( $input['site_statistics_tracker'] ) : null;
-		$input['twitter_uid']                 = esc_url_raw( $input['twitter_uid'] );
-		$input['facebook_uid']                = esc_url_raw( $input['facebook_uid'] );
-		$input['linkedin_uid']                = esc_url_raw( $input['linkedin_uid'] );
-		$input['youtube_uid']                 = esc_url_raw( $input['youtube_uid'] );
-		$input['stumbleupon_uid']             = esc_url_raw( $input['stumbleupon_uid'] );
-		$input['rss_uid']                     = esc_url_raw( $input['rss_uid'] );
-		$input['googleplus_uid']              = esc_url_raw( $input['googleplus_uid'] );
-		$input['instagram_uid']               = esc_url_raw( $input['instagram_uid'] );
-		$input['pinterest_uid']               = esc_url_raw( $input['pinterest_uid'] );
-		$input['yelp_uid']                    = esc_url_raw( $input['yelp_uid'] );
-		$input['vimeo_uid']                   = esc_url_raw( $input['vimeo_uid'] );
-		$input['foursquare_uid']              = esc_url_raw( $input['foursquare_uid'] );
-		$input['responsive_inline_css']       = wp_kses_stripslashes( $input['responsive_inline_css'] );
-		$input['responsive_inline_js_head']   = wp_kses_stripslashes( $input['responsive_inline_js_head'] );
-		$input['responsive_inline_js_footer'] = wp_kses_stripslashes( $input['responsive_inline_js_footer'] );
-
-		$input = apply_filters( 'responsive_options_validate', $input );
-	}
-
-	return $input;
-}
-
-/**
- * Theme options upgrade bar
- */
-function responsive_upgrade_bar() {
-	?>
-
-	<div class="upgrade-callout">
-		<p><img src="<?php echo get_template_directory_uri(); ?>/core/includes/images/chimp.png" alt="CyberChimps"/>
-			<?php printf( __( 'Welcome to %1$s! Upgrade to %2$s today.', 'responsive' ),
-				'Responsive',
-				' <a href="http://cyberchimps.com/store/responsivepro/" target="_blank" title="Responsive Pro">Responsive Pro</a> '
-			); ?>
-		</p>
-
-		<div class="social-container">
-			<div class="social">
-				<a href="https://twitter.com/cyberchimps" class="twitter-follow-button" data-show-count="false" data-size="small">Follow @cyberchimps</a>
-				<script>!function (d, s, id) {
-						var js, fjs = d.getElementsByTagName(s)[0];
-						if (!d.getElementById(id)) {
-							js = d.createElement(s);
-							js.id = id;
-							js.src = "//platform.twitter.com/widgets.js";
-							fjs.parentNode.insertBefore(js, fjs);
-						}
-					}(document, "script", "twitter-wjs");</script>
-			</div>
-			<div class="social">
-				<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcyberchimps.com%2F&amp;send=false&amp;layout=button_count&amp;width=200&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:21px;" allowTransparency="true"></iframe>
-			</div>
-		</div>
-	</div>
-
-<?php
-}
-
-add_action( 'responsive_theme_options', 'responsive_upgrade_bar', 1 );
-
-/**
- * Theme Options Support and Information
- */
-function responsive_theme_support() {
-	?>
-
-	<div id="info-box-wrapper" class="grid col-940">
-		<div class="info-box notice">
-
-			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/guides/r-free/' ); ?>" title="<?php esc_attr_e( 'Instructions', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Instructions', 'responsive' ); ?></a>
-
-			<a class="button button-primary" href="<?php echo esc_url( 'http://cyberchimps.com/forum/free/responsive/' ); ?>" title="<?php esc_attr_e( 'Help', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Help', 'responsive' ); ?></a>
-
-			<a class="button" href="<?php echo esc_url( 'https://webtranslateit.com/en/projects/3598-Responsive-Theme' ); ?>" title="<?php esc_attr_e( 'Translate', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Translate', 'responsive' ); ?></a>
-
-			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/showcase/' ); ?>" title="<?php esc_attr_e( 'Showcase', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Showcase', 'responsive' ); ?></a>
-
-			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/store/' ); ?>" title="<?php esc_attr_e( 'More Themes', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'More Themes', 'responsive' ); ?></a>
-
-		</div>
-	</div>
-
-<?php
-}
-
-add_action( 'responsive_theme_options', 'responsive_theme_support', 2 );
-
-/*
- * Add notification to Reading Settings page to notify if Custom Front Page is enabled.
- *
- * @since    1.9.4.0
- */
-function responsive_front_page_reading_notice() {
-	$screen = get_current_screen();
-	$responsive_options = responsive_get_options();
-	if ( 'options-reading' == $screen->id ) {
-		$html = '<div class="updated">';
-			if ( 1 == $responsive_options['front_page'] ) {
-				$html .= '<p>' . sprintf( __( 'The Custom Front Page is enabled. You can disable it in the <a href="%1$s">theme settings</a>.', 'responsive' ), admin_url( 'themes.php?page=theme_options' ) ) . '</p>';
-			} else {
-				$html .= '<p>' . sprintf( __( 'The Custom Front Page is disabled. You can enable it in the <a href="%1$s">theme settings</a>.', 'responsive' ), admin_url( 'themes.php?page=theme_options' ) ) . '</p>';
-			}
-		$html .= '</div>';
-		echo $html;
-	}
-}
-add_action( 'admin_notices', 'responsive_front_page_reading_notice' );
