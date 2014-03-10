@@ -63,7 +63,7 @@ add_action( 'admin_head', 'responsive_admin_css' );
  * Add plugin automation file
  */
 if ( ! class_exists( 'Theme_Plugin_Dependency' ) ) {
-	require_once( dirname( __FILE__ ) . '/classes/class-theme-plugin-dependency.php' );
+	require_once( dirname( __FILE__ ) . '/class-theme-plugin-dependency.php' );
 }
 
 /**
