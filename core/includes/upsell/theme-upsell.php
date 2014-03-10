@@ -52,7 +52,7 @@ function cyberchimps_display_upsell() {
 					<div id="upsell_header" class="span12">
 						<h2>
 							<a href="http://cyberchimps.com" target="_blank">
-								<img src="<?php echo $directory_uri; ?>/cyberchimps/options/lib/images/options/upsell-logo.png"/>
+								<img src="<?php echo $directory_uri; ?>/core/includes/upsell/images/upsell-logo.png"/>
 							</a>
 						</h2>
 
@@ -135,7 +135,7 @@ function cyberchimps_display_upsell() {
 
 									<!-- Check if the theme is installed, if so then add a tick mark -->
 									<?php if( wp_get_theme( $theme->slug )->exists() ) { ?>
-										<img data-toggle="tooltip" title="Already installed" data-placement="bottom" class="theme-exists" src="<?php echo $directory_uri ?>/cyberchimps/options/lib/images/tick.png"/>
+										<img data-toggle="tooltip" title="Already installed" data-placement="bottom" class="theme-exists" src="<?php echo $directory_uri ?>/core/includes/upsell/images/tick.png"/>
 									<?php } ?>
 
 									<!-- Download Button -->
