@@ -81,7 +81,9 @@
 	margin-right: 0 !important;
 }
 
-#rwd {
+#rwd,
+#info-box-wrapper,
+.upgrade-callout {
 	max-width: 980px;
 }
 

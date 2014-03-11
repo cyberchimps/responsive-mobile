@@ -23,14 +23,19 @@ require $template_directory . '/core/includes/functions.php';
  * Theme Options
  */
 require $template_directory . '/core/includes/theme-options/theme-options.php';
+require $template_directory . '/core/includes/theme-options/theme-options-page.php';
+require $template_directory . '/core/includes/theme-options/theme-options-sanitize.php';
+
 /**
  * Custom template tags for this theme.
  */
 require $template_directory . '/core/includes/template-tags.php';
+
 /**
  * Post layout functions.
  */
 require $template_directory . '/core/includes/post-custom-layout.php';
+
 /**
  * Support THA Theme hooks through Responsives own functions.
  */
@@ -78,19 +83,6 @@ require $template_directory . '/core/includes/theme-options/customizer.php';
 require $template_directory . '/core/includes/functions-plugins.php';
 
 /**
- * Load plugin dependancy file.
+ * Load plugin dependency file.
  */
 require $template_directory . '/core/includes/functions-install.php';
-//require $template_directory . '/core/includes/classes/class-theme-plugin-dependency.php';
-
-// Return value of the supplied responsive free theme option.
-function responsive_free_get_option( $option, $default = false ) {
-	$responsive_options = responsive_get_options();
-
-	// If the option is set then return it's value, otherwise return false.
-	if( isset( $responsive_options[$option] ) ) {
-		return $responsive_options[$option];
-	}
-
-	return $default;
-}
