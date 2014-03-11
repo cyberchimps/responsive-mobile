@@ -1,11 +1,11 @@
 <?php
 /*
-@TODO Update code accordingly.
-Simple class to let themes add dependencies on plugins in ways they might find useful
-
+Simple class to let themes add dependencies on plugins
+@link http://ottopress.com/2012/themeplugin-dependencies/
+@author Otto
 */
-
 class Theme_Plugin_Dependency {
+
 	// input information from the theme
 	var $slug;
 	var $uri;
@@ -15,7 +15,7 @@ class Theme_Plugin_Dependency {
 	private $uris; // holds just the URIs for quick and easy searching
 
 	// both slug and PluginURI are required for checking things
-	function __construct( $slug, $uri ) {
+	public function __construct( $slug, $uri ) {
 		$this->slug = $slug;
 		$this->uri = $uri;
 		if ( empty( $this->plugins ) )
@@ -25,12 +25,12 @@ class Theme_Plugin_Dependency {
 	}
 
 	// return true if installed, false if not
-	function check() {
+	public function check() {
 		return in_array( $this->uri, $this->uris );
 	}
 
 	// return true if installed and activated, false if not
-	function check_active() {
+	public function check_active() {
 		$plugin_file = $this->get_plugin_file();
 		if ( $plugin_file ) {
 			return is_plugin_active( $plugin_file );
@@ -40,7 +40,7 @@ class Theme_Plugin_Dependency {
 	}
 
 	// gives a link to activate the plugin
-	function activate_link() {
+	public function activate_link() {
 		$plugin_file = $this->get_plugin_file();
 		if ( $plugin_file ) {
 			return wp_nonce_url( self_admin_url('plugins.php?action=activate&plugin=' . $plugin_file ), 'activate-plugin_' . $plugin_file );
@@ -50,7 +50,7 @@ class Theme_Plugin_Dependency {
 	}
 
 	// return a nonced installation link for the plugin. checks wordpress.org to make sure it's there first.
-	function install_link() {
+	public function install_link() {
 		include_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 
 		$info = plugins_api('plugin_information', array('slug' => $this->slug ));

@@ -89,7 +89,6 @@ add_action( 'admin_init', 'responsive_ignore_notice' );
  *
  * @since    1.9.4.0
  */
-// @TODO link to plugin as info.
 function responsive_plugin_notice() {
 	global $pagenow;
 	$current_user = wp_get_current_user();
@@ -99,35 +98,21 @@ function responsive_plugin_notice() {
 	if ( ! get_user_meta( $user_id, 'responsive_ignore_notice' ) && current_user_can( 'install_plugins' ) && 'themes.php' == $pagenow ) {
 
 		$responsive_add_ons = new Theme_Plugin_Dependency( 'responsive-add-ons', 'http://wordpress.org/plugins/responsive-add-ons/' );
+		$msg = '';
 		$msg .= '<p>' . sprintf(
 			/* Translators: Responsive recommends using Responsive Add Ons. */
 			__( 'Responsive recommends using %1$s.', 'responsive' ),
 			'<a href="' . esc_url( 'http://wordpress.org/plugins/responsive-add-ons/' ) . '">' . __( 'Responsive Add Ons', 'responsive' ) . '</a>'
 		) . '</p>';
-		if ( $responsive_add_ons->check_active() ) {
-			$msg .= sprintf(
-					/* Translators: Responsive Add Ons is installed and activated! */
-					__( '%1$s is installed and activated!', 'responsive' ),
-					'<a href="' . esc_url( 'http://wordpress.org/plugins/responsive-add-ons/' ) . '">' . __( 'Responsive Add Ons', 'responsive' ) . '</a>'
-				);
-		} elseif ( $responsive_add_ons->check() ) {
-			$msg .= sprintf(
-					/* Translators: Responsive Add Ons is installed, but not activated. */
-					__( '%1$s is installed, but not activated.', 'responsive' ),
-					'<a href="' . esc_url( 'http://wordpress.org/plugins/responsive-add-ons/' ) . '">' . __( 'Responsive Add Ons', 'responsive' ) . '</a>'
-				);
-			$msg .= '</p><p><a href="' . $responsive_add_ons->activate_link() . '">' . __( 'Activate Responsive Add Ons', 'responsive' ) . '</a>';
+		if ( $responsive_add_ons->check() ) {
+			$msg .= '<p><a href="' . $responsive_add_ons->activate_link() . '">' . __( 'Activate Responsive Add Ons', 'responsive' ) . '</a>';
 		} elseif ( $install_link = $responsive_add_ons->install_link() ) {
-			$msg .= sprintf(
-					/* Translators: Responsive Add Ons is not installed. */
-					__( '%1$s is not installed.', 'responsive' ),
-					'<a href="' . esc_url( 'http://wordpress.org/plugins/responsive-add-ons/' ) . '">' . __( 'Responsive Add Ons', 'responsive' ) . '</a>'
-				);
-			$msg .= '</p><p><a href="' . $install_link . '">' . __( 'Install Responsive Add Ons', 'responsive' ) . '</a>';
+			$msg .= '<p><a href="' . $install_link . '">' . __( 'Install Responsive Add Ons', 'responsive' ) . '</a>';
 		} else {
 			$msg .= __( 'Responsive Add Ons is not installed. Please install this plugin manually.', 'responsive' );
 		}
 		$msg .= ' | <a href="?responsive_ignore_notice=true">' . __( 'Hide Notice' ) . '</a>';
+
 		$return = '<div class="updated"><p>';
 		$return .= $msg;
 		$return .= '</p></div>';
@@ -136,6 +121,4 @@ function responsive_plugin_notice() {
 	}
 
 }
-
-
 add_action( 'admin_notices', 'responsive_plugin_notice' );

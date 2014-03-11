@@ -45,7 +45,6 @@ function responsive_theme_options_add_page() {
 }
 add_action( 'admin_menu', 'responsive_theme_options_add_page' );
 
-
 /**
  * Init plugin options to white list our options
  */
