@@ -257,7 +257,8 @@ Class Responsive_Options {
 			'class'       => array(),
 			'description' => '',
 			'placeholder' => '',
-			'options'     => array()
+			'options'     => array(),
+			'sanitize'    => ''
 		);
 
 		$result = array_merge( $default_args, $args );
