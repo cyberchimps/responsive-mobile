@@ -52,7 +52,7 @@ function cyberchimps_display_upsell() {
 					<div id="upsell_header" class="span12">
 						<h2>
 							<a href="http://cyberchimps.com" target="_blank">
-								<img src="<?php echo $directory_uri; ?>/core/includes/upsell/images/upsell-logo.png"/>
+								<img src="<?php echo $directory_uri; ?>core/includes/upsell/images/upsell-logo.png"/>
 							</a>
 						</h2>
 
@@ -133,14 +133,27 @@ function cyberchimps_display_upsell() {
 								<div class="theme-details">
 									<span class="theme-name"><?php echo $theme->name; ?></span>
 
-									<!-- Check if the theme is installed, if so then add a tick mark -->
+									<!-- Check if the theme is installed -->
 									<?php if( wp_get_theme( $theme->slug )->exists() ) { ?>
-										<img data-toggle="tooltip" title="Already installed" data-placement="bottom" class="theme-exists" src="<?php echo $directory_uri ?>/core/includes/upsell/images/tick.png"/>
-									<?php } ?>
 
-									<!-- Download Button -->
-									<a data-toggle="tooltip" data-placement="bottom" title="<?php echo 'Downloaded ' . number_format( $theme_details->downloaded ) . ' times'; ?>"
-									   class="button button-primary download right" target="_blank" href="<?php echo $theme->homepage; ?>">Download</a>
+										<!-- Show the tick image notifying the theme is already installed. -->
+										<img data-toggle="tooltip" title="Already installed" data-placement="bottom" class="theme-exists" src="<?php echo $directory_uri ?>/core/includes/upsell/images/tick.png"/>
+
+										<!-- Activate Button -->
+										<a  class="button button-primary activate right"
+											href="<?php echo wp_nonce_url( admin_url( 'themes.php?action=activate&amp;stylesheet=' . urlencode( $theme->slug ) ), 'switch-theme_' . $theme->slug );?>" >Activate</a>
+									<?php }
+									else {
+
+										// Set the install url for the theme.
+										$install_url = add_query_arg( array(
+												'action' => 'install-theme',
+												'theme'  => $theme->slug,
+											), self_admin_url( 'update.php' ) );
+									?>
+										<!-- Install Button -->
+										<a data-toggle="tooltip" data-placement="bottom" title="<?php echo 'Downloaded ' . number_format( $theme_details->downloaded ) . ' times'; ?>" class="button button-primary install right" href="<?php echo esc_url( wp_nonce_url( $install_url, 'install-theme_' . $theme->slug ) ); ?>" >Install Now</a>
+									<?php } ?>
 
 									<!-- Preview button -->
 									<a class="button button-secondary preview right" target="_blank" href="<?php echo $theme->preview_url; ?>">Live Preview</a>
