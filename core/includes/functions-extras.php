@@ -145,16 +145,6 @@ function responsive_comment_count( $count ) {
 add_filter( 'get_comments_number', 'responsive_comment_count', 0 );
 
 /**
- * A comment reply.
- */
-function responsive_enqueue_comment_reply() {
-	if( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'responsive_enqueue_comment_reply' );
-
-/**
  * wp_list_comments() Pings Callback
  *
  * wp_list_comments() Callback function for

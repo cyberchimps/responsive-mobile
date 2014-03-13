@@ -32,9 +32,9 @@ require $template_directory . '/core/includes/theme-options/theme-options-saniti
 require $template_directory . '/core/includes/template-tags.php';
 
 /**
- * Post layout functions.
+ * Layout functions.
  */
-require $template_directory . '/core/includes/post-custom-layout.php';
+require $template_directory . '/core/includes/functions-layout.php';
 
 /**
  * Support THA Theme hooks through Responsives own functions.
@@ -60,12 +60,17 @@ require $template_directory . '/core/includes/functions-extras.php';
 /**
  * Custom functions that act independently of the theme templates.
  */
+require $template_directory . '/core/includes/functions-front.php';
+
+/**
+ * Custom functions that act independently of the theme templates.
+ */
 require $template_directory . '/core/includes/functions-menu.php';
 
 /**
  * Custom functions that act independently of the theme templates.
  */
-require $template_directory . '/core/includes/functions-plus.php';
+require $template_directory . '/core/includes/functions-extentions.php';
 
 /**
  * Custom functions that act independently of the theme templates.
