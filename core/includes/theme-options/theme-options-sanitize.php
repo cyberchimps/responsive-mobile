@@ -42,11 +42,14 @@ function responsive_theme_options_validate( $input ) {
 			// Loop through each setting being saved and pass it through a sanitization filter
 			foreach( $input as $key => $value ) {
 
+//				@TODO @grappler the $section[ $key ]['validate'] is returning an undefined index as $key does not exist in $section so it is returning false and just continuing to save
+//				so we need to make it work but we also need to not save if it does not exist as unvalidated data would be saved
 				// Get the setting type (checkbox, select, etc)
 				$type = isset( $section[ $key ]['validate'] ) ? $section[ $key ]['validate'] : false;
 
 				if( $type ) {
 					// Field type specific filter
+//					@TODO @grappler $validate is not set anywhere
 					$input[ $key ] = apply_filters( 'responsive_options_validate_' . $validate, $value, $key );
 				}
 

@@ -26,18 +26,6 @@ if( !defined( 'ABSPATH' ) ) {
 require( get_template_directory() . '/core/includes/theme-options/class-responsive-options.php' );
 
 /**
- * Retrieve Theme option settings
- */
-function responsive_get_options() {
-
-	// Parse array of option defaults against user-configured Theme options
-	$responsive_options = wp_parse_args( get_option( 'responsive_theme_options', array() ), responsive_get_option_defaults() );
-
-	// Return parsed args array
-	return $responsive_options;
-}
-
-/**
  * Responsive Theme option defaults
  */
 function responsive_get_option_defaults() {
