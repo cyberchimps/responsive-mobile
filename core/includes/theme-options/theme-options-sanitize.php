@@ -45,9 +45,9 @@ function responsive_theme_options_validate( $input ) {
 //				@TODO @grappler the $section[ $key ]['validate'] is returning an undefined index as $key does not exist in $section so it is returning false and just continuing to save
 //				so we need to make it work but we also need to not save if it does not exist as unvalidated data would be saved
 				// Get the setting type (checkbox, select, etc)
-				$type = isset( $section[ $key ]['validate'] ) ? $section[ $key ]['validate'] : false;
+				$validate = isset( $section[ $key ]['validate'] ) ? $section[ $key ]['validate'] : false;
 
-				if( $type ) {
+				if( $validate ) {
 					// Field type specific filter
 //					@TODO @grappler $validate is not set anywhere
 					$input[ $key ] = apply_filters( 'responsive_options_validate_' . $validate, $value, $key );
@@ -58,10 +58,6 @@ function responsive_theme_options_validate( $input ) {
 			}
 
 		}
-
-		$input['responsive_inline_css']       = wp_kses_stripslashes( $input['responsive_inline_css'] );
-		$input['responsive_inline_js_head']   = wp_kses_stripslashes( $input['responsive_inline_js_head'] );
-		$input['responsive_inline_js_footer'] = wp_kses_stripslashes( $input['responsive_inline_js_footer'] );
 
 	}
 
@@ -110,3 +106,19 @@ function responsive_settings_sanitize_text( $input ) {
 	return $input;
 }
 add_filter( 'responsive_options_validate_text', 'responsive_settings_sanitize_text' );
+
+function responsive_settings_sanitize_css( $input ) {
+	foreach( $input as $text ) {
+		$input[ $content ] = wp_kses_stripslashes( $input[ $text ] );
+	}
+	return $input;
+}
+add_filter( 'responsive_options_validate_css', 'responsive_settings_sanitize_css' );
+
+function responsive_settings_sanitize_js( $input ) {
+	foreach( $input as $text ) {
+		$input[ $content ] = wp_kses_stripslashes( $input[ $text ] );
+	}
+	return $input;
+}
+add_filter( 'responsive_options_validate_js', 'responsive_settings_sanitize_js' );
