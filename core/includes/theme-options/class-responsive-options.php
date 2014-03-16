@@ -36,6 +36,19 @@ Class Responsive_Options {
 		$this->responsive_options = get_option( 'responsive_theme_options' );
 		// Set confirmaton text for restore default option as attributes of submit_button().
 		$this->attributes['onclick'] = 'return confirm("' . __( 'Do you want to restore? \nAll theme settings will be lost! \nClick OK to Restore.', 'responsive' ) . '")';
+		// @TODO Unable to get this work
+		add_action( 'admin_init', array( $this, 'theme_options_init' ) );
+	}
+
+	/**
+	 * Init plugin options to white list our options
+	 */
+	public function theme_options_init() {
+		register_setting(
+			'responsive_options',
+			'responsive_theme_options',
+			'responsive_theme_options_validate'
+		);
 	}
 
 	/**
@@ -65,14 +78,18 @@ Class Responsive_Options {
 	 */
 	protected function container( $title, $sub ) {
 
-		echo '<h3 class="rwd-toggle"><a href="#">' . esc_html( $title ) . '</a></h3><div class="rwd-container"><div class="rwd-block">';
 		foreach( $sub as $opt ) {
-			echo $this->sub_heading( $this->parse_args( $opt ) );
-			echo $this->section( $this->parse_args( $opt ) );
+			$sub_heading = $this->sub_heading( $this->parse_args( $opt ) );
+			$section = $this->section( $this->parse_args( $opt ) );
 		}
 
-		echo $this->save();
-		echo '</div><!-- rwd-block --></div><!-- rwd-container -->';
+		$html = '<h3 class="rwd-toggle">' . esc_html( $title ) . '<a href="#"></a></h3><div class="rwd-container"><div class="rwd-block">';
+		$html .= $sub_heading;
+		$html .= $section;
+		$html .= $this->save();
+		$html .= '</div><!-- rwd-block --></div><!-- rwd-container -->';
+
+		echo $html;
 
 	}
 
@@ -88,13 +105,15 @@ Class Responsive_Options {
 
 		// If width is not set or it's not set to full then go ahead and create default layout
 		if( !isset( $args['width'] ) || $args['width'] != 'full' ) {
-			echo '<div class="grid col-300">';
+			$html = '<div class="grid col-300">';
 
-			echo $args['title'];
+			$html .= $args['title'];
 
-			echo $args['subtitle'];
+			$html .= $args['subtitle'];
 
-			echo '</div><!-- .grid col-300 -->';
+			$html .= '</div><!-- .grid col-300 -->';
+
+			return $html;
 
 		}
 	}
@@ -117,7 +136,7 @@ Class Responsive_Options {
 
 		$html .= '</div>';
 
-		echo $html;
+		return $html;
 
 	}
 

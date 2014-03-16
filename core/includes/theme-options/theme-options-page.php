@@ -46,18 +46,6 @@ function responsive_theme_options_add_page() {
 add_action( 'admin_menu', 'responsive_theme_options_add_page' );
 
 /**
- * Init plugin options to white list our options
- */
-function responsive_theme_options_init() {
-	register_setting(
-		'responsive_options',
-		'responsive_theme_options',
-		'responsive_theme_options_validate'
-	);
-}
-add_action( 'admin_init', 'responsive_theme_options_init' );
-
-/**
  * Create the options page
  */
 function responsive_theme_options_do_page() {
