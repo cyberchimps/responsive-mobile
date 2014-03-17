@@ -79,13 +79,15 @@ Class Responsive_Options {
 	protected function container( $title, $sub ) {
 
 		foreach( $sub as $opt ) {
-			$sub_heading = $this->sub_heading( $this->parse_args( $opt ) );
-			$section = $this->section( $this->parse_args( $opt ) );
+			$section[] = $this->section( $this->parse_args( $opt ) );
 		}
 
 		$html = '<h3 class="rwd-toggle">' . esc_html( $title ) . '<a href="#"></a></h3><div class="rwd-container"><div class="rwd-block">';
-		$html .= $sub_heading;
-		$html .= $section;
+
+		foreach ( $section as $option ) {
+			$html .= $option;
+		}
+		
 		$html .= $this->save();
 		$html .= '</div><!-- rwd-block --></div><!-- rwd-container -->';
 
@@ -101,15 +103,15 @@ Class Responsive_Options {
 	 *
 	 * @return string
 	 */
-	protected function sub_heading( $args ) {
+	protected function sub_heading( $title, $sub_title ) {
 
 		// If width is not set or it's not set to full then go ahead and create default layout
 		if( !isset( $args['width'] ) || $args['width'] != 'full' ) {
 			$html = '<div class="grid col-300">';
 
-			$html .= $args['title'];
+			$html .= $title;
 
-			$html .= $args['subtitle'];
+			$html .= $sub_title;
 
 			$html .= '</div><!-- .grid col-300 -->';
 
@@ -129,8 +131,10 @@ Class Responsive_Options {
 	 */
 	protected function section( $options ) {
 
+		$html = $this->sub_heading( $options['title'], $options['subtitle'] );
+		
 		// If the width is not set to full then create normal grid size, otherwise create full width
-		$html = ( !isset( $options['width'] ) || $options['width'] != 'full' ) ? '<div class="grid col-620 fit">' : '<div class="grid col-940">';
+		$html .= ( !isset( $options['width'] ) || $options['width'] != 'full' ) ? '<div class="grid col-620 fit">' : '<div class="grid col-940">';
 
 		$html .= $this->$options['type']( $options );
 
