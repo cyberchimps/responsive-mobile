@@ -25,7 +25,7 @@ function cyberchimps_upsell_style() {
 	wp_enqueue_style( 'bootstrap-responsive', $directory_uri . '/core/includes/upsell/bootstrap/css/bootstrap-responsive.css', 'bootstrap' );
 	wp_enqueue_style( 'cyberchimps-responsive', $directory_uri . '/core/includes/upsell/bootstrap/css/cyberchimps-responsive.css', array( 'bootstrap', 'bootstrap-responsive' ) );
 
-	wp_enqueue_script( 'bootstrap-js', $directory_uri . '/core/includes/upsell/bootstrap/js/bootstrap.min.js', array( 'jquery' ) );
+	//wp_enqueue_script( 'bootstrap-js', $directory_uri . '/core/includes/upsell/bootstrap/js/bootstrap.min.js', array( 'jquery' ) );
 
 	wp_enqueue_style( 'upsell_style', get_template_directory_uri() . '/core/includes/upsell/css/upsell.css' );
 }
@@ -52,7 +52,7 @@ function cyberchimps_display_upsell() {
 					<div id="upsell_header" class="span12">
 						<h2>
 							<a href="http://cyberchimps.com" target="_blank">
-								<img src="<?php echo $directory_uri; ?>core/includes/upsell/images/upsell-logo.png"/>
+								<img src="<?php echo $directory_uri; ?>/core/includes/upsell/images/upsell-logo.png"/>
 							</a>
 						</h2>
 
