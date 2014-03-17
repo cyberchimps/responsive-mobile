@@ -87,7 +87,7 @@ Class Responsive_Options {
 		foreach ( $section as $option ) {
 			$html .= $option;
 		}
-		
+
 		$html .= $this->save();
 		$html .= '</div><!-- rwd-block --></div><!-- rwd-container -->';
 

@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66774650-a196-4b9a-8ef2-ee8441385bb6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/includes/theme-options/class-responsive-options.php" afterPath="$PROJECT_DIR$/core/includes/theme-options/class-responsive-options.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="66774650-a196-4b9a-8ef2-ee8441385bb6" name="Default" comment="" />
     <ignored path="responsive2.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,7 +44,7 @@
       <file leaf-file-name="class-responsive-options.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/includes/theme-options/class-responsive-options.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="8" selection-start="2245" selection-end="2245" vertical-scroll-proportion="-0.84009546" vertical-offset="2332" max-vertical-offset="6974">
+            <state line="89" column="0" selection-start="2243" selection-end="2243" vertical-scroll-proportion="-0.84009546" vertical-offset="2332" max-vertical-offset="6974">
               <folding />
             </state>
           </provider>
@@ -236,6 +232,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../wp-includes" />
     <property name="recentsLimit" value="5" />
     <property name="LayoutCode.rearrangeEntriesPHP" value="false" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -541,7 +538,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/includes/theme-options/class-responsive-options.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="8" selection-start="2245" selection-end="2245" vertical-scroll-proportion="-0.84009546" vertical-offset="2332" max-vertical-offset="6974">
+        <state line="89" column="0" selection-start="2243" selection-end="2243" vertical-scroll-proportion="-0.84009546" vertical-offset="2332" max-vertical-offset="6974">
           <folding />
         </state>
       </provider>
