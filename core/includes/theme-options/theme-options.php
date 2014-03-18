@@ -23,7 +23,7 @@ if( !defined( 'ABSPATH' ) ) {
 /**
  * Call the options class
  */
-require( get_template_directory() . '/core/includes/theme-options/class-responsive-options.php' );
+require( get_template_directory() . '/core/includes/theme-options/responsive-options-class.php' );
 
 /**
  * Responsive Theme option defaults
@@ -125,7 +125,7 @@ function responsive_theme_options_array() {
 	 * @placeholder The placeholder for text and textarea
 	 * @options array used by select dropdown lists
 	 */
-	$options = apply_filters( 'responsive_options_filter', array(
+	$options = apply_filters( 'Responsive_Options_Class_filter', array(
 		'theme_elements' => array(
 			array(
 				'title'       => __( 'Backward Compatibility', 'responsive' ),
@@ -239,21 +239,21 @@ function responsive_theme_options_array() {
 				'title'       => __( 'Default Static Page Layout', 'responsive' ),
 				'type'        => 'select',
 				'id'          => 'static_page_layout_default',
-				'options'     => Responsive_Options::valid_layouts(),
+				'options'     => Responsive_Options_Class::valid_layouts(),
 				'validate'    => 'layouts'
 			),
 			array(
 				'title'       => __( 'Default Single Blog Post Layout', 'responsive' ),
 				'type'        => 'select',
 				'id'          => 'single_post_layout_default',
-				'options'     => Responsive_Options::valid_layouts(),
+				'options'     => Responsive_Options_Class::valid_layouts(),
 				'validate'    => 'layouts'
 			),
 			array(
 				'title'       => __( 'Default Blog Posts Index Layout', 'responsive' ),
 				'type'        => 'select',
 				'id'          => 'blog_posts_index_layout_default',
-				'options'     => Responsive_Options::valid_layouts(),
+				'options'     => Responsive_Options_Class::valid_layouts(),
 				'validate'    => 'layouts'
 			)
 		),

@@ -7,7 +7,7 @@
  * Requires a sections array and an options array
  *
  *
- * @file           Responsive_Options.php
+ * @file           Responsive_Options_Class.php
  * @package        Responsive
  * @author         CyberChimps
  * @copyright      CyberChimps
@@ -16,7 +16,7 @@
  * @since          available since Release 1.9.5
  */
 
-Class Responsive_Options {
+Class Responsive_Options_Class {
 
 	public $sections;
 
