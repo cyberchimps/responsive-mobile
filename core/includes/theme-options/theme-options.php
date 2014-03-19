@@ -23,7 +23,7 @@ if( !defined( 'ABSPATH' ) ) {
 /**
  * Call the options class
  */
-require( get_template_directory() . '/core/includes/theme-options/responsive-options-class.php' );
+require( get_template_directory() . '/core/includes/theme-options/class-responsive-options.php.php' );
 
 /**
  * Responsive Theme option defaults
@@ -239,21 +239,21 @@ function responsive_theme_options_array() {
 				'title'       => __( 'Default Static Page Layout', 'responsive' ),
 				'type'        => 'select',
 				'id'          => 'static_page_layout_default',
-				'options'     => Responsive_Options_Class::valid_layouts(),
+				'options'     => Responsive_Options::valid_layouts(),
 				'validate'    => 'layouts'
 			),
 			array(
 				'title'       => __( 'Default Single Blog Post Layout', 'responsive' ),
 				'type'        => 'select',
 				'id'          => 'single_post_layout_default',
-				'options'     => Responsive_Options_Class::valid_layouts(),
+				'options'     => Responsive_Options::valid_layouts(),
 				'validate'    => 'layouts'
 			),
 			array(
 				'title'       => __( 'Default Blog Posts Index Layout', 'responsive' ),
 				'type'        => 'select',
 				'id'          => 'blog_posts_index_layout_default',
-				'options'     => Responsive_Options_Class::valid_layouts(),
+				'options'     => Responsive_Options::valid_layouts(),
 				'validate'    => 'layouts'
 			)
 		),

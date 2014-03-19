@@ -83,7 +83,7 @@ function responsive_theme_options_do_page() {
 	if( class_exists( 'Responsive_Pro_Options' ) ) {
 		$display = new Responsive_Pro_Options( $sections, $options );
 	} else {
-		$display = new Responsive_Options_Class( $sections, $options );
+		$display = new Responsive_Options( $sections, $options );
 	}
 
 	?>
