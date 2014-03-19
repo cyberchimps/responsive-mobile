@@ -65,7 +65,7 @@ Class Responsive_Options {
 		register_setting(
 			'responsive_options',
 			'responsive_theme_options',
-			array( $this, 'theme_options_validate' )
+			array( &$this, 'theme_options_validate' )
 		);
 	}
 
@@ -401,6 +401,8 @@ Class Responsive_Options {
 	 */
 	public function theme_options_validate( $input ) {
 
+		print_r( $input );
+
 		$responsive_options = responsive_get_options();
 		$defaults = responsive_get_option_defaults();
 		if( isset( $input['reset'] ) ) {
@@ -435,7 +437,7 @@ Class Responsive_Options {
 					}
 
 					else {
-						return  new WP_Error('broke', __("I've fallen and can't get up"));
+						print_r( 'error' );
 					}
 
 					// General filter
@@ -450,6 +452,8 @@ Class Responsive_Options {
 	}
 
 	public function validate_checkbox( $input ) {
+
+		print_r( $input );
 		foreach( $input as $checkbox ) {
 			if( !isset( $input[$checkbox] ) ) {
 				$input[$checkbox] = null;
