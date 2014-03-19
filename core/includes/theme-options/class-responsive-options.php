@@ -36,19 +36,87 @@ Class Responsive_Options {
 		$this->responsive_options = get_option( 'responsive_theme_options' );
 		// Set confirmaton text for restore default option as attributes of submit_button().
 		$this->attributes['onclick'] = 'return confirm("' . __( 'Do you want to restore? \nAll theme settings will be lost! \nClick OK to Restore.', 'responsive' ) . '")';
+		add_action( 'admin_print_styles-appearance_page_theme_options', array( $this, 'admin_enqueue_scripts' ) );
 		// @TODO Unable to get this work
 		add_action( 'admin_init', array( $this, 'theme_options_init' ) );
+		add_action( 'admin_menu', array( $this, 'theme_page_init' ) );
+		
 	}
 
 	/**
-	 * Init plugin options to white list our options
+	 * Init theme options page
+	 */
+	public function theme_page_init() {
+		// Register the page
+		add_theme_page(
+			__( 'Theme Options', 'responsive' ),
+			__( 'Theme Options', 'responsive' ),
+			'edit_theme_options',
+			'theme_options',
+			array( $this, 'theme_options_do_page' )
+		);
+	}
+
+	/**
+	 * Init theme options to white list our options
 	 */
 	public function theme_options_init() {
+
 		register_setting(
 			'responsive_options',
 			'responsive_theme_options',
-			'responsive_theme_options_validate'
+			array( $this, 'theme_options_validate' )
 		);
+	}
+
+	/**
+	 * A safe way of adding JavaScripts to a WordPress generated page.
+	 */
+	public function admin_enqueue_scripts( $hook_suffix ) {
+		$template_directory_uri = get_template_directory_uri();
+
+		wp_enqueue_style( 'responsive-theme-options', $template_directory_uri . '/core/includes/theme-options/theme-options.css', false, '1.0' );
+		wp_enqueue_script( 'responsive-theme-options', $template_directory_uri . '/core/includes/theme-options/theme-options.js', array( 'jquery' ), '1.0' );
+	}
+
+	public function theme_options_do_page() {
+
+		if( !isset( $_REQUEST['settings-updated'] ) ) {
+			$_REQUEST['settings-updated'] = false;
+		}
+
+		// Set confirmaton text for restore default option as attributes of submit_button().
+		$attributes['onclick'] = 'return confirm("' . __( 'Do you want to restore? \nAll theme settings will be lost! \nClick OK to Restore.', 'responsive' ) . '")';
+		?>
+
+		<div class="wrap">
+			<?php
+			/**
+			 * < 3.4 Backward Compatibility
+			 */
+			?>
+			<?php $theme_name = function_exists( 'wp_get_theme' ) ? wp_get_theme() : get_current_theme(); ?>
+			<?php screen_icon();
+			echo "<h2>" . $theme_name . " " . __( 'Theme Options', 'responsive' ) . "</h2>"; ?>
+
+
+			<?php if( false !== $_REQUEST['settings-updated'] ) : ?>
+				<div class="updated fade"><p><strong><?php _e( 'Options Saved', 'responsive' ); ?></strong></p></div>
+			<?php endif; ?>
+
+			<?php responsive_theme_options(); // Theme Options Hook ?>
+
+			<form method="post" action="options.php">
+				<?php settings_fields( 'responsive_options' ); ?>
+
+				<div id="rwd" class="grid col-940">
+					<?php
+					$this->render_display();
+					?>
+				</div><!-- .grid col-940 -->
+			</form>
+		</div><!-- wrap -->
+	<?php
 	}
 
 	/**
@@ -59,7 +127,6 @@ Class Responsive_Options {
 	 * @return string
 	 */
 	public function render_display() {
-		$html = '';
 		foreach( $this->sections as $section ) {
 			$sub = $this->options[$section['id']];
 			$this->container( $section['title'], $sub );
@@ -322,5 +389,115 @@ Class Responsive_Options {
 		$html .= '</div>';
 		ob_clean();
 		return $html;
+	}
+
+
+	/**
+	 * SANITIZE SECTION
+	 */
+
+	/**
+	 * Sanitize and validate input. Accepts an array, return a sanitized array.
+	 */
+	public function theme_options_validate( $input ) {
+
+		$responsive_options = responsive_get_options();
+		$defaults = responsive_get_option_defaults();
+		if( isset( $input['reset'] ) ) {
+
+			$input = $defaults;
+
+		} else {
+
+			$settings = $this->options;
+
+			// Loop through each section
+			foreach( $settings as $section ) {
+
+				$input      = $input ? $input : array();
+				$input      = apply_filters( 'responsive_settings_sanitize', $input );
+
+				// Loop through each setting being saved and pass it through a sanitization filter
+				foreach( $input as $key => $value ) {
+
+//				@TODO @grappler the $section[ $key ]['validate'] is returning an undefined index as $key does not exist in $section so it is returning false and just continuing to save
+//				so we need to make it work but we also need to not save if it does not exist as unvalidated data would be saved
+					// Get the setting type (checkbox, select, etc)
+					$validate = isset( $section[ $key ]['validate'] ) ? $section[ $key ]['validate'] : false;
+
+					if( $validate ) {
+						// Field type specific filter
+//					@TODO @grappler $validate is not set anywhere
+						$validate_function = 'validate_' . $validate . '(' . $value . ')';
+
+						$input[ $key ] = $this->$validate_function;
+//						$input[ $key ] = apply_filters( 'responsive_options_validate_' . $validate, $value, $key );
+					}
+
+					else {
+						return  new WP_Error('broke', __("I've fallen and can't get up"));
+					}
+
+					// General filter
+					$input[ $key ] = apply_filters( 'responsive_options_validate', $value, $key );
+				}
+
+			}
+
+		}
+
+		return $input;
+	}
+
+	public function validate_checkbox( $input ) {
+		foreach( $input as $checkbox ) {
+			if( !isset( $input[$checkbox] ) ) {
+				$input[$checkbox] = null;
+			}
+			$input[$checkbox] = ( 1 == $input[$checkbox] ? 1 : 0 );
+		}
+		return $input;
+	}
+
+	public function validate_layout( $input ) {
+		foreach( $input as $layout ) {
+			$input[ $layout ] = ( isset( $input[$layout] ) && array_key_exists( $input[$layout], responsive_get_valid_layouts() ) ? $input[$layout] : $responsive_options[$layout] );
+		}
+		return $input;
+	}
+
+	public function validate_editor( $input ) {
+		foreach( $input as $content ) {
+			$input[ $content ] = ( in_array( $input[$content], array( $defaults[$content], '' ) ) ? $defaults[$content] : wp_kses_stripslashes( $input[$content] ) );
+		}
+		return $input;
+	}
+
+	public function validate_url( $input ) {
+		foreach( $input as $content ) {
+			$input[ $content ] = esc_url_raw( $input[ $content ] );
+		}
+		return $input;
+	}
+
+	public function validate_text( $input ) {
+		foreach( $input as $text ) {
+			$input[ $content ] = sanitize_text_field( $input[ $text ] );
+		}
+		return $input;
+	}
+
+	public function validate_css( $input ) {
+		foreach( $input as $text ) {
+			$input[ $content ] = wp_kses_stripslashes( $input[ $text ] );
+		}
+		return $input;
+	}
+
+	public function validate_js( $input ) {
+		foreach( $input as $text ) {
+			$input[ $content ] = wp_kses_stripslashes( $input[ $text ] );
+		}
+		return $input;
 	}
 }

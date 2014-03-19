@@ -23,7 +23,7 @@ if( !defined( 'ABSPATH' ) ) {
 /**
  * Call the options class
  */
-require( get_template_directory() . '/core/includes/theme-options/class-responsive-options.php.php' );
+require( get_template_directory() . '/core/includes/theme-options/class-responsive-options.php' );
 
 /**
  * Responsive Theme option defaults
@@ -67,8 +67,6 @@ function responsive_get_option_defaults() {
 	return apply_filters( 'responsive_option_defaults', $defaults );
 }
 
-
-function responsive_theme_options_sections_array() {
 	/**
 	 * Create array of option sections
 	 *
@@ -106,11 +104,6 @@ function responsive_theme_options_sections_array() {
 		)
 	) );
 
-	return $sections;
-}
-
-
-function responsive_theme_options_array() {
 	/**
 	 * Creates and array of options that get added to the relevant sections
 	 *
@@ -373,5 +366,4 @@ function responsive_theme_options_array() {
 		)
 	) );
 
-	return $options;
-}
+$responsive_theme_options = new Responsive_Options( $sections, $options );
