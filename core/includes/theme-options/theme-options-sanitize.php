@@ -24,6 +24,8 @@ if( !defined( 'ABSPATH' ) ) {
  */
 function responsive_theme_options_validate( $input ) {
 
+	print_r( 'function' );
+
 	$responsive_options = responsive_get_options();
 	$defaults = responsive_get_option_defaults();
 	if( isset( $input['reset'] ) ) {

@@ -401,8 +401,6 @@ Class Responsive_Options {
 	 */
 	public function theme_options_validate( $input ) {
 
-		print_r( $input );
-
 		$responsive_options = responsive_get_options();
 		$defaults = responsive_get_option_defaults();
 		if( isset( $input['reset'] ) ) {
@@ -416,6 +414,10 @@ Class Responsive_Options {
 			// Loop through each section
 			foreach( $settings as $section ) {
 
+				foreach( $section as $options ) {
+
+					print_r( $options );
+
 				$input      = $input ? $input : array();
 				$input      = apply_filters( 'responsive_settings_sanitize', $input );
 
@@ -425,14 +427,11 @@ Class Responsive_Options {
 //				@TODO @grappler the $section[ $key ]['validate'] is returning an undefined index as $key does not exist in $section so it is returning false and just continuing to save
 //				so we need to make it work but we also need to not save if it does not exist as unvalidated data would be saved
 					// Get the setting type (checkbox, select, etc)
-					$validate = isset( $section[ $key ]['validate'] ) ? $section[ $key ]['validate'] : false;
+					$validate = isset( $options['validate'] ) ? $options['validate'] : false;
 
 					if( $validate ) {
-						// Field type specific filter
-//					@TODO @grappler $validate is not set anywhere
-						$validate_function = 'validate_' . $validate . '(' . $value . ')';
 
-						$input[ $key ] = $this->$validate_function;
+						$input[ $key ] = $this->{'validate_' . $validate}($value);
 //						$input[ $key ] = apply_filters( 'responsive_options_validate_' . $validate, $value, $key );
 					}
 
@@ -444,6 +443,8 @@ Class Responsive_Options {
 					$input[ $key ] = apply_filters( 'responsive_options_validate', $value, $key );
 				}
 
+				}
+
 			}
 
 		}
@@ -453,12 +454,8 @@ Class Responsive_Options {
 
 	public function validate_checkbox( $input ) {
 
-		print_r( $input );
-		foreach( $input as $checkbox ) {
-			if( !isset( $input[$checkbox] ) ) {
-				$input[$checkbox] = null;
-			}
-			$input[$checkbox] = ( 1 == $input[$checkbox] ? 1 : 0 );
+		if( ! is_bool( $input ) ) {
+			$input = null;
 		}
 		return $input;
 	}
@@ -471,9 +468,9 @@ Class Responsive_Options {
 	}
 
 	public function validate_editor( $input ) {
-		foreach( $input as $content ) {
-			$input[ $content ] = ( in_array( $input[$content], array( $defaults[$content], '' ) ) ? $defaults[$content] : wp_kses_stripslashes( $input[$content] ) );
-		}
+
+		$input[ $content ] = ( in_array( $input[$content], array( $defaults[$content], '' ) ) ? $defaults[$content] : wp_kses_stripslashes( $input[$content] ) );
+
 		return $input;
 	}
 
@@ -485,9 +482,9 @@ Class Responsive_Options {
 	}
 
 	public function validate_text( $input ) {
-		foreach( $input as $text ) {
-			$input[ $content ] = sanitize_text_field( $input[ $text ] );
-		}
+
+		$input = sanitize_text_field( $input );
+
 		return $input;
 	}
 
