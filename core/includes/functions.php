@@ -12,11 +12,12 @@
 function responsive_get_options() {
 
 	// Parse array of option defaults against user-configured Theme options
-	$responsive_options = wp_parse_args( get_option( 'responsive_theme_options', array() ), responsive_get_option_defaults() );
+	$responsive_options = Responsive_Options::get_parse_options();
 
 	// Return parsed args array
 	return $responsive_options;
 }
+add_filter( 'responsive_options_init', 'responsive_get_options' );
 
 /**
  * Set the content width based on the theme's design and stylesheet.

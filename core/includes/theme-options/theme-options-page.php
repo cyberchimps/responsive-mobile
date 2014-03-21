@@ -19,7 +19,6 @@ if( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
 /**
  * Theme options upgrade bar
  */

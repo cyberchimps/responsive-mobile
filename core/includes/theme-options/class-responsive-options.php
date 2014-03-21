@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Theme Options Class
  *
@@ -15,14 +16,19 @@
  * @version        Release: 1.0
  * @since          available since Release 1.9.5
  */
-
 Class Responsive_Options {
 
 	public $sections;
 
+	public $options_sections;
+
 	public $options;
 
-	public $responsive_options;
+	public static $options_defaults;
+
+	public static $responsive_options;
+
+	protected $default_options;
 
 	/**
 	 * Pulls in the arrays for the options and sets up the responsive options
@@ -32,15 +38,16 @@ Class Responsive_Options {
 	 */
 	public function __construct( $sections, $options ) {
 		$this->sections           = $sections;
-		$this->options            = $options;
-		$this->responsive_options = get_option( 'responsive_theme_options' );
+		$this->options_sections   = $options;
+		$this->options            = $this->get_options_only( $this->options_sections );
+		self::$options_defaults   = $this->get_options_defaults( $this->options );
+		self::$responsive_options = get_option( 'responsive_theme_options' );
+
 		// Set confirmaton text for restore default option as attributes of submit_button().
 		$this->attributes['onclick'] = 'return confirm("' . __( 'Do you want to restore? \nAll theme settings will be lost! \nClick OK to Restore.', 'responsive' ) . '")';
 		add_action( 'admin_print_styles-appearance_page_theme_options', array( $this, 'admin_enqueue_scripts' ) );
-		// @TODO Unable to get this work
 		add_action( 'admin_init', array( $this, 'theme_options_init' ) );
 		add_action( 'admin_menu', array( $this, 'theme_page_init' ) );
-		
 	}
 
 	/**
@@ -72,16 +79,19 @@ Class Responsive_Options {
 	/**
 	 * A safe way of adding JavaScripts to a WordPress generated page.
 	 */
-	public function admin_enqueue_scripts( $hook_suffix ) {
+	public function admin_enqueue_scripts() {
 		$template_directory_uri = get_template_directory_uri();
 
 		wp_enqueue_style( 'responsive-theme-options', $template_directory_uri . '/core/includes/theme-options/theme-options.css', false, '1.0' );
 		wp_enqueue_script( 'responsive-theme-options', $template_directory_uri . '/core/includes/theme-options/theme-options.js', array( 'jquery' ), '1.0' );
 	}
 
+	/**
+	 * Create the theme options page container and initialise the render display method
+	 */
 	public function theme_options_do_page() {
 
-		if( !isset( $_REQUEST['settings-updated'] ) ) {
+		if ( !isset( $_REQUEST['settings-updated'] ) ) {
 			$_REQUEST['settings-updated'] = false;
 		}
 
@@ -100,7 +110,7 @@ Class Responsive_Options {
 			echo "<h2>" . $theme_name . " " . __( 'Theme Options', 'responsive' ) . "</h2>"; ?>
 
 
-			<?php if( false !== $_REQUEST['settings-updated'] ) : ?>
+			<?php if ( false !== $_REQUEST['settings-updated'] ) : ?>
 				<div class="updated fade"><p><strong><?php _e( 'Options Saved', 'responsive' ); ?></strong></p></div>
 			<?php endif; ?>
 
@@ -113,22 +123,23 @@ Class Responsive_Options {
 					<?php
 					$this->render_display();
 					?>
-				</div><!-- .grid col-940 -->
+				</div>
+				<!-- .grid col-940 -->
 			</form>
 		</div><!-- wrap -->
 	<?php
 	}
 
 	/**
-	 * Displays the options, called from class instance
+	 * Displays the options
 	 *
 	 * Loops through sections array
 	 *
 	 * @return string
 	 */
 	public function render_display() {
-		foreach( $this->sections as $section ) {
-			$sub = $this->options[$section['id']];
+		foreach ( $this->sections as $section ) {
+			$sub = $this->options_sections[$section['id']];
 			$this->container( $section['title'], $sub );
 		}
 	}
@@ -136,7 +147,7 @@ Class Responsive_Options {
 	/**
 	 * Creates main sections title and container
 	 *
-	 * Loops through the options array
+	 * Loops through the sections array
 	 *
 	 * @param $title string
 	 * @param $sub array
@@ -145,7 +156,7 @@ Class Responsive_Options {
 	 */
 	protected function container( $title, $sub ) {
 
-		foreach( $sub as $opt ) {
+		foreach ( $sub as $opt ) {
 			$section[] = $this->section( $this->parse_args( $opt ) );
 		}
 
@@ -173,7 +184,7 @@ Class Responsive_Options {
 	protected function sub_heading( $title, $sub_title ) {
 
 		// If width is not set or it's not set to full then go ahead and create default layout
-		if( !isset( $args['width'] ) || $args['width'] != 'full' ) {
+		if ( !isset( $args['width'] ) || $args['width'] != 'full' ) {
 			$html = '<div class="grid col-300">';
 
 			$html .= $title;
@@ -199,7 +210,7 @@ Class Responsive_Options {
 	protected function section( $options ) {
 
 		$html = $this->sub_heading( $options['title'], $options['subtitle'] );
-		
+
 		// If the width is not set to full then create normal grid size, otherwise create full width
 		$html .= ( !isset( $options['width'] ) || $options['width'] != 'full' ) ? '<div class="grid col-620 fit">' : '<div class="grid col-940">';
 
@@ -222,7 +233,7 @@ Class Responsive_Options {
 
 		extract( $args );
 
-		$value = ( !empty( $this->responsive_options[$id] ) ) ? ( $this->responsive_options[$id] ) : '';
+		$value = ( !empty( self::$responsive_options[$id] ) ) ? self::$responsive_options[$id] : '';
 
 		$html = '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" class="regular-text" type="text" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" value="' . esc_html( $value ) . '" placeholder="' . esc_attr( $placeholder ) . '" /><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
 
@@ -243,7 +254,7 @@ Class Responsive_Options {
 		$class[] = 'large-text';
 		$classes = implode( ' ', $class );
 
-		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
+		$value = ( !empty( self::$responsive_options[$id] ) ) ? self::$responsive_options[$id] : '';
 
 		$html = '<p>' . esc_html( $heading ) . '</p><textarea id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" class="' . esc_attr( $classes ) . '" cols="50" rows="30" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" placeholder="' . $placeholder . '">' . esc_html( $value ) . '</textarea><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
 
@@ -264,8 +275,12 @@ Class Responsive_Options {
 		extract( $args );
 
 		$html = '<select id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">';
-		foreach( $options as $key => $value ) {
-			$html .= '<option' . selected( $this->responsive_options[$id], $key, false ) . ' value="' . esc_attr( $key ) . '">' . esc_html( $value ) . '</option>';
+		foreach ( $options as $key => $value ) {
+			// looping through and creating all the options and making the one saved in the options as the chosen one otherwise falling back to the default
+			$html .= '<option' . selected( ( isset( self::$responsive_options[$id] ) ) ? self::$responsive_options[$id] : $default, $key, false ) . ' value="' . esc_attr( $key ) . '">' . esc_html(
+					$value
+				) .
+				'</option>';
 		}
 		$html .= '</select>';
 
@@ -284,7 +299,7 @@ Class Responsive_Options {
 
 		extract( $args );
 
-		$checked = ( isset( $this->responsive_options[$id] ) ) ? checked( '1', esc_attr( $this->responsive_options[$id] ), false ) : checked( 0, 1 );
+		$checked = ( isset( self::$responsive_options[$id] ) ) ? checked( '1', esc_attr( self::$responsive_options[$id] ), false ) : checked( 0, 1 );
 
 		$html = '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" type="checkbox" value="1" ' . $checked . '/><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . wp_kses_post( $description ) . '</label>';
 
@@ -292,7 +307,11 @@ Class Responsive_Options {
 	}
 
 	/**
-	 * Creates description only. No input
+	 * Creates a description
+	 *
+	 * @param $args
+	 *
+	 * @return string
 	 */
 	protected function description( $args ) {
 
@@ -316,20 +335,267 @@ Class Responsive_Options {
 	}
 
 	/**
-	 * Default layouts static function
+	 * Get Default layouts from theme-options.php
 	 *
 	 * @return array
 	 */
 	public static function valid_layouts() {
-		$layouts = array(
-			'content-sidebar-page'      => __( 'Content/Sidebar', 'responsive' ),
-			'sidebar-content-page'      => __( 'Sidebar/Content', 'responsive' ),
-			'content-sidebar-half-page' => __( 'Content/Sidebar Half Page', 'responsive' ),
-			'sidebar-content-half-page' => __( 'Sidebar/Content Half Page', 'responsive' ),
-			'full-width-page'           => __( 'Full Width Page (no sidebar)', 'responsive' )
+
+		$default = do_action( 'responsive_get_default_layouts' );
+
+		if ( !isset( $default ) ) {
+			$default = array();
+		}
+
+		return $default;
+	}
+
+	/**
+	 * Creates editor input
+	 *
+	 * @param $args array
+	 *
+	 * @return string
+	 */
+	protected function editor( $args ) {
+
+		extract( $args );
+
+		$class[] = 'large-text';
+		$classes = implode( ' ', $class );
+
+		$value = ( !empty( self::$responsive_options[$id] ) ) ? self::$responsive_options[$id] : '';
+
+		$editor_settings = array(
+			'textarea_name' => 'responsive_theme_options[' . $id . ']',
+			'media_buttons' => true,
+			'tinymce'       => array( 'plugins' => 'wordpress' ),
+			'editor_class'  => esc_attr( $classes )
 		);
 
-		return apply_filters( 'responsive_valid_layouts', $layouts );
+		$html = '<div class="tinymce-editor">';
+		ob_start();
+		$html .= wp_editor( $value, 'responsive_theme_options[' . $id . ']', $editor_settings );
+		$html .= ob_get_contents();
+		$html .= '<label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
+		$html .= '</div>';
+		ob_clean();
+
+		return $html;
+	}
+
+
+	/**
+	 * VALIDATION SECTION
+	 */
+
+	/**
+	 * Initialises the validation of the settings when submitted
+	 *
+	 * Called by the register_settings()
+	 *
+	 * @param $input
+	 *
+	 * @return array|mixed|void
+	 */
+	public function theme_options_validate( $input ) {
+
+		$defaults = $this->default_options;
+		if ( isset( $input['reset'] ) ) {
+
+			$input = $defaults;
+
+		}
+		else {
+
+			// remove the submit button that gets included in the $input
+			unset ( $input['submit'] );
+
+			$options = $this->options;
+
+			$input = $input ? $input : array();
+			$input = apply_filters( 'responsive_settings_sanitize', $input );
+
+			// Loop through each setting being saved and pass it through a sanitization filter
+			foreach ( $input as $key => $value ) {
+
+				$validate = isset( $options[$key]['validate'] ) ? $options[$key]['validate'] : false;
+
+				if ( $validate ) {
+
+					$input[$key] = $this->{'validate_' . $validate}( $value, $key );
+				}
+
+				else {
+					print_r( 'error' );
+				}
+
+				// General filter
+				$input[$key] = apply_filters( 'responsive_options_validate', $value, $key );
+			}
+
+		}
+
+		return $input;
+	}
+
+	/**
+	 * Validates checkbox
+	 *
+	 * checks if the value submitted is a boolean value
+	 *
+	 * @param $input
+	 * @param $key
+	 *
+	 * @return null
+	 */
+	protected function validate_checkbox( $input, $key ) {
+
+		if ( !is_bool( $input ) ) {
+			$input = null;
+		}
+
+		return $input;
+	}
+
+	/**
+	 * Validates a dropdown select option
+	 *
+	 * checks that the value is available in the options, if it can't find it then to return the default
+	 *
+	 * @param $input
+	 * @param $key
+	 *
+	 * @return mixed
+	 */
+	protected function validate_select( $input, $key ) {
+
+		$options = $this->options[$key];
+		$input = ( array_key_exists( $input, $options['options'] ) ? $input : self::$options_defaults[$key] );
+
+		return $input;
+	}
+
+	/**
+	 * Validates the editor textarea
+	 *
+	 * @param $input
+	 * @param $key
+	 *
+	 * @return string
+	 */
+	protected function validate_editor( $input, $key ) {
+
+		$input = wp_kses_stripslashes( $input );
+
+		return $input;
+	}
+
+	/**
+	 * Validates/sanitizes a url
+	 *
+	 * @param $input
+	 * @param $key
+	 *
+	 * @return string
+	 */
+	protected function validate_url( $input, $key ) {
+
+		$input = esc_url_raw( $input );
+		
+		return $input;
+	}
+
+	/**
+	 * Validates/sanitizes a text input
+	 *
+	 * @param $input
+	 * @param $key
+	 *
+	 * @return string
+	 */
+	protected function validate_text( $input, $key ) {
+
+		$input = sanitize_text_field( $input );
+
+		return $input;
+	}
+
+	/**
+	 * Validates the css textarea
+	 *
+	 * @param $input
+	 * @param $key
+	 *
+	 * @return string
+	 */
+	public function validate_css( $input, $key ) {
+
+		$input = wp_kses_stripslashes( $input );
+
+		return $input;
+	}
+
+	/**
+	 * Validates the javascript textarea
+	 * @param $input
+	 * @param $key
+	 *
+	 * @return string
+	 */
+	protected function validate_js( $input, $key ) {
+
+		$input = wp_kses_stripslashes( $input );
+
+		return $input;
+	}
+
+	/**
+	 * Removes the sections from the options array given in construct
+	 * and sets the id as the key
+	 *
+	 * @param $options
+	 */
+	protected function get_options_only( $options ) {
+
+		$new_array = array();
+		foreach ( $options as $option ) {
+			foreach ( $option as $opt ) {
+				$new_array[$opt['id']] = $opt;
+			}
+
+		}
+
+		return $new_array;
+
+	}
+
+	/**
+	 * Gets the defaults as key => value
+	 *
+	 * @param $options
+	 *
+	 * @return array
+	 */
+	protected function get_options_defaults( $options ) {
+
+		$defaults = array();
+		foreach ( $options as $option ) {
+			$defaults[$option['id']] = $option['default'];
+		}
+
+		return $defaults;
+	}
+
+	/**
+	 * parses the options with the defaults to get a complete array
+	 *
+	 * @return array
+	 */
+	public static function get_parse_options() {
+		$options = wp_parse_args( self::$responsive_options, self::$options_defaults );
+
+		return $options;
 	}
 
 	/**
@@ -350,155 +616,12 @@ Class Responsive_Options {
 			'description' => '',
 			'placeholder' => '',
 			'options'     => array(),
+			'default'     => '',
 			'sanitize'    => ''
 		);
 
 		$result = array_merge( $default_args, $args );
 
 		return $result;
-	}
-
-	/**
-	 * Creates editor input
-	 *
-	 * @param $args array
-	 *
-	 * @return string
-	 */
-	protected function editor( $args ) {
-
-		extract( $args );
-
-		$class[] = 'large-text';
-		$classes = implode( ' ', $class );
-
-		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
-
-		$editor_settings = array(
-			'textarea_name' => 'responsive_theme_options[' . $id . ']',
-			'media_buttons' => true,
-			'tinymce'       => array( 'plugins' => 'wordpress' ),
-			'editor_class'  => esc_attr( $classes )
-		);
-
-		$html = '<div class="tinymce-editor">';
-		ob_start();
-		$html .= wp_editor( $value, 'responsive_theme_options[' . $id . ']', $editor_settings );
-		$html .= ob_get_contents();
-		$html .= '<label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
-		$html .= '</div>';
-		ob_clean();
-		return $html;
-	}
-
-
-	/**
-	 * SANITIZE SECTION
-	 */
-
-	/**
-	 * Sanitize and validate input. Accepts an array, return a sanitized array.
-	 */
-	public function theme_options_validate( $input ) {
-
-		$responsive_options = responsive_get_options();
-		$defaults = responsive_get_option_defaults();
-		if( isset( $input['reset'] ) ) {
-
-			$input = $defaults;
-
-		} else {
-
-			$settings = $this->options;
-
-			// Loop through each section
-			foreach( $settings as $section ) {
-
-				foreach( $section as $options ) {
-
-					print_r( $options );
-
-				$input      = $input ? $input : array();
-				$input      = apply_filters( 'responsive_settings_sanitize', $input );
-
-				// Loop through each setting being saved and pass it through a sanitization filter
-				foreach( $input as $key => $value ) {
-
-//				@TODO @grappler the $section[ $key ]['validate'] is returning an undefined index as $key does not exist in $section so it is returning false and just continuing to save
-//				so we need to make it work but we also need to not save if it does not exist as unvalidated data would be saved
-					// Get the setting type (checkbox, select, etc)
-					$validate = isset( $options['validate'] ) ? $options['validate'] : false;
-
-					if( $validate ) {
-
-						$input[ $key ] = $this->{'validate_' . $validate}($value);
-//						$input[ $key ] = apply_filters( 'responsive_options_validate_' . $validate, $value, $key );
-					}
-
-					else {
-						print_r( 'error' );
-					}
-
-					// General filter
-					$input[ $key ] = apply_filters( 'responsive_options_validate', $value, $key );
-				}
-
-				}
-
-			}
-
-		}
-
-		return $input;
-	}
-
-	public function validate_checkbox( $input ) {
-
-		if( ! is_bool( $input ) ) {
-			$input = null;
-		}
-		return $input;
-	}
-
-	public function validate_layout( $input ) {
-		foreach( $input as $layout ) {
-			$input[ $layout ] = ( isset( $input[$layout] ) && array_key_exists( $input[$layout], responsive_get_valid_layouts() ) ? $input[$layout] : $responsive_options[$layout] );
-		}
-		return $input;
-	}
-
-	public function validate_editor( $input ) {
-
-		$input[ $content ] = ( in_array( $input[$content], array( $defaults[$content], '' ) ) ? $defaults[$content] : wp_kses_stripslashes( $input[$content] ) );
-
-		return $input;
-	}
-
-	public function validate_url( $input ) {
-		foreach( $input as $content ) {
-			$input[ $content ] = esc_url_raw( $input[ $content ] );
-		}
-		return $input;
-	}
-
-	public function validate_text( $input ) {
-
-		$input = sanitize_text_field( $input );
-
-		return $input;
-	}
-
-	public function validate_css( $input ) {
-		foreach( $input as $text ) {
-			$input[ $content ] = wp_kses_stripslashes( $input[ $text ] );
-		}
-		return $input;
-	}
-
-	public function validate_js( $input ) {
-		foreach( $input as $text ) {
-			$input[ $content ] = wp_kses_stripslashes( $input[ $text ] );
-		}
-		return $input;
 	}
 }
