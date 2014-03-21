@@ -2307,55 +2307,55 @@ li {
 #site-navigation:after {
   clear: both;
 }
-#site-navigation .menu {
+#site-navigation ul {
   margin: 0;
   padding: 0;
 }
-#site-navigation .menu:before,
-#site-navigation .menu:after {
+#site-navigation ul:before,
+#site-navigation ul:after {
   content: " ";
   display: table;
 }
-#site-navigation .menu:after {
+#site-navigation ul:after {
   clear: both;
 }
-#site-navigation .menu:before,
-#site-navigation .menu:after {
+#site-navigation ul:before,
+#site-navigation ul:after {
   content: " ";
   display: table;
 }
-#site-navigation .menu:after {
+#site-navigation ul:after {
   clear: both;
 }
-#site-navigation .menu li {
+#site-navigation ul li {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-#site-navigation .menu > li {
+#site-navigation ul > li {
   position: relative;
   float: left;
   padding-bottom: 10px;
 }
-#site-navigation .menu > li:hover ul {
+#site-navigation ul > li:hover ul {
   display: block;
 }
-#site-navigation .menu > li a {
+#site-navigation ul > li a {
   margin-right: 20px;
   color: #eeeeee;
 }
-#site-navigation .menu > li a:hover {
+#site-navigation ul > li a:hover {
   text-decoration: none;
   color: #999999;
 }
-#site-navigation .menu > li ul {
+#site-navigation ul > li ul {
   display: none;
   padding: 10px 0 0 5px;
 }
-#site-navigation .menu > li ul li {
+#site-navigation ul > li ul li {
   margin-bottom: 10px;
 }
-#site-navigation .menu > li > ul {
+#site-navigation ul > li > ul {
   position: absolute;
   z-index: 999;
   width: 200%;

@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -23,52 +23,19 @@ if( !defined( 'ABSPATH' ) ) {
 /**
  * Call the options class
  */
-require( get_template_directory() . '/core/includes/theme-options/class-responsive-options.php.php' );
+require( get_template_directory() . '/core/includes/theme-options/class-responsive-options.php' );
 
-/**
- * Responsive Theme option defaults
- */
-function responsive_get_option_defaults() {
-	$defaults = array(
-		'compatibility'                   => 0,
-		'breadcrumb'                      => false,
-		'cta_button'                      => false,
-		'front_page'                      => 1,
-		'home_headline'                   => null,
-		'home_subheadline'                => null,
-		'home_content_area'               => null,
-		'cta_text'                        => null,
-		'cta_url'                         => null,
-		'featured_content'                => null,
-		'google_site_verification'        => '',
-		'bing_site_verification'          => '',
-		'yahoo_site_verification'         => '',
-		'site_statistics_tracker'         => '',
-		'twitter_uid'                     => '',
-		'facebook_uid'                    => '',
-		'linkedin_uid'                    => '',
-		'youtube_uid'                     => '',
-		'stumble_uid'                     => '',
-		'rss_uid'                         => '',
-		'google_plus_uid'                 => '',
-		'instagram_uid'                   => '',
-		'pinterest_uid'                   => '',
-		'yelp_uid'                        => '',
-		'vimeo_uid'                       => '',
-		'foursquare_uid'                  => '',
-		'responsive_inline_css'           => '',
-		'responsive_inline_js_head'       => '',
-		'responsive_inline_css_js_footer' => '',
-		'static_page_layout_default'      => 'content-sidebar-page',
-		'single_post_layout_default'      => 'content-sidebar-page',
-		'blog_posts_index_layout_default' => 'content-sidebar-page',
+function responsive_options_setup() {
+	$layouts = array(
+		'content-sidebar-page'      => __( 'Content/Sidebar', 'responsive' ),
+		'sidebar-content-page'      => __( 'Sidebar/Content', 'responsive' ),
+		'content-sidebar-half-page' => __( 'Content/Sidebar Half Page', 'responsive' ),
+		'sidebar-content-half-page' => __( 'Sidebar/Content Half Page', 'responsive' ),
+		'full-width-page'           => __( 'Full Width Page (no sidebar)', 'responsive' )
 	);
 
-	return apply_filters( 'responsive_option_defaults', $defaults );
-}
+	apply_filters( 'responsive_valid_layouts', $layouts );
 
-
-function responsive_theme_options_sections_array() {
 	/**
 	 * Create array of option sections
 	 *
@@ -106,11 +73,6 @@ function responsive_theme_options_sections_array() {
 		)
 	) );
 
-	return $sections;
-}
-
-
-function responsive_theme_options_array() {
 	/**
 	 * Creates and array of options that get added to the relevant sections
 	 *
@@ -132,6 +94,7 @@ function responsive_theme_options_array() {
 				'type'        => 'checkbox',
 				'id'          => 'compatibility',
 				'description' => __( 'check to enable', 'responsive' ),
+				'default'     => false,
 				'validate'    => 'checkbox'
 			),
 			array(
@@ -139,6 +102,7 @@ function responsive_theme_options_array() {
 				'type'        => 'checkbox',
 				'id'          => 'breadcrumb',
 				'description' => __( 'check to disable', 'responsive' ),
+				'default'     => false,
 				'validate'    => 'checkbox'
 			),
 			array(
@@ -146,6 +110,7 @@ function responsive_theme_options_array() {
 				'type'        => 'checkbox',
 				'id'          => 'cta_button',
 				'description' => __( 'check to disable', 'responsive' ),
+				'default'     => false,
 				'validate'    => 'checkbox'
 			),
 			array(
@@ -153,6 +118,7 @@ function responsive_theme_options_array() {
 				'type'        => 'checkbox',
 				'id'          => 'blog_post_title_toggle',
 				'description' => __( 'check to enable', 'responsive' ),
+				'default'     => false,
 				'validate'    => 'checkbox'
 			),
 			array(
@@ -163,22 +129,26 @@ function responsive_theme_options_array() {
 				'id'          => 'blog_post_title_text',
 				'description' => '',
 				'placeholder' => __( 'Blog', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'text'
 			)
 		),
-		'logo_upload' => array(
+		'logo_upload'    => array(
 			array(
 				'title'       => __( 'Custom Header', 'responsive' ),
 				'type'        => 'description',
+				'id'          => 'logo_upload_desc',
 				'description' => __( 'Need to replace or remove default logo?', 'responsive' ) . sprintf( __( ' <a href="%s">Click here</a>.', 'responsive' ), admin_url( 'themes.php?page=custom-header' ) ),
+				'default' => ''
 			)
 		),
-		'home_page' => array(
+		'home_page'      => array(
 			array(
 				'title'       => __( 'Enable Custom Front Page', 'responsive' ),
 				'type'        => 'checkbox',
 				'id'          => 'front_page',
 				'description' => sprintf( __( 'Overrides the WordPress %1sfront page option%2s', 'responsive' ), '<a href="options-reading.php">', '</a>' ),
+				'default'     => 1,
 				'validate'    => 'checkbox'
 			),
 			array(
@@ -189,6 +159,7 @@ function responsive_theme_options_array() {
 				'id'          => 'home_headline',
 				'description' => __( 'Enter your headline', 'responsive' ),
 				'placeholder' => __( 'Hello, World!', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'text'
 			),
 			array(
@@ -197,6 +168,7 @@ function responsive_theme_options_array() {
 				'id'          => 'home_subheadline',
 				'description' => __( 'Enter your subheadline', 'responsive' ),
 				'placeholder' => __( 'Your H2 subheadline here', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'text'
 			),
 			array(
@@ -205,6 +177,7 @@ function responsive_theme_options_array() {
 				'id'          => 'home_content_area',
 				'description' => __( 'Enter your content', 'responsive' ),
 				'placeholder' => __( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'editor'
 			),
 			array(
@@ -213,6 +186,7 @@ function responsive_theme_options_array() {
 				'id'          => 'cta_url',
 				'description' => __( 'Enter your call to action URL', 'responsive' ),
 				'placeholder' => '#nogo',
+				'default'     => '',
 				'validate'    => 'url'
 			),
 			array(
@@ -221,48 +195,54 @@ function responsive_theme_options_array() {
 				'id'          => 'cta_text',
 				'description' => __( 'Enter your call to action text', 'responsive' ),
 				'placeholder' => __( 'Call to Action', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'text'
 			),
 			array(
 				'title'       => __( 'Featured Content', 'responsive' ),
 				'subtitle'    => '<a class="help-links" href="' . esc_url( 'http://cyberchimps.com/guide/responsive/' ) . '" title="' . esc_attr__( 'See Docs', 'responsive' ) . '" target="_blank">' .
-				__( 'See Docs', 'responsive' ) . '</a>',
+					__( 'See Docs', 'responsive' ) . '</a>',
 				'type'        => 'editor',
 				'id'          => 'featured_content',
 				'description' => __( 'Paste your shortcode, video or image source', 'responsive' ),
 				'placeholder' => '<img class="aligncenter" src="' . get_template_directory_uri() . '"/core/images/featured-image.png" width="440" height="300" alt="" />',
+				'default'     => '',
 				'validate'    => 'editor'
 			)
 		),
-		'layouts' => array(
+		'layouts'        => array(
 			array(
-				'title'       => __( 'Default Static Page Layout', 'responsive' ),
-				'type'        => 'select',
-				'id'          => 'static_page_layout_default',
-				'options'     => Responsive_Options::valid_layouts(),
-				'validate'    => 'layouts'
+				'title'    => __( 'Default Static Page Layout', 'responsive' ),
+				'type'     => 'select',
+				'id'       => 'static_page_layout_default',
+				'options'  => $layouts,
+				'default'  => 'content-sidebar-page',
+				'validate' => 'select'
 			),
 			array(
-				'title'       => __( 'Default Single Blog Post Layout', 'responsive' ),
-				'type'        => 'select',
-				'id'          => 'single_post_layout_default',
-				'options'     => Responsive_Options::valid_layouts(),
-				'validate'    => 'layouts'
+				'title'    => __( 'Default Single Blog Post Layout', 'responsive' ),
+				'type'     => 'select',
+				'id'       => 'single_post_layout_default',
+				'options'  => $layouts,
+				'default'  => 'content-sidebar-page',
+				'validate' => 'select'
 			),
 			array(
-				'title'       => __( 'Default Blog Posts Index Layout', 'responsive' ),
-				'type'        => 'select',
-				'id'          => 'blog_posts_index_layout_default',
-				'options'     => Responsive_Options::valid_layouts(),
-				'validate'    => 'layouts'
+				'title'    => __( 'Default Blog Posts Index Layout', 'responsive' ),
+				'type'     => 'select',
+				'id'       => 'blog_posts_index_layout_default',
+				'options'  => $layouts,
+				'default'  => 'content-sidebar-page',
+				'validate' => 'select'
 			)
 		),
-		'social' => array(
+		'social'         => array(
 			array(
 				'title'       => __( 'Twitter', 'responsive' ),
 				'type'        => 'text',
 				'id'          => 'twitter_uid',
 				'description' => __( 'Enter your Twitter URL', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'url'
 			),
 			array(
@@ -270,6 +250,7 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'facebook_uid',
 				'description' => __( 'Enter your Facebook URL', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'url'
 			),
 			array(
@@ -277,6 +258,7 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'linkedin_uid',
 				'description' => __( 'Enter your LinkedIn URL', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'url'
 			),
 			array(
@@ -284,6 +266,7 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'youtube_uid',
 				'description' => __( 'Enter your YouTube URL', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'url'
 			),
 			array(
@@ -291,6 +274,7 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'stumbleupon_uid',
 				'description' => __( 'Enter your StumbleUpon URL', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'url'
 			),
 			array(
@@ -298,6 +282,7 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'rss_uid',
 				'description' => __( 'Enter your RSS Feed URL', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'checkbox'
 			),
 			array(
@@ -305,6 +290,7 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'googleplus_uid',
 				'description' => __( 'Enter your Google+ URL', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'url'
 			),
 			array(
@@ -312,6 +298,7 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'instagram_uid',
 				'description' => __( 'Enter your Instagram URL', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'url'
 			),
 			array(
@@ -319,6 +306,7 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'pinterest_uid',
 				'description' => __( 'Enter your Pinterest URL', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'url'
 			),
 			array(
@@ -326,6 +314,7 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'yelp_uid',
 				'description' => __( 'Enter your Yelp! URL', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'url'
 			),
 			array(
@@ -333,6 +322,7 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'vimeo_uid',
 				'description' => __( 'Enter your Vimeo URL', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'url'
 			),
 			array(
@@ -340,20 +330,22 @@ function responsive_theme_options_array() {
 				'type'        => 'text',
 				'id'          => 'foursquare_uid',
 				'description' => __( 'Enter your foursquare URL', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'url'
 			)
 		),
-		'css' => array(
+		'css'            => array(
 			array(
 				'title'       => __( 'Custom CSS Styles', 'responsive' ),
 				'subtitle'    => '<a class="help-links" href="https://developer.mozilla.org/en/CSS" title="CSS Tutorial" target="_blank">' . __( 'CSS Tutorial', 'responsive' ) . '</a>',
 				'type'        => 'textarea',
 				'id'          => 'responsive_inline_css',
 				'description' => __( 'Enter your custom CSS styles.', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'css'
 			)
 		),
-		'scripts' => array(
+		'scripts'        => array(
 			array(
 				'title'       => __( 'Custom Scripts for Header and Footer', 'responsive' ),
 				'subtitle'    => '<a class="help-links" href="http://codex.wordpress.org/Using_Javascript" title="Quick Tutorial" target="_blank">' . __( 'Quick Tutorial', 'responsive' ) . '</a>',
@@ -361,6 +353,7 @@ function responsive_theme_options_array() {
 				'type'        => 'textarea',
 				'id'          => 'responsive_inline_js_head',
 				'description' => __( 'Enter your custom header script.', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'js'
 			),
 			array(
@@ -368,10 +361,13 @@ function responsive_theme_options_array() {
 				'type'        => 'textarea',
 				'id'          => 'responsive_inline_js_footer',
 				'description' => __( 'Enter your custom footer script.', 'responsive' ),
+				'default'     => '',
 				'validate'    => 'js'
 			)
 		)
 	) );
 
-	return $options;
+	$options = apply_filters( 'responsive_options_init', new Responsive_Options( $sections, $options ) );
 }
+
+add_action( 'wp_loaded', 'responsive_options_setup' );

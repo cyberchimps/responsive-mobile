@@ -16,7 +16,7 @@ $template_directory = get_template_directory();
 
 /**
  * Basic theme functionality
- */
+*/
 require $template_directory . '/core/includes/functions.php';
 
 /**
@@ -24,7 +24,6 @@ require $template_directory . '/core/includes/functions.php';
  */
 require $template_directory . '/core/includes/theme-options/theme-options.php';
 require $template_directory . '/core/includes/theme-options/theme-options-page.php';
-require $template_directory . '/core/includes/theme-options/theme-options-sanitize.php';
 
 /**
  * Custom template tags for this theme.
