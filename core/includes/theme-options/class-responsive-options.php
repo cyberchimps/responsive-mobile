@@ -299,7 +299,7 @@ Class Responsive_Options {
 
 		extract( $args );
 
-		$checked = ( isset( self::$responsive_options[$id] ) ) ? checked( '1', esc_attr( self::$responsive_options[$id] ), false ) : checked( 0, 1 );
+		$checked = ( isset( self::$responsive_options[$id] ) ) ? checked( 1, esc_attr( self::$responsive_options[$id] ), false ) : checked( 0, 1 );
 
 		$html = '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" type="checkbox" value="1" ' . $checked . '/><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . wp_kses_post( $description ) . '</label>';
 
@@ -422,16 +422,13 @@ Class Responsive_Options {
 				$validate = isset( $options[$key]['validate'] ) ? $options[$key]['validate'] : false;
 
 				if ( $validate ) {
-
 					$input[$key] = $this->{'validate_' . $validate}( $value, $key );
 				}
-
 				else {
-					print_r( 'error' );
+					// TODO could do with returning error message
+//					return;
 				}
 
-				// General filter
-				$input[$key] = apply_filters( 'responsive_options_validate', $value, $key );
 			}
 
 		}
@@ -449,9 +446,10 @@ Class Responsive_Options {
 	 *
 	 * @return null
 	 */
+	// TODO this is working
 	protected function validate_checkbox( $input, $key ) {
 
-		if ( !is_bool( $input ) ) {
+		if ( 1 != $input || 0 != $input ) {
 			$input = null;
 		}
 
@@ -502,7 +500,7 @@ Class Responsive_Options {
 	protected function validate_url( $input, $key ) {
 
 		$input = esc_url_raw( $input );
-		
+
 		return $input;
 	}
 
