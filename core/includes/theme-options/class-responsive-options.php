@@ -449,8 +449,9 @@ Class Responsive_Options {
 	// TODO this is working
 	protected function validate_checkbox( $input, $key ) {
 
-		if ( 1 != $input || 0 != $input ) {
-			$input = null;
+		// if the input is anything other than a 1 make it a 0
+		if ( 1 != $input  ) {
+			$input = 0;
 		}
 
 		return $input;
