@@ -24,9 +24,7 @@ Class Responsive_Options {
 
 	public $options;
 
-	public static $options_defaults;
-
-	public static $responsive_options;
+	public $responsive_options;
 
 	protected $default_options;
 
@@ -40,8 +38,8 @@ Class Responsive_Options {
 		$this->sections           = $sections;
 		$this->options_sections   = $options;
 		$this->options            = $this->get_options_only( $this->options_sections );
-		self::$options_defaults   = $this->get_options_defaults( $this->options );
-		self::$responsive_options = get_option( 'responsive_theme_options' );
+		$this->responsive_options = get_option( 'responsive_theme_options' );
+		$this->default_options   = $this->get_options_defaults( $this->options );
 
 		// Set confirmaton text for restore default option as attributes of submit_button().
 		$this->attributes['onclick'] = 'return confirm("' . __( 'Do you want to restore? \nAll theme settings will be lost! \nClick OK to Restore.', 'responsive' ) . '")';
@@ -233,7 +231,7 @@ Class Responsive_Options {
 
 		extract( $args );
 
-		$value = ( !empty( self::$responsive_options[$id] ) ) ? self::$responsive_options[$id] : '';
+		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
 
 		$html = '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" class="regular-text" type="text" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" value="' . esc_html( $value ) . '" placeholder="' . esc_attr( $placeholder ) . '" /><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
 
@@ -254,7 +252,7 @@ Class Responsive_Options {
 		$class[] = 'large-text';
 		$classes = implode( ' ', $class );
 
-		$value = ( !empty( self::$responsive_options[$id] ) ) ? self::$responsive_options[$id] : '';
+		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
 
 		$html = '<p>' . esc_html( $heading ) . '</p><textarea id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" class="' . esc_attr( $classes ) . '" cols="50" rows="30" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" placeholder="' . $placeholder . '">' . esc_html( $value ) . '</textarea><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
 
@@ -277,7 +275,7 @@ Class Responsive_Options {
 		$html = '<select id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">';
 		foreach ( $options as $key => $value ) {
 			// looping through and creating all the options and making the one saved in the options as the chosen one otherwise falling back to the default
-			$html .= '<option' . selected( ( isset( self::$responsive_options[$id] ) ) ? self::$responsive_options[$id] : $default, $key, false ) . ' value="' . esc_attr( $key ) . '">' . esc_html(
+			$html .= '<option' . selected( ( isset( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : $default, $key, false ) . ' value="' . esc_attr( $key ) . '">' . esc_html(
 					$value
 				) .
 				'</option>';
@@ -299,7 +297,7 @@ Class Responsive_Options {
 
 		extract( $args );
 
-		$checked = ( isset( self::$responsive_options[$id] ) ) ? checked( 1, esc_attr( self::$responsive_options[$id] ), false ) : checked( 0, 1 );
+		$checked = ( isset( $this->responsive_options[$id] ) ) ? checked( 1, esc_attr( $this->responsive_options[$id] ), false ) : checked( 0, 1 );
 
 		$html = '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" type="checkbox" value="1" ' . $checked . '/><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . wp_kses_post( $description ) . '</label>';
 
@@ -335,22 +333,6 @@ Class Responsive_Options {
 	}
 
 	/**
-	 * Get Default layouts from theme-options.php
-	 *
-	 * @return array
-	 */
-	public static function valid_layouts() {
-
-		$default = do_action( 'responsive_get_default_layouts' );
-
-		if ( !isset( $default ) ) {
-			$default = array();
-		}
-
-		return $default;
-	}
-
-	/**
 	 * Creates editor input
 	 *
 	 * @param $args array
@@ -364,7 +346,7 @@ Class Responsive_Options {
 		$class[] = 'large-text';
 		$classes = implode( ' ', $class );
 
-		$value = ( !empty( self::$responsive_options[$id] ) ) ? self::$responsive_options[$id] : '';
+		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
 
 		$editor_settings = array(
 			'textarea_name' => 'responsive_theme_options[' . $id . ']',
@@ -446,7 +428,6 @@ Class Responsive_Options {
 	 *
 	 * @return null
 	 */
-	// TODO this is working
 	protected function validate_checkbox( $input, $key ) {
 
 		// if the input is anything other than a 1 make it a 0
@@ -470,7 +451,7 @@ Class Responsive_Options {
 	protected function validate_select( $input, $key ) {
 
 		$options = $this->options[$key];
-		$input = ( array_key_exists( $input, $options['options'] ) ? $input : self::$options_defaults[$key] );
+		$input = ( array_key_exists( $input, $options['options'] ) ? $input : $this->default_options[$key] );
 
 		return $input;
 	}
@@ -591,8 +572,8 @@ Class Responsive_Options {
 	 *
 	 * @return array
 	 */
-	public static function get_parse_options() {
-		$options = wp_parse_args( self::$responsive_options, self::$options_defaults );
+	public function get_parse_options() {
+		$options = wp_parse_args( $this->responsive_options, $this->default_options );
 
 		return $options;
 	}
