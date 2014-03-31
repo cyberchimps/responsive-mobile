@@ -15,15 +15,15 @@ if( !defined( 'ABSPATH' ) ) {
 $template_directory = get_template_directory();
 
 /**
- * Basic theme functionality
-*/
-require $template_directory . '/core/includes/functions.php';
-
-/**
  * Theme Options
  */
 require $template_directory . '/core/includes/theme-options/theme-options.php';
 require $template_directory . '/core/includes/theme-options/theme-options-page.php';
+
+/**
+ * Basic theme functionality
+*/
+require $template_directory . '/core/includes/functions.php';
 
 /**
  * Custom template tags for this theme.

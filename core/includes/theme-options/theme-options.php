@@ -24,7 +24,6 @@ if ( !defined( 'ABSPATH' ) ) {
  * Call the options class
  */
 require( get_template_directory() . '/core/includes/theme-options/class-responsive-options.php' );
-require( get_template_directory() . '/core/includes/theme-options/class-responsive-theme-options.php' );
 
 function responsive_theme_options_set() {
 	$layouts = array(
@@ -372,7 +371,7 @@ function responsive_theme_options_set() {
 
 	$options = apply_filters( 'responsive_option_options_filter', $options );
 
-	$theme_options = new Responsive_Theme_Options( $sections, $options );
+	$theme_options = new Responsive_Options( $sections, $options );
 
 	return $theme_options;
 }

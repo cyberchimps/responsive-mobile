@@ -26,7 +26,11 @@ Class Responsive_Options {
 
 	public $responsive_options;
 
+	public static $static_responsive_options;
+
 	protected $default_options;
+
+	protected static $static_default_options;
 
 	/**
 	 * Pulls in the arrays for the options and sets up the responsive options
@@ -40,6 +44,9 @@ Class Responsive_Options {
 		$this->options            = $this->get_options_only( $this->options_sections );
 		$this->responsive_options = get_option( 'responsive_theme_options' );
 		$this->default_options   = $this->get_options_defaults( $this->options );
+
+		self::$static_responsive_options = $this->responsive_options;
+		self::$static_default_options = $this->default_options;
 
 		// Set confirmaton text for restore default option as attributes of submit_button().
 		$this->attributes['onclick'] = 'return confirm("' . __( 'Do you want to restore? \nAll theme settings will be lost! \nClick OK to Restore.', 'responsive' ) . '")';
@@ -572,8 +579,8 @@ Class Responsive_Options {
 	 *
 	 * @return array
 	 */
-	public function get_parse_options() {
-		$options = wp_parse_args( $this->responsive_options, $this->default_options );
+	public static function get_parse_options() {
+		$options = wp_parse_args( self::$static_responsive_options, self::$static_default_options );
 
 		return $options;
 	}

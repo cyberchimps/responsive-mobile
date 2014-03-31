@@ -12,7 +12,7 @@
 function responsive_get_options() {
 
 	// Parse array of option defaults against user-configured Theme options
-	$responsive_options = Responsive_Theme_Options::responsive_get_parse_options();
+	$responsive_options = Responsive_Options::get_parse_options();
 
 	// Return parsed args array
 	return $responsive_options;
