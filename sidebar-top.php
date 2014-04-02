@@ -17,12 +17,12 @@
 if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-if ( !is_active_sidebar( 'top-widget' )
-) {
-	return;
-}
-?>
+//
+//if ( !is_active_sidebar( 'top-widget' )
+//) {
+//	return;
+//}
+//?>
 <?php responsive_widgets_before(); // above widgets container hook ?>
 	<div id="top-widget" class="top-widget" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
 		<?php responsive_widgets(); // above widgets hook ?>

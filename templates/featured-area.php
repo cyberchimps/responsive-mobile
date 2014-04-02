@@ -14,9 +14,9 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 
 ?>
 <div id="content" class="content-area">
-	<main id="featured" class="row" role="main">
+	<main id="featured" role="main">
 
-		<div id="featured-content" class="col-md-6">
+		<div id="featured-content">
 
 			<h1 class="featured-title">
 				<?php
@@ -69,7 +69,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 		</div>
 		<!-- end of .col-460 -->
 
-		<div id="featured-image" class="col-md-6">
+		<div id="featured-image">
 
 			<?php $featured_content = ( !empty( $responsive_options['featured_content'] ) ) ? $responsive_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/core/images/featured-image.png" width="440" height="300" alt="" />'; ?>
 

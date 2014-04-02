@@ -1,0 +1,570 @@
+/*
+Theme Name: Responsive 2
+Theme URI: http://cyberchimps.com/responsive-theme/
+Author: CyberChimps
+Author URI: https://cyberchimps.com/
+Description: Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. No paid memberships or clubs to get Responsive help. http://cyberchimps.com/forum/free/responsive/
+Version: 2.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: responsive
+Domain Path: /languages/
+Tags: white, black, gray, light, custom-menu, custom-header, custom-background, one-column, two-columns, left-sidebar, right-sidebar, flexible-width, theme-options, threaded-comments, full-width-template, sticky-post, translation-ready, rtl-language-support, responsive-layout, fluid-layout
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Responsive is based on Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.
+
+--------------------------------------------------------------
+WARNING: (BEFORE YOU MAKE ANY CHANGES)
+--------------------------------------------------------------
+Please do not edit style.css or any other Theme files or
+Templates directly. If you do, your customizations will be lost
+as soon as you update Responsive.
+
+WordPress and ThemeID highly recommends Child Theme.
+
+Read More:
+
+- http://codex.wordpress.org/Child_Themes
+- http://cyberchimps.com/guide/child-theme-example/
+- http://cyberchimps.com/guide-tags/child-theme-2/
+
+
+/***************************/
+/* CONTENTS ****************/
+/***************************/
+/**
+ * CONTENTS............You’re reading it!
+ * RESET...............Set our reset defaults
+ * FONT-FACE...........Import brand font files
+ */
+// TODO delete responsive.css import
+/*@import url("responsive.css");*/
+// Import core variables and mixins
+@import "core/bootstrap/variables";
+@import "core/bootstrap/mixins";
+/***************************/
+/* NORMALIZE ***************/
+/***************************/
+@import "core/bootstrap/normalize";
+@import "core/bootstrap/print";
+/***************************/
+/* HTML ********************/
+/***************************/
+@import "core/bootstrap/scaffolding";
+@import "core/bootstrap/type";
+@import "core/bootstrap/code";
+@import "core/bootstrap/forms";
+@import "core/bootstrap/tables";
+@import "core/bootstrap/utilities";
+/***************************/
+/* GRID ********************/
+/***************************/
+@import "core/bootstrap/mixins/grid";
+@import "core/bootstrap/responsive-utilities";
+
+/***************************/
+/* BASICS ******************/
+/***************************/
+
+// RESPONSIVE 2.0 VARIABLES
+$shadow: 0 1px 1px rgba(0, 0, 0, .075);
+
+/***************************/
+/* HTML ********************/
+/***************************/
+
+body {
+	word-wrap: break-word;
+}
+
+li {
+	margin-bottom: 5px;
+}
+
+/***************************/
+/* STRUCTURE ***************/
+/***************************/
+
+.container {
+	@include container-fixed();
+	@media (min-width: $screen-sm-min) {
+		width: $container-sm;
+	}
+	@media (min-width: $screen-md-min) {
+		width: $container-md;
+	}
+	@media (min-width: $screen-lg-min) {
+		width: $container-lg;
+	}
+}
+
+.container-full-width {
+  @include container-fixed();
+}
+
+.row {
+  @include make-row();
+}
+
+/***************************/
+/* MENUS *******************/
+/***************************/
+
+/* TOP MENU ===================*/
+
+#top-menu-container {
+	padding: 5px 0;
+	background-color: $gray-dark;
+	.top-menu {
+		float: right;
+		margin: 0;
+		padding: 0;
+		li {
+			float: left;
+			margin-left: 10px;
+			list-style: none;
+			&:after {
+				content: '|';
+				color: $gray-light;
+				font-weight: 100;
+				margin-left: 10px;
+			}
+			&:last-child:after {
+				margin-left: 0;
+				content: '';
+			}
+			a {
+				text-decoration: none;
+				color: $gray-lighter;
+				font-size: 0.8em;
+				&:hover {
+					color: $link-color;
+				}
+			}
+		}
+	}
+}
+
+/* MAIN MENU ===================*/
+
+#main-menu {
+	padding-top: 10px;
+	margin-bottom: 20px;
+	background-color: $gray-dark;
+}
+
+#site-navigation {
+  @include clearfix;
+	ul {
+      @include clearfix;
+		margin: 0;
+		padding: 0;
+		li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		> li {
+			position: relative;
+			float: left;
+
+			padding-bottom: 10px;
+			&:hover ul {
+				display: block;
+			}
+			a {
+				margin-right: 20px;
+
+				color: $gray-lighter;
+				&:hover {
+					text-decoration: none;
+					color: $gray-light;
+				}
+			}
+		ul {
+			display: none;
+
+			padding: 10px 0 0 5px;
+			li {
+				margin-bottom: 10px;
+			}
+		}
+		> ul {
+			position: absolute;
+			z-index: 999;
+
+			width: 200%;
+			min-width: 200px;
+			padding: 10px;
+
+			background-color: $gray-dark;
+		}
+		}
+	}
+}
+
+/* FOOTER MENU ===================*/
+
+#footer-menu-container {
+	.footer-menu {
+		padding: 0;
+		li {
+			float: left;
+			margin-right: 10px;
+			list-style: none;
+		}
+	}
+}
+
+/***************************/
+/* HEADER ******************/
+/***************************/
+
+#site-branding {
+  @include make-md-column(8);
+}
+
+#top-widget {
+  @include make-md-column(4);
+}
+
+
+/***************************/
+/* CONTENT *****************/
+/***************************/
+
+/* STRUCTURE ===================*/
+
+.content-area {
+	@extend .container;
+	margin-bottom: 20px;
+}
+
+/* FEATURED ===================*/
+
+main #featured {
+  @include make-md-column(6);
+}
+
+main #featured-image {
+	@extend #featured;
+}
+
+/* POSTS & PAGES ===================*/
+
+#main article {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid $gray-dark;
+  @include clearfix();
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.single #main article {
+	border-bottom: none;
+}
+
+.entry-header {
+	margin-bottom: 20px;
+}
+
+.entry-thumbnail {
+	margin-bottom: 20px;
+}
+
+/* NAVIGATION ===================*/
+
+.site-main [class*="navigation"] {
+	overflow: hidden;
+
+	margin: 0 0 1.5em;
+}
+
+[class*="navigation"] .nav-previous {
+	float: left;
+
+	width: 50%;
+}
+
+[class*="navigation"] .nav-next {
+	float: right;
+
+	width: 50%;
+
+	text-align: right;
+}
+
+/* COMMENTS ===================*/
+
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+}
+
+/* GALLERY ===================*/
+
+.gallery {
+	@extend .row;
+	&.gallery-columns-1 {
+		.gallery-item {
+          @include make-xs-column(12);
+		}
+	}
+	&.gallery-columns-2 {
+		.gallery-item {
+          @include make-xs-column(6);
+		}
+	}
+	&.gallery-columns-3 {
+		.gallery-item {
+          @include make-xs-column(4);
+		}
+	}
+	&.gallery-columns-4 {
+		.gallery-item {
+          @include make-xs-column(3);
+		}
+	}
+	&.gallery-columns-5 {
+		.gallery-item {
+          @include make-xs-column(12/5);
+		}
+	}
+	&.gallery-columns-6 {
+		.gallery-item {
+          @include make-xs-column(2);
+		}
+	}
+	&.gallery-columns-7 {
+		.gallery-item {
+          @include make-xs-column(12/7);
+		}
+	}
+	&.gallery-columns-8 {
+		.gallery-item {
+          @include make-xs-column(12/8);
+		}
+	}
+	&.gallery-columns-9 {
+		.gallery-item {
+          @include make-xs-column(12/9);
+		}
+	}
+
+}
+
+/***************************/
+/* SIDEBAR *****************/
+/***************************/
+
+#widgets {
+	margin-bottom: 20px;
+	.widget-title {
+		margin-bottom: 20px;
+		border-bottom: 1px solid $gray-dark;
+	}
+	ul {
+		padding-left: 5px;
+		li {
+			list-style: none;
+		}
+	}
+}
+
+/***************************/
+/* FOOTER ******************/
+/***************************/
+
+#footer {
+	background-color: $gray-dark;
+	color: $gray-light;
+}
+
+/* FOOTER WIDGETS ===================*/
+
+#footer-widget {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+  @include clearfix;
+	.widget-title {
+		color: $gray-light;
+	}
+	ul {
+		padding: 0;
+		li {
+			list-style: none;
+		}
+	}
+}
+
+/* SOCIAL ===================*/
+
+#menu-social-container {
+	padding: 10px 0;
+	margin-bottom: 10px;
+	border-bottom: 1px solid $gray;
+}
+
+.social-icons {
+		padding: 0;
+		float: right;
+		li {
+			float: left;
+			list-style: none;
+			margin-left: 5px;
+			a {
+				&:hover {
+					opacity: 0.8;
+				}
+			}
+		}
+}
+
+/* COPYRIGHT & POWERED ===================*/
+
+#footer-base {
+	padding: 10px 0;
+	.scroll-top {
+		text-align: center;
+	}
+	.powered {
+		text-align: right;
+		padding-bottom: 10px;
+	}
+}
+
+/***************************/
+/* MEDIA *******************/
+/***************************/
+
+// TODO all these styles need checking
+
+.page-content img.wp-smiley,
+.entry-content img.wp-smiley,
+.comment-content img.wp-smiley {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+	border: none;
+}
+
+.wp-caption {
+	max-width: 100%;
+	margin-bottom: 1.5em;
+
+	border: 1px solid #cccccc;
+	img[class*="wp-image-"] {
+		display: block;
+
+		max-width: 98%;
+		margin: 1.2% auto 0;
+	}
+	.wp-caption-text {
+		margin: 0.8075em 0;
+	}
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+.gallery-caption {
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/***************************/
+/* EXTRAS ******************/
+/***************************/
+
+/* ALIGNMENT ===================*/
+
+.alignleft {
+	display: inline;
+	float: left;
+
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	display: block;
+	clear: both;
+
+	margin: 0 auto;
+}
+
+/* SCREEN READERS ===================*/
+
+// TODO these styles need checking
+
+.screen-reader-text {
+	position: absolute !important;
+
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	z-index: 100000; /* Above WP toolbar */
+	top: 5px;
+	left: 5px;
+
+	display: block;
+	clip: auto !important;
+
+	width: auto;
+	height: auto;
+	padding: 15px 23px 14px;
+
+	text-decoration: none;
+
+	color: $link-color;
+	border-radius: $border-radius-small;
+	background-color: darken($body-bg, 5%);
+	box-shadow: $shadow;
+
+	font-size: $font-size-base;
+	font-weight: bold;
+	line-height: normal;
+}
+
+/* INFINITE SCROLL ===================*/
+
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
+.infinite-scroll.neverending .site-footer {
+
+
+	/* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
