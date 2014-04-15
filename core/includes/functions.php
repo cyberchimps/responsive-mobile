@@ -138,6 +138,7 @@ if( !function_exists( 'responsive_js' ) ) {
 		// except for Modernizr which enables HTML5 elements & feature detects.
 		wp_enqueue_script( 'modernizr', $template_directory_uri . '/core/' . $directory . '/responsive-modernizr' . $suffix . '.js', array( 'jquery' ), '2.6.1', false );
 		wp_enqueue_script( 'responsive-scripts', $template_directory_uri . '/core/' . $directory . '/responsive-scripts' . $suffix . '.js', array( 'jquery' ), '1.2.5', true );
+		wp_enqueue_script( 'retina', $template_directory_uri . '/core/' . $directory . 'retina-1.1.0' . $suffix . '.js', '', '1.1.0', true );
 		if ( ! wp_script_is( 'tribe-placeholder' ) ) {
 			wp_enqueue_script( 'jquery-placeholder', $template_directory_uri . '/core/' . $directory . '/jquery.placeholder' . $suffix . '.js', array( 'jquery' ), '2.0.7', true );
 		}
