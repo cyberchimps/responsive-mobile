@@ -26,7 +26,7 @@ function responsive_upgrade_bar() {
 	?>
 
 	<div class="upgrade-callout">
-		<p><img src="<?php echo get_template_directory_uri(); ?>/core/includes/theme-options/images/chimp.png" alt="CyberChimps"/>
+		<p><img src="<?php echo get_template_directory_uri(); ?>/core/images/chimp.png" alt="CyberChimps"/>
 			<?php printf( __( 'Welcome to %1$s! Upgrade to %2$s today.', 'responsive' ),
 				'Responsive',
 				' <a href="http://cyberchimps.com/store/responsivepro/" target="_blank" title="Responsive Pro">Responsive Pro</a> '
@@ -54,7 +54,6 @@ function responsive_upgrade_bar() {
 
 <?php
 }
-
 add_action( 'responsive_theme_options', 'responsive_upgrade_bar', 1 );
 
 /**
@@ -86,7 +85,6 @@ function responsive_theme_support() {
 
 <?php
 }
-
 add_action( 'responsive_theme_options', 'responsive_theme_support', 2 );
 
 /*
