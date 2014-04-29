@@ -20,19 +20,24 @@ function cyberchimps_upsell_style() {
 
 	// Set template directory uri
 	$directory_uri = get_template_directory_uri();
+	$suffix        = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 	wp_enqueue_style( 'bootstrap', $directory_uri . '/core/includes/upsell/bootstrap/css/bootstrap.css' );
 	wp_enqueue_style( 'bootstrap-responsive', $directory_uri . '/core/includes/upsell/bootstrap/css/bootstrap-responsive.css', 'bootstrap' );
 	wp_enqueue_style( 'cyberchimps-responsive', $directory_uri . '/core/includes/upsell/bootstrap/css/cyberchimps-responsive.css', array( 'bootstrap', 'bootstrap-responsive' ) );
 
-	//wp_enqueue_script( 'bootstrap-js', $directory_uri . '/core/includes/upsell/bootstrap/js/bootstrap.min.js', array( 'jquery' ) );
-
-	wp_enqueue_style( 'upsell_style', get_template_directory_uri() . '/core/includes/upsell/css/upsell.css' );
+	wp_enqueue_style( 'upsell_style', get_template_directory_uri() . '/core/includes/upsell/css/upsell' . $suffix . '.css' );
 }
 
 // Add upsell page to the menu.
 function cyberchimps_add_upsell() {
-	$page = add_theme_page( 'More Themes', 'More Themes', 'administrator', 'cyberchimps-themes', 'cyberchimps_display_upsell' );
+	$page = add_theme_page(
+		'More Themes',
+		'More Themes',
+		'administrator',
+		'cyberchimps-themes',
+		'cyberchimps_display_upsell'
+	);
 
 	add_action( 'admin_print_styles-' . $page, 'cyberchimps_upsell_style' );
 }
@@ -52,11 +57,11 @@ function cyberchimps_display_upsell() {
 					<div id="upsell_header" class="span12">
 						<h2>
 							<a href="http://cyberchimps.com" target="_blank">
-								<img src="<?php echo $directory_uri; ?>/core/includes/upsell/images/upsell-logo.png"/>
+								<img src="<?php echo $directory_uri; ?>/core/images/cyberchimps-logo.png"/>
 							</a>
 						</h2>
 
-						<h3><?php _e( 'Themes You Can Trust', 'cyberchimps_core' ); ?></h3>
+						<h3><?php _e( 'Themes You Can Trust', 'responsive' ); ?></h3>
 					</div>
 				</div>
 
