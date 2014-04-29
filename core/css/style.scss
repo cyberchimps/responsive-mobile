@@ -1,37 +1,5 @@
+@charset "UTF-8";
 /*
-Theme Name: Responsive 2
-Theme URI: http://cyberchimps.com/responsive-theme/
-Author: CyberChimps
-Author URI: https://cyberchimps.com/
-Description: Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. No paid memberships or clubs to get Responsive help. http://cyberchimps.com/forum/free/responsive/
-Version: 2.0.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: responsive
-Domain Path: /languages/
-Tags: white, black, gray, light, custom-menu, custom-header, custom-background, one-column, two-columns, left-sidebar, right-sidebar, flexible-width, theme-options, threaded-comments, full-width-template, sticky-post, translation-ready, rtl-language-support, responsive-layout, fluid-layout
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
-Responsive is based on Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.
-
---------------------------------------------------------------
-WARNING: (BEFORE YOU MAKE ANY CHANGES)
---------------------------------------------------------------
-Please do not edit style.css or any other Theme files or
-Templates directly. If you do, your customizations will be lost
-as soon as you update Responsive.
-
-WordPress and ThemeID highly recommends Child Theme.
-
-Read More:
-
-- http://codex.wordpress.org/Child_Themes
-- http://cyberchimps.com/guide/child-theme-example/
-- http://cyberchimps.com/guide-tags/child-theme-2/
-
-
 /***************************/
 /* CONTENTS ****************/
 /***************************/
@@ -43,27 +11,27 @@ Read More:
 // TODO delete responsive.css import
 /*@import url("responsive.css");*/
 // Import core variables and mixins
-@import "core/bootstrap/variables";
-@import "core/bootstrap/mixins";
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
 /***************************/
 /* NORMALIZE ***************/
 /***************************/
-@import "core/bootstrap/normalize";
-@import "core/bootstrap/print";
+@import "../bootstrap/normalize";
+@import "../bootstrap/print";
 /***************************/
 /* HTML ********************/
 /***************************/
-@import "core/bootstrap/scaffolding";
-@import "core/bootstrap/type";
-@import "core/bootstrap/code";
-@import "core/bootstrap/forms";
-@import "core/bootstrap/tables";
-@import "core/bootstrap/utilities";
+@import "../bootstrap/scaffolding";
+@import "../bootstrap/type";
+@import "../bootstrap/code";
+@import "../bootstrap/forms";
+@import "../bootstrap/tables";
+@import "../bootstrap/utilities";
 /***************************/
 /* GRID ********************/
 /***************************/
-@import "core/bootstrap/mixins/grid";
-@import "core/bootstrap/responsive-utilities";
+@import "../bootstrap/mixins/grid";
+@import "../bootstrap/responsive-utilities";
 
 /***************************/
 /* BASICS ******************/
