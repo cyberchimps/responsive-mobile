@@ -6,6 +6,12 @@
  * @package Responsive
  */
 
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
+
 /**
  * Setup the WordPress core custom header feature.
  *
