@@ -13,12 +13,13 @@
  * should be made in a child theme.
  */
 
-// Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
-	exit;
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
 }
 
 get_header(); ?>
+
 	<div id="content" class="content-area">
 		<div class="row">
 		<main id="main" class="site-main col-md-8 col-md-push-4" role="main" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">

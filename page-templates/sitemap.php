@@ -13,12 +13,12 @@
  * should be made in a child theme.
  */
 
-// Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
-	exit;
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
 }
-?>
-<?php get_header(); ?>
+
+get_header(); ?>
 
 	<div id="content-sitemap" class="content-area">
 		<main id="main" class="site-main grid col-940" role="main">
