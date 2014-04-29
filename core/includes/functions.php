@@ -87,10 +87,21 @@ function responsive_setup() {
 add_action( 'after_setup_theme', 'responsive_setup' );
 
 /**
- * Enqueue scripts and styles.
+ * A safe way of adding JavaScripts to a WordPress generated page.
  */
-function responsive_scripts() {
-	wp_enqueue_style( 'responsive-style', get_stylesheet_uri() );
+function responsive_js() {
+	global $is_IE;
+	$suffix                 = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+	$directory              = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? 'js-dev' : 'js';
+	$template_directory_uri = get_template_directory_uri();
+
+	// JS at the bottom for fast page loading.
+	// except for Modernizr which enables HTML5 elements & feature detects.
+	wp_enqueue_script( 'modernizr', $template_directory_uri . '/core/' . $directory . '/responsive-modernizr' . $suffix . '.js', array( 'jquery' ), '2.6.1', false );
+	wp_enqueue_script( 'responsive-scripts', $template_directory_uri . '/core/' . $directory . '/responsive-scripts' . $suffix . '.js', array( 'jquery' ), '1.2.5', true );
+	if ( $is_IE && !wp_script_is( 'tribe-placeholder' ) ) {
+		wp_enqueue_script( 'jquery-placeholder', $template_directory_uri . '/core/' . $directory . '/jquery.placeholder' . $suffix . '.js', array( 'jquery' ), '2.0.7', true );
+	}
 
 	wp_enqueue_script( 'responsive-navigation', get_template_directory_uri() . '/core/js/navigation.js', array(), '20120206', true );
 
@@ -100,7 +111,7 @@ function responsive_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'responsive_scripts' );
+add_action( 'wp_enqueue_scripts', 'responsive_js' );
 
 /**
  * A safe way of adding stylesheets to a WordPress generated page.
@@ -108,46 +119,24 @@ add_action( 'wp_enqueue_scripts', 'responsive_scripts' );
 if( !function_exists( 'responsive_css' ) ) {
 
 	function responsive_css() {
-		$theme  = wp_get_theme();
 		$responsive  = wp_get_theme( 'responsive' );
-		wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/style.css', false, $responsive['Version'] );
-		wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . '/core/css/style.css', false, $responsive['Version'] );
+		$responsive_options = responsive_get_options();
+		if ( 1 == $responsive_options['minified_css'] ) {
+			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.min.css', false, $responsive['Version'] );
+		} else {
+			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.css', false, $responsive['Version'] );
+			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . '/core/css/responsive.css', false, $responsive['Version'] );
+		}
+
 		if( is_rtl() ) {
 			wp_enqueue_style( 'responsive-rtl-style', get_template_directory_uri() . '/rtl.css', false, $responsive['Version'] );
 		}
+
 		if( is_child_theme() ) {
+			$theme  = wp_get_theme();
 			wp_enqueue_style( 'responsive-child-style', get_stylesheet_uri(), false, $theme['Version'] );
 		}
 	}
 
 }
 add_action( 'wp_enqueue_scripts', 'responsive_css' );
-
-/**
- * A safe way of adding JavaScripts to a WordPress generated page.
- */
-if( !function_exists( 'responsive_js' ) ) {
-
-	function responsive_js() {
-
-		$suffix = ( defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) ? '' : '.min';
-		$directory = ( defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) ? 'js-dev' : 'js';
-		$template_directory_uri = get_template_directory_uri();
-
-		// JS at the bottom for fast page loading.
-		// except for Modernizr which enables HTML5 elements & feature detects.
-		wp_enqueue_script( 'modernizr', $template_directory_uri . '/core/' . $directory . '/responsive-modernizr' . $suffix . '.js', array( 'jquery' ), '2.6.1', false );
-		wp_enqueue_script( 'responsive-scripts', $template_directory_uri . '/core/' . $directory . '/responsive-scripts' . $suffix . '.js', array( 'jquery' ), '1.2.5', true );
-		wp_enqueue_script( 'retina', $template_directory_uri . '/core/' . $directory . 'retina-1.1.0' . $suffix . '.js', '', '1.1.0', true );
-		if ( ! wp_script_is( 'tribe-placeholder' ) ) {
-			wp_enqueue_script( 'jquery-placeholder', $template_directory_uri . '/core/' . $directory . '/jquery.placeholder' . $suffix . '.js', array( 'jquery' ), '2.0.7', true );
-		}
-
-		if( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-			wp_enqueue_script( 'comment-reply' );
-		}
-
-	}
-
-}
-add_action( 'wp_enqueue_scripts', 'responsive_js' );
