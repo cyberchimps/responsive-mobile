@@ -48,8 +48,8 @@ Class Responsive_Options {
 		self::$static_responsive_options = $this->responsive_options;
 		self::$static_default_options = $this->default_options;
 
-		// Set confirmaton text for restore default option as attributes of submit_button().
-		$this->attributes['onclick'] = 'return confirm("' . __( 'Do you want to restore? \nAll theme settings will be lost! \nClick OK to Restore.', 'responsive' ) . '")';
+		// @TODO Check why double Set confirmaton text for restore default option as attributes of submit_button().
+		$this->attributes['onclick'] = 'return confirm("' . __( 'Do you want to restore?', 'responsive' ) . __( 'All theme settings will be lost!', 'responsive' ) . __( 'Click OK to Restore.', 'responsive' ) . '")';
 		add_action( 'admin_print_styles-appearance_page_theme_options', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'admin_init', array( $this, 'theme_options_init' ) );
 		add_action( 'admin_menu', array( $this, 'theme_page_init' ) );
@@ -100,8 +100,8 @@ Class Responsive_Options {
 			$_REQUEST['settings-updated'] = false;
 		}
 
-		// Set confirmaton text for restore default option as attributes of submit_button().
-		$attributes['onclick'] = 'return confirm("' . __( 'Do you want to restore? \nAll theme settings will be lost! \nClick OK to Restore.', 'responsive' ) . '")';
+		// @TODO Check why double Set confirmaton text for restore default option as attributes of submit_button().
+		$attributes['onclick'] = 'return confirm("' . __( 'Do you want to restore?', 'responsive' ) . __( 'All theme settings will be lost!', 'responsive' ) . __( 'Click OK to Restore.', 'responsive' ) . '")';
 		?>
 
 		<div class="wrap">
@@ -364,7 +364,7 @@ Class Responsive_Options {
 
 		$html = '<div class="tinymce-editor">';
 		ob_start();
-		$html .= wp_editor( $value, 'responsive_theme_options[' . $id . ']', $editor_settings );
+		$html .= wp_editor( $value, 'responsive_theme_options_' . $id . '_', $editor_settings );
 		$html .= ob_get_contents();
 		$html .= '<label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
 		$html .= '</div>';
@@ -394,8 +394,7 @@ Class Responsive_Options {
 
 			$input = $defaults;
 
-		}
-		else {
+		} else {
 
 			// remove the submit button that gets included in the $input
 			unset ( $input['submit'] );
@@ -412,10 +411,9 @@ Class Responsive_Options {
 
 				if ( $validate ) {
 					$input[$key] = $this->{'validate_' . $validate}( $value, $key );
-				}
-				else {
+				} else {
 					// TODO could do with returning error message
-//					return;
+					//return;
 				}
 
 			}
