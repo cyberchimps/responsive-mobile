@@ -34,7 +34,7 @@ require $template_directory . '/core/includes/functions.php';
 /**
  * Custom template tags for this theme.
  */
-require $template_directory . '/core/includes/template-tags.php';
+require $template_directory . '/core/includes/functions-template-tags.php';
 
 /**
  * Layout functions.
