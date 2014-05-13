@@ -73,7 +73,7 @@ function responsive_theme_options_set() {
 		)
 	);
 
-	apply_filters( 'responsive_option_sections_filter', $sections );
+	$sections = apply_filters( 'responsive_option_sections_filter', $sections );
 
 /**
  * Creates and array of options that get added to the relevant sections
