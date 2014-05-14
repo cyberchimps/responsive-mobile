@@ -18,9 +18,7 @@
  */
 Class Responsive_Options {
 
-	public $sections;
-
-	public $options_sections;
+	public $options_only;
 
 	public $options;
 
@@ -35,15 +33,13 @@ Class Responsive_Options {
 	/**
 	 * Pulls in the arrays for the options and sets up the responsive options
 	 *
-	 * @param $sections array
 	 * @param $options array
 	 */
-	public function __construct( $sections, $options ) {
-		$this->sections           = $sections;
-		$this->options_sections   = $options;
-		$this->options            = $this->get_options_only( $this->options_sections );
-		$this->responsive_options = get_option( 'responsive_theme_options' );
-		$this->default_options   = $this->get_options_defaults( $this->options );
+	public function __construct( $options ) {
+		$this->options				= $options;
+		$this->options_only			= $this->get_options_only( $this->options );
+		$this->responsive_options	= get_option( 'responsive_theme_options' );
+		$this->default_options		= $this->get_options_defaults( $this->options_only );
 
 		self::$static_responsive_options = $this->responsive_options;
 		self::$static_default_options = $this->default_options;
@@ -143,9 +139,9 @@ Class Responsive_Options {
 	 * @return string
 	 */
 	public function render_display() {
-		foreach ( $this->sections as $section ) {
-			$sub = $this->options_sections[$section['id']];
-			$this->container( $section['title'], $sub );
+		
+		foreach ( $this->options as $section ) {
+			$this->container( $section['title'], $section['fields'] );
 		}
 	}
 
@@ -155,14 +151,14 @@ Class Responsive_Options {
 	 * Loops through the sections array
 	 *
 	 * @param $title string
-	 * @param $sub array
+	 * @param $fields array
 	 *
 	 * @return string
 	 */
-	protected function container( $title, $sub ) {
+	protected function container( $title, $fields ) {
 
-		foreach ( $sub as $opt ) {
-			$section[] = $this->section( $this->parse_args( $opt ) );
+		foreach ( $fields as $field ) {
+			$section[] = $this->section( $this->parse_args( $field ) );
 		}
 
 		$html = '<h3 class="rwd-toggle">' . esc_html( $title ) . '<a href="#"></a></h3><div class="rwd-container"><div class="rwd-block">';
@@ -399,7 +395,7 @@ Class Responsive_Options {
 			// remove the submit button that gets included in the $input
 			unset ( $input['submit'] );
 
-			$options = $this->options;
+			$options = $this->options_only;
 
 			$input = $input ? $input : array();
 			$input = apply_filters( 'responsive_settings_sanitize', $input );
@@ -455,7 +451,7 @@ Class Responsive_Options {
 	 */
 	protected function validate_select( $input, $key ) {
 
-		$options = $this->options[$key];
+		$options = $this->options_only[$key];
 		$input = ( array_key_exists( $input, $options['options'] ) ? $input : $this->default_options[$key] );
 
 		return $input;
@@ -545,7 +541,7 @@ Class Responsive_Options {
 
 		$new_array = array();
 		foreach ( $options as $option ) {
-			foreach ( $option as $opt ) {
+			foreach ( $option['fields'] as $opt ) {
 				$new_array[$opt['id']] = $opt;
 			}
 
