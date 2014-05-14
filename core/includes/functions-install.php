@@ -102,12 +102,12 @@ function responsive_plugin_notice() {
 			array(
 				'name'	=> 'Responsive Add Ons', // Name of the plugin.
 				'slug'	=> 'responsive-add-ons', // The plugin slug (typically the folder name)
-				'uri'	=> 'http://wordpress.org/plugins/responsive-add-ons' // plugin url ( http://wordpress.org/plugins/plugin_slug )
+				'uri'	=> 'http://wordpress.org/plugins/responsive-add-ons/' // plugin url ( http://wordpress.org/plugins/plugin_slug )
 			),
 			array(
 				'name'	=> 'Clef', // Name of the plugin.
 				'slug'	=> 'wpclef', // The plugin slug (typically the folder name)
-				'uri'	=> 'http://wordpress.org/plugins/wpclef' // plugin url ( http://wordpress.org/plugins/plugin_slug )
+				'uri'	=> 'http://wordpress.org/extend/plugins/wpclef' // plugin url ( http://wordpress.org/plugins/plugin_slug )
 			)
 		);
 		
