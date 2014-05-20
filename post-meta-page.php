@@ -20,7 +20,11 @@ if ( !defined( 'ABSPATH' ) ) {
 ?>
 
 <header class="entry-header">
-	<h1 class="entry-title post-title"><?php the_title(); ?></h1>
+
+	<!-- Display the page title if the toggle is on -->
+	<?php if( get_post_meta( get_the_ID(), 'cyberchimps_page_title_toggle', true) ) { ?>
+		<h1 class="entry-title post-title"><?php the_title(); ?></h1>
+	<?php } ?>
 
 	<?php if ( comments_open() ) : ?>
 		<div class="post-meta">

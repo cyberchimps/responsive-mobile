@@ -27,6 +27,12 @@ require $template_directory . '/core/includes/theme-options/theme-options.php';
 require $template_directory . '/core/includes/theme-options/theme-options-page.php';
 
 /**
+ * Meta Box Options
+ */
+require $template_directory . '/core/includes/meta-box-class/my-meta-box-class.php';
+require $template_directory . '/core/includes/meta-box-class/meta-box.php';
+
+/**
  * Basic theme functionality
 */
 require $template_directory . '/core/includes/functions.php';
