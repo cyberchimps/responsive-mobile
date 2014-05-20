@@ -8,12 +8,14 @@ jQuery(document).ready(function ($) {
 		return false; //Prevent the browser jump to the link anchor
 	});
 
-});
-jQuery(document).ready(function ($) {
+
 	setTimeout(function () {
 		$(".fade").fadeOut("slow", function () {
 			$(".fade").remove();
 		});
 
 	}, 2000);
+	
+	// Initilise color picker.
+	jQuery('.wp-color-picker').wpColorPicker();
 });

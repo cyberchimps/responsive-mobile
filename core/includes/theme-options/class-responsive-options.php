@@ -85,6 +85,8 @@ Class Responsive_Options {
 
 		wp_enqueue_style( 'responsive-theme-options', $template_directory_uri . '/core/includes/theme-options/theme-options.css', false, '1.0' );
 		wp_enqueue_script( 'responsive-theme-options', $template_directory_uri . '/core/includes/theme-options/theme-options.js', array( 'jquery' ), '1.0' );
+		wp_enqueue_style( 'wp-color-picker' );
+		wp_enqueue_script( 'wp-color-picker' );
 	}
 
 	/**
@@ -238,6 +240,24 @@ Class Responsive_Options {
 
 		$html = '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" class="regular-text" type="text" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" value="' . esc_html( $value ) . '" placeholder="' . esc_attr( $placeholder ) . '" /><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
 
+		return $html;
+	}
+	
+	/**
+	 * Creates text input with color picker.
+	 *
+	 * @param $args array
+	 *
+	 * @return string
+	 */
+	protected function color( $args ) {
+
+		extract( $args );
+
+		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
+
+		$html = '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" class="wp-color-picker regular-text" type="text" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" value="' . esc_html( $value ) . '" placeholder="' . esc_attr( $placeholder ) . '" /><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
+			
 		return $html;
 	}
 
