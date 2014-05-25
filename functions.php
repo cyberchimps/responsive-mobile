@@ -35,7 +35,7 @@ require $template_directory . '/includes/functions-theme-options-page.php';
  * Meta Box Options
  */
 require $template_directory . '/lib/meta-box-class/class-meta-box.php';
-require $template_directory . '/includes/meta-box-class/functions-meta-box.php';
+require $template_directory . '/includes/functions-meta-box.php';
 
 /**
  * Custom template tags for this theme.
