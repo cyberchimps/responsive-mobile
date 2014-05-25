@@ -18,7 +18,7 @@ if ( !defined( 'ABSPATH' ) ) {
 ?>
 
 <?php responsive_widgets_before(); ?>
-<div id="widgets" class="widget-area col-md-4" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+<div id="default-sidebar" class="widget-area col-md-4" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
 	<?php responsive_widgets(); ?>
 	<?php if ( !dynamic_sidebar( 'main-sidebar' ) ) : ?>
 
@@ -31,6 +31,5 @@ if ( !defined( 'ABSPATH' ) ) {
 
 	<?php endif; // end sidebar widget area ?>
 	<?php responsive_widgets_end(); ?>
-</div>
-<!-- #secondary -->
+</div><!-- #default-sidebar -->
 <?php responsive_widgets_after(); ?>

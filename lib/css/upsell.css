@@ -28,7 +28,6 @@ ul, ol {
 
 .theme-container {
 	margin-bottom: 40px;
-	border: 1px solid #cccccc;
 }
 
 .theme-container .theme-image img {
@@ -39,6 +38,11 @@ ul, ol {
 .image-container {
 	position: relative;
 	overflow: hidden;
+	border: 1px solid #cccccc;
+}
+
+.image-container img {
+	max-width: 100%;
 }
 
 .theme-exists {
@@ -49,13 +53,13 @@ ul, ol {
 	float: left;
 }
 
-.no-left-megin {
+.no-left-margin {
 	margin-left: 0px !important;
 }
 
 .theme-details {
 	padding: 10px;
-	height: 25px;
+	height: 50px;
 	border-top: 1px solid #cccccc;
 	background: none repeat scroll 0 0 #ffffff;
 	font-size: 18px;

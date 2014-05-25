@@ -30,12 +30,12 @@ require( get_template_directory() . '/lib/class-responsive-options.php' );
 function responsive_get_options() {
 
 	// Parse array of option defaults against user-configured Theme options
-	$responsive_options = '';
+	$responsive_options = Responsive_Options::get_parse_options();
 
 	// Return parsed args array
 	return $responsive_options;
 }
-//add_filter( 'responsive_options_init', 'responsive_get_options' );
+add_filter( 'responsive_options_init', 'responsive_get_options' );
 
 /**
  * Get valid layouts
