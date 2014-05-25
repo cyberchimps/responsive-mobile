@@ -1,93 +1,9 @@
-/* =Responsive 12 Column Grid
-    http://themeid.com/responsive-grid/
--------------------------------------------------------------- */
 
-.grid {
-	float: left;
-	margin-bottom: 2.127659574468%;
-	padding-top: 0;
+body {
+	background-color: transparent;
 }
 
-.grid-right {
-	float: right;
-	margin-bottom: 2.127659574468%;
-	padding-top: 0;
-}
-
-.col-60,
-.col-140,
-.col-220,
-.col-300,
-.col-380,
-.col-460,
-.col-540,
-.col-620,
-.col-700,
-.col-780,
-.col-860 {
-	float: left;
-	margin-right: 2.127659574468%;
-}
-
-.col-60 {
-	width: 6.382978723404%;
-}
-
-.col-140 {
-	width: 14.893617021277%;
-}
-
-.col-220 {
-	width: 23.404255319149%;
-}
-
-.col-300 {
-	width: 31.914893617021%;
-}
-
-.col-380 {
-	width: 40.425531914894%;
-}
-
-.col-460 {
-	width: 48.936170212766%;
-}
-
-.col-540 {
-	width: 57.446808510638%;
-}
-
-.col-620 {
-	width: 65.957446808511%;
-}
-
-.col-700 {
-	width: 74.468085106383%;
-}
-
-.col-780 {
-	width: 82.978723404255%;
-}
-
-.col-860 {
-	width: 91.489361702128%;
-}
-
-.col-940 {
-	width: 100%;
-}
-
-/* Clear new lines */
-.col-300 {
-	clear: left;
-}
-
-.fit {
-	margin-left: 0 !important;
-	margin-right: 0 !important;
-}
-
-#rwd,
+.row,
 #info-box-wrapper,
 .upgrade-callout {
 	max-width: 980px;
@@ -225,50 +141,6 @@ div.updated {
 
 .js .rwd-container {
 	display: none;
-}
-
-/* Set max width to 768px to match WP */
-@media screen and (max-width:768px) {
-	.col-300 {
-		width: 40.425531914894%;
-	}
-
-	.col-300.select {
-		width: 100%;
-	}
-
-	.col-620 {
-		width: 57.446808510638%;
-	}
-
-	.col-620.select {
-		width: 100%;
-		margin-bottom: 10px;
-	}
-
-	.col-300.media-upload {
-		width: 100%;
-	}
-
-	.col-460.media-upload {
-		width: 65.957446808511%;
-	}
-
-	.col-140.media-upload {
-		width: 31.914893617021%;
-	}
-}
-
-@media screen and (max-width:480px) {
-	.col-300 {
-		width: 100%;
-		margin: 10px 0;
-	}
-
-	.col-620 {
-		width: 100%;
-		margin: 10px 0;
-	}
 }
 
 /* ==================================== FORM ELEMENTS ================================================== */
