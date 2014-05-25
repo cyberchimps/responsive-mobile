@@ -20,6 +20,8 @@ if( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// @TODO Place within function
+
 if( is_admin() ) {
 
 	/*********************************** PAGE OPTIONS STARTS ******************************************/
