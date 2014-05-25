@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "file": "",
+  "sources": ["_responsive-embed.scss"],
+  "names": [],
+  "mappings": "AAAA;EAKE,UAAU;EACV,SAAS;EACT,QAAQ;EACR,SAAS;EACT,UAAU;EAAZ,kBAAkB,wBAAwB,kBAAkB,QAAQ,kBAAkB,OAAO,kBAAkB;IAM3G,UAAU;IACV,KAAK;IACL,MAAM;IACN,QAAQ;IACR,QAAQ;IACR,OAAO;IACP,QAAQ;EACZ,iBAAiB;IAIb,gBAAgB;EACpB,iBAAiB;IAIb,gBAAgB"
+}
