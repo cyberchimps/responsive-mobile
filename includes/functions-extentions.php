@@ -231,7 +231,7 @@ function responsive_get_social_icons() {
 		'googleplus'   => 'Google+',
 		'instagram'    => 'Instagram',
 		'pinterest'    => 'Pinterest',
-		'yelp'         => 'Yelp!',
+//		'yelp'         => 'Yelp!', TODO no font icon for yelp yet
 		'vimeo'        => 'Vimeo',
 		'foursquare'   => 'foursquare',
 	);
@@ -239,7 +239,7 @@ function responsive_get_social_icons() {
 	$html = '<ul class="social-icons">';
 	foreach( $sites as $key => $value ) {
 		if ( !empty( $responsive_options[$key . '_uid'] ) ) {
-			$html .= '<li class="' . esc_attr( $key ) . '-icon"><a href="' . $responsive_options[$key . '_uid'] . '">' . '<img src="' . responsive_child_uri( '/core/icons/' . esc_attr( $key ) . '-icon.png' ) . '" width="24" height="24" alt="' . esc_html( $value ) . '">' . '</a></li>';
+			$html .= '<li class="' . esc_attr( $key ) . '-icon"><a href="' . $responsive_options[$key . '_uid'] . '"></a></li>';
 		}
 	}
 	$html .= '</ul><!-- .social-icons -->';

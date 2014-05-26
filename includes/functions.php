@@ -171,8 +171,6 @@ function responsive_css() {
 		wp_enqueue_style( 'responsive-child-style', get_stylesheet_uri(), false, $theme['Version'] );
 	}
 
-	wp_register_style( 'bootstrap', $template_directory_uri . '/lib/bootstrap/stylesheets/bootstrap' . $rtl . $suffix . '.css', false, '3.1.1' );
-
 }
 
 add_action( 'wp_enqueue_scripts', 'responsive_css' );
