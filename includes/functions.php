@@ -142,7 +142,6 @@ function responsive_css() {
 	$responsive_options = responsive_get_options();
 	$template_directory_uri = get_template_directory_uri();
 	$rtl = ( is_rtl() ) ? '-rtl' : '';
-	$responsive_options = responsive_get_options();
 	$suffix = ( 1 == $responsive_options['minified_css'] ) ? '' : '.min';
 
 	// Depending on the settings RTL or minified version will be loaded

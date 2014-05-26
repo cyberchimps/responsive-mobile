@@ -54,48 +54,6 @@ function responsive_valid_layouts() {
 }
 
 /**
- * Responsive Theme option defaults
- */
-function responsive_get_option_defaults() {
-	$defaults = array(
-		'breadcrumb'                      => false,
-		'cta_button'                      => false,
-		'minified_css'                    => false,
-		'front_page'                      => 1,
-		'home_headline'                   => null,
-		'home_subheadline'                => null,
-		'home_content_area'               => null,
-		'cta_text'                        => null,
-		'cta_url'                         => null,
-		'featured_content'                => null,
-		'google_site_verification'        => '',
-		'bing_site_verification'          => '',
-		'yahoo_site_verification'         => '',
-		'site_statistics_tracker'         => '',
-		'twitter_uid'                     => '',
-		'facebook_uid'                    => '',
-		'linkedin_uid'                    => '',
-		'youtube_uid'                     => '',
-		'stumble_uid'                     => '',
-		'rss_uid'                         => '',
-		'google_plus_uid'                 => '',
-		'instagram_uid'                   => '',
-		'pinterest_uid'                   => '',
-		'yelp_uid'                        => '',
-		'vimeo_uid'                       => '',
-		'foursquare_uid'                  => '',
-		'responsive_inline_css'           => '',
-		'responsive_inline_js_head'       => '',
-		'responsive_inline_css_js_footer' => '',
-		'static_page_layout_default'      => 'default',
-		'single_post_layout_default'      => 'default',
-		'blog_posts_index_layout_default' => 'default',
-	);
-
-	return apply_filters( 'responsive_option_defaults', $defaults );
-}
-
-/**
  * Set Theme Options
  */
 function responsive_theme_options_set() {
@@ -135,6 +93,14 @@ function responsive_theme_options_set() {
 					'title'       => __( 'Disable breadcrumb list?', 'responsive' ),
 					'type'        => 'checkbox',
 					'id'          => 'breadcrumb',
+					'description' => __( 'Check to disable', 'responsive' ),
+					'default'     => false,
+					'validate'    => 'checkbox'
+				),
+				array(
+					'title'       => __( 'Use minified css', 'responsive' ),
+					'type'        => 'checkbox',
+					'id'          => 'minified_css',
 					'description' => __( 'Check to disable', 'responsive' ),
 					'default'     => false,
 					'validate'    => 'checkbox'
