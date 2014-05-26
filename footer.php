@@ -25,11 +25,11 @@ if ( ! defined( 'WPINC' ) ) {
 </div><!-- end of #container -->
 <?php responsive_container_bottom();?>
 
-<footer id="footer" class="site-footer container-full-width" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+<footer id="footer" class="site-footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
 	<?php responsive_footer_top(); ?>
-	<div id="footer-wrapper" class="container">
+	<div id="footer-wrapper">
 
-		<div id="footer-widgets-container" class="row">
+		<div id="footer-widgets-container">
 			<?php get_sidebar( 'footer' ); ?>
 		</div>
 		<!-- #footer-widgets-container-->
@@ -58,19 +58,19 @@ if ( ! defined( 'WPINC' ) ) {
 
 		<?php get_sidebar( 'colophon' ); ?>
 
-		<div id="footer-base" class="row">
-			<div class="col-md-4 copyright">
+		<div id="footer-base">
+			<div class="copyright">
 				<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php _e( date( 'Y' ) ); ?> <a href="<?php echo home_url( '/' ) ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
 			</div>
 			<!-- .copyright -->
 
-			<div class="col-md-4 scroll-top">
+			<div class="scroll-top">
 				<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a>
 			</div>
 			<!-- .scroll-top -->
 
-			<div class="col-md-4 powered">
-			<?php sprintf(
+			<div class="powered">
+			<?php printf(
 				/* Translators: Responsive Theme powered by WordPress */
 				__( '%1$s powered by %2$s', 'responsive' ),
 				'<a href="' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . '">' . __( 'Responsive Theme', 'responsive' ) . '</a>',

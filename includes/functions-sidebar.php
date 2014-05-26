@@ -147,8 +147,8 @@ function responsive_widgets_init() {
 		'id'            => 'footer-widget',
 		'before_title'  => '<div class="widget-title"><h3>',
 		'after_title'   => '</h3></div>',
-		'before_widget' => '<div id="%1$s" class="col-md-4 %2$s"><div class="widget-wrapper">',
-		'after_widget'  => '</div></div>'
+		'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
+		'after_widget'  => '</div>'
 	) );
 }
 add_action( 'widgets_init', 'responsive_widgets_init' );

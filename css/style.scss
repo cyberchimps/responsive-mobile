@@ -244,12 +244,18 @@ li {
 
 /* FEATURED ===================*/
 
-main #featured {
+main #featured-content {
   @include make-md-column(6);
+  .call-to-action{
+    text-align: center;
+  .cta-button {
+    @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  }
+  }
 }
 
 main #featured-image {
-	@extend #featured;
+	@extend #featured-content;
 }
 
 /* POSTS & PAGES ===================*/
@@ -365,6 +371,7 @@ main #featured-image {
 
 #widgets {
 	margin-bottom: 20px;
+  @include clearfix;
 	.widget-title {
 		margin-bottom: 20px;
 		border-bottom: 1px solid $gray-dark;
@@ -377,21 +384,58 @@ main #featured-image {
 	}
 }
 
+.widget_calendar {
+  #wp-calendar {
+    width: 100%;
+    caption {
+      margin-bottom: 20px;
+    }
+    thead tr th {
+      padding-bottom: 10px;
+      text-align: center;
+    }
+    tbody tr {
+      border-bottom: 1px solid $gray;
+      &:last-child {
+        border-bottom: none;
+      }
+      td {
+        text-align: center;
+        padding: 5px;
+      }
+    }
+    tfoot tr td {
+      padding-top: 10px;
+    }
+  }
+}
+
 /***************************/
 /* FOOTER ******************/
 /***************************/
 
 #footer {
+    @include container-fixed;
+    margin-top: 40px;
+    padding-top: 20px;
 	background-color: $gray-dark;
 	color: $gray-light;
+    #footer-wrapper {
+      @extend .container;
+    }
 }
 
 /* FOOTER WIDGETS ===================*/
 
+#footer-widgets-container {
+  @include make-row();
+}
+
 #footer-widget {
 	margin-bottom: 20px;
-	padding-bottom: 20px;
   @include clearfix;
+  .footer-widget {
+    @include make-md-column(4);
 	.widget-title {
 		color: $gray-light;
 	}
@@ -401,6 +445,7 @@ main #featured-image {
 			list-style: none;
 		}
 	}
+  }
 }
 
 /* SOCIAL ===================*/
@@ -429,11 +474,17 @@ main #featured-image {
 /* COPYRIGHT & POWERED ===================*/
 
 #footer-base {
-	padding: 10px 0;
+    @include make-row();
+	padding: 20px 0;
+    .copyright {
+      @include make-md-column(4);
+    }
 	.scroll-top {
+      @include make-md-column(4);
 		text-align: center;
 	}
 	.powered {
+      @include make-md-column(4);
 		text-align: right;
 		padding-bottom: 10px;
 	}
