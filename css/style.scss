@@ -202,8 +202,11 @@ li {
 #footer-menu-container {
     .footer-menu {
         padding: 0;
-        li {
+        @media ( min-width: $screen-md-min ) {
             float: left;
+        }
+        li {
+            display: inline-block;
             margin-right: 10px;
             list-style: none;
         }
@@ -237,6 +240,7 @@ li {
 
 main #featured-content {
     @include make-md-column(6);
+    margin-bottom: 20px;
     .call-to-action {
         text-align: center;
         .cta-button {
@@ -446,16 +450,33 @@ main #featured-image {
 /* SOCIAL ===================*/
 
 #menu-social-container {
+    @include make-row();
     padding: 10px 0;
     margin-bottom: 10px;
     border-bottom: 1px solid $gray;
 }
 
+#footer-menu-container {
+    @include make-xs-column(12);
+    text-align: center;
+    @media ( min-width: $screen-md-min ) {
+        @include make-md-column(7);
+    }
+}
+#social-icons-container {
+    @include make-xs-column(12);
+    text-align: center;
+    @media ( min-width: $screen-md-min ) {
+        @include make-md-column(5);
+    }
+}
 .social-icons {
     padding: 0;
-    float: right;
+    @media (min-width: $screen-md-min ) {
+        float: right;
+    }
     li {
-        float: left;
+        display: inline-block;
         height: 24px;
         width: 24px;
         list-style: none;
@@ -513,16 +534,30 @@ main #featured-image {
     @include make-row();
     padding: 20px 0;
     .copyright {
-        @include make-md-column(4);
+        @include make-md-column(12);
+        text-align: center;
+        @media ( min-width: $screen-md-min ) {
+            @include make-md-column(4);
+            text-align: left;
+        }
     }
     .scroll-top {
-        @include make-md-column(4);
+        @include make-md-column(12);
         text-align: center;
+        @media ( min-width: $screen-md-min ) {
+            @include make-md-column(4);
+            @include make-md-column-pull(4);
+        }
     }
     .powered {
-        @include make-md-column(4);
-        text-align: right;
+        @include make-md-column(12);
+        text-align: center;
         padding-bottom: 10px;
+        @media ( min-width: $screen-md-min ) {
+            @include make-md-column(4);
+            @include make-md-column-push(4);
+            text-align: right;
+        }
     }
 }
 

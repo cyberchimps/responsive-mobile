@@ -34,8 +34,8 @@ if ( ! defined( 'WPINC' ) ) {
 		</div>
 		<!-- #footer-widgets-container-->
 
-		<div id="menu-social-container" class="row">
-			<nav id="footer-menu-container" class="col-md-7">
+		<div id="menu-social-container">
+			<nav id="footer-menu-container">
 				<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
 					wp_nav_menu(
 						array(
@@ -49,7 +49,7 @@ if ( ! defined( 'WPINC' ) ) {
 				} ?>
 			</nav>
 			<!-- #footer-menu -->
-			<div id="social-icons-container" class="col-md-5">
+			<div id="social-icons-container">
 				<?php echo responsive_get_social_icons() ?>
 			</div>
 			<!-- #social-icons-container-->
@@ -64,11 +64,6 @@ if ( ! defined( 'WPINC' ) ) {
 			</div>
 			<!-- .copyright -->
 
-			<div class="scroll-top">
-				<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a>
-			</div>
-			<!-- .scroll-top -->
-
 			<div class="powered">
 			<?php printf(
 				/* Translators: Responsive Theme powered by WordPress */
@@ -78,6 +73,11 @@ if ( ! defined( 'WPINC' ) ) {
 			) ?>
 			</div>
 			<!-- end .powered -->
+
+			<div class="scroll-top">
+				<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a>
+			</div>
+			<!-- .scroll-top -->
 		</div>
 		<!-- #footer-base -->
 	</div>

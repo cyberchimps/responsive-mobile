@@ -1824,8 +1824,11 @@ li {
 /* FOOTER MENU ===================*/
 #footer-menu-container .footer-menu {
   padding: 0; }
+  @media (min-width: 992px) {
+    #footer-menu-container .footer-menu {
+      float: left; } }
   #footer-menu-container .footer-menu li {
-    float: left;
+    display: inline-block;
     margin-right: 10px;
     list-style: none; }
 
@@ -1864,7 +1867,8 @@ main #featured-content, main #featured-image {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
-  padding-right: 15px; }
+  padding-right: 15px;
+  margin-bottom: 20px; }
   @media (min-width: 992px) {
     main #featured-content, main #featured-image {
       float: left;
@@ -2091,15 +2095,62 @@ main #featured-content, main #featured-image {
 
 /* SOCIAL ===================*/
 #menu-social-container {
+  margin-left: -15px;
+  margin-right: -15px;
   padding: 10px 0;
   margin-bottom: 10px;
   border-bottom: 1px solid #555555; }
+  #menu-social-container:before, #menu-social-container:after {
+    content: " ";
+    display: table; }
+  #menu-social-container:after {
+    clear: both; }
+
+#footer-menu-container {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center; }
+  @media (min-width: 992px) {
+    #footer-menu-container {
+      position: relative;
+      min-height: 1px;
+      padding-left: 15px;
+      padding-right: 15px; } }
+  @media (min-width: 992px) and (min-width: 992px) {
+    #footer-menu-container {
+      float: left;
+      width: 58.33333%; } }
+
+#social-icons-container {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center; }
+  @media (min-width: 992px) {
+    #social-icons-container {
+      position: relative;
+      min-height: 1px;
+      padding-left: 15px;
+      padding-right: 15px; } }
+  @media (min-width: 992px) and (min-width: 992px) {
+    #social-icons-container {
+      float: left;
+      width: 41.66667%; } }
 
 .social-icons {
-  padding: 0;
-  float: right; }
+  padding: 0; }
+  @media (min-width: 992px) {
+    .social-icons {
+      float: right; } }
   .social-icons li {
-    float: left;
+    display: inline-block;
     height: 24px;
     width: 24px;
     list-style: none;
@@ -2237,11 +2288,24 @@ main #featured-content, main #featured-image {
     position: relative;
     min-height: 1px;
     padding-left: 15px;
-    padding-right: 15px; }
+    padding-right: 15px;
+    text-align: center; }
     @media (min-width: 992px) {
       #footer-base .copyright {
         float: left;
-        width: 33.33333%; } }
+        width: 100%; } }
+    @media (min-width: 992px) {
+      #footer-base .copyright {
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: left; } }
+  @media (min-width: 992px) and (min-width: 992px) {
+    #footer-base .copyright {
+      float: left;
+      width: 33.33333%; } }
+
   #footer-base .scroll-top {
     position: relative;
     min-height: 1px;
@@ -2251,18 +2315,46 @@ main #featured-content, main #featured-image {
     @media (min-width: 992px) {
       #footer-base .scroll-top {
         float: left;
-        width: 33.33333%; } }
+        width: 100%; } }
+    @media (min-width: 992px) {
+      #footer-base .scroll-top {
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px; } }
+  @media (min-width: 992px) and (min-width: 992px) {
+    #footer-base .scroll-top {
+      float: left;
+      width: 33.33333%; } }
+  @media (min-width: 992px) and (min-width: 992px) {
+    #footer-base .scroll-top {
+      right: 33.33333%; } }
+
   #footer-base .powered {
     position: relative;
     min-height: 1px;
     padding-left: 15px;
     padding-right: 15px;
-    text-align: right;
+    text-align: center;
     padding-bottom: 10px; }
     @media (min-width: 992px) {
       #footer-base .powered {
         float: left;
-        width: 33.33333%; } }
+        width: 100%; } }
+    @media (min-width: 992px) {
+      #footer-base .powered {
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: right; } }
+  @media (min-width: 992px) and (min-width: 992px) {
+    #footer-base .powered {
+      float: left;
+      width: 33.33333%; } }
+  @media (min-width: 992px) and (min-width: 992px) {
+    #footer-base .powered {
+      left: 33.33333%; } }
 
 /***************************/
 /* MEDIA *******************/

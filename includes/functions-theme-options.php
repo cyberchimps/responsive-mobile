@@ -321,14 +321,15 @@ function responsive_theme_options_set() {
 					'default'     => '',
 					'validate'    => 'url'
 				),
-				array(
-					'title'       => __( 'Yelp!', 'responsive' ),
-					'type'        => 'text',
-					'id'          => 'yelp_uid',
-					'description' => __( 'Enter your Yelp! URL', 'responsive' ),
-					'default'     => '',
-					'validate'    => 'url'
-				),
+				// TODO removed as no font icon for this yet
+//				array(
+//					'title'       => __( 'Yelp!', 'responsive' ),
+//					'type'        => 'text',
+//					'id'          => 'yelp_uid',
+//					'description' => __( 'Enter your Yelp! URL', 'responsive' ),
+//					'default'     => '',
+//					'validate'    => 'url'
+//				),
 				array(
 					'title'       => __( 'Vimeo', 'responsive' ),
 					'type'        => 'text',
