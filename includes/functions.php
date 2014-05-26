@@ -142,6 +142,10 @@ function responsive_js() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
+	// Register Scripts so that it can be easily enqueued
+	wp_enqueue_script( 'responsive-mobile-menu', get_template_directory_uri() . '/lib/js/mobile-menu' . $suffix . '.js', array( 'jquery' ), '20120206', true );
+	wp_enqueue_script( 'responsive-skip-link-focus-fix', get_template_directory_uri() . '/lib/js/skip-link-focus-fix' . $suffix . '.js', array(), '20130115', true );
+
 }
 
 add_action( 'wp_enqueue_scripts', 'responsive_js' );

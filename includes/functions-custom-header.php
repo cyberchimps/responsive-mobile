@@ -28,6 +28,7 @@ function responsive_custom_header_setup() {
 		'height'                 => 100,
 		'flex-width'             => true,
 		'flex-height'            => true,
+		'default-text-color' => '333',
 		'wp-head-callback'       => 'responsive_header_style',
 		'admin-head-callback'    => 'responsive_admin_header_style',
 		'admin-preview-callback' => 'responsive_admin_header_image',

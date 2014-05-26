@@ -75,13 +75,13 @@ if ( !defined( 'ABSPATH' ) ) {
 			<div id="site-branding">
 				<div id="logo">
 					<?php if ( get_header_image() ) : ?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url">
-							<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" itemprop="image">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url" title="<?php echo esc_attr( get_bloginfo( 'title' ) ) ?>">
+							<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php echo esc_attr( get_bloginfo( 'title' ) ) ?>" itemprop="image">
 						</a>
 					<?php endif; // End header image check. ?>
 				</div>
 				<div id="site-header-text">
-					<?php if ( display_header_text() ) : ?>
+					<?php if ( 'blank' != get_theme_mod( 'header_textcolor' ) ) : ?>
 						<h1 class="site-name" itemprop="headline"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
 						<h2 class="site-description" itemprop="description"><?php bloginfo( 'description' ); ?></h2>
 					<?php endif; // End header text check. ?>
@@ -100,7 +100,7 @@ if ( !defined( 'ABSPATH' ) ) {
 
 				<?php wp_nav_menu(
 					array(
-						'container'       => false,
+						'container'       => 'div',
 						'container_class' => 'main-nav',
 						'fallback_cb'     => 'responsive_fallback_menu',
 						'theme_location'  => 'header-menu'

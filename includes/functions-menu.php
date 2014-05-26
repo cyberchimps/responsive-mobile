@@ -37,7 +37,7 @@ function responsive_fallback_menu() {
 	$args    = array(
 		'depth'       => 0,
 		'sort_column' => 'menu_order, post_title',
-		'menu_class'  => 'menu',
+		'menu_class'  => 'main-nav',
 		'include'     => '',
 		'exclude'     => '',
 		'echo'        => false,
@@ -46,8 +46,6 @@ function responsive_fallback_menu() {
 		'link_after'  => ''
 	);
 	$pages   = wp_page_menu( $args );
-	$prepend = '<div class="main-nav">';
-	$append  = '</div>';
-	$output  = $prepend . $pages . $append;
+	$output  = $pages;
 	echo $output;
 }

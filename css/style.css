@@ -1787,39 +1787,41 @@ li {
 #site-navigation ul {
   margin: 0;
   padding: 0; }
-  #site-navigation ul:before, #site-navigation ul:after {
-    content: " ";
-    display: table; }
-  #site-navigation ul:after {
-    clear: both; }
-  #site-navigation ul li {
-    margin: 0;
-    padding: 0;
-    list-style: none; }
-  #site-navigation ul > li {
-    position: relative;
-    float: left;
-    padding-bottom: 10px; }
-    #site-navigation ul > li:hover ul {
-      display: block; }
-    #site-navigation ul > li a {
-      margin-right: 20px;
-      color: #eeeeee; }
-      #site-navigation ul > li a:hover {
-        text-decoration: none;
-        color: #999999; }
-    #site-navigation ul > li ul {
-      display: none;
-      padding: 10px 0 0 5px; }
-      #site-navigation ul > li ul li {
-        margin-bottom: 10px; }
-    #site-navigation ul > li > ul {
-      position: absolute;
-      z-index: 999;
-      width: 200%;
-      min-width: 200px;
-      padding: 10px;
-      background-color: #333333; }
+#site-navigation .main-nav > ul:before, #site-navigation .main-nav > ul:after {
+  content: " ";
+  display: table; }
+#site-navigation .main-nav > ul:after {
+  clear: both; }
+#site-navigation .main-nav > ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+#site-navigation .main-nav > ul > li {
+  position: relative;
+  float: left;
+  padding-bottom: 10px; }
+  #site-navigation .main-nav > ul > li:hover ul {
+    display: block; }
+  #site-navigation .main-nav > ul > li a {
+    margin-right: 20px;
+    color: #eeeeee; }
+    #site-navigation .main-nav > ul > li a:hover {
+      text-decoration: none;
+      color: #999999; }
+  #site-navigation .main-nav > ul > li > ul {
+    position: absolute;
+    z-index: 999;
+    width: auto;
+    min-width: 200px;
+    padding: 10px;
+    background-color: #333333; }
+  #site-navigation .main-nav > ul > li ul {
+    display: none;
+    margin-left: 10px; }
+    #site-navigation .main-nav > ul > li ul li {
+      float: none; }
+      #site-navigation .main-nav > ul > li ul li a {
+        line-height: 2.5em; }
 
 /* FOOTER MENU ===================*/
 #footer-menu-container .footer-menu {
@@ -1835,6 +1837,10 @@ li {
 /***************************/
 /* HEADER ******************/
 /***************************/
+#header {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
 #site-branding {
   position: relative;
   min-height: 1px;

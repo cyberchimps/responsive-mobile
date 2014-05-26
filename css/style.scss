@@ -150,9 +150,11 @@ li {
 #site-navigation {
     @include clearfix;
     ul {
-        @include clearfix;
         margin: 0;
         padding: 0;
+    }
+    .main-nav > ul {
+        @include clearfix;
         li {
             margin: 0;
             padding: 0;
@@ -175,24 +177,28 @@ li {
                     color: $gray-light;
                 }
             }
-            ul {
-                display: none;
-
-                padding: 10px 0 0 5px;
-                li {
-                    margin-bottom: 10px;
-                }
-            }
             > ul {
                 position: absolute;
                 z-index: 999;
 
-                width: 200%;
+                width: auto;
                 min-width: 200px;
                 padding: 10px;
 
                 background-color: $gray-dark;
             }
+            ul {
+                display: none;
+                margin-left: 10px;
+                li {
+                    float: none;
+                    a {
+                        line-height: 2.5em;
+
+                    }
+                }
+            }
+
         }
     }
 }
@@ -216,6 +222,11 @@ li {
 /***************************/
 /* HEADER ******************/
 /***************************/
+
+#header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
 #site-branding {
     @include make-md-column(8);
