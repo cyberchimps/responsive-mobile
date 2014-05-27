@@ -27,7 +27,7 @@ if ( !is_active_sidebar( 'colophon-widget' ) ) {
 
 <?php responsive_widgets_before(); ?>
 <div class="row">
-	<div id="colophon-widget" class="widget-area col-md-12" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	<div id="colophon-widget" class="widget-area" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
 		<?php responsive_widgets(); ?>
 		<?php if ( !dynamic_sidebar( 'colophon-sidebar' ) ) : ?>
 

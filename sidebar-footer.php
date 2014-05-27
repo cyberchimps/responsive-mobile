@@ -18,20 +18,21 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if( !is_active_sidebar( 'footer-widget' ) ) {
+if ( ! is_active_sidebar( 'footer-widget' ) ) {
 	return;
 }
 ?>
 
-	<?php responsive_widgets_before(); ?>
-	<div id="footer-widget" class="widget-area" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
-		<?php responsive_widgets(); ?>
-		<?php if ( ! dynamic_sidebar( 'footer-sidebar' ) ) : ?>
+<?php responsive_widgets_before(); ?>
+<div id="footer-widget" class="widget-area" role="complementary" itemscope="itemscope"
+     itemtype="http://schema.org/WPSideBar">
+	<?php responsive_widgets(); ?>
+	<?php if ( ! dynamic_sidebar( 'footer-sidebar' ) ) : ?>
 
-			<?php dynamic_sidebar( 'footer-widget' ); ?>
+		<?php dynamic_sidebar( 'footer-widget' ); ?>
 
-		<?php endif; // end sidebar widget area ?>
-		<?php responsive_widgets_end(); ?>
-	</div>
-	<!-- #secondary -->
-	<?php responsive_widgets_after(); ?>
+	<?php endif; // end sidebar widget area ?>
+	<?php responsive_widgets_end(); ?>
+</div>
+<!-- #secondary -->
+<?php responsive_widgets_after(); ?>

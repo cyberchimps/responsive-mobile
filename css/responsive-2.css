@@ -2255,12 +2255,12 @@ img.wp-smiley
     background: #fff;
 }
 
-.gallery-meta .iso,
-.gallery-meta .camera,
-.gallery-meta .shutter,
-.gallery-meta .aperture,
-.gallery-meta .full-size,
-.gallery-meta .focal-length
+.gallery-sidebar .iso,
+.gallery-sidebar .camera,
+.gallery-sidebar .shutter,
+.gallery-sidebar .aperture,
+.gallery-sidebar .full-size,
+.gallery-sidebar .focal-length
 {
     display: block;
 }

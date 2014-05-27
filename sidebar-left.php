@@ -19,7 +19,7 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 
 responsive_widgets_before(); // above widgets container hook ?>
-	<div id="widgets" class="widget-area col-md-4 col-md-pull-8"  role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	<div id="widgets" class="widget-area left-sidebar"  role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
 		<?php responsive_widgets(); // above widgets hook ?>
 
 		<?php if( !dynamic_sidebar( 'left-sidebar' ) ) : ?>

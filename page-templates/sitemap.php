@@ -21,7 +21,7 @@ if ( ! defined( 'WPINC' ) ) {
 get_header(); ?>
 
 	<div id="content-sitemap" class="content-area">
-		<main id="main" class="site-main grid col-940" role="main">
+		<main id="main" class="site-main sitemap" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -33,16 +33,14 @@ get_header(); ?>
 					 * If you want to override this in a child theme, then include a file
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
-					get_template_part( 'content', 'sitemap' );
+					get_template_part( 'template-parts/content', 'sitemap' );
 				?>
 
 			<?php endwhile; ?>
 
-			<?php get_template_part( 'loop-nav' ); ?>
-
 		<?php else : ?>
 
-			<?php get_template_part( 'loop-no-posts' ); ?>
+			<?php get_template_part( 'template-parts/loop-no-posts' ); ?>
 
 		<?php endif; ?>
 

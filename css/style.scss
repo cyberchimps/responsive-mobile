@@ -208,7 +208,7 @@ li {
 #footer-menu-container {
     .footer-menu {
         padding: 0;
-        @media ( min-width: $screen-md-min ) {
+        @media (min-width: $screen-md-min) {
             float: left;
         }
         li {
@@ -243,8 +243,12 @@ li {
 /* STRUCTURE ===================*/
 
 .content-area {
-    @extend .container;
+    @include make-row();
     margin-bottom: 20px;
+}
+
+main {
+    @include clearfix;
 }
 
 /* FEATURED ===================*/
@@ -269,6 +273,10 @@ main #featured-image {
 }
 
 /* POSTS & PAGES ===================*/
+
+#main {
+    @include make-md-column(8);
+}
 
 #main article {
     margin-bottom: 20px;
@@ -376,7 +384,114 @@ main #featured-image {
 }
 
 /***************************/
+/* PAGE TEMPLATES **********/
+/***************************/
+
+//* Content sidebar half ===================*/
+
+main#main {
+    &.content-sidebar-half {
+        @include make-md-column(6);
+    }
+
+    //* Full width ===================*/
+
+    &.full-width {
+        @include make-md-column(12);
+    }
+
+    //* Landing page ===================*/
+
+    .page-template-page-templateslanding-page-php #top-menu-container,
+    .page-template-page-templateslanding-page-php #main-menu-container {
+        display: none;
+    }
+
+    &.landing-page {
+        @extend main#main.full-width;
+    }
+
+    //* Sidebar content half ===================*/
+
+    &.sidebar-content-half {
+        @include make-md-column(6);
+        @include make-md-column-push(6);
+    }
+
+    //* Sidebar content ===================*/
+
+    &.sidebar-content {
+        @include make-md-column(8);
+        @include make-md-column-push(4);
+    }
+
+    //* Sitemap ===================*/
+
+    &.sitemap {
+        @extend main#main.full-width;
+        .sitemap-widgets {
+            @include make-row();
+            @extend #widgets;
+        }
+    }
+}
+
+/***************************/
 /* SIDEBAR *****************/
+/***************************/
+
+//* Default sidebar ===================*/
+
+.default-sidebar {
+    @include make-md-column(4);
+}
+
+//* Colophon sidebar ===================*/
+
+.colophon-widget {
+    @include make-md-column(12);
+}
+
+//* Gallery sidebar ===================*/
+
+.gallery-sidebar {
+    @extend .default-sidebar;
+}
+
+//* Home sidebar ===================*/
+
+.home-widgets {
+    @include make-row();
+}
+
+//* Left sidebar ===================*/
+
+.left-sidebar {
+    @include make-md-column(4);
+    @include make-md-column-pull(8);
+}
+
+//* Left half sidebar ===================*/
+
+.left-half-sidebar {
+    @include make-md-column(6);
+    @include make-md-column-pull(6);
+}
+
+//* Right sidebar ===================*/
+
+.right-sidebar {
+    @extend .default-sidebar;
+}
+
+//* Right half sidebar ===================*/
+
+.right-half-sidebar {
+    @include make-md-column(6);
+}
+
+/***************************/
+/* WIDGETS *****************/
 /***************************/
 
 #widgets {
@@ -418,6 +533,10 @@ main #featured-image {
             padding-top: 10px;
         }
     }
+}
+
+.sitemap .sitemap-widget {
+    @include make-md-column(4);
 }
 
 /***************************/
@@ -470,20 +589,22 @@ main #featured-image {
 #footer-menu-container {
     @include make-xs-column(12);
     text-align: center;
-    @media ( min-width: $screen-md-min ) {
+    @media (min-width: $screen-md-min) {
         @include make-md-column(7);
     }
 }
+
 #social-icons-container {
     @include make-xs-column(12);
     text-align: center;
-    @media ( min-width: $screen-md-min ) {
+    @media (min-width: $screen-md-min) {
         @include make-md-column(5);
     }
 }
+
 .social-icons {
     padding: 0;
-    @media (min-width: $screen-md-min ) {
+    @media (min-width: $screen-md-min) {
         float: right;
     }
     li {
@@ -503,37 +624,37 @@ main #featured-image {
             }
         }
         &.facebook-icon a:before {
-            @include fa_icon( $fa-var-facebook );
+            @include fa_icon($fa-var-facebook);
         }
         &.foursquare-icon a:before {
-            @include fa_icon( $fa-var-foursquare );
+            @include fa_icon($fa-var-foursquare);
         }
         &.googleplus-icon a:before {
-            @include fa_icon( $fa-var-google-plus );
+            @include fa_icon($fa-var-google-plus);
         }
         &.instagram-icon a:before {
-            @include fa_icon( $fa-var-instagram );
+            @include fa_icon($fa-var-instagram);
         }
         &.linkedin-icon a:before {
-            @include fa_icon( $fa-var-linkedin );
+            @include fa_icon($fa-var-linkedin);
         }
         &.pinterest-icon a:before {
-            @include fa_icon( $fa-var-pinterest );
+            @include fa_icon($fa-var-pinterest);
         }
         &.rss-icon a:before {
-            @include fa_icon( $fa-var-rss );
+            @include fa_icon($fa-var-rss);
         }
         &.stumbleupon-icon a:before {
-            @include fa_icon( $fa-var-stumbleupon );
+            @include fa_icon($fa-var-stumbleupon);
         }
         &.twitter-icon a:before {
-            @include fa_icon( $fa-var-twitter );
+            @include fa_icon($fa-var-twitter);
         }
         &.vimeo-icon a:before {
-            @include fa_icon( $fa-var-vimeo-square );
+            @include fa_icon($fa-var-vimeo-square);
         }
         &.youtube-icon a:before {
-            @include fa_icon( $fa-var-youtube );
+            @include fa_icon($fa-var-youtube);
         }
 
     }
@@ -547,7 +668,7 @@ main #featured-image {
     .copyright {
         @include make-md-column(12);
         text-align: center;
-        @media ( min-width: $screen-md-min ) {
+        @media (min-width: $screen-md-min) {
             @include make-md-column(4);
             text-align: left;
         }
@@ -555,7 +676,7 @@ main #featured-image {
     .scroll-top {
         @include make-md-column(12);
         text-align: center;
-        @media ( min-width: $screen-md-min ) {
+        @media (min-width: $screen-md-min) {
             @include make-md-column(4);
             @include make-md-column-pull(4);
         }
@@ -564,7 +685,7 @@ main #featured-image {
         @include make-md-column(12);
         text-align: center;
         padding-bottom: 10px;
-        @media ( min-width: $screen-md-min ) {
+        @media (min-width: $screen-md-min) {
             @include make-md-column(4);
             @include make-md-column-push(4);
             text-align: right;

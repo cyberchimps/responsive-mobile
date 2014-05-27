@@ -20,8 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 get_header(); ?>
 	<div id="content" class="content-area">
-		<div class="row">
-			<main id="main" class="site-main col-md-8" role="main">
+			<main id="main" class="site-main" role="main">
 
 				<?php if ( have_posts() ) : ?>
 
@@ -48,6 +47,5 @@ get_header(); ?>
 
 			</main><!-- #main -->
 			<?php get_sidebar(); ?>
-		</div><!-- .row -->
 	</div><!-- #content -->
 <?php get_footer(); ?>

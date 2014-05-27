@@ -14,14 +14,15 @@
  */
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 responsive_widgets_before(); // above widgets container hook
 ?>
 
-	<div id="widgets" class="widget-area col-md-4 gallery-meta" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	<div id="widgets" class="widget-area gallery-sidebar" role="complementary" itemscope="itemscope"
+	     itemtype="http://schema.org/WPSideBar">
 		<?php responsive_widgets(); // above widgets hook ?>
 		<aside class="widget-wrapper">
 
@@ -34,7 +35,8 @@ responsive_widgets_before(); // above widgets container hook
 
 					<?php if ( is_array( $responsive_data['image_meta'] ) ) : ?>
 						<?php if ( $responsive_data['image_meta']['aperture'] ) : ?>
-							<span class="aperture"><?php _e( 'Aperture: f&#47;', 'responsive' ); ?><?php echo $responsive_data['image_meta']['aperture']; ?></span>
+							<span
+								class="aperture"><?php _e( 'Aperture: f&#47;', 'responsive' ); ?><?php echo $responsive_data['image_meta']['aperture']; ?></span>
 						<?php endif; ?>
 
 						<?php if ( $responsive_data['image_meta']['focal_length'] ) : ?>
@@ -43,7 +45,8 @@ responsive_widgets_before(); // above widgets container hook
 						<?php endif; ?>
 
 						<?php if ( $responsive_data['image_meta']['iso'] ) : ?>
-							<span class="iso"><?php _e( 'ISO:', 'responsive' ); ?> <?php echo $responsive_data['image_meta']['iso']; ?></span>
+							<span
+								class="iso"><?php _e( 'ISO:', 'responsive' ); ?> <?php echo $responsive_data['image_meta']['iso']; ?></span>
 						<?php endif; ?>
 
 						<?php if ( $responsive_data['image_meta']['shutter_speed'] ) : ?>
@@ -52,19 +55,18 @@ responsive_widgets_before(); // above widgets container hook
 									echo "1/";
 									if ( number_format( ( 1 / $responsive_data['image_meta']['shutter_speed'] ), 1 ) == number_format( ( 1 / $responsive_data['image_meta']['shutter_speed'] ), 0 ) ) {
 										echo number_format( ( 1 / $responsive_data['image_meta']['shutter_speed'] ), 0, '.', '' ) . ' sec';
-									}
-									else {
+									} else {
 										echo number_format( ( 1 / $responsive_data['image_meta']['shutter_speed'] ), 1, '.', '' ) . ' sec';
 									}
-								}
-								else {
+								} else {
 									echo $responsive_data['image_meta']['shutter_speed'] . ' sec';
 								} ?>
 							</span>
 						<?php endif; ?>
 
 						<?php if ( $responsive_data['image_meta']['camera'] ) : ?>
-							<span class="camera"><?php _e( 'Camera:', 'responsive' ); ?> <?php echo $responsive_data['image_meta']['camera']; ?></span>
+							<span
+								class="camera"><?php _e( 'Camera:', 'responsive' ); ?> <?php echo $responsive_data['image_meta']['camera']; ?></span>
 						<?php endif; ?>
 					<?php endif; ?>
 				<?php endif; ?>
@@ -75,7 +77,7 @@ responsive_widgets_before(); // above widgets container hook
 	</div>
 	<!-- #widgets -->
 
-<?php if ( !is_active_sidebar( 'gallery-widget' ) ) {
+<?php if ( ! is_active_sidebar( 'gallery-widget' ) ) {
 	return;
 } ?>
 
