@@ -95,10 +95,6 @@ li {
     @include container-fixed();
 }
 
-.row {
-    @include make-row();
-}
-
 /*--------------------------------------------------------------
 1.0 Menu
 --------------------------------------------------------------*/
@@ -300,6 +296,12 @@ main #featured-image {
     margin-bottom: 20px;
 }
 
+/* ERROR PAGE ===================*/
+
+#main.error-page {
+    @include make
+}
+
 /* NAVIGATION ===================*/
 
 .site-main [class*="navigation"] {
@@ -334,7 +336,7 @@ main #featured-image {
 /* GALLERY ===================*/
 
 .gallery {
-    @extend .row;
+    @include make-row();
     &.gallery-columns-1 {
         .gallery-item {
             @include make-xs-column(12);

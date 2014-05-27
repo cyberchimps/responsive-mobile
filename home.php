@@ -21,8 +21,7 @@ if ( !defined( 'ABSPATH' ) ) {
 get_header(); ?>
 
 	<div id="content-blog" class="content-area">
-		<div class="row">
-			<main id="main" class="site-main col-md-8" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+			<main id="main" class="site-main" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
 
 				<?php if ( have_posts() ) : ?>
 
@@ -49,6 +48,5 @@ get_header(); ?>
 
 			</main><!-- #main -->
 			<?php get_sidebar(); ?>
-		</div><!-- .row -->
 	</div><!-- #content-blog -->
 <?php get_footer(); ?>

@@ -41,4 +41,3 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 
 	get_footer();
 }
-?>

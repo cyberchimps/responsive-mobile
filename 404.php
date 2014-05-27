@@ -20,9 +20,8 @@ if ( ! defined( 'WPINC' ) ) {
 
 get_header(); ?>
 
-	<div id="content-full" class="content-area">
-		<div class="row">
-			<main id="main" class="site-main col-md-12" role="main">
+	<div id="content" class="content-area">
+			<main id="main" class="site-main error-page" role="main">
 
 				<?php responsive_entry_before(); ?>
 				<section id="post-0" class="error404 not-found">
@@ -35,7 +34,6 @@ get_header(); ?>
 				</section><!-- #post-0 -->
 
 			</main><!-- #main -->
-		</div><!-- .row -->
 	</div><!-- #primary -->
 
 <?php get_footer(); ?>
