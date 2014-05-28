@@ -23,7 +23,7 @@ if ( ! defined( 'WPINC' ) ) {
  */
 function responsive_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'responsive_custom_header_args', array(
-		'default-image'          => get_template_directory_uri() . '/core/images/default-logo.png',
+		'default-image'          => get_template_directory_uri() . '/images/default-logo.png',
 		'width'                  => 300,
 		'height'                 => 100,
 		'flex-width'             => true,
