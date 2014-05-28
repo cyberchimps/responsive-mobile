@@ -14,45 +14,42 @@
  */
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 get_header(); ?>
 
 	<div id="content-search" class="content-area">
-		<div class="row">
-			<main id="main" class="site-main col-md-8" role="main">
+		<main id="main" class="site-main" role="main">
 
-				<?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) : ?>
 
-					<?php get_template_part( 'template-parts/loop-header' ); ?>
+				<?php get_template_part( 'template-parts/loop-header' ); ?>
 
-					<?php while ( have_posts() ) : the_post(); ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-						<?php
-						/* Run the loop for the search to output the results.
-						 * If you want to overload this in a child theme then include a file
-						 * called loop-search.php and that will be used instead.
-						 */
-						?>
-						<?php get_template_part( 'template-parts/content', 'search' ); ?>
+					<?php
+					/* Run the loop for the search to output the results.
+					 * If you want to overload this in a child theme then include a file
+					 * called loop-search.php and that will be used instead.
+					 */
+					?>
+					<?php get_template_part( 'template-parts/content', 'search' ); ?>
 
-					<?php endwhile; ?>
+				<?php endwhile; ?>
 
-					<?php responsive_paging_nav(); ?>
+				<?php responsive_paging_nav(); ?>
 
-				<?php else : ?>
+			<?php else : ?>
 
-					<?php get_template_part( 'template-parts/content', 'none' ); ?>
+				<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-				<?php endif; ?>
+			<?php endif; ?>
 
-			</main>
-			<!-- #main -->
-			<?php get_sidebar(); ?>
-		</div>
-		<!-- row -->
+		</main>
+		<!-- #main -->
+		<?php get_sidebar(); ?>
 	</div>
 	<!-- #content-search -->
 <?php get_footer(); ?>
