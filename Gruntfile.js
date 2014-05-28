@@ -169,6 +169,23 @@ module.exports = function(grunt) {
 			},
 		},
 
+		watch: {
+			scripts: {
+				files: ['lib/js/*.js'],
+				tasks: ['js'],
+				options: {
+					spawn: false,
+				},
+			},
+			styles: {
+				files: ['css/sass/*.scss','lib/css/*.css'],
+				tasks: ['css'],
+				options: {
+					spawn: false,
+				},
+			},
+		},
+
 		// Clean up build directory
 		clean: {
 			main: ['build/<%= pkg.name %>']
