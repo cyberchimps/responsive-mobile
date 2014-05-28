@@ -1,6 +1,7 @@
 // Mixins
 @mixin fa_icon( $icon, $color: $gray ) {
     content: $icon;
+    color: $color;
     display: inline-block;
     font-family: FontAwesome;
     font-style: normal;
