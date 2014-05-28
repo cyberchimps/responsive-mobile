@@ -21,54 +21,64 @@ if ( ! defined( 'WPINC' ) ) {
 get_header(); ?>
 
 	<div id="content-blog-excerpt" class="content-area">
-			<main id="main" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+		<main id="main" role="main" itemprop="mainContentOfPage" itemscope="itemscope"
+		      itemtype="http://schema.org/Blog">
 
-				<?php get_template_part( 'template-parts/loop-header' ); ?>
+			<?php get_template_part( 'template-parts/loop-header' ); ?>
 
+			<?php
+			if ( get_query_var( 'paged' ) ) {
+				$paged = get_query_var( 'paged' );
+			} elseif ( get_query_var( 'page' ) ) {
+				$paged = get_query_var( 'page' );
+			} else {
+				$paged = 1;
+			}
+			$blog_query = new WP_Query( array(
+				                            'post_type' => 'post',
+				                            'paged'     => $paged
+			                            ) );
+			?>
+
+			<?php if ( $blog_query->have_posts() ) : ?>
+
+				<?php /* Start the Loop */ ?>
+				<?php while ( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
+
+					<?php
+					/* Include the Post-Format-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					 */
+					get_template_part( 'template-parts/content', 'excerpt' );
+					?>
+
+				<?php endwhile; ?>
+
+				<?php if ( $blog_query->max_num_pages > 1 ) :
+					?>
+					<nav class="navigation">
+						<div
+							class="nav-previous"><?php next_posts_link( __( '&#8249; Older posts', 'responsive' ), $blog_query->max_num_pages ); ?></div>
+						<div
+							class="nav-next"><?php previous_posts_link( __( 'Newer posts &#8250;', 'responsive' ), $blog_query->max_num_pages ); ?></div>
+					</nav><!-- end of .navigation -->
 				<?php
-				if ( get_query_var( 'paged' ) ) {
-					$paged = get_query_var( 'paged' );
-				}
-				elseif ( get_query_var( 'page' ) ) {
-					$paged = get_query_var( 'page' );
-				}
-				else {
-					$paged = 1;
-				}
-				$blog_query = new WP_Query( array(
-												'post_type' => 'post',
-												'paged'     => $paged
-											) );
-				?>
+				endif;
 
-				<?php if ( $blog_query->have_posts() ) : ?>
+				wp_reset_postdata();
 
-					<?php /* Start the Loop */ ?>
-					<?php while ( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
+			else : ?>
 
-						<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'template-parts/content', get_post_format() );
-						?>
+				<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-					<?php endwhile; ?>
+			<?php endif; ?>
 
-					<?php get_template_part( 'template-parts/loop-nav' ); ?>
+			<?php wp_reset_postdata(); ?>
 
-				<?php else : ?>
-
-					<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-				<?php endif; ?>
-
-				<?php wp_reset_postdata(); ?>
-
-			</main>
-			<!-- #main -->
-			<?php get_sidebar(); ?>
+		</main>
+		<!-- #main -->
+		<?php get_sidebar(); ?>
 	</div>
 	<!-- #content-blog -->
 
