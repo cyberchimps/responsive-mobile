@@ -33,7 +33,7 @@ responsive_widgets_before(); // above widgets container hook ?>
 			<?php endif; //end of home-widget-1 ?>
 
 			<?php responsive_widgets_end(); // responsive after widgets hook ?>
-		</div><!-- end of .col-md-4 -->
+		</div><!-- home-widget-1 -->
 
 		<div id="home_widget_2" class="home-widget">
 			<?php responsive_widgets(); // responsive above widgets hook ?>
@@ -48,7 +48,7 @@ responsive_widgets_before(); // above widgets container hook ?>
 			<?php endif; //end of home-widget-2 ?>
 
 			<?php responsive_widgets_end(); // after widgets hook ?>
-		</div><!-- end of .col-md-4 -->
+		</div><!-- home-widget-2 -->
 
 		<div id="home_widget_3" class="home-widget">
 			<?php responsive_widgets(); // above widgets hook ?>
@@ -63,6 +63,6 @@ responsive_widgets_before(); // above widgets container hook ?>
 			<?php endif; //end of home-widget-3 ?>
 
 			<?php responsive_widgets_end(); // after widgets hook ?>
-		</div><!-- end of .col-md-4 -->
+		</div><!-- home-widget-3 -->
 	</div><!-- end of #widgets -->
 <?php responsive_widgets_after(); // after widgets container hook ?>

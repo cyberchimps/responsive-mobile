@@ -83,7 +83,7 @@ responsive_widgets_before(); // above widgets container hook
 
 <?php if ( is_active_sidebar( 'gallery-widget' ) ) : ?>
 
-	<div id="widgets" class="widget-area col-md-4" role="complementary">
+	<div id="widgets" class="widget-area" role="complementary">
 
 		<?php responsive_widgets(); // above widgets hook ?>
 
