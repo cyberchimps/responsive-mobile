@@ -82,6 +82,9 @@ module.exports = function(grunt) {
 
 		sass: {
 			dist: {
+				options: {
+					style: 'expanded'
+				},
 				files: {
 					'css/style.css': 'css/sass/style.scss',
 					'lib/bootstrap/stylesheets/bootstrap.css': 'lib/bootstrap/stylesheets/bootstrap.scss'
@@ -163,8 +166,7 @@ module.exports = function(grunt) {
 					'lib/js/respond.min.js': ['lib/js/respond.js'],
 					'lib/js/skip-link-focus-fix.min.js': ['lib/js/skip-link-focus-fix.js'],
 					'lib/js/jquery-scroll-top.min.js': ['lib/js/jquery-scroll-top.js'],
-					'lib/js/theme-options.min.js': ['lib/js/theme-options.js'],
-					'lib/js/upsell.min.js': ['lib/js/upsell.js'],
+					'lib/js/theme-options.min.js': ['lib/js/theme-options.js']
 				}
 			},
 		},
