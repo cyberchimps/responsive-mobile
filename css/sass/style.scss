@@ -33,21 +33,21 @@
 1.0 - Reset
 --------------------------------------------------------------*/
 // Reset and dependencies
-@import "../lib/bootstrap/stylesheets/bootstrap/normalize";
-@import "../lib/bootstrap/stylesheets/bootstrap/print";
+@import "../../lib/bootstrap/stylesheets/bootstrap/normalize";
+@import "../../lib/bootstrap/stylesheets/bootstrap/print";
 // Core CSS
-@import "sass/fontawesome";
-@import "sass/fontawesome-path";
-@import "../lib/bootstrap/stylesheets/bootstrap/scaffolding";
-@import "../lib/bootstrap/stylesheets/bootstrap/type";
-@import "../lib/bootstrap/stylesheets/bootstrap/code";
+@import "fontawesome";
+@import "fontawesome-path";
+@import "../../lib/bootstrap/stylesheets/bootstrap/scaffolding";
+@import "../../lib/bootstrap/stylesheets/bootstrap/type";
+@import "../../lib/bootstrap/stylesheets/bootstrap/code";
 //@import "../lib/bootstrap/stylesheets/bootstrap/grid"; TODO remove
-@import "../lib/bootstrap/stylesheets/bootstrap/tables";
-@import "../lib/bootstrap/stylesheets/bootstrap/forms";
-@import "../lib/bootstrap/stylesheets/bootstrap/buttons";
+@import "../../lib/bootstrap/stylesheets/bootstrap/tables";
+@import "../../lib/bootstrap/stylesheets/bootstrap/forms";
+@import "../../lib/bootstrap/stylesheets/bootstrap/buttons";
 // Utility classes
-@import "../lib/bootstrap/stylesheets/bootstrap/utilities";
-@import "../lib/bootstrap/stylesheets/bootstrap/responsive-utilities";
+@import "../../lib/bootstrap/stylesheets/bootstrap/utilities";
+@import "../../lib/bootstrap/stylesheets/bootstrap/responsive-utilities";
 
 // Theme Specific Styles
 @import "responsive-style";
