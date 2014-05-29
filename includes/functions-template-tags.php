@@ -318,21 +318,16 @@ if ( !function_exists( 'responsive_archive_title' ) ) {
 }
 
 
-function responsive_current_title() {
-	//@TODO Add filter
-	if ( is_front_page() ) {
-		_e( 'Home', 'responsive' );	}
-	elseif ( is_home() ) {
-		_e( 'Blog', 'responsive' );
-	} elseif( is_woocommerce() ) {
-		// @TODO Display porudct name on single product page
-		woocommerce_page_title();
-	} elseif( is_archive() ) {
-		responsive_archive_title();
-	} elseif( is_404() ) {
-		_e( 'Page not found', 'responsive' );
+function responsive_menu_title( $echo = true ) {
+
+	$page_title = __( 'Menu', 'responsive' );
+
+	$page_title = apply_filters( 'responsive_menu_title', $page_title );
+
+	if ( $echo ) {
+		echo $page_title;
 	} else {
-		$id = get_queried_object_id();
-		echo get_the_title( $id );
+		return $page_title;
 	}
+
 }

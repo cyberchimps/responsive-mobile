@@ -103,7 +103,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div id="main-menu-container" class="container-full-width">
 		<div id="main-menu" class="container">
 			<nav id="site-navigation" class="main-navigation" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-				<div id="mobile-current-item"><?php responsive_current_title(); ?></div>
+				<div id="mobile-current-item"><?php responsive_menu_title(); ?></div>
 				<div id="mobile-nav-button"></div>
 				<?php wp_nav_menu(
 					array(
