@@ -69,8 +69,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<!-- top menu container -->
 <?php } ?>
 <?php responsive_header(); ?>
-	<header id="header" class="container-full-width site-header" role="banner" itemscope="itemscope"
-	        itemtype="http://schema.org/WPHeader">
+	<header id="header" class="container-full-width site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
 		<?php responsive_in_header(); ?>
 
 		<div class="container">
@@ -87,9 +86,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 				<div id="site-header-text">
 					<?php if ( 'blank' != get_theme_mod( 'header_textcolor' ) ) : ?>
-						<h1 class="site-name" itemprop="headline"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"
-						                                             rel="home"
-						                                             itemprop="url"><?php bloginfo( 'name' ); ?></a>
+						<h1 class="site-name" itemprop="headline"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url"><?php bloginfo( 'name' ); ?></a>
 						</h1>
 						<h2 class="site-description" itemprop="description"><?php bloginfo( 'description' ); ?></h2>
 					<?php endif; // End header text check. ?>
@@ -105,8 +102,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div id="main-menu-container" class="container-full-width">
 		<div id="main-menu" class="container">
-			<nav id="site-navigation" class="main-navigation" role="navigation" itemscope="itemscope"
-			     itemtype="http://schema.org/SiteNavigationElement">
+			<nav id="site-navigation" class="main-navigation" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 				<?php wp_nav_menu(
 					array(
 						'container'       => 'div',
@@ -116,12 +112,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 					)
 				); ?>
 				<div id="mobile-nav-button"></div>
-			</nav>
-			<!-- #site-navigation -->
-		</div>
-		<!-- #main-menu -->
-	</div>
-	<!-- #main-menu-container -->
+			</nav><!-- #site-navigation -->
+		</div><!-- #main-menu -->
+	</div><!-- #main-menu-container -->
 <?php responsive_wrapper(); // before wrapper container hook ?>
 	<div id="wrapper" class="site-content container">
 <?php responsive_wrapper_top(); // before wrapper content hook ?>
