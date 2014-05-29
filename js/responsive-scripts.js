@@ -79,37 +79,14 @@
 	};
 })(jQuery);
 
-///*!
-// * Mobile Menu
-// */
+/*!
+ * Mobile Menu
+ */
 (function ($) {
     var obj = {
 
-        onReady: function () {
-            $("#main-menu").prepend(obj.render());
-        },
-
-        render: function () {
-            var show = obj.display(obj.menuTitle());
-
-            return show;
-        },
-
-        display: function (title) {
-            var html = '<div id="mobile-current-item">' + title + '</div>';
-
-            return html;
-        },
-
-        menuTitle: function () {
-            var title = $(".current_page_item > a, .current-menu-item > a").first().text();
-
-            return title;
-        },
-
         onClick: function () {
             $("#site-navigation").toggleClass("menu-open");
-            $("#mobile-current-item").css("display", "none");
         }
 
     };
@@ -117,6 +94,7 @@
     $(document).ready(obj.onReady);
     $("#mobile-nav-button").on("click", obj.onClick);
 })(jQuery);
+
 /*! http://mths.be/placeholder v2.0.7 by @mathias */
 ;(function(window, document, $) {
 
@@ -1172,14 +1150,14 @@
 
   return Response;
 }));
-// skip-link-focus-fix.js https://github.com/Automattic/_s/blob/master/js/skip-link-focus-fix.js
 ( function() {
 	var is_webkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,
 	    is_opera  = navigator.userAgent.toLowerCase().indexOf( 'opera' )  > -1,
 	    is_ie     = navigator.userAgent.toLowerCase().indexOf( 'msie' )   > -1;
 
-	if ( ( is_webkit || is_opera || is_ie ) && document.getElementById && window.addEventListener ) {
-		window.addEventListener( 'hashchange', function() {
+	if ( ( is_webkit || is_opera || is_ie ) && 'undefined' !== typeof( document.getElementById ) ) {
+		var eventMethod = ( window.addEventListener ) ? 'addEventListener' : 'attachEvent';
+		window[ eventMethod ]( 'hashchange', function() {
 			var element = document.getElementById( location.hash.substring( 1 ) );
 
 			if ( element ) {
@@ -1191,6 +1169,7 @@
 		}, false );
 	}
 })();
+
 /**
  * jQuery Scroll Top Plugin 1.0.0
  */

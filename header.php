@@ -103,6 +103,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div id="main-menu-container" class="container-full-width">
 		<div id="main-menu" class="container">
 			<nav id="site-navigation" class="main-navigation" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+				<div id="mobile-current-item"><?php responsive_current_title(); ?></div>
+				<div id="mobile-nav-button"></div>
 				<?php wp_nav_menu(
 					array(
 						'container'       => 'div',
@@ -111,7 +113,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 						'theme_location'  => 'header-menu'
 					)
 				); ?>
-				<div id="mobile-nav-button"></div>
 			</nav><!-- #site-navigation -->
 		</div><!-- #main-menu -->
 	</div><!-- #main-menu-container -->
