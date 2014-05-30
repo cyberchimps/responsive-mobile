@@ -3,57 +3,82 @@
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-1.0 - Reset
-2.0 - Typography
-3.0 - Elements
-4.0 - Forms
-5.0 - Navigation
-	5.1 - Links
-	5.2 - Menus
-	5.3 - Mobile Menus
-	5.4 - Comment, Page and Post naviagtion
-6.0 - Accessibility
-7.0 - Alignments
-8.0 - Clearings
-9.0 - Widgets
-10.0 - Content
-	10.1 - Posts and pages
-	10.2 - Asides
-	10.3 - Comments
-12.0 - Media
-	12.1 - Captions
-	12.2 - Galleries
+ 0.0 - Bootstrap variables and mixins
+ 1.0 - Reset
+ 2.0 - Typography
+ 3.0 - Elements
+ 4.0 - Utilities
+ 5.0 - Structure
+ 5.0 - Structure
+ 6.0 - Navigation
+	6.1 - Top Menu
+	6.2 - Main Menus
+	6.3 - Sub header Menu
+	6.4 - Footer Menu
+ 7.0 - Header
+ 8.0 - Content
+	8.1 - Structure
+	8.2 - Fetured area
+	8.3 - Post & Pages
+	8.4 - Error page
+	8.5 - Navigation
+	8.6 - Comments
+ 9.0 - Media
+	9.1 - Galleries
+10.0 - Page templates
+11.0 - Sidebar
+12.0 - Widgets
+13.0 - Footer
+	13.1 - Footer Widgets
+	13.2 - Social icons
+	13.3 - Copyright & Powered
+14.0 - Extras (alignment)
+15.0 - Accessibility
+16.0 - Plugin specific styles
+	16.1 - WooCommerce
+	16.2 - Jetpack
 --------------------------------------------------------------*/
 
-// Core variables and mixins
+/*--------------------------------------------------------------
+ 0.0 - Bootstrap variables and mixins
+--------------------------------------------------------------*/
 @import "../../lib/bootstrap/stylesheets/bootstrap/variables";
 @import "../../lib/bootstrap/stylesheets/bootstrap/mixins";
 
 /*--------------------------------------------------------------
-1.0 - Reset
+ 1.0 - Reset
 --------------------------------------------------------------*/
 // Reset and dependencies
 @import "../../lib/bootstrap/stylesheets/bootstrap/normalize";
 @import "../../lib/bootstrap/stylesheets/bootstrap/print";
-// Core CSS
+@import "../../lib/bootstrap/stylesheets/bootstrap/scaffolding";
+
+/*--------------------------------------------------------------
+ 2.0 - Typography
+--------------------------------------------------------------*/
 @import "fontawesome";
 @import "fontawesome-path";
-@import "../../lib/bootstrap/stylesheets/bootstrap/scaffolding";
 @import "../../lib/bootstrap/stylesheets/bootstrap/type";
+
+/*--------------------------------------------------------------
+ 3.0 - Elements
+--------------------------------------------------------------*/
 @import "../../lib/bootstrap/stylesheets/bootstrap/code";
-//@import "../lib/bootstrap/stylesheets/bootstrap/grid"; TODO remove
 @import "../../lib/bootstrap/stylesheets/bootstrap/tables";
 @import "../../lib/bootstrap/stylesheets/bootstrap/forms";
 @import "../../lib/bootstrap/stylesheets/bootstrap/buttons";
-// Utility classes
+
+/*--------------------------------------------------------------
+ 4.0 - Utilities
+--------------------------------------------------------------*/
 @import "../../lib/bootstrap/stylesheets/bootstrap/utilities";
 @import "../../lib/bootstrap/stylesheets/bootstrap/responsive-utilities";
 
 // Theme Specific Styles
 @import "responsive-style";
 
-// WooCommerce Styles
-@import "woocommerce";
-
-// Jetpack Styles
+/*--------------------------------------------------------------
+13.0 - Plugin specific styles
+--------------------------------------------------------------*/
 @import "jetpack";
+@import "woocommerce";

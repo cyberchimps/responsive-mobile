@@ -1,8 +1,12 @@
 /*--------------------------------------------------------------
-11.0 Infinite scroll
+16.2 - Jetpack
 --------------------------------------------------------------*/
-/* Globally hidden elements when Infinite Scroll is supported and in use. */
 
+/*
+ *Infinite scroll
+ */
+
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
 .infinite-scroll {
   .paging-navigation, &.neverending .site-footer {
     /* Theme Footer (when set to scrolling) */
@@ -11,7 +15,6 @@
 }
 
 /* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
-
 .infinity-end.neverending .site-footer {
   display: block;
 }
