@@ -12,7 +12,7 @@
 // 7.0 - Header
 // 8.0 - Content
 //	8.1 - Structure
-//	8.2 - Fetured area
+//	8.2 - Featured area
 //	8.3 - Post & Pages
 //	8.4 - Error page
 //	8.5 - Navigation
@@ -32,6 +32,11 @@
 
 // RESPONSIVE 2.0 VARIABLES
 $shadow: 0 1px 1px rgba(0, 0, 0, .075);
+$padding-xlarge-vertical:   15px;
+$padding-xlarge-horizontal: 35px;
+$font-size-xlarge:          24px;
+$line-height-xlarge:        24px;
+//$border-radius-base:       ;
 
 
 /*--------------------------------------------------------------
@@ -115,7 +120,6 @@ li {
 #main-menu {
 	position: relative;
 	margin-bottom: 20px;
-	background-color: $gray-dark;
 }
 
 #mobile-nav-button {
@@ -147,6 +151,7 @@ li {
 
 #site-navigation {
 	@include clearfix;
+	background-color: $gray-dark;
 	&.menu-open {
 		ul {
 			display: block;
@@ -278,7 +283,7 @@ li {
 --------------------------------------------------------------*/
 
 #content {
-	background: #fff;
+
 }
 
 
@@ -299,13 +304,22 @@ main {
  8.2 - Featured area
 --------------------------------------------------------------*/
 
+#featured-area {
+	background: #fff;
+	margin: 0 15px;
+}
+
 main #featured-content {
 	@include make-md-column(6);
 	margin-bottom: 20px;
+	h1, h2, p {
+		text-align: center;
+	}
 	.call-to-action {
 		text-align: center;
 		.cta-button {
 			@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+			@include button-size($padding-xlarge-vertical, $padding-xlarge-horizontal, $font-size-xlarge, $line-height-xlarge, $border-radius-base);
 		}
 	}
 }

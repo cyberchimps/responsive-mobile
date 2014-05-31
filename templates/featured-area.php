@@ -14,7 +14,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 
 ?>
 <div id="content" class="content-area">
-	<main id="featured" role="main">
+	<main id="featured-area" role="main">
 
 		<div id="featured-content">
 

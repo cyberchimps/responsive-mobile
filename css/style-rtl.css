@@ -16,7 +16,7 @@
  7.0 - Header
  8.0 - Content
 	8.1 - Structure
-	8.2 - Fetured area
+	8.2 - Featured area
 	8.3 - Post & Pages
 	8.4 - Error page
 	8.5 - Navigation
@@ -2561,7 +2561,6 @@ li {
 #main-menu {
   position: relative;
   margin-bottom: 20px;
-  background-color: #333333;
 }
 
 #mobile-nav-button {
@@ -2607,6 +2606,10 @@ li {
   #mobile-current-item {
     display: none;
   }
+}
+
+#site-navigation {
+  background-color: #333333;
 }
 
 #site-navigation:before,
@@ -2781,10 +2784,6 @@ li {
  8.0 - Content
 --------------------------------------------------------------*/
 
-#content {
-  background: #fff;
-}
-
 /*--------------------------------------------------------------
  8.1 - Structure
 --------------------------------------------------------------*/
@@ -2819,6 +2818,11 @@ main:after {
  8.2 - Featured area
 --------------------------------------------------------------*/
 
+#featured-area {
+  background: #fff;
+  margin: 0 15px;
+}
+
 main #featured-content,
 main #featured-image {
   position: relative;
@@ -2836,6 +2840,15 @@ main #featured-image {
   }
 }
 
+main #featured-content h1,
+main #featured-image h1,
+main #featured-content h2,
+main #featured-image h2,
+main #featured-content p,
+main #featured-image p {
+  text-align: center;
+}
+
 main #featured-content .call-to-action,
 main #featured-image .call-to-action {
   text-align: center;
@@ -2846,6 +2859,10 @@ main #featured-image .call-to-action .cta-button {
   color: white;
   background-color: #428bca;
   border-color: #357ebd;
+  padding: 15px 35px;
+  font-size: 24px;
+  line-height: 24px;
+  border-radius: 4px;
 }
 
 main #featured-content .call-to-action .cta-button:hover,
