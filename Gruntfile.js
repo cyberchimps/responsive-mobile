@@ -87,7 +87,8 @@ module.exports = function(grunt) {
 				},
 				files: {
 					'css/style.css': 'css/sass/style.scss',
-					'lib/bootstrap/stylesheets/bootstrap.css': 'lib/bootstrap/stylesheets/bootstrap.scss'
+					'lib/bootstrap/stylesheets/bootstrap.css': 'lib/bootstrap/stylesheets/bootstrap.scss',
+					'lib/css/theme-options.css': 'lib/css/theme-options.scss'
 				}
 			}
 		},
@@ -180,7 +181,7 @@ module.exports = function(grunt) {
 				},
 			},
 			styles: {
-				files: ['css/sass/*.scss','lib/css/*.css'],
+				files: ['css/sass/*.scss','lib/css/*.scss','lib/css/*.css'],
 				tasks: ['css'],
 				options: {
 					spawn: false,

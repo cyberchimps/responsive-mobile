@@ -27,7 +27,7 @@ function cyberchimps_admin_style() {
 	wp_register_style( 'responsive-bootstrap', $template_directory_uri . '/lib/bootstrap/stylesheets/bootstrap' . $rtl . $suffix . '.css', false, '3.1.1' );
 	// @TODO Check that it works for RTL too
 	wp_register_style( 'upsell-style', $template_directory_uri . '/lib/css/upsell' . $suffix . '.css', array( 'responsive-bootstrap' ), '2.0.0' );
-	wp_register_style( 'responsive-theme-options', $template_directory_uri . '/lib/css/theme-options' . $suffix . '.css', array( 'responsive-bootstrap' ), '2.0.0' );
+	wp_register_style( 'responsive-theme-options', $template_directory_uri . '/lib/css/theme-options' . $suffix . '.css', array(), '2.0.0' );
 	wp_register_script( 'responsive-theme-options', $template_directory_uri . '/lib/js/theme-options' . $suffix . '.js', array( 'jquery' ), '2.0.0' );
 }
 add_action( 'admin_enqueue_scripts', 'cyberchimps_admin_style' );

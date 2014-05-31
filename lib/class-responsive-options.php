@@ -166,7 +166,7 @@ Class Responsive_Options {
 		}
 
 		$html .= $this->save();
-		$html .= '</div><!-- rwd-block --></div><!-- rwd-container -->';
+		$html .= '</div><!-- .rwd-block --></div><!-- .rwd-container -->';
 
 		echo $html;
 
