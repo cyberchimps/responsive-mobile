@@ -8,8 +8,8 @@
  2.0 - Typography
  3.0 - Elements
  4.0 - Utilities
- 5.0 - Structure
- 5.0 - Structure
+ 5.0 - Main
+	5.1 - Structure
  6.0 - Navigation
 	6.1 - Top Menu
 	6.2 - Main Menus
@@ -78,7 +78,7 @@
 @import "responsive-style";
 
 /*--------------------------------------------------------------
-13.0 - Plugin specific styles
+16.0 - Plugin specific styles
 --------------------------------------------------------------*/
 @import "jetpack";
 @import "woocommerce";

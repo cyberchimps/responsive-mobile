@@ -1,45 +1,42 @@
 @charset "UTF-8";
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
- 5.0 - Structure
- 6.0 - Navigation
-	6.1 - Top Menu
-	6.2 - Main Menus
-	6.3 - Sub header Menu
-	6.4 - Footer Menu
- 7.0 - Header
- 8.0 - Content
-	8.1 - Structure
-	8.2 - Fetured area
-	8.3 - Post & Pages
-	8.4 - Error page
-	8.5 - Navigation
-	8.6 - Comments
- 9.0 - Media
-	9.1 - Galleries
-10.0 - Page templates
-11.0 - Sidebar
-12.0 - Widgets
-13.0 - Footer
-	13.1 - Footer Widgets
-	13.2 - Social icons
-	13.3 - Copyright & Powered
-14.0 - Extras (alignment)
-15.0 - Accessibility
---------------------------------------------------------------*/
-
-/***************************/
-/* BASICS ******************/
-/***************************/
+///*--------------------------------------------------------------
+//>>> TABLE OF CONTENTS:
+//----------------------------------------------------------------
+// 5.0 - Main
+// 	5.1 - Structure
+// 6.0 - Navigation
+//	6.1 - Top Menu
+//	6.2 - Main Menus
+//	6.3 - Sub header Menu
+//	6.4 - Footer Menu
+// 7.0 - Header
+// 8.0 - Content
+//	8.1 - Structure
+//	8.2 - Fetured area
+//	8.3 - Post & Pages
+//	8.4 - Error page
+//	8.5 - Navigation
+//	8.6 - Comments
+// 9.0 - Media
+//	9.1 - Galleries
+//10.0 - Page templates
+//11.0 - Sidebar
+//12.0 - Widgets
+//13.0 - Footer
+//	13.1 - Footer Widgets
+//	13.2 - Social icons
+//	13.3 - Copyright & Powered
+//14.0 - Extras (alignment)
+//15.0 - Accessibility
+//--------------------------------------------------------------*/
 
 // RESPONSIVE 2.0 VARIABLES
 $shadow: 0 1px 1px rgba(0, 0, 0, .075);
 
-/***************************/
-/* HTML ********************/
-/***************************/
 
+/*--------------------------------------------------------------
+ 5.0 Main
+--------------------------------------------------------------*/
 body {
     word-wrap: break-word;
 	background: #efefef;
@@ -50,7 +47,7 @@ li {
 }
 
 /*--------------------------------------------------------------
- 5.0 Structure
+ 5.1 Structure
 --------------------------------------------------------------*/
 .container {
     @include container-fixed();
@@ -767,7 +764,6 @@ main#main {
 /*--------------------------------------------------------------
 13.3 - Copyright & Powered
 --------------------------------------------------------------*/
-
 #footer-base {
     @include make-row();
     padding: 20px 0;
@@ -833,7 +829,6 @@ main#main {
 
 .screen-reader-text {
     position: absolute !important;
-
     clip: rect(1px, 1px, 1px, 1px);
 }
 
@@ -843,21 +838,16 @@ main#main {
     z-index: 100000; /* Above WP toolbar */
     top: 5px;
     left: 5px;
-
     display: block;
     clip: auto !important;
-
     width: auto;
     height: auto;
     padding: 15px 23px 14px;
-
     text-decoration: none;
-
     color: $link-color;
     border-radius: $border-radius-small;
     background-color: darken($body-bg, 5%);
     box-shadow: $shadow;
-
     font-size: $font-size-base;
     font-weight: bold;
     line-height: normal;
