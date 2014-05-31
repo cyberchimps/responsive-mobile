@@ -23,7 +23,7 @@ if ( ! defined( 'WPINC' ) ) {
 if( is_admin() ) {
 
 	/*********************************** PAGE OPTIONS STARTS ******************************************/
-	$fields = array( 
+	$fields = array(
 		array(
 			'type'  => 'checkbox',
 			'id'    => 'cyberchimps_page_title_toggle',
@@ -31,8 +31,8 @@ if( is_admin() ) {
 			'name'  => __( 'Page Title', 'responsive' ),
 			'std'   => 1
 		),
-		
-		
+
+
 	);
 	/*
 	 * configure your meta box

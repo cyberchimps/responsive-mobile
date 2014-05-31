@@ -22,6 +22,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Theme options upgrade bar
  */
 function responsive_upgrade_bar() {
+	// @TODO Update to new theme upsell structure
 	?>
 
 	<div class="upgrade-callout">

@@ -18,7 +18,6 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-
 /**
  * Breadcrumb Lists
  * Load the plugin from the plugin that is installed.

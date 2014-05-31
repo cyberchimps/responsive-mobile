@@ -58,25 +58,25 @@ function responsive_valid_layouts() {
  */
 function responsive_theme_options_set() {
 
-/**
- * Creates and array of sections and each section again conatains array of options.
- *
- * @key This must match the id of the section you want the options to appear in
- *
- * Attributes of each sections :-
- * @title - Title of the section. This text is used to be displyed as the section name in the theme theme option page.
- * @fields - This is an array of option fields inside a section.
- *
- * Attributes of each fields :-
- * @title Title on the left hand side of the options
- * @subtitle Displays underneath main title on left hand side
- * @heading Right hand side above input
- * @type The type of input e.g. text, textarea, checkbox
- * @id The options id
- * @description Instructions on what to enter in input
- * @placeholder The placeholder for text and textarea
- * @options array used by select dropdown lists
- */
+	/**
+	 * Creates and array of sections and each section again conatains array of options.
+	 *
+	 * @key This must match the id of the section you want the options to appear in
+	 *
+	 * Attributes of each sections :-
+	 * @title - Title of the section. This text is used to be displyed as the section name in the theme theme option page.
+	 * @fields - This is an array of option fields inside a section.
+	 *
+	 * Attributes of each fields :-
+	 * @title Title on the left hand side of the options
+	 * @subtitle Displays underneath main title on left hand side
+	 * @heading Right hand side above input
+	 * @type The type of input e.g. text, textarea, checkbox
+	 * @id The options id
+	 * @description Instructions on what to enter in input
+	 * @placeholder The placeholder for text and textarea
+	 * @options array used by select dropdown lists
+	 */
 	$options = apply_filters( 'Responsive_Options_Class_filter', array(
 		'theme_elements' => array(
 			'title'  => __( 'Theme Elements', 'responsive' ),

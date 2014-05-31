@@ -75,11 +75,11 @@ function responsive_setup() {
 	 * @see http://codex.wordpress.org/Function_Reference/register_nav_menus
 	 */
 	register_nav_menus( array(
-        'top-menu'        => __( 'Top Menu', 'responsive' ),
-        'header-menu'     => __( 'Header Menu', 'responsive' ),
-        'sub-header-menu' => __( 'Sub-Header Menu', 'responsive' ),
-        'footer-menu'     => __( 'Footer Menu', 'responsive' )
-    ) );
+		'top-menu'        => __( 'Top Menu', 'responsive' ),
+		'header-menu'     => __( 'Header Menu', 'responsive' ),
+		'sub-header-menu' => __( 'Sub-Header Menu', 'responsive' ),
+		'footer-menu'     => __( 'Footer Menu', 'responsive' )
+	) );
 
 	// Enable support for HTML5 markup.
 	add_theme_support( 'html5', array(
@@ -147,16 +147,12 @@ function responsive_js() {
 	wp_register_script( 'responsive-mobile-menu', get_template_directory_uri() . '/lib/js/mobile-menu' . $suffix . '.js', array( 'jquery' ), '20120206', true );
 	wp_register_script( 'responsive-skip-link-focus-fix', get_template_directory_uri() . '/lib/js/skip-link-focus-fix' . $suffix . '.js', array(), '20130115', true );
 
-	//TODO remove
-	//wp_enqueue_script( 'responsive-mobile-menu' );
 }
-
 add_action( 'wp_enqueue_scripts', 'responsive_js' );
 
 /**
  * A safe way of adding stylesheets to a WordPress generated page.
  */
-
 function responsive_css() {
 
 	$responsive             = wp_get_theme( 'responsive' );
@@ -174,5 +170,4 @@ function responsive_css() {
 	}
 
 }
-
 add_action( 'wp_enqueue_scripts', 'responsive_css' );
