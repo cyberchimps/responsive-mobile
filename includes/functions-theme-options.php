@@ -82,14 +82,6 @@ function responsive_theme_options_set() {
 			'title'  => __( 'Theme Elements', 'responsive' ),
 			'fields' => array(
 				array(
-					'title'       => __( 'Backward Compatibility', 'responsive' ),
-					'type'        => 'checkbox',
-					'id'          => 'compatibility',
-					'description' => __( 'Check to enable', 'responsive' ),
-					'default'     => false,
-					'validate'    => 'checkbox'
-				),
-				array(
 					'title'       => __( 'Disable breadcrumb list?', 'responsive' ),
 					'type'        => 'checkbox',
 					'id'          => 'breadcrumb',
@@ -98,7 +90,7 @@ function responsive_theme_options_set() {
 					'validate'    => 'checkbox'
 				),
 				array(
-					'title'       => __( 'Use minified css', 'responsive' ),
+					'title'       => __( 'Use minified CSS', 'responsive' ),
 					'type'        => 'checkbox',
 					'id'          => 'minified_css',
 					'description' => __( 'Check to disable', 'responsive' ),
