@@ -2431,7 +2431,7 @@ main #featured-content, main #featured-image {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-  margin-bottom: 20px;
+  margin: 0 20px;
 }
 @media (min-width: 992px) {
   main #featured-content, main #featured-image {

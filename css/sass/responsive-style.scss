@@ -316,7 +316,7 @@ main {
 
 main #featured-content {
 	@include make-md-column(6);
-	margin-bottom: 20px;
+	margin: 0 20px;
 	h1, h2, p {
 		text-align: center;
 	}
@@ -627,6 +627,7 @@ main#main {
 12.0 - Widgets
 --------------------------------------------------------------*/
 
+//@TODO Do we want to use a id here?
 #widgets {
 	margin-bottom: 20px;
 	@include clearfix;
