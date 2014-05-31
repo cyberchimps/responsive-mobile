@@ -89,8 +89,3 @@ require $template_directory . '/lib/functions-install.php';
  * Admin functionality
  */
 require $template_directory . '/lib/functions-admin.php';
-
-/**
- * Bootstrap Navwalker
- */
-require $template_directory . '/lib/class-bootstrap-navwalker.php';
