@@ -159,7 +159,7 @@ function responsive_css() {
 	$responsive_options     = responsive_get_options();
 	$template_directory_uri = get_template_directory_uri();
 	$rtl                    = ( is_rtl() ) ? '-rtl' : '';
-	$suffix                 = ( 1 === $responsive_options['minified_css'] ) ? '.min' : '';
+	$suffix                 = ( "1" === $responsive_options['minified_css'] ) ? '.min' : '';
 
 	// Depending on the settings RTL or minified version will be loaded
 	wp_enqueue_style( 'responsive-style', $template_directory_uri . '/css/style' . $rtl . $suffix . '.css', false, $responsive['Version'] );

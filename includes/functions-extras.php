@@ -34,9 +34,6 @@ function responsive_body_classes( $classes ) {
 	if( $responsive_options['front_page'] == 1 && is_front_page() ) {
 		$classes[] = 'front-page';
 	}
-	if( $responsive_options['compatibility'] == 0 ) {
-		$classes[] = 'bootstrap';
-	}
 
 	return $classes;
 }
