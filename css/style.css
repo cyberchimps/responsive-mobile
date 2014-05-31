@@ -2354,6 +2354,18 @@ li {
   padding-bottom: 20px;
 }
 
+.header-row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.header-row:before, .header-row:after {
+  content: " ";
+  display: table;
+}
+.header-row:after {
+  clear: both;
+}
+
 #site-branding {
   position: relative;
   min-height: 1px;
@@ -2387,9 +2399,8 @@ li {
  8.1 - Structure
 --------------------------------------------------------------*/
 .content-area {
-  margin-left: -15px;
-  margin-right: -15px;
   margin-bottom: 20px;
+  background: #fff;
 }
 .content-area:before, .content-area:after {
   content: " ";

@@ -2752,6 +2752,21 @@ li {
   padding-bottom: 20px;
 }
 
+.header-row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.header-row:before,
+.header-row:after {
+  content: " ";
+  display: table;
+}
+
+.header-row:after {
+  clear: both;
+}
+
 #site-branding {
   position: relative;
   min-height: 1px;
@@ -2789,9 +2804,8 @@ li {
 --------------------------------------------------------------*/
 
 .content-area {
-  margin-right: -15px;
-  margin-left: -15px;
   margin-bottom: 20px;
+  background: #fff;
 }
 
 .content-area:before,

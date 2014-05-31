@@ -69,10 +69,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<!-- top menu container -->
 <?php } ?>
 <?php responsive_header(); ?>
-	<header id="header" class="container-full-width site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+	<header id="header" class="container site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
 		<?php responsive_in_header(); ?>
 
-		<div class="container">
+		<div class="header-row">
 			<div id="site-branding">
 				<div id="logo">
 					<?php if ( get_header_image() ) : ?>
