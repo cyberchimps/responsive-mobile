@@ -174,7 +174,7 @@ if ( !function_exists( 'responsive_comment' ) ) {
 if ( !function_exists( 'responsive_post_meta_data' ) ) {
 
 	function responsive_post_meta_data() {
-		sprintf(
+		printf(
 			/* Translators: (Posted on )(Date)( by )(Author) */
 			__( '%1$s %2$s %3$s %4$s', 'responsive' ),
 			'<span class="meta-prep meta-prep-author posted">' . __( 'Posted on', 'responsive' ) . ' </span>',
