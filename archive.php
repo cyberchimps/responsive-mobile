@@ -19,12 +19,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header(); ?>
 
 <div id="content-archive" class="content-area">
-	<main id="main" class="site-main" role="main" itemprop="mainContentOfPage" itemscope="itemscope"
-	      itemtype="http://schema.org/Blog">
+	<main id="main" class="site-main" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
 
 		<?php if ( have_posts() ) : ?>
 
-			<?php get_template_part( 'loop-header' ); ?>
+			<?php get_template_part( 'template-parts/loop-header' ); ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -47,8 +46,7 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-	</main>
-	<!-- #main -->
+	</main><!-- #main -->
 	<?php get_sidebar(); ?>
 </div><!-- #content-archive -->
 
