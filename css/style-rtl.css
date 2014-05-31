@@ -2781,6 +2781,10 @@ li {
  8.0 - Content
 --------------------------------------------------------------*/
 
+#content {
+  background: #fff;
+}
+
 /*--------------------------------------------------------------
  8.1 - Structure
 --------------------------------------------------------------*/
@@ -2920,6 +2924,10 @@ main #featured-image .call-to-action .cta-button .badge {
     float: right;
     width: 33.33333%;
   }
+}
+
+.home-widget .widget-wrapper {
+  background: #fff;
 }
 
 /*--------------------------------------------------------------
@@ -3401,6 +3409,10 @@ main#main.sitemap .sitemap-widgets ul {
 #widgets ul li,
 main#main.sitemap .sitemap-widgets ul li {
   list-style: none;
+}
+
+.widget-wrapper {
+  padding: 10px;
 }
 
 .widget_calendar #wp-calendar {
