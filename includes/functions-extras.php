@@ -31,9 +31,11 @@ function responsive_body_classes( $classes ) {
 	}
 	// Get Responsive theme option.
 	$responsive_options = responsive_get_options();
-	if( $responsive_options['front_page'] == 1 && is_front_page() ) {
+	if( 1 == $responsive_options['front_page'] && is_front_page() ) {
 		$classes[] = 'front-page';
 	}
+
+	$classes[] = responsive_get_layout();
 
 	return $classes;
 }

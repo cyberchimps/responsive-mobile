@@ -63,6 +63,7 @@ require $template_directory . '/includes/functions-custom-header.php';
  */
 require $template_directory . '/includes/functions-extras.php';
 require $template_directory . '/includes/functions-extentions.php';
+require $template_directory . '/includes/functions-layout.php';
 require $template_directory . '/includes/functions-front.php';
 
 /**

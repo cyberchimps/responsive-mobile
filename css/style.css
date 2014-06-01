@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-// 0.0 - Bootstrap variables and mixins
+// 0 - Bootstrap variables and mixins
  1.0 - Reset
  2.0 - Typography
  3.0 - Elements
@@ -23,7 +23,9 @@
 	8.6 - Comments
  9.0 - Media
 	9.1 - Galleries
-10.0 - Page templates
+10.0 - Layouts
+	10.1 - Page templates
+	10.2 - Post templates
 11.0 - Sidebar
 12.0 - Widgets
 13.0 - Footer
@@ -2700,7 +2702,10 @@ object {
 }
 
 /*--------------------------------------------------------------
-10.0 - Page templates
+10.0 - Layouts
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+10.1 - Page templates
 --------------------------------------------------------------*/
 main#main.content-sidebar-half {
   position: relative;
@@ -2777,6 +2782,22 @@ main#main.sitemap .sitemap-widgets:after {
 }
 
 /*--------------------------------------------------------------
+10.2 - Post templates
+--------------------------------------------------------------*/
+.content-sidebar-half-page main#main {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  .content-sidebar-half-page main#main {
+    float: left;
+    width: 50%;
+  }
+}
+
+/*--------------------------------------------------------------
 11.0 - Sidebar
 --------------------------------------------------------------*/
 .default-sidebar, .gallery-sidebar, .right-sidebar {
@@ -2789,6 +2810,18 @@ main#main.sitemap .sitemap-widgets:after {
   .default-sidebar, .gallery-sidebar, .right-sidebar {
     float: left;
     width: 33.33333%;
+  }
+}
+.content-sidebar-half-page .default-sidebar, .content-sidebar-half-page .gallery-sidebar, .content-sidebar-half-page .right-sidebar {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  .content-sidebar-half-page .default-sidebar, .content-sidebar-half-page .gallery-sidebar, .content-sidebar-half-page .right-sidebar {
+    float: left;
+    width: 50%;
   }
 }
 

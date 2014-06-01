@@ -19,7 +19,9 @@
 //	8.6 - Comments
 // 9.0 - Media
 //	9.1 - Galleries
-//10.0 - Page templates
+//10.0 - Layouts
+//	10.1 - Page templates
+//	10.2 - Post templates
 //11.0 - Sidebar
 //12.0 - Widgets
 //13.0 - Footer
@@ -517,7 +519,11 @@ object {
 }
 
 /*--------------------------------------------------------------
-10.0 - Page templates
+10.0 - Layouts
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+10.1 - Page templates
 --------------------------------------------------------------*/
 
 //* Content sidebar half ===================*/
@@ -570,6 +576,18 @@ main#main {
 }
 
 /*--------------------------------------------------------------
+10.2 - Post templates
+--------------------------------------------------------------*/
+
+//@TODO Add suport for further post layouts.
+
+main#main {
+	.content-sidebar-half-page &{
+		@include make-md-column(6);
+	}
+}
+
+/*--------------------------------------------------------------
 11.0 - Sidebar
 --------------------------------------------------------------*/
 
@@ -577,6 +595,9 @@ main#main {
 
 .default-sidebar {
 	@include make-md-column(4);
+	.content-sidebar-half-page &{
+		@include make-md-column(6);
+	}
 }
 
 //* Colophon sidebar ===================*/
