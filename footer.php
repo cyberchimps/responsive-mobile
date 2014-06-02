@@ -52,39 +52,28 @@ if ( ! defined( 'WPINC' ) ) {
 			</div><!-- #social-icons-container-->
 		</div><!-- #menu-social-container -->
 
-		<?php
-		get_sidebar( 'colophon' );
-		
-		// Get theme options.
-		$responsive_options	= responsive_get_options();
-		$copyright_text		= $responsive_options['copyright_text'];
-		$powered_by_text	= $responsive_options['powered_by_text'];
-		?>
+		<?php get_sidebar( 'colophon' ); ?>
 
 		<div id="footer-base">
 			<div class="copyright">
 				<?php
-				if( $copyright_text ) {
-					echo $copyright_text;
-				}
-				else {
-					esc_attr_e( '&copy;', 'responsive' ); ?> <?php _e( date( 'Y' ) ); ?> <a href="<?php echo home_url( '/' ) ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-				<?php } ?>
+					$copyright_text = esc_attr__( '&copy;', 'responsive' ) . date( 'Y' ) . ' <a href="' . home_url( '/' ) . '" title="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '">' . bloginfo( 'name' ) . '</a>';
+				$copyright_text = apply_filters( 'responsive_copyright_text', $copyright_text );
+				echo $copyright_text;
+				?>
 			</div><!-- .copyright -->
 
 			<div class="powered">
 				<?php
-				if( $powered_by_text ) {
-					echo $powered_by_text;
-				}
-				else {
-					printf(
+					$powered_by_text = sprintf(
 						/* Translators: Responsive Theme powered by WordPress */
 						__( '%1$s powered by %2$s', 'responsive' ),
 						'<a href="' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . '">' . __( 'Responsive Theme', 'responsive' ) . '</a>',
 						'<a href="' . esc_url( 'http://wordpress.org/' ) . '">' . __( 'WordPress', 'responsive' ) . '</a>'
 					);
-				} ?>
+					$powered_by_text = apply_filters( 'responsive_powered_by_text', $powered_by_text );
+					echo $powered_by_text;
+				?>
 			</div><!-- end .powered -->
 
 			<div class="scroll-top">
