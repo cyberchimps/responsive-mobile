@@ -57,7 +57,7 @@ if ( ! defined( 'WPINC' ) ) {
 		<div id="footer-base">
 			<div class="copyright">
 				<?php
-					$copyright_text = esc_attr__( '&copy;', 'responsive' ) . date( 'Y' ) . ' <a href="' . home_url( '/' ) . '" title="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '">' . bloginfo( 'name' ) . '</a>';
+					$copyright_text = '&copy; ' . date( 'Y' ) . ' <a href="' . home_url( '/' ) . '" title="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>';
 				$copyright_text = apply_filters( 'responsive_copyright_text', $copyright_text );
 				echo $copyright_text;
 				?>
