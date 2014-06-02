@@ -2139,15 +2139,6 @@ li {
 .container-full-width {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.container-full-width:before, .container-full-width:after {
-  content: " ";
-  display: table;
-}
-.container-full-width:after {
-  clear: both;
 }
 
 /*--------------------------------------------------------------
@@ -2200,6 +2191,7 @@ li {
 #mobile-nav-button {
   display: inline-block;
   float: right;
+  padding-right: 10px;
   font-size: 2em;
 }
 #mobile-nav-button:before {
@@ -2229,6 +2221,7 @@ li {
 #mobile-current-item {
   position: absolute;
   top: 10px;
+  padding-left: 10px;
   color: #eeeeee;
 }
 @media (min-width: 992px) {

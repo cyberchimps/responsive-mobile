@@ -72,7 +72,8 @@ li {
 }
 
 .container-full-width {
-	@include container-fixed();
+    margin-right: auto;
+    margin-left: auto;
 }
 
 /*--------------------------------------------------------------
@@ -127,6 +128,7 @@ li {
 #mobile-nav-button {
 	display: inline-block;
 	float: right;
+    padding-right: 10px;
 	font-size: 2em;
 	&:before {
 		@include fa_icon($fa-var-navicon, $gray-lighter);
@@ -145,6 +147,7 @@ li {
 #mobile-current-item {
 	position: absolute;
 	top: 10px;
+    padding-left: 10px;
 	color: $gray-lighter;
 	@media (min-width: $screen-md-min) {
 		display: none;

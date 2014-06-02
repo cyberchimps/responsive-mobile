@@ -19,16 +19,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-	<!DOCTYPE html>
-	<!--[if !IE]>
-	<html class="no-js non-ie" <?php language_attributes(); ?>> <![endif]-->
-	<!--[if IE 7 ]>
-	<html class="no-js ie7" <?php language_attributes(); ?>> <![endif]-->
-	<!--[if IE 8 ]>
-	<html class="no-js ie8" <?php language_attributes(); ?>> <![endif]-->
-	<!--[if IE 9 ]>
-	<html class="no-js ie9" <?php language_attributes(); ?>> <![endif]-->
-	<!--[if gt IE 9]><!-->
+<!DOCTYPE html>
+<!--[if !IE]>
+<html class="no-js non-ie" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 7 ]>
+<html class="no-js ie7" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 8 ]>
+<html class="no-js ie8" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 9 ]>
+<html class="no-js ie9" <?php language_attributes(); ?>> <![endif]-->
+<!--[if gt IE 9]><!-->
 <html <?php language_attributes(); ?>>
 	<head>
 		<?php responsive_head_top(); ?>
@@ -69,7 +69,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<!-- top menu container -->
 <?php } ?>
 <?php responsive_header(); ?>
-	<header id="header" class="container site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+	<header id="header" class="container site-header" role="banner" itemscope="itemscope"
+	        itemtype="http://schema.org/WPHeader">
 		<?php responsive_in_header(); ?>
 
 		<div class="header-row">
@@ -86,7 +87,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 				<div id="site-header-text">
 					<?php if ( 'blank' != get_theme_mod( 'header_textcolor' ) ) : ?>
-						<h1 class="site-name" itemprop="headline"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url"><?php bloginfo( 'name' ); ?></a>
+						<h1 class="site-name" itemprop="headline"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"
+						                                             rel="home"
+						                                             itemprop="url"><?php bloginfo( 'name' ); ?></a>
 						</h1>
 						<h2 class="site-description" itemprop="description"><?php bloginfo( 'description' ); ?></h2>
 					<?php endif; // End header text check. ?>
@@ -102,7 +105,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div id="main-menu-container" class="container-full-width">
 		<div id="main-menu" class="container">
-			<nav id="site-navigation" class="main-navigation" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+			<nav id="site-navigation" class="main-navigation" role="navigation" itemscope="itemscope"
+			     itemtype="http://schema.org/SiteNavigationElement">
 				<div id="mobile-current-item"><?php responsive_menu_title(); ?></div>
 				<div id="mobile-nav-button"></div>
 				<?php wp_nav_menu(
@@ -113,8 +117,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 						'theme_location'  => 'header-menu'
 					)
 				); ?>
-			</nav><!-- #site-navigation -->
-		</div><!-- #main-menu -->
+			</nav>
+			<!-- #site-navigation -->
+		</div>
+		<!-- #main-menu -->
 	</div><!-- #main-menu-container -->
 <?php responsive_wrapper(); // before wrapper container hook ?>
 	<div id="wrapper" class="site-content container">
