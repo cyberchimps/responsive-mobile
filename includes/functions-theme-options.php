@@ -19,11 +19,6 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Call the options class
- */
-require( get_template_directory() . '/lib/class-responsive-options.php' );
-
-/**
  * Retrieve Theme option settings
  *
  */

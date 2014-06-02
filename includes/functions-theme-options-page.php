@@ -26,7 +26,7 @@ function responsive_upgrade_bar() {
 	?>
 
 	<div class="upgrade-callout">
-		<p><img src="<?php echo get_template_directory_uri(); ?>/lib/images/chimp.png" alt="CyberChimps"/>
+		<p><img src="<?php echo get_template_directory_uri(); ?>/core/images/chimp.png" alt="CyberChimps"/>
 			<?php printf( __( 'Welcome to %1$s! Upgrade to %2$s today.', 'responsive' ),
 				'Responsive',
 				'<a href="http://cyberchimps.com/store/responsivepro/" target="_blank" title="Responsive Pro">Responsive Pro</a> '

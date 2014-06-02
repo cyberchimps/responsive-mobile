@@ -44,37 +44,37 @@
 ///*--------------------------------------------------------------
 // 0 - Bootstrap variables and mixins
 //--------------------------------------------------------------*/
-@import "../../lib/bootstrap/stylesheets/bootstrap/variables";
-@import "../../lib/bootstrap/stylesheets/bootstrap/mixins";
+@import "../../core/bootstrap/stylesheets/bootstrap/variables";
+@import "../../core/bootstrap/stylesheets/bootstrap/mixins";
 
 /*--------------------------------------------------------------
  1.0 - Reset
 --------------------------------------------------------------*/
 // Reset and dependencies
-@import "../../lib/bootstrap/stylesheets/bootstrap/normalize";
-@import "../../lib/bootstrap/stylesheets/bootstrap/print";
-@import "../../lib/bootstrap/stylesheets/bootstrap/scaffolding";
+@import "../../core/bootstrap/stylesheets/bootstrap/normalize";
+@import "../../core/bootstrap/stylesheets/bootstrap/print";
+@import "../../core/bootstrap/stylesheets/bootstrap/scaffolding";
 
 /*--------------------------------------------------------------
  2.0 - Typography
 --------------------------------------------------------------*/
 @import "fontawesome";
 @import "fontawesome-path";
-@import "../../lib/bootstrap/stylesheets/bootstrap/type";
+@import "../../core/bootstrap/stylesheets/bootstrap/type";
 
 /*--------------------------------------------------------------
  3.0 - Elements
 --------------------------------------------------------------*/
-@import "../../lib/bootstrap/stylesheets/bootstrap/code";
-@import "../../lib/bootstrap/stylesheets/bootstrap/tables";
+@import "../../core/bootstrap/stylesheets/bootstrap/code";
+@import "../../core/bootstrap/stylesheets/bootstrap/tables";
 @import "forms";
-@import "../../lib/bootstrap/stylesheets/bootstrap/buttons";
+@import "../../core/bootstrap/stylesheets/bootstrap/buttons";
 
 /*--------------------------------------------------------------
  4.0 - Utilities
 --------------------------------------------------------------*/
-@import "../../lib/bootstrap/stylesheets/bootstrap/utilities";
-@import "../../lib/bootstrap/stylesheets/bootstrap/responsive-utilities";
+@import "../../core/bootstrap/stylesheets/bootstrap/utilities";
+@import "../../core/bootstrap/stylesheets/bootstrap/responsive-utilities";
 
 // Theme Specific Styles
 @import "responsive-style";

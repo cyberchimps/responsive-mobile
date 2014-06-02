@@ -28,13 +28,14 @@ require $template_directory . '/includes/functions.php';
 /**
  * Theme Options
  */
+require $template_directory  . '/libraries/class-responsive-options.php';
 require $template_directory . '/includes/functions-theme-options.php';
 require $template_directory . '/includes/functions-theme-options-page.php';
 
 /**
  * Meta Box Options
  */
-require $template_directory . '/lib/meta-box-class/class-meta-box.php';
+require $template_directory . '/libraries/meta-box-class/class-meta-box.php';
 require $template_directory . '/includes/functions-meta-box.php';
 
 /**
@@ -45,13 +46,13 @@ require $template_directory . '/includes/functions-template-tags.php';
 /**
  * Support THA Theme hooks through Responsives own functions.
  */
-require $template_directory . '/lib/tha-theme-hooks.php';
+require $template_directory . '/core/tha-theme-hooks.php';
 require $template_directory . '/includes/responsive-hooks.php';
 
 /**
  * Theme Upsell
  */
-require $template_directory . '/lib/functions-theme-upsell.php';
+require $template_directory . '/core/functions-theme-upsell.php';
 
 /**
  * Implement the Custom Header feature.
@@ -84,9 +85,9 @@ require $template_directory . '/includes/functions-plugins.php';
 /**
  * Plugin dependency
  */
-require $template_directory . '/lib/functions-install.php';
+require $template_directory . '/core/functions-install.php';
 
 /**
  * Admin functionality
  */
-require $template_directory . '/lib/functions-admin.php';
+require $template_directory . '/core/functions-admin.php';
