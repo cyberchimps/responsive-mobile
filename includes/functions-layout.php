@@ -18,8 +18,6 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-//@TODO Clean Up!
-
 /**
  * Get current layout
  */

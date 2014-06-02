@@ -114,12 +114,15 @@ add_action( 'after_setup_theme', 'responsive_setup' );
  */
 function responsive_content_width() {
 	global $content_width;
-	// @TODO Add additional checks for full width
-	if ( is_page_template( 'full-width-page.php' ) || is_404() ) {
+	$full-width = is_page_template( 'full-width-page.php' ) || is_404() || 'full-width-page' == responsive_get_layout();
+	if ( $full-width ) {
 		$content_width = 1140;
 	}
+	$half-width = is_page_template( 'sidebar-content-half-page.php' ) || is_page_template( 'content-sidebar-half-page.php' ) || 'sidebar-content-half-page' == responsive_get_layout() || 'content-sidebar-half-page' == responsive_get_layout();
+	if ( $half-width ) {
+		$content_width = 570;
+	}
 }
-
 add_action( 'template_redirect', 'responsive_content_width' );
 
 /**

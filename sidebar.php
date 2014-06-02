@@ -15,6 +15,13 @@
 if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+/*
+ * If post template is full width, exit
+ */
+if ( 'full-width-page' == responsive_get_layout() ) {
+	return;
+}
 ?>
 
 <?php responsive_widgets_before(); ?>
