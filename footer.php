@@ -52,11 +52,23 @@ if ( ! defined( 'WPINC' ) ) {
 			</div><!-- #social-icons-container-->
 		</div><!-- #menu-social-container -->
 
-		<?php get_sidebar( 'colophon' ); ?>
+		<?php
+		get_sidebar( 'colophon' );
+		
+		// Get theme options.
+		$responsive_options = responsive_get_options();
+		$copyright_text		= $responsive_options['copyright_text'];
+		?>
 
 		<div id="footer-base">
 			<div class="copyright">
-				<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php _e( date( 'Y' ) ); ?> <a href="<?php echo home_url( '/' ) ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+				<?php
+				if( $copyright_text ) {
+					echo $copyright_text;
+				}
+				else {
+					esc_attr_e( '&copy;', 'responsive' ); ?> <?php _e( date( 'Y' ) ); ?> <a href="<?php echo home_url( '/' ) ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+				<?php } ?>
 			</div><!-- .copyright -->
 
 			<div class="powered">
