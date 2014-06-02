@@ -91,7 +91,6 @@
 
     };
 
-    $(document).ready(obj.onReady);
     $("#mobile-nav-button").on("click", obj.onClick);
 })(jQuery);
 

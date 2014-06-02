@@ -2247,10 +2247,12 @@ li {
   display: none;
   margin: 0;
   padding-left: 10px;
+  list-style: none;
 }
 #site-navigation ul li {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 #site-navigation ul li a {
   color: #eeeeee;
