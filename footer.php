@@ -56,8 +56,9 @@ if ( ! defined( 'WPINC' ) ) {
 		get_sidebar( 'colophon' );
 		
 		// Get theme options.
-		$responsive_options = responsive_get_options();
+		$responsive_options	= responsive_get_options();
 		$copyright_text		= $responsive_options['copyright_text'];
+		$powered_by_text	= $responsive_options['powered_by_text'];
 		?>
 
 		<div id="footer-base">
@@ -72,12 +73,18 @@ if ( ! defined( 'WPINC' ) ) {
 			</div><!-- .copyright -->
 
 			<div class="powered">
-			<?php printf(
-				/* Translators: Responsive Theme powered by WordPress */
-				__( '%1$s powered by %2$s', 'responsive' ),
-				'<a href="' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . '">' . __( 'Responsive Theme', 'responsive' ) . '</a>',
-				'<a href="' . esc_url( 'http://wordpress.org/' ) . '">' . __( 'WordPress', 'responsive' ) . '</a>'
-			) ?>
+				<?php
+				if( $powered_by_text ) {
+					echo $powered_by_text;
+				}
+				else {
+					printf(
+						/* Translators: Responsive Theme powered by WordPress */
+						__( '%1$s powered by %2$s', 'responsive' ),
+						'<a href="' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . '">' . __( 'Responsive Theme', 'responsive' ) . '</a>',
+						'<a href="' . esc_url( 'http://wordpress.org/' ) . '">' . __( 'WordPress', 'responsive' ) . '</a>'
+					);
+				} ?>
 			</div><!-- end .powered -->
 
 			<div class="scroll-top">
