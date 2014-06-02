@@ -29,7 +29,7 @@ function responsive_inline_css() {
 	if( !empty( $responsive_options['responsive_inline_css'] ) ) {
 		echo '<!-- Custom CSS Styles -->' . "\n";
 		echo '<style type="text/css" media="screen">' . "\n";
-		echo $responsive_options['responsive_inline_css'] . "\n";
+		echo esc_html( $responsive_options['responsive_inline_css'] ) . "\n";
 		echo '</style>' . "\n";
 	}
 }

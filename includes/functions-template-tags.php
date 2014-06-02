@@ -70,8 +70,8 @@ if ( !function_exists( 'responsive_post_nav' ) ) {
 
 			<div class="nav-links">
 
-				<?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'responsive' ) ); ?>
-				<?php next_post_link( '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'responsive' ) ); ?>
+				<div class="nav-previous"><?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'responsive' ) ); ?></div>
+				<div class="nav-next"><?php next_post_link( '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'responsive' ) ); ?></div>
 
 			</div>
 			<!-- .nav-links -->

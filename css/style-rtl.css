@@ -2794,6 +2794,7 @@ li {
 
 .content-area {
   margin-bottom: 20px;
+  padding-bottom: 20px;
   background: #fff;
 }
 
@@ -2823,7 +2824,6 @@ main:after {
 
 #featured-area {
   background: #fff;
-  margin: 0 15px;
 }
 
 main #featured-content,
@@ -2832,7 +2832,7 @@ main #featured-image {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
-  margin: 0 20px;
+  padding: 15px 0;
 }
 
 @media (min-width: 992px) {
@@ -2854,6 +2854,7 @@ main #featured-image p {
 
 main #featured-content .call-to-action,
 main #featured-image .call-to-action {
+  padding: 15px 0;
   text-align: center;
 }
 
@@ -2969,7 +2970,6 @@ main #featured-image .call-to-action .cta-button .badge {
 }
 
 #main article {
-  margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid #333333;
 }
@@ -3027,12 +3027,16 @@ main #featured-image .call-to-action .cta-button .badge {
   margin: 0 0 1.5em;
 }
 
-[class*="navigation"] .nav-previous {
+.navigation {
+  margin-top: 20px;
+}
+
+.navigation .nav-previous {
   float: right;
   width: 50%;
 }
 
-[class*="navigation"] .nav-next {
+.navigation .nav-next {
   float: left;
   width: 50%;
   text-align: left;

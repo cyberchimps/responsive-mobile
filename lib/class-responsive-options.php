@@ -530,6 +530,8 @@ Class Responsive_Options {
 
 		$input = wp_kses_stripslashes( $input );
 
+		$input = wp_kses_post( $input );
+
 		return $input;
 	}
 

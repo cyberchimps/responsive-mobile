@@ -2393,6 +2393,7 @@ li {
 --------------------------------------------------------------*/
 .content-area {
   margin-bottom: 20px;
+  padding-bottom: 20px;
   background: #fff;
 }
 .content-area:before, .content-area:after {
@@ -2416,7 +2417,6 @@ main:after {
 --------------------------------------------------------------*/
 #featured-area {
   background: #fff;
-  margin: 0 15px;
 }
 
 main #featured-content, main #featured-image {
@@ -2424,7 +2424,7 @@ main #featured-content, main #featured-image {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-  margin: 0 20px;
+  padding: 15px 0;
 }
 @media (min-width: 992px) {
   main #featured-content, main #featured-image {
@@ -2436,6 +2436,7 @@ main #featured-content h1, main #featured-image h1, main #featured-content h2, m
   text-align: center;
 }
 main #featured-content .call-to-action, main #featured-image .call-to-action {
+  padding: 15px 0;
   text-align: center;
 }
 main #featured-content .call-to-action .cta-button, main #featured-image .call-to-action .cta-button {
@@ -2497,7 +2498,6 @@ main #featured-content .call-to-action .cta-button .badge, main #featured-image 
 }
 
 #main article {
-  margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid #333333;
 }
@@ -2548,12 +2548,14 @@ main #featured-content .call-to-action .cta-button .badge, main #featured-image 
   margin: 0 0 1.5em;
 }
 
-[class*="navigation"] .nav-previous {
+.navigation {
+  margin-top: 20px;
+}
+.navigation .nav-previous {
   float: left;
   width: 50%;
 }
-
-[class*="navigation"] .nav-next {
+.navigation .nav-next {
   float: right;
   width: 50%;
   text-align: right;
