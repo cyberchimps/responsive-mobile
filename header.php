@@ -15,10 +15,11 @@
  */
 
 // Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit;
 }
 ?>
+
 <!DOCTYPE html>
 <!--[if !IE]>
 <html class="no-js non-ie" <?php language_attributes(); ?>> <![endif]-->
@@ -32,13 +33,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 <html <?php language_attributes(); ?>>
 	<head>
 		<?php responsive_head_top(); ?>
-		<meta charset="<?php bloginfo( 'charset' ); ?>">
+		<meta charset="<?php bloginfo('charset'); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title><?php wp_title( '&#124;', true, 'right' ); ?></title>
+		<title><?php wp_title('&#124;', true, 'right'); ?></title>
 
 		<link rel="profile" href="http://gmpg.org/xfn/11">
-		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 		<?php responsive_head_bottom(); ?>
 
 		<?php wp_head(); ?>
@@ -48,19 +49,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php responsive_body_bottom(); ?>
 <div id="container" class="site">
 <?php responsive_container_top(); ?>
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'responsive' ); ?></a>
-<?php if ( has_nav_menu( 'top-menu', 'responsive' ) ) { ?>
+	<a class="skip-link screen-reader-text" href="#content"><?php _e('Skip to content', 'responsive'); ?></a>
+<?php if (has_nav_menu('top-menu', 'responsive')) { ?>
 	<div id="top-menu-container" class="container-full-width">
 		<nav id="top-menu" class="container" itemscope itemtype="http://schema.org/SiteNavigationElement">
 			<?php responsive_header_top(); // before header content hook ?>
 			<?php
 			wp_nav_menu(
 				array(
-					'container'      => '',
-					'fallback_cb'    => false,
-					'menu_class'     => 'top-menu',
+					'container' => '',
+					'fallback_cb' => false,
+					'menu_class' => 'top-menu',
 					'theme_location' => 'top-menu',
-					'depth'          => 1
+					'depth' => 1
 				)
 			);
 			?>
@@ -69,33 +70,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<!-- top menu container -->
 <?php } ?>
 <?php responsive_header(); ?>
-	<header id="header" class="container site-header" role="banner" itemscope="itemscope"
-	        itemtype="http://schema.org/WPHeader">
+	<header id="header" class="container site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
 		<?php responsive_in_header(); ?>
 
 		<div class="header-row">
 			<div id="site-branding">
 				<div id="logo">
-					<?php if ( get_header_image() ) : ?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url"
-						   title="<?php echo esc_attr( get_bloginfo( 'title' ) ) ?>">
-							<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>"
-							     height="<?php echo get_custom_header()->height; ?>"
-							     alt="<?php echo esc_attr( get_bloginfo( 'title' ) ) ?>" itemprop="image">
+					<?php if (get_header_image()) : ?>
+						<a href="<?php echo esc_url(home_url('/')); ?>" rel="home" itemprop="url" title="<?php echo esc_attr(get_bloginfo('title')) ?>">
+							<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php echo esc_attr(get_bloginfo('title')) ?>" itemprop="image">
 						</a>
 					<?php endif; // End header image check. ?>
 				</div>
 				<div id="site-header-text">
-					<?php if ( 'blank' != get_theme_mod( 'header_textcolor' ) ) : ?>
-						<h1 class="site-name" itemprop="headline"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"
-						                                             rel="home"
-						                                             itemprop="url"><?php bloginfo( 'name' ); ?></a>
+					<?php if ('blank' != get_theme_mod('header_textcolor')) : ?>
+						<h1 class="site-name" itemprop="headline">
+							<a href="<?php echo esc_url(home_url('/')); ?>" rel="home" itemprop="url"><?php bloginfo('name'); ?></a>
 						</h1>
-						<h2 class="site-description" itemprop="description"><?php bloginfo( 'description' ); ?></h2>
+						<h2 class="site-description" itemprop="description"><?php bloginfo('description'); ?></h2>
 					<?php endif; // End header text check. ?>
 				</div>
 			</div>
-			<?php get_sidebar( 'top' ); ?>
+			<?php get_sidebar('top'); ?>
 		</div>
 
 		<?php responsive_header_bottom(); ?>
@@ -105,16 +101,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div id="main-menu-container" class="container-full-width">
 		<div id="main-menu" class="container">
-			<nav id="site-navigation" class="main-navigation" role="navigation" itemscope="itemscope"
-			     itemtype="http://schema.org/SiteNavigationElement">
+			<nav id="site-navigation" class="main-navigation" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 				<div id="mobile-current-item"><?php responsive_menu_title(); ?></div>
 				<div id="mobile-nav-button"></div>
 				<?php wp_nav_menu(
 					array(
-						'container'       => 'div',
+						'container' => 'div',
 						'container_class' => 'main-nav',
-						'fallback_cb'     => 'responsive_fallback_menu',
-						'theme_location'  => 'header-menu'
+						'fallback_cb' => 'responsive_fallback_menu',
+						'theme_location' => 'header-menu'
 					)
 				); ?>
 			</nav>
