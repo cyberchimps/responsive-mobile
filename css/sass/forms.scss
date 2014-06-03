@@ -135,38 +135,3 @@ input[type="color"] {
 textarea {
     height: 200px;
 }
-
-input[type="submit"] {
-    display: inline-block;
-    margin-bottom: 0; // For input.btn
-    font-weight: $btn-font-weight;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-    border: 1px solid transparent;
-    white-space: nowrap;
-    @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
-    @include button-variant( $btn-primary-color, $btn-primary-bg, $btn-primary-border );
-
-    &,
-    &:active,
-    &.active {
-        &:focus {
-            @include tab-focus();
-        }
-    }
-
-    &:hover,
-    &:focus {
-        color: darken( $btn-primary-color, 10% );
-        text-decoration: none;
-    }
-
-    &:active,
-    &.active {
-        outline: 0;
-        background-image: none;
-        @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
-    }
-}
