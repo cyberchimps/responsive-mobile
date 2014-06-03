@@ -112,6 +112,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</nav><!-- #site-navigation -->
 		</div><!-- #main-menu -->
 	</div><!-- #main-menu-container -->
+	<div id="sub-menu-container" class="container-full-width">
+		<div id="sub-menu" class="container">
+			<nav id="site-navigation" class="sub-navigation" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+			<?php if( has_nav_menu( 'sub-header-menu', 'responsive' ) ) {
+				wp_nav_menu(
+					array(
+						'container'      => '',
+						'menu_class'     => 'sub-header-menu',
+						'theme_location' => 'sub-header-menu'
+					)
+				);
+			} ?>
+			</nav><!-- #site-navigation -->
+		</div><!-- #sub-menu -->
+	</div><!-- #sub-menu-container -->
 <?php responsive_wrapper(); // before wrapper container hook ?>
 	<div id="wrapper" class="site-content container">
 <?php responsive_wrapper_top(); // before wrapper content hook ?>
