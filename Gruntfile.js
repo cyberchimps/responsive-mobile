@@ -87,8 +87,8 @@ module.exports = function(grunt) {
 				},
 				files: {
 					'css/style.css': 'css/sass/style.scss',
-					'lib/bootstrap/stylesheets/bootstrap.css': 'lib/bootstrap/stylesheets/bootstrap.scss',
-					'lib/css/theme-options.css': 'lib/css/theme-options.scss'
+					'core/bootstrap/stylesheets/bootstrap.css': 'core/bootstrap/stylesheets/bootstrap.scss',
+					'core/css/theme-options.css': 'core/css/theme-options.scss'
 				}
 			}
 		},
@@ -96,7 +96,7 @@ module.exports = function(grunt) {
 		cssflip: {
 			rtl: {
 				files: {
-					'lib/bootstrap/stylesheets/bootstrap-rtl.css': 'lib/bootstrap/stylesheets/bootstrap.css',
+					'core/bootstrap/stylesheets/bootstrap-rtl.css': 'core/bootstrap/stylesheets/bootstrap.css',
 					'css/style-rtl.css': 'css/style.css'
 				}
 			}
@@ -112,9 +112,9 @@ module.exports = function(grunt) {
 			},
 			admin: {
 				expand: true,
-				cwd: 'lib/css/',
+				cwd: 'core/css/',
 				src: ['*.css', '!*.min.css'],
-				dest: 'lib/css/',
+				dest: 'core/css/',
 				ext: '.min.css'
 			}
 		},
@@ -125,28 +125,28 @@ module.exports = function(grunt) {
 			},
 			bootstrap: {
 				src: [
-					'lib/bootstrap/javascripts/bootstrap/affix.js',
-					'lib/bootstrap/javascripts/bootstrap/alert.js',
-					'lib/bootstrap/javascripts/bootstrap/button.js',
-					'lib/bootstrap/javascripts/bootstrap/carousel.js',
-					'lib/bootstrap/javascripts/bootstrap/collapse.js',
-					'lib/bootstrap/javascripts/bootstrap/dropdown.js',
-					'lib/bootstrap/javascripts/bootstrap/popover.js',
-					'lib/bootstrap/javascripts/bootstrap/scrollspy.js',
-					'lib/bootstrap/javascripts/bootstrap/tab.js',
-					'lib/bootstrap/javascripts/bootstrap/tooltip.js',
-					'lib/bootstrap/javascripts/bootstrap/transition.js'
+					'core/bootstrap/javascripts/bootstrap/affix.js',
+					'core/bootstrap/javascripts/bootstrap/alert.js',
+					'core/bootstrap/javascripts/bootstrap/button.js',
+					'core/bootstrap/javascripts/bootstrap/carousel.js',
+					'core/bootstrap/javascripts/bootstrap/collapse.js',
+					'core/bootstrap/javascripts/bootstrap/dropdown.js',
+					'core/bootstrap/javascripts/bootstrap/popover.js',
+					'core/bootstrap/javascripts/bootstrap/scrollspy.js',
+					'core/bootstrap/javascripts/bootstrap/tab.js',
+					'core/bootstrap/javascripts/bootstrap/tooltip.js',
+					'core/bootstrap/javascripts/bootstrap/transition.js'
 				],
-				dest: 'lib/bootstrap/javascripts/bootstrap.js',
+				dest: 'core/bootstrap/javascripts/bootstrap.js',
 			},
 			javascript: {
 				src: [
-					'lib/js/jquery-fitvids.js',
-					'lib/js/mobile-menu.js',
-					'lib/js/jquery-placeholder.js',
-					'lib/js/respond.js',
-					'lib/js/skip-link-focus-fix.js',
-					'lib/js/jquery-scroll-top.js'
+					'core/js/jquery-fitvids.js',
+					'core/js/mobile-menu.js',
+					'core/js/jquery-placeholder.js',
+					'core/js/respond.js',
+					'core/js/skip-link-focus-fix.js',
+					'core/js/jquery-scroll-top.js'
 				],
 				dest: 'js/responsive-scripts.js',
 			},
@@ -155,33 +155,33 @@ module.exports = function(grunt) {
 		uglify: {
 			bootstrap: {
 				files: {
-					'lib/bootstrap/javascripts/bootstrap.min.js': ['lib/bootstrap/javascripts/bootstrap.js']
+					'core/bootstrap/javascripts/bootstrap.min.js': ['core/bootstrap/javascripts/bootstrap.js']
 				}
 			},
 			javascript: {
 				files: {
 					'js/responsive-scripts.min.js': ['js/responsive-scripts.js'],
-					'lib/js/jquery-fitvids.min.js': ['lib/js/jquery-fitvids.js'],
-					'lib/js/mobile-menu.min.js': ['lib/js/mobile-menu.js'],
-					'lib/js/jquery-placeholder.min.js': ['lib/js/jquery-placeholder.js'],
-					'lib/js/respond.min.js': ['lib/js/respond.js'],
-					'lib/js/skip-link-focus-fix.min.js': ['lib/js/skip-link-focus-fix.js'],
-					'lib/js/jquery-scroll-top.min.js': ['lib/js/jquery-scroll-top.js'],
-					'lib/js/theme-options.min.js': ['lib/js/theme-options.js']
+					'core/js/jquery-fitvids.min.js': ['core/js/jquery-fitvids.js'],
+					'core/js/mobile-menu.min.js': ['core/js/mobile-menu.js'],
+					'core/js/jquery-placeholder.min.js': ['core/js/jquery-placeholder.js'],
+					'core/js/respond.min.js': ['core/js/respond.js'],
+					'core/js/skip-link-focus-fix.min.js': ['core/js/skip-link-focus-fix.js'],
+					'core/js/jquery-scroll-top.min.js': ['core/js/jquery-scroll-top.js'],
+					'core/js/theme-options.min.js': ['core/js/theme-options.js']
 				}
 			},
 		},
 
 		watch: {
 			scripts: {
-				files: ['lib/js/*.js'],
+				files: ['core/js/*.js'],
 				tasks: ['js'],
 				options: {
 					spawn: false,
 				},
 			},
 			styles: {
-				files: ['css/sass/*.scss','lib/css/*.scss','lib/css/*.css'],
+				files: ['css/sass/*.scss','core/css/*.scss','core/css/*.css'],
 				tasks: ['css'],
 				options: {
 					spawn: false,
