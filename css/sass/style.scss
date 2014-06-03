@@ -60,15 +60,16 @@
 --------------------------------------------------------------*/
 @import "fontawesome";
 @import "fontawesome-path";
-@import "../../core/bootstrap/stylesheets/bootstrap/type";
+@import "type";
 
 /*--------------------------------------------------------------
  3.0 - Elements
 --------------------------------------------------------------*/
 @import "../../core/bootstrap/stylesheets/bootstrap/code";
-@import "../../core/bootstrap/stylesheets/bootstrap/tables";
+@import "tables";
 @import "forms";
 @import "../../core/bootstrap/stylesheets/bootstrap/buttons";
+
 
 /*--------------------------------------------------------------
  4.0 - Utilities
