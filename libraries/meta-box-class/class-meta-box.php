@@ -2005,7 +2005,7 @@ class CyberChimps_Meta_Box extends AT_Meta_Box {
 
 	public function show_field_section_order( $field, $meta ) {
 		//Define image path
-		$image_path = get_template_directory_uri() . "/cyberchimps/lib/images/";
+		$image_path = get_template_directory_uri() . "/core/images/";
 
 		$this->show_field_begin( $field, $meta );
 

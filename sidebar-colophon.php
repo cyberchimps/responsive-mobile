@@ -14,30 +14,27 @@
  */
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit;
 }
 
 /*
  * If the sidebar is empty, exit
  */
-if ( !is_active_sidebar( 'colophon-widget' ) ) {
+if (!is_active_sidebar('colophon-widget')) {
 	return;
 }
 ?>
 
 <?php responsive_widgets_before(); ?>
-<div class="row">
-	<div id="colophon-widget" class="widget-area" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
-		<?php responsive_widgets(); ?>
-		<?php if ( !dynamic_sidebar( 'colophon-sidebar' ) ) : ?>
+<div id="colophon-widget" class="widget-area" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	<?php responsive_widgets(); ?>
+	<?php if (!dynamic_sidebar('colophon-sidebar')) : ?>
 
-			<?php dynamic_sidebar( 'colophon-widget' ); ?>
+		<?php dynamic_sidebar('colophon-widget'); ?>
 
-		<?php endif; // end sidebar widget area ?>
-		<?php responsive_widgets_end(); ?>
-	</div>
-	<!-- #colophon widget -->
+	<?php endif; // end sidebar widget area ?>
+	<?php responsive_widgets_end(); ?>
 </div>
-<!-- row -->
+<!-- #colophon widget -->
 <?php responsive_widgets_after(); ?>

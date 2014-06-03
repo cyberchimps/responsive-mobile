@@ -1827,6 +1827,18 @@ main#main.sitemap .sitemap-widgets:after {
   }
 }
 
+#colophon-widget {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+#colophon-widget:before, #colophon-widget:after {
+  content: " ";
+  display: table;
+}
+#colophon-widget:after {
+  clear: both;
+}
+
 .colophon-widget {
   position: relative;
   min-height: 1px;
@@ -1964,6 +1976,23 @@ main#main.sitemap .sitemap-widgets:after {
     float: left;
     width: 33.33333%;
   }
+}
+
+.search-form {
+  position: relative;
+}
+.search-form .search-field {
+  position: relative;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.search-form .search-submit {
+  position: relative;
+  height: 34px;
+  top: -1px;
+  left: -4px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
 }
 
 /*--------------------------------------------------------------
