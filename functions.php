@@ -91,3 +91,7 @@ require $template_directory . '/core/functions-install.php';
  * Admin functionality
  */
 require $template_directory . '/core/functions-admin.php';
+
+// Notify user of theme update on "Updates" page in Dashboard.
+require_once( get_template_directory() . '/libraries/wp-updates-theme.php' );
+new WPUpdatesThemeUpdater_796( 'http://wp-updates.com/api/2/theme', basename(get_template_directory()) );
