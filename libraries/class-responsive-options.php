@@ -44,9 +44,10 @@ Class Responsive_Options {
 		$this->default_options    = $this->get_options_defaults( $this->options_only );
 
 		self::$static_responsive_options = $this->responsive_options;
-		self::$static_default_options = $this->default_options;
+		self::$static_default_options    = $this->default_options;
 
-		$this->attributes['onclick'] = 'return confirm("' . __( 'Do you want to restore?', 'responsive' ) . __( 'All theme settings will be lost!', 'responsive' ) . __( 'Click OK to Restore.', 'responsive' ) . '")';
+		$this->attributes['onclick'] = 'return confirm("' . __( 'Do you want to restore the default settings?', 'responsive' ) . __( 'All theme settings will be lost!', 'responsive' ) . __( 'Click OK to restore.', 'responsive' ) . '")';
+
 		add_action( 'admin_print_styles-appearance_page_theme_options', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'admin_init', array( $this, 'theme_options_init' ) );
 		add_action( 'admin_menu', array( $this, 'theme_page_init' ) );
@@ -448,7 +449,9 @@ Class Responsive_Options {
 	protected function validate_checkbox( $input, $key ) {
 
 		// if the input is anything other than a 1 make it a 0
-		if ( 1 != $input  ) {
+		if ( 1 == $input  ) {
+			$input = 1;
+		} else {
 			$input = 0;
 		}
 
