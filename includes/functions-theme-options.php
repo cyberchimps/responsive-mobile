@@ -72,7 +72,7 @@ function responsive_theme_options_set() {
 	 * @placeholder The placeholder for text and textarea
 	 * @options array used by select dropdown lists
 	 */
-	$options = apply_filters( 'Responsive_Options_Class_filter', array(
+	$options = array(
 		'theme_elements' => array(
 			'title'  => __( 'Theme Elements', 'responsive' ),
 			'fields' => array(
@@ -372,7 +372,7 @@ function responsive_theme_options_set() {
 				)
 			)
 		)
-	) );
+	);
 
 	$options = apply_filters( 'responsive_option_options_filter', $options );
 
