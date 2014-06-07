@@ -120,7 +120,7 @@ Class Responsive_Options {
 			<form method="post" action="options.php">
 				<?php settings_fields( 'responsive_options' ); ?>
 
-				<div class="row">
+				<div class="settings-row">
 					<?php
 					$this->render_display();
 					?>

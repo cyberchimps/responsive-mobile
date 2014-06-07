@@ -28,14 +28,14 @@ require $template_directory . '/includes/functions.php';
 /**
  * Theme Options
  */
-require $template_directory  . '/libraries/class-responsive-options.php';
+require $template_directory . '/libraries/class-responsive-options.php';
 require $template_directory . '/includes/functions-theme-options.php';
 require $template_directory . '/includes/functions-theme-options-page.php';
 
 /**
  * Meta Box Options
  */
-require $template_directory . '/libraries/meta-box-class/class-meta-box.php';
+require $template_directory . '/libraries/class-meta-box.php';
 require $template_directory . '/includes/functions-meta-box.php';
 
 /**

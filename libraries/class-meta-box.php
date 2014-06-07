@@ -118,7 +118,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 
 			if( isset( $meta_box['use_with_theme'] ) ) {
 				if( $meta_box['use_with_theme'] === true ) {
-					$this->SelfPath = get_stylesheet_directory_uri() . '/cyberchimps/options/meta-box-class';
+					$this->SelfPath = get_stylesheet_directory_uri() . '/libraries';
 				}
 				elseif( $meta_box['use_with_theme'] === false ) {
 					$this->SelfPath = plugins_url( 'meta-box-class', plugin_basename( dirname( __FILE__ ) ) );
@@ -156,7 +156,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 			
 			// Set template directory uri
 			$directory_uri = get_template_directory_uri();
-			$metabox_uri = $directory_uri . '/core/includes/meta-box-class';
+			$metabox_uri = $directory_uri . '/libraries';
 
 			//only load styles and js when needed
 			/*
