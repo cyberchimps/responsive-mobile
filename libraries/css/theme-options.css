@@ -1017,7 +1017,7 @@ body {
   background-color: transparent;
 }
 
-.row,
+.settings-row,
 #info-box-wrapper,
 .upgrade-callout {
   max-width: 980px;
