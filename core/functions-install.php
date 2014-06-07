@@ -96,50 +96,50 @@ function responsive_plugin_notice() {
 	// Check that the user hasn't already clicked to ignore the message
 	// Add plugin notification only if the current user ican install plugins and on theme.php
 	if ( ! get_user_meta( $user_id, 'responsive_ignore_notice' ) && current_user_can( 'install_plugins' ) && 'themes.php' == $pagenow ) {
-	
+
 		// Set array of plugins to be suggested.
 		$plugins = array(
 			array(
-				'name'	=> 'Responsive Add Ons', // Name of the plugin.
-				'slug'	=> 'responsive-add-ons', // The plugin slug (typically the folder name)
-				'uri'	=> 'http://wordpress.org/plugins/responsive-add-ons/' // plugin url ( http://wordpress.org/plugins/plugin_slug )
+				'name' => 'Responsive Add Ons', // Name of the plugin.
+				'slug' => 'responsive-add-ons', // The plugin slug (typically the folder name)
+				'uri'  => 'http://wordpress.org/plugins/responsive-add-ons/' // plugin url ( http://wordpress.org/plugins/plugin_slug )
 			),
 			array(
-				'name'	=> 'Clef', // Name of the plugin.
-				'slug'	=> 'wpclef', // The plugin slug (typically the folder name)
-				'uri'	=> 'http://wordpress.org/extend/plugins/wpclef' // plugin url ( http://wordpress.org/plugins/plugin_slug )
+				'name' => 'Clef', // Name of the plugin.
+				'slug' => 'wpclef', // The plugin slug (typically the folder name)
+				'uri'  => 'http://wordpress.org/extend/plugins/wpclef' // plugin url ( http://wordpress.org/plugins/plugin_slug )
 			)
 		);
-		
+
 		// Initialise plugin suggestion text.
 		$msg = '';
 		$msg .= '<div class="updated"><p>' . __( 'Responsive recommends using', 'responsive' );
-		
+
 		// Loop through each plugin.
 		foreach( $plugins as $plugin ) {
-		
+
 			// Get plugin object by sending plugin slug and uri.
 			$plugin_object = new Theme_Plugin_Dependency( $plugin['slug'], $plugin['uri'] );
-			
-			// Display plugin name as the suggestion with link to the plugin page in wordpress.org 
+
+			// Display plugin name as the suggestion with link to the plugin page in wordpress.org
 			$msg .= ' <a target="_blank" href="' . esc_url( $plugin['uri'] ) . '">' . $plugin['name'] . ',</a>';
-			
+
 			// Check if the plugin is allready installed then show link to Activate it.
 			if ( $plugin_object->check() ) {
 				$msg .= '<a href="' . $plugin_object->activate_link() . '">' . __( 'Activate ', 'responsive' ) . $plugin['name'] . ' | </a>';
 			}
-			
+
 			// Otherwise if it is not installed, but the install link is availble then show link to install it.
 			elseif ( $install_link = $plugin_object->install_link() ) {
 				$msg .= '<a href="' . $install_link . '">' . __( 'Install ', 'responsive' ) . $plugin['name'] . ' | </a>';
 			}
-			
+
 			// If the install link is not availble then display message to install manually.
 			else {
 				$msg .= $plugin['name'] . __( ' is not installed. Please install this plugin manually.', 'responsive' );
 			}
 		} // End of the plugin loop.
-		
+
 		// Show link to Hide the Notice.
 		$msg .= '<a href="?responsive_ignore_notice=true">' . __( 'Hide Notice' ) . '</a></p></div>';
 
