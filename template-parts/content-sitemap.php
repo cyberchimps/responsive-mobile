@@ -33,8 +33,7 @@ responsive_entry_before(); ?>
 					<ul><?php $archive_query = new WP_Query( 'posts_per_page=-1' );
 						while( $archive_query->have_posts() ) : $archive_query->the_post(); ?>
 							<li>
-								<a href="<?php the_permalink() ?>" rel="bookmark"
-								   title="<?php printf( __( 'Permanent Link to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
+								<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf( __( 'Permanent Link to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
 							</li>
 						<?php endwhile; ?>
 					</ul>
@@ -50,7 +49,6 @@ responsive_entry_before(); ?>
 		</div><!-- .post-entry -->
 
 		<?php edit_post_link( __( 'Edit', 'responsive' ), '<div class="post-edit">', '</div>' ); ?>
-		</div><!-- #post-<?php the_ID(); ?> -->
 
 		<?php get_template_part( 'template-parts/post-data' ); ?>
 
