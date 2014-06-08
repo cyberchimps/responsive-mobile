@@ -23,7 +23,7 @@ if ( ! defined( 'WPINC' ) ) {
 <section id="post-0" class="error404 no-results not-found">
 	<?php responsive_entry_top(); ?>
 	<header class="page-header">
-		<h1 class="page-title"><?php _e( 'Nothing Found', 'responsive' ); ?></h1>
+		<h1 class="title-404"><?php _e( '404 &#8212; Fancy meeting you here!', 'responsive' ) ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
@@ -31,7 +31,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 			<p>
 				<?php _e( 'Ready to publish your first post?', 'responsive' ); ?>
-				<?php echo sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'post-new.php' ) ), __( 'Get started here', 'responsive' ) ); ?>
+				<?php echo '<a href="' . esc_url( admin_url( 'post-new.php' ) . '">' . __( 'Get started here', 'responsive' ) ) . '</a>' ?>
 			</p>
 
 		<?php elseif ( is_search() ) : ?>
@@ -41,11 +41,10 @@ if ( ! defined( 'WPINC' ) ) {
 
 		<?php else : ?>
 
-			<h1 class="title-404"><?php _e( '404 &#8212; Fancy meeting you here!', 'responsive' ) ?></h1>
 			<p><?php _e( 'Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here.', 'responsive' ); ?></p>
 			<p><?php _e( 'The URL may be misspelled or the page you are looking for is no longer available.', 'responsive' ); ?></p>
 
-			<h6>
+			<p>
 				<?php printf(
 						__( 'You can return %s or search for the page you were looking for.', 'responsive' ),
 						sprintf(
@@ -55,7 +54,7 @@ if ( ! defined( 'WPINC' ) ) {
 							esc_attr__( '&larr; Home', 'responsive' )
 						)
 				); ?>
-			</h6>
+			</p>
 
 			<?php get_search_form(); ?>
 
