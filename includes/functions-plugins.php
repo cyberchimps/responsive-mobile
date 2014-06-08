@@ -37,7 +37,7 @@ add_action( 'after_setup_theme', 'responsive_jetpack_setup' );
  */
 // @TODO Fix grid system
 function responsive_woocommerce_wrapper() {
-	echo '<div id="content-woocommerce" class="content-area"><div class="row"><main id="main" class="site-main col-md-8" role="main">';
+	echo '<div id="content-woocommerce" class="content-area"><main id="main" class="site-main" role="main">';
 }
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 add_action( 'woocommerce_before_main_content', 'responsive_woocommerce_wrapper', 10 );
@@ -49,6 +49,6 @@ remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wra
 add_action( 'woocommerce_after_main_content', 'responsive_woocommerce_wrapper_end', 10 );
 
 function responsive_woocommerce_content_end() {
-	echo '</div><!-- .row --></div><!-- #content-woocommerce -->';
+	echo '</div><!-- #content-woocommerce -->';
 }
 add_action( 'woocommerce_sidebar', 'responsive_woocommerce_content_end', 9 );
