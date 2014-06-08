@@ -37,6 +37,8 @@ function responsive_body_classes( $classes ) {
 
 	$classes[] = responsive_get_layout();
 
+	$classes = array_map( 'esc_attr', $classes );
+
 	return $classes;
 }
 add_filter( 'body_class', 'responsive_body_classes' );

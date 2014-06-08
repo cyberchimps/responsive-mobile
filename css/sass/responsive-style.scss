@@ -19,9 +19,7 @@
 //	8.6 - Comments
 // 9.0 - Media
 //	9.1 - Galleries
-//10.0 - Layouts
-//	10.1 - Page templates
-//	10.2 - Post templates
+//10.0 - Page/Post Layouts
 //11.0 - Sidebar
 //12.0 - Widgets
 //13.0 - Footer
@@ -519,72 +517,62 @@ object {
 }
 
 /*--------------------------------------------------------------
-10.0 - Layouts
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-10.1 - Page templates
---------------------------------------------------------------*/
-
-//* Content sidebar half ===================*/
-
-main#main {
-	&.content-sidebar-half {
-		@include make-md-column(6);
-	}
-
-	//* Full width ===================*/
-
-	&.full-width {
-		@include make-md-column(12);
-	}
-
-	//* Landing page ===================*/
-
-	.page-template-page-templateslanding-page-php #top-menu-container,
-	.page-template-page-templateslanding-page-php #main-menu-container {
-		display: none;
-	}
-
-	&.landing-page {
-		@extend main#main.full-width;
-	}
-
-	//* Sidebar content half ===================*/
-
-	&.sidebar-content-half {
-		@include make-md-column(6);
-		@include make-md-column-push(6);
-	}
-
-	//* Sidebar content ===================*/
-
-	&.sidebar-content {
-		@include make-md-column(8);
-		@include make-md-column-push(4);
-	}
-
-	//* Sitemap ===================*/
-
-	&.sitemap {
-		@extend main#main.full-width;
-		.sitemap-widgets {
-			@include make-row();
-			@extend #widgets;
-		}
-	}
-}
-
-/*--------------------------------------------------------------
-10.2 - Post templates
+10.0 - Page/Post Layouts
 --------------------------------------------------------------*/
 
 //@TODO Add suport for further post layouts.
 
 main#main {
+
+	//* Content sidebar ===================*/
+
+	@include make-md-column(8);
+
+	//* Sidebar content ===================*/
+
+	.sidebar-content-page & {
+		@include make-md-column-push(8);
+	}
+
+	//* Content sidebar half ===================*/
+
 	.content-sidebar-half-page & {
 		@include make-md-column(6);
 	}
+
+	//* Sidebar content half ===================*/
+
+	.sidebar-content-half-page & {
+		@include make-md-column(6);
+		@include make-md-column-push(6);
+	}
+
+	//* Full width ===================*/
+
+	.full-width-page &,
+	.page-template-page-templateslanding-page-php &,
+	.page-template-page-templatessitemap-php & {
+		@include make-md-column(12);
+	}
+
+	//* Sitemap ===================*/
+
+	&.sitemap {
+		.sitemap-widgets {
+			@include make-row();
+			@extend #widgets;
+		}
+	}
+
+}
+
+//* Landing page ===================*/
+//@TODO Fix social icons when hiding footer menu
+.page-template-page-templateslanding-page-php #top-menu-container,
+.page-template-page-templateslanding-page-php #main-menu-container,
+.page-template-page-templateslanding-page-php #sub-menu-container,
+.page-template-page-templateslanding-page-php #footer-menu-container {
+	display: none;
 }
 
 /*--------------------------------------------------------------
@@ -594,10 +582,11 @@ main#main {
 //* Default sidebar ===================*/
 
 .default-sidebar {
+
+	//* Content sidebar ===================*/
+
 	@include make-md-column(4);
-	.content-sidebar-half-page & {
-		@include make-md-column(6);
-	}
+
 }
 
 //* Colophon sidebar ===================*/

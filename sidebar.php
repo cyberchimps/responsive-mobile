@@ -17,10 +17,28 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 
 /*
- * If post template is full width, exit
+ * Load the correct sidebar according to the page layout
  */
-if ( 'full-width-page' == responsive_get_layout() ) {
-	return;
+$layout = responsive_get_layout();
+switch ( $layout ) {
+	case 'sidebar-content-page':
+		get_sidebar( 'left' );
+		return;
+		break;
+
+	case 'content-sidebar-half-page':
+		get_sidebar( 'right-half' );
+		return;
+		break;
+
+	case 'sidebar-content-half-page':
+		get_sidebar( 'left-half' );
+		return;
+		break;
+
+	case 'full-width-page':
+		return;
+		break;
 }
 ?>
 

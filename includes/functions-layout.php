@@ -27,47 +27,50 @@ function responsive_get_layout() {
 		return 'default';
 	}
 
-	$layout = '';
-	$responsive_options = responsive_get_options();
-	$valid_layouts      = responsive_valid_layouts();
-
 	/* For singular pages, get post meta */
 	if ( is_singular() ) {
 		global $post;
-		$layout_meta_value = ( false != get_post_meta( $post->ID, '_responsive_layout', true ) ? get_post_meta( $post->ID, '_responsive_layout', true ) : 'default' );
-		$layout_meta       = ( array_key_exists( $layout_meta_value, $valid_layouts ) ? $layout_meta_value : 'default' );
+		$layout = '';
+		$responsive_options = responsive_get_options();
+		$valid_layouts      = responsive_valid_layouts();
 	}
 	/* Static pages */
 	if ( is_page() ) {
-		$page_template = get_post_meta( $post->ID, '_wp_page_template', true );
-		/* If custom page template is defined, use it first */
-		if ( 'default' != $page_template ) {
-			if ( in_array( $page_template, array( 'blog.php', 'blog-excerpt.php' ) ) ) {
+		$page_template = get_page_template_slug( $post->ID );
+
+		/* If custom page template is default, use page template first */
+		if ( in_array( $page_template, array( 'page-templates/blog.php', 'page-templates/blog-excerpt.php' ) ) ) {
+			if ( 'default' == $responsive_options['blog_posts_index_layout_default'] ) {
+				$layout = basename( $page_template, '.php');
+			} else {
 				$layout = $responsive_options['blog_posts_index_layout_default'];
+			}
+
+		} else {
+			if ( 'default' == $responsive_options['static_page_layout_default'] ) {
+				$layout = basename( $page_template, '.php'); 
 			} else {
 				$layout = $responsive_options['static_page_layout_default'];
 			}
-		} /* Else, if post custom meta is set, use it */
-		elseif ( 'default' != $layout_meta ) {
-			$layout = $layout_meta;
-		} /* Else, use the default */
-		else {
-			$layout = $responsive_options['static_page_layout_default'];
+
 		}
 
 	} /* Single blog posts */
-	else {
-		if ( is_single() ) {
-			/* If post custom meta is set, use it */
-			if ( 'default' != $layout_meta ) {
-				$layout = $layout_meta;
-			} /* Else, use the default */
-			else {
-				$layout = $responsive_options['single_post_layout_default'];
-			}
+	elseif ( is_single() ) {
+		$layout_meta_value = ( false != get_post_meta( $post->ID, '_responsive_layout', true ) ? get_post_meta( $post->ID, '_responsive_layout', true ) : 'default' );
+		$layout_meta       = ( array_key_exists( $layout_meta_value, $valid_layouts ) ? $layout_meta_value : 'default' );
 
-		} /* Posts index */
-		elseif ( is_home() || is_archive() || is_search() ) {
+		/* If post custom meta is set, use it */
+		if ( 'default' == $responsive_options['single_post_layout_default'] ) {
+			$layout = $layout_meta;
+		} /* Else, use the default */
+		else {
+			$layout = $responsive_options['single_post_layout_default'];
+		}
+
+	} else {
+		/* Posts index */
+		if ( is_home() || is_archive() || is_search() ) {
 			$layout = $responsive_options['blog_posts_index_layout_default'];
 		} /* Fallback */
 		else {
@@ -76,7 +79,9 @@ function responsive_get_layout() {
 
 	}
 
-	return apply_filters( 'responsive_get_layout', $layout );
+	$layout = apply_filters( 'responsive_get_layout', $layout );
+
+	return esc_attr( $layout );
 }
 
 /**

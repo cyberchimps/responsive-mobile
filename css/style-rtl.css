@@ -23,9 +23,7 @@
 	8.6 - Comments
  9.0 - Media
 	9.1 - Galleries
-10.0 - Layouts
-	10.1 - Page templates
-	10.2 - Post templates
+10.0 - Page/Post Layouts
 11.0 - Sidebar
 12.0 - Widgets
 13.0 - Footer
@@ -2001,14 +1999,10 @@ object {
 }
 
 /*--------------------------------------------------------------
-10.0 - Layouts
+10.0 - Page/Post Layouts
 --------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
-10.1 - Page templates
---------------------------------------------------------------*/
-
-main#main.content-sidebar-half {
+main#main {
   position: relative;
   min-height: 1px;
   padding-right: 15px;
@@ -2016,72 +2010,67 @@ main#main.content-sidebar-half {
 }
 
 @media (min-width: 992px) {
-  main#main.content-sidebar-half {
-    float: right;
-    width: 50%;
-  }
-}
-
-main#main.full-width,
-main#main.landing-page,
-main#main.sitemap {
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-@media (min-width: 992px) {
-  main#main.full-width,
-  main#main.landing-page,
-  main#main.sitemap {
-    float: right;
-    width: 100%;
-  }
-}
-
-main#main .page-template-page-templateslanding-page-php #top-menu-container,
-main#main .page-template-page-templateslanding-page-php #main-menu-container {
-  display: none;
-}
-
-main#main.sidebar-content-half {
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-@media (min-width: 992px) {
-  main#main.sidebar-content-half {
-    float: right;
-    width: 50%;
-  }
-}
-
-@media (min-width: 992px) {
-  main#main.sidebar-content-half {
-    right: 50%;
-  }
-}
-
-main#main.sidebar-content {
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-@media (min-width: 992px) {
-  main#main.sidebar-content {
+  main#main {
     float: right;
     width: 66.66667%;
   }
 }
 
 @media (min-width: 992px) {
-  main#main.sidebar-content {
-    right: 33.33333%;
+  .sidebar-content-page main#main {
+    right: 66.66667%;
+  }
+}
+
+.content-sidebar-half-page main#main {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 992px) {
+  .content-sidebar-half-page main#main {
+    float: right;
+    width: 50%;
+  }
+}
+
+.sidebar-content-half-page main#main {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 992px) {
+  .sidebar-content-half-page main#main {
+    float: right;
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .sidebar-content-half-page main#main {
+    right: 50%;
+  }
+}
+
+.full-width-page main#main,
+.page-template-page-templateslanding-page-php main#main,
+.page-template-page-templatessitemap-php main#main {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 992px) {
+  .full-width-page main#main,
+  .page-template-page-templateslanding-page-php main#main,
+  .page-template-page-templatessitemap-php main#main {
+    float: right;
+    width: 100%;
   }
 }
 
@@ -2100,22 +2089,11 @@ main#main.sitemap .sitemap-widgets:after {
   clear: both;
 }
 
-/*--------------------------------------------------------------
-10.2 - Post templates
---------------------------------------------------------------*/
-
-.content-sidebar-half-page main#main {
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-@media (min-width: 992px) {
-  .content-sidebar-half-page main#main {
-    float: right;
-    width: 50%;
-  }
+.page-template-page-templateslanding-page-php #top-menu-container,
+.page-template-page-templateslanding-page-php #main-menu-container,
+.page-template-page-templateslanding-page-php #sub-menu-container,
+.page-template-page-templateslanding-page-php #footer-menu-container {
+  display: none;
 }
 
 /*--------------------------------------------------------------
@@ -2137,24 +2115,6 @@ main#main.sitemap .sitemap-widgets:after {
   .right-sidebar {
     float: right;
     width: 33.33333%;
-  }
-}
-
-.content-sidebar-half-page .default-sidebar,
-.content-sidebar-half-page .gallery-sidebar,
-.content-sidebar-half-page .right-sidebar {
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-@media (min-width: 992px) {
-  .content-sidebar-half-page .default-sidebar,
-  .content-sidebar-half-page .gallery-sidebar,
-  .content-sidebar-half-page .right-sidebar {
-    float: right;
-    width: 50%;
   }
 }
 

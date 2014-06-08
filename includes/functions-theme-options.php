@@ -212,7 +212,7 @@ function responsive_theme_options_set() {
 					'type'     => 'select',
 					'id'       => 'static_page_layout_default',
 					'options'  => responsive_valid_layouts(),
-					'default'  => 'content-sidebar-page',
+					'default'  => 'default',
 					'validate' => 'select'
 				),
 				array(
@@ -220,7 +220,7 @@ function responsive_theme_options_set() {
 					'type'     => 'select',
 					'id'       => 'single_post_layout_default',
 					'options'  => responsive_valid_layouts(),
-					'default'  => 'content-sidebar-page',
+					'default'  => 'default',
 					'validate' => 'select'
 				),
 				array(
@@ -228,7 +228,7 @@ function responsive_theme_options_set() {
 					'type'     => 'select',
 					'id'       => 'blog_posts_index_layout_default',
 					'options'  => responsive_valid_layouts(),
-					'default'  => 'content-sidebar-page',
+					'default'  => 'default',
 					'validate' => 'select'
 				)
 			)
