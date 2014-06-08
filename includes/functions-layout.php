@@ -27,12 +27,13 @@ function responsive_get_layout() {
 		return 'default';
 	}
 
+	$layout = '';
+	$responsive_options = responsive_get_options();
+	$valid_layouts      = responsive_valid_layouts();
+
 	/* For singular pages, get post meta */
 	if ( is_singular() ) {
 		global $post;
-		$layout = '';
-		$responsive_options = responsive_get_options();
-		$valid_layouts      = responsive_valid_layouts();
 	}
 	/* Static pages */
 	if ( is_page() ) {
