@@ -54,7 +54,7 @@ function responsive_upgrade_bar() {
 
 <?php
 }
-add_action( 'responsive_theme_options', 'responsive_upgrade_bar', 1 );
+//add_action( 'responsive_theme_options', 'responsive_upgrade_bar', 1 );
 
 /**
  * Theme Options Support and Information
