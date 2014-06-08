@@ -151,7 +151,7 @@ li {
 	}
 }
 
-#site-navigation {
+#main-navigation {
 	@include clearfix;
 	background-color: $gray-dark;
 	&.menu-open {
@@ -200,14 +200,12 @@ li {
 				> li {
 					position: relative;
 					float: left;
-
 					padding-bottom: 10px;
 					&:hover ul {
 						display: block;
 					}
 					a {
 						margin-right: 20px;
-
 						color: $gray-lighter;
 						&:hover {
 							text-decoration: none;
@@ -217,11 +215,9 @@ li {
 					> ul {
 						position: absolute;
 						z-index: 999;
-
 						width: auto;
 						min-width: 200px;
 						padding: 10px;
-
 						background-color: $gray-dark;
 					}
 					ul {
@@ -230,11 +226,9 @@ li {
 							float: none;
 							a {
 								line-height: 2.5em;
-
 							}
 						}
 					}
-
 				}
 			}
 		}
@@ -244,6 +238,88 @@ li {
 /*--------------------------------------------------------------
  6.3 Subheader Menu
 --------------------------------------------------------------*/
+
+// TODO these styles need checking
+
+#sub-navigation {
+	@include clearfix;
+	background-color: #fff;
+	&.menu-open {
+		ul {
+			display: block;
+		}
+	}
+	ul {
+		display: none;
+		margin: 0;
+		padding-left: 10px;
+		list-style: none;
+		li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			a {
+				//color: ;
+				text-decoration: none;
+				line-height: 2em;
+				&:hover {
+					//color: ;
+				}
+			}
+		}
+	}
+	& > ul {
+		padding-top: 35px;
+	}
+
+	@media (min-width: $screen-md-min) {
+		ul {
+			display: block;
+		}
+		& > ul {
+			padding-top: 10px;
+			@include clearfix;
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			> li {
+				position: relative;
+				float: left;
+				padding-bottom: 10px;
+				&:hover ul {
+					display: block;
+				}
+				a {
+					margin-right: 20px;
+					//color: ;
+					&:hover {
+						text-decoration: none;
+						//color: ;
+					}
+				}
+				> ul {
+					position: absolute;
+					z-index: 999;
+					width: auto;
+					min-width: 200px;
+					padding: 10px;
+					background-color: #fff;
+				}
+				ul {
+					display: none;
+					li {
+						float: none;
+						a {
+							line-height: 2.5em;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
 /*--------------------------------------------------------------
  6.4 Footer Menu
@@ -374,6 +450,7 @@ main #featured-image {
 /*--------------------------------------------------------------
  8.4 - Error Page
 --------------------------------------------------------------*/
+
 #main.error-page {
 	@include make-md-column(12);
 }
@@ -519,8 +596,6 @@ object {
 /*--------------------------------------------------------------
 10.0 - Page/Post Layouts
 --------------------------------------------------------------*/
-
-//@TODO Add suport for further post layouts.
 
 main#main {
 

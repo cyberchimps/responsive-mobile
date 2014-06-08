@@ -1398,97 +1398,97 @@ li {
   }
 }
 
-#site-navigation {
+#main-navigation {
   background-color: #333333;
 }
 
-#site-navigation:before,
-#site-navigation:after {
+#main-navigation:before,
+#main-navigation:after {
   content: " ";
   display: table;
 }
 
-#site-navigation:after {
+#main-navigation:after {
   clear: both;
 }
 
-#site-navigation.menu-open ul {
+#main-navigation.menu-open ul {
   display: block;
 }
 
-#site-navigation ul {
+#main-navigation ul {
   display: none;
   margin: 0;
   padding-right: 10px;
   list-style: none;
 }
 
-#site-navigation ul li {
+#main-navigation ul li {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-#site-navigation ul li a {
+#main-navigation ul li a {
   color: #eeeeee;
   text-decoration: none;
   line-height: 2em;
 }
 
-#site-navigation ul li a:hover {
+#main-navigation ul li a:hover {
   color: #999999;
 }
 
-#site-navigation .main-nav > ul {
+#main-navigation .main-nav > ul {
   padding-top: 35px;
 }
 
 @media (min-width: 992px) {
-  #site-navigation ul {
+  #main-navigation ul {
     display: block;
   }
 
-  #site-navigation .main-nav > ul {
+  #main-navigation .main-nav > ul {
     padding-top: 10px;
   }
 
-  #site-navigation .main-nav > ul:before,
-  #site-navigation .main-nav > ul:after {
+  #main-navigation .main-nav > ul:before,
+  #main-navigation .main-nav > ul:after {
     content: " ";
     display: table;
   }
 
-  #site-navigation .main-nav > ul:after {
+  #main-navigation .main-nav > ul:after {
     clear: both;
   }
 
-  #site-navigation .main-nav > ul li {
+  #main-navigation .main-nav > ul li {
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  #site-navigation .main-nav > ul > li {
+  #main-navigation .main-nav > ul > li {
     position: relative;
     float: right;
     padding-bottom: 10px;
   }
 
-  #site-navigation .main-nav > ul > li:hover ul {
+  #main-navigation .main-nav > ul > li:hover ul {
     display: block;
   }
 
-  #site-navigation .main-nav > ul > li a {
+  #main-navigation .main-nav > ul > li a {
     margin-left: 20px;
     color: #eeeeee;
   }
 
-  #site-navigation .main-nav > ul > li a:hover {
+  #main-navigation .main-nav > ul > li a:hover {
     text-decoration: none;
     color: #999999;
   }
 
-  #site-navigation .main-nav > ul > li > ul {
+  #main-navigation .main-nav > ul > li > ul {
     position: absolute;
     z-index: 999;
     width: auto;
@@ -1497,15 +1497,15 @@ li {
     background-color: #333333;
   }
 
-  #site-navigation .main-nav > ul > li ul {
+  #main-navigation .main-nav > ul > li ul {
     display: none;
   }
 
-  #site-navigation .main-nav > ul > li ul li {
+  #main-navigation .main-nav > ul > li ul li {
     float: none;
   }
 
-  #site-navigation .main-nav > ul > li ul li a {
+  #main-navigation .main-nav > ul > li ul li a {
     line-height: 2.5em;
   }
 }
@@ -1513,6 +1513,111 @@ li {
 /*--------------------------------------------------------------
  6.3 Subheader Menu
 --------------------------------------------------------------*/
+
+#sub-navigation {
+  background-color: #fff;
+}
+
+#sub-navigation:before,
+#sub-navigation:after {
+  content: " ";
+  display: table;
+}
+
+#sub-navigation:after {
+  clear: both;
+}
+
+#sub-navigation.menu-open ul {
+  display: block;
+}
+
+#sub-navigation ul {
+  display: none;
+  margin: 0;
+  padding-right: 10px;
+  list-style: none;
+}
+
+#sub-navigation ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#sub-navigation ul li a {
+  text-decoration: none;
+  line-height: 2em;
+}
+
+#sub-navigation > ul {
+  padding-top: 35px;
+}
+
+@media (min-width: 992px) {
+  #sub-navigation ul {
+    display: block;
+  }
+
+  #sub-navigation > ul {
+    padding-top: 10px;
+  }
+
+  #sub-navigation > ul:before,
+  #sub-navigation > ul:after {
+    content: " ";
+    display: table;
+  }
+
+  #sub-navigation > ul:after {
+    clear: both;
+  }
+
+  #sub-navigation > ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  #sub-navigation > ul > li {
+    position: relative;
+    float: right;
+    padding-bottom: 10px;
+  }
+
+  #sub-navigation > ul > li:hover ul {
+    display: block;
+  }
+
+  #sub-navigation > ul > li a {
+    margin-left: 20px;
+  }
+
+  #sub-navigation > ul > li a:hover {
+    text-decoration: none;
+  }
+
+  #sub-navigation > ul > li > ul {
+    position: absolute;
+    z-index: 999;
+    width: auto;
+    min-width: 200px;
+    padding: 10px;
+    background-color: #fff;
+  }
+
+  #sub-navigation > ul > li ul {
+    display: none;
+  }
+
+  #sub-navigation > ul > li ul li {
+    float: none;
+  }
+
+  #sub-navigation > ul > li ul li a {
+    line-height: 2.5em;
+  }
+}
 
 /*--------------------------------------------------------------
  6.4 Footer Menu
