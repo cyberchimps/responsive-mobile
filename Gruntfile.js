@@ -88,7 +88,8 @@ module.exports = function(grunt) {
 				files: {
 					'css/style.css': 'css/sass/style.scss',
 					'core/bootstrap/stylesheets/bootstrap.css': 'core/bootstrap/stylesheets/bootstrap.scss',
-					'libraries/css/theme-options.css': 'libraries/css/theme-options.scss'
+					'libraries/css/theme-options.css': 'libraries/css/theme-options.scss',
+					'core/css/upsell.css': 'core/css/upsell.scss'
 				}
 			}
 		},
