@@ -1320,6 +1320,7 @@ li {
   }
   #main-navigation .main-nav > ul > li ul li a {
     line-height: 2.5em;
+    white-space: nowrap;
   }
 }
 
