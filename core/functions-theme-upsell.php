@@ -35,7 +35,7 @@ function cyberchimps_add_upsell() {
 
 	add_action( 'admin_print_styles-' . $page, 'cyberchimps_upsell_style' );
 }
-add_action( 'admin_menu', 'cyberchimps_add_upsell' );
+add_action( 'admin_menu', 'cyberchimps_add_upsell', 11 );
 
 // Define markup for the upsell page.
 function cyberchimps_display_upsell() {
