@@ -10,7 +10,7 @@
 	5.1 - Structure
  6.0 - Navigation
 	6.1 - Top Menu
-	6.2 - Main Menus
+	6.2 - Main Menu
 	6.3 - Sub header Menu
 	6.4 - Footer Menu
  7.0 - Header
@@ -1352,7 +1352,7 @@ li {
 }
 #sub-navigation ul li a {
   text-decoration: none;
-  line-height: 2em;
+  line-height: 3em;
 }
 #sub-navigation > ul {
   padding-top: 35px;
@@ -1362,7 +1362,7 @@ li {
     display: block;
   }
   #sub-navigation > ul {
-    padding-top: 10px;
+    padding: 0;
   }
   #sub-navigation > ul:before, #sub-navigation > ul:after {
     content: " ";
@@ -1379,13 +1379,12 @@ li {
   #sub-navigation > ul > li {
     position: relative;
     float: left;
-    padding-bottom: 10px;
   }
   #sub-navigation > ul > li:hover ul {
     display: block;
   }
   #sub-navigation > ul > li a {
-    margin-right: 20px;
+    margin: 10px;
   }
   #sub-navigation > ul > li a:hover {
     text-decoration: none;
@@ -1395,7 +1394,7 @@ li {
     z-index: 999;
     width: auto;
     min-width: 200px;
-    padding: 10px;
+    padding: 0;
     background-color: #fff;
   }
   #sub-navigation > ul > li ul {
