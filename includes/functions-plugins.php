@@ -35,7 +35,6 @@ add_action( 'after_setup_theme', 'responsive_jetpack_setup' );
  *
  * Unhook/Hook the WooCommerce Wrappers
  */
-// @TODO Fix grid system
 function responsive_woocommerce_wrapper() {
 	echo '<div id="content-woocommerce" class="content-area"><main id="main" class="site-main" role="main">';
 }
@@ -51,4 +50,4 @@ add_action( 'woocommerce_after_main_content', 'responsive_woocommerce_wrapper_en
 function responsive_woocommerce_content_end() {
 	echo '</div><!-- #content-woocommerce -->';
 }
-add_action( 'woocommerce_sidebar', 'responsive_woocommerce_content_end', 9 );
+add_action( 'woocommerce_sidebar', 'responsive_woocommerce_content_end', 11 );
