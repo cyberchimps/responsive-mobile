@@ -486,6 +486,33 @@ main #featured-image {
 	word-wrap: break-word;
 }
 
+.comment-body {
+	clear: both;
+	padding: 10px
+	.comment-meta {
+		text-align: left
+	}
+	.comment-meta a {
+		font-size: 11px
+	}
+}
+
+.commentlist {
+	list-style: none;
+	padding-left: 0;
+	li.alt {
+		background: #f9f9f9
+	}
+	.children {
+		list-style: none;
+	}
+	.avatar {
+		float: left;
+		margin-right: 10px;
+		vertical-align: middle
+	}
+}
+
 .bypostauthor {
 }
 

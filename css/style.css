@@ -1655,6 +1655,11 @@ main #featured-content .call-to-action .cta-button .badge, main #featured-image 
   word-wrap: break-word;
 }
 
+.commentlist, .commentlist .children {
+  list-style: none;
+  padding-left: 0;
+}
+
 /*--------------------------------------------------------------
  9.0 - Media
 --------------------------------------------------------------*/
