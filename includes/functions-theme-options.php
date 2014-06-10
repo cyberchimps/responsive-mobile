@@ -23,14 +23,19 @@ if ( ! defined( 'WPINC' ) ) {
  *
  */
 function responsive_get_options() {
-
 	// Parse array of option defaults against user-configured Theme options
-	$responsive_options = Responsive_Options::get_parse_options();
+	$responsive_options = Responsive_Options::$static_responsive_options;
+
+	if( ! $responsive_options ) {
+		return Responsive_Options::$static_default_options;
+	}
 
 	// Return parsed args array
 	return $responsive_options;
 }
+// TODO is this filter actually doing anything?
 add_filter( 'responsive_options_init', 'responsive_get_options' );
+
 
 /**
  * Get valid layouts

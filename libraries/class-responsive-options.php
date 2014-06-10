@@ -28,9 +28,9 @@ Class Responsive_Options {
 
 	public static $static_responsive_options;
 
-	protected $default_options;
+	public static $static_default_options;
 
-	protected static $static_default_options;
+	protected $default_options;
 
 	/**
 	 * Pulls in the arrays for the options and sets up the responsive options
@@ -402,6 +402,7 @@ Class Responsive_Options {
 	 */
 	public function theme_options_validate( $input ) {
 
+
 		$defaults = $this->default_options;
 		if ( isset( $input['reset'] ) ) {
 
@@ -411,6 +412,9 @@ Class Responsive_Options {
 
 			// remove the submit button that gets included in the $input
 			unset ( $input['submit'] );
+
+			// add missing checkbox values that don't get added when they are unchecked
+			$input = $this->add_missing_checkboxes( $input );
 
 			$options = $this->options_only;
 
@@ -559,7 +563,6 @@ Class Responsive_Options {
 	 * @param $options
 	 */
 	protected function get_options_only( $options ) {
-
 		$new_array = array();
 		foreach ( $options as $option ) {
 			foreach ( $option['fields'] as $opt ) {
@@ -567,9 +570,32 @@ Class Responsive_Options {
 			}
 
 		}
-
+		
 		return $new_array;
+	}
 
+	/**
+	 * Adds missing checkboxes
+	 *
+	 * When checkboxes are not checked they are not added to database leaving some undefined indexes, this adds them in
+	 *
+	 * @param $input
+	 * @return array
+	 */
+	protected function add_missing_checkboxes( $input ) {
+		$checkboxes = array();
+		$new_array = array();
+		$options = $this->options_only;
+
+		foreach ($options as $option => $value) {
+			if ( 'checkbox' == $value['type']) {
+				$checkboxes[$option] = 0;
+			}
+		}
+
+		$new_array = wp_parse_args( $input, $checkboxes );
+		
+		return $new_array;
 	}
 
 	/**
