@@ -1953,14 +1953,43 @@ main #featured-image .call-to-action .cta-button .badge {
  8.6 - Comments
 --------------------------------------------------------------*/
 
+.comment-content {
+  clear: both;
+}
+
 .comment-content a {
   word-wrap: break-word;
 }
 
-.commentlist,
-.commentlist .children {
+.comment-body {
+  padding: 10px;
+}
+
+.comment-body .comment-meta {
+  text-align: right;
+}
+
+.comment-body .comment-meta a {
+  font-size: 11px;
+}
+
+.commentlist {
   list-style: none;
   padding-right: 0;
+}
+
+.commentlist li.alt {
+  background: #f9f9f9;
+}
+
+.commentlist .children {
+  list-style: none;
+}
+
+.commentlist .avatar {
+  float: right;
+  margin-left: 10px;
+  vertical-align: middle;
 }
 
 /*--------------------------------------------------------------

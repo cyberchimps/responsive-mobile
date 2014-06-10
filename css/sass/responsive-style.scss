@@ -482,13 +482,15 @@ main #featured-image {
  8.6 - Comments
 --------------------------------------------------------------*/
 
-.comment-content a {
-	word-wrap: break-word;
+.comment-content {
+	clear: both;
+	a {
+		word-wrap: break-word;
+	}
 }
 
 .comment-body {
-	clear: both;
-	padding: 10px
+	padding: 10px;
 	.comment-meta {
 		text-align: left
 	}

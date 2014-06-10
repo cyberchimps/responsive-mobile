@@ -1651,13 +1651,37 @@ main #featured-content .call-to-action .cta-button .badge, main #featured-image 
 /*--------------------------------------------------------------
  8.6 - Comments
 --------------------------------------------------------------*/
+.comment-content {
+  clear: both;
+}
 .comment-content a {
   word-wrap: break-word;
 }
 
-.commentlist, .commentlist .children {
+.comment-body {
+  padding: 10px;
+}
+.comment-body .comment-meta {
+  text-align: left;
+}
+.comment-body .comment-meta a {
+  font-size: 11px;
+}
+
+.commentlist {
   list-style: none;
   padding-left: 0;
+}
+.commentlist li.alt {
+  background: #f9f9f9;
+}
+.commentlist .children {
+  list-style: none;
+}
+.commentlist .avatar {
+  float: left;
+  margin-right: 10px;
+  vertical-align: middle;
 }
 
 /*--------------------------------------------------------------
