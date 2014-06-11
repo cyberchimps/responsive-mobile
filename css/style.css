@@ -1551,6 +1551,9 @@ main #featured-content .call-to-action .cta-button .badge, main #featured-image 
   color: #428bca;
   background-color: white;
 }
+main #featured-content .call-to-action .cta-button:hover, main #featured-image .call-to-action .cta-button:hover {
+  text-decoration: none;
+}
 
 .home-widget {
   position: relative;

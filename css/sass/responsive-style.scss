@@ -403,6 +403,9 @@ main #featured-content {
 		.cta-button {
 			@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
 			@include button-size($padding-xlarge-vertical, $padding-xlarge-horizontal, $font-size-xlarge, $line-height-xlarge, $border-radius-base);
+			&:hover {
+				text-decoration: none;
+			}
 		}
 	}
 }

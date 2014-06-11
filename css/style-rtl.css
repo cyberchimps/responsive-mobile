@@ -1840,6 +1840,11 @@ main #featured-image .call-to-action .cta-button .badge {
   background-color: white;
 }
 
+main #featured-content .call-to-action .cta-button:hover,
+main #featured-image .call-to-action .cta-button:hover {
+  text-decoration: none;
+}
+
 .home-widget {
   position: relative;
   min-height: 1px;
