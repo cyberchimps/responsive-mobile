@@ -23,6 +23,8 @@ get_header(); ?>
 	<div id="content" class="content-area">
 			<main id="main" class="site-main" role="main">
 
+				<?php get_template_part( 'template-parts/loop-header' ); ?>
+
 				<?php while ( have_posts() ) : the_post(); ?>
 
 					<?php get_template_part( 'template-parts/content', 'page' ); ?>

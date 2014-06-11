@@ -19,6 +19,11 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
+ * Display breadcrumb
+ */
+responsive_get_breadcrumb_lists();
+
+/**
  * Display archive information
  */
 if( is_category() || is_tag() || is_author() || is_date() ) : ?>

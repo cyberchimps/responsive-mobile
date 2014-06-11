@@ -21,31 +21,33 @@ if ( ! defined( 'WPINC' ) ) {
 get_header(); ?>
 
 	<div id="content" class="content-area">
-			<main id="main" class="site-main" role="main">
-				<?php if ( have_posts() ) : ?>
+		<main id="main" class="site-main" role="main">
 
-					<?php /* Start the Loop */ ?>
-					<?php while ( have_posts() ) : the_post(); ?>
+			<?php if ( have_posts() ) : ?>
 
-						<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'template-parts/content', get_post_format() );
-						?>
+				<?php get_template_part( 'template-parts/loop-header' ); ?>
 
-					<?php endwhile; ?>
+				<?php /* Start the Loop */ ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php else : ?>
+					<?php
+					/* Include the Post-Format-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					 */
+					get_template_part( 'template-parts/content', get_post_format() );
+					?>
 
-					<?php get_template_part( 'template-parts/content', 'none' ); ?>
+				<?php endwhile; ?>
 
-				<?php endif; ?>
+			<?php else : ?>
 
-			</main>
-			<!-- #main -->
+				<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-			<?php get_sidebar( 'right' ); ?>
+			<?php endif; ?>
+
+		</main><!-- #main -->
+
+		<?php get_sidebar( 'right' ); ?>
 	</div><!-- #content -->
 <?php get_footer(); ?>

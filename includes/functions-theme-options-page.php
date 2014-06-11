@@ -107,3 +107,20 @@ function responsive_front_page_reading_notice() {
 	}
 }
 add_action( 'admin_notices', 'responsive_front_page_reading_notice' );
+
+
+function responsive_admin_bar_site_menu( $wp_admin_bar ) {
+	if ( ! current_user_can( 'edit_theme_options' ) ) {
+		return;
+	}
+
+	if ( current_user_can( 'edit_theme_options' ) ){
+		$wp_admin_bar->add_menu( array(
+			'parent' => 'appearance',
+			'id'     => 'theme_options',
+			'title'  => __( 'Theme Options', 'responsive' ),
+			'href'   => admin_url( 'themes.php?page=theme_options' )
+		) );
+	}
+}
+add_action( 'admin_bar_menu', 'responsive_admin_bar_site_menu', 30 );
