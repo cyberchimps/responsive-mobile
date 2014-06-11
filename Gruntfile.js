@@ -111,11 +111,18 @@ module.exports = function(grunt) {
 				dest: 'css/',
 				ext: '.min.css'
 			},
-			admin: {
+			core: {
 				expand: true,
 				cwd: 'core/css/',
 				src: ['*.css', '!*.min.css'],
 				dest: 'core/css/',
+				ext: '.min.css'
+			},
+			libraries: {
+				expand: true,
+				cwd: 'libraries/css/',
+				src: ['*.css', '!*.min.css'],
+				dest: 'libraries/css/',
 				ext: '.min.css'
 			}
 		},
