@@ -123,10 +123,11 @@ li {
 }
 
 #mobile-nav-button {
-	display: inline-block;
 	float: right;
-	padding-right: 10px;
+	padding: 0 10px;
 	font-size: 2em;
+	background: $gray-dark;
+	border: none;
 	&:before {
 		@include fa_icon($fa-var-navicon, $gray-lighter);
 	}
@@ -1032,4 +1033,11 @@ main#main {
 	font-size: $font-size-base;
 	font-weight: bold;
 	line-height: normal;
+}
+
+.accessibile-label {
+	font-size: 0;
+	height: 1px;
+	overflow: hidden;
+	display: block;
 }

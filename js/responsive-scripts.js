@@ -86,12 +86,12 @@
     var obj = {
 
         onClick: function () {
-            $("#site-navigation").toggleClass("menu-open");
+            $("#main-navigation").toggleClass("menu-open");
         }
 
     };
 
-    $("#mobile-nav-button").on("click", obj.onClick);
+    $("button#mobile-nav-button").on("click", obj.onClick);
 })(jQuery);
 
 /*! http://mths.be/placeholder v2.0.7 by @mathias */

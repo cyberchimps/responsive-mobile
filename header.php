@@ -54,8 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div id="top-menu-container" class="container-full-width">
 		<nav id="top-menu" class="container" itemscope itemtype="http://schema.org/SiteNavigationElement">
 			<?php responsive_header_top(); // before header content hook ?>
-			<?php
-			wp_nav_menu(
+			<?php wp_nav_menu(
 				array(
 					'container'      => '',
 					'fallback_cb'    => false,
@@ -63,8 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'theme_location' => 'top-menu',
 					'depth'          => 1
 				)
-			);
-			?>
+			); ?>
 		</nav>
 	</div><!-- top menu container -->
 <?php } ?>
@@ -104,7 +102,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div id="main-menu" class="container">
 			<nav id="main-navigation" class="site-navigation" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 				<div id="mobile-current-item"><?php responsive_menu_title(); ?></div>
-				<div id="mobile-nav-button"></div>
+				<button id="mobile-nav-button"><span class="accessibile-label"><?php _e( 'Mobile menu toggle', 'responsive' ); ?></span></button>
 				<?php wp_nav_menu(
 					array(
 						'container'       => 'div',

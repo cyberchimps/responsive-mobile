@@ -5,10 +5,10 @@
     var obj = {
 
         onClick: function () {
-            $("#site-navigation").toggleClass("menu-open");
+            $("#main-navigation").toggleClass("menu-open");
         }
 
     };
 
-    $("#mobile-nav-button").on("click", obj.onClick);
+    $("button#mobile-nav-button").on("click", obj.onClick);
 })(jQuery);

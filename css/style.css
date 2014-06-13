@@ -1193,10 +1193,11 @@ li {
 }
 
 #mobile-nav-button {
-  display: inline-block;
   float: right;
-  padding-right: 10px;
+  padding: 0 10px;
   font-size: 2em;
+  background: #333333;
+  border: none;
 }
 #mobile-nav-button:before {
   content: "\f0c9";
@@ -2534,6 +2535,13 @@ main#main.sitemap .sitemap-widgets:after {
   font-size: 14px;
   font-weight: bold;
   line-height: normal;
+}
+
+.accessibile-label {
+  font-size: 0;
+  height: 1px;
+  overflow: hidden;
+  display: block;
 }
 
 /*--------------------------------------------------------------
