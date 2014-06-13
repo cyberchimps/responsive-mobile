@@ -207,6 +207,8 @@ module.exports = function(grunt) {
 			main: {
 				src:  [
 					'**',
+					'!core/bootstrap/stylesheets/bootstrap/**',
+					'!responsive/css/sass/**',
 					'!node_modules/**',
 					'!build/**',
 					'!.git/**',
@@ -215,6 +217,8 @@ module.exports = function(grunt) {
 					'!.gitignore',
 					'!.gitmodules',
 					'!.wti',
+					'!**/*.scss',
+					'!/.sass-cache',
 					'!**/Gruntfile.js',
 					'!**/package.json',
 					'!**/README.md',
@@ -241,7 +245,7 @@ module.exports = function(grunt) {
 	});
 
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'clean', 'copy', 'compress' ] );
+	grunt.registerTask( 'build', [ 'clean', 'copy', 'compress' ] );
 	grunt.registerTask( 'css', [ 'sass', 'cssflip', 'cssmin' ] );
 	grunt.registerTask( 'js', [ 'concat', 'uglify' ] );
 	grunt.registerTask( 'i18n', [ 'checktextdomain', 'makepot', 'exec', 'po2mo' ] );
