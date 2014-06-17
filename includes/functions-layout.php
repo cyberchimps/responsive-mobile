@@ -48,12 +48,14 @@ function responsive_get_layout() {
 			}
 
 		} else {
-			if ( 'default' == $responsive_options['static_page_layout_default'] ) {
-				$layout = basename( $page_template, '.php'); 
-			} else {
+			// If page is set to default then display default layout
+			if ( '' == $page_template ) {
 				$layout = $responsive_options['static_page_layout_default'];
 			}
-
+			// Otherwise get the page template
+			else {
+				$layout = basename( $page_template, '.php');
+			}
 		}
 
 	} /* Single blog posts */
