@@ -23,6 +23,8 @@ get_header(); ?>
 	<div id="content-blog" class="content-area">
 			<main id="main" class="site-main" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
 
+				<?php do_action( 'responsive_blog_title' ); ?>
+				
 				<?php if ( have_posts() ) : ?>
 
 					<?php get_template_part( 'template-parts/loop-header' ); ?>
