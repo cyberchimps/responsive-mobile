@@ -174,18 +174,23 @@ if ( !function_exists( 'responsive_comment' ) ) {
 if ( !function_exists( 'responsive_post_meta_data' ) ) {
 
 	function responsive_post_meta_data() {
-		printf(
-			/* Translators: (Posted on )(Date) */
-			__( '%1$s %2$s', 'responsive' ),
-			'<span class="meta-prep meta-prep-author posted">' . __( 'Posted on', 'responsive' ) . ' </span>',
-			sprintf(
-				'<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" itemprop="datePublished" datetime="%3$s">%4$s</time></a>',
-				esc_url( get_permalink() ),
-				esc_attr( get_the_time() ),
-				esc_html( get_the_date('c')),
-				esc_html( get_the_date() )
-			)
-		);
+	
+		// Apply filter to get by_line_date option working.
+		$by_line_date = apply_filters( 'responsive_by_line_date', '1' );
+		if( $by_line_date ) {
+			printf(
+				/* Translators: (Posted on )(Date) */
+				__( '%1$s %2$s', 'responsive' ),
+				'<span class="meta-prep meta-prep-author posted">' . __( 'Posted on', 'responsive' ) . ' </span>',
+				sprintf(
+					'<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" itemprop="datePublished" datetime="%3$s">%4$s</time></a>',
+					esc_url( get_permalink() ),
+					esc_attr( get_the_time() ),
+					esc_html( get_the_date('c')),
+					esc_html( get_the_date() )
+				)
+			);
+		}
 		
 		// Apply filter to get by_line_author option working.
 		$by_line_author = apply_filters( 'responsive_by_line_author', '1' );
