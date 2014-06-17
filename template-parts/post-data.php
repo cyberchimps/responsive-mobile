@@ -24,7 +24,10 @@ if ( ! defined( 'WPINC' ) ) {
 		<?php
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( __( ', ', 'responsive' ) );
-			if ( $categories_list && responsive_categorized_blog() ) :
+			
+			// Added filter to get by_line_categories toggle option working.
+			$by_line_categories = apply_filters( 'responsive_by_line_categories', 1 );
+			if ( $categories_list && responsive_categorized_blog() && $by_line_categories ) :
 		?>
 		<span class="cat-links">
 			<?php printf( __( 'Posted in %1$s', 'responsive' ), $categories_list ); ?>
