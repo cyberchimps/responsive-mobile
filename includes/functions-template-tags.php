@@ -175,8 +175,8 @@ if ( !function_exists( 'responsive_post_meta_data' ) ) {
 
 	function responsive_post_meta_data() {
 		printf(
-			/* Translators: (Posted on )(Date)( by )(Author) */
-			__( '%1$s %2$s %3$s %4$s', 'responsive' ),
+			/* Translators: (Posted on )(Date) */
+			__( '%1$s %2$s', 'responsive' ),
 			'<span class="meta-prep meta-prep-author posted">' . __( 'Posted on', 'responsive' ) . ' </span>',
 			sprintf(
 				'<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" itemprop="datePublished" datetime="%3$s">%4$s</time></a>',
@@ -184,15 +184,24 @@ if ( !function_exists( 'responsive_post_meta_data' ) ) {
 				esc_attr( get_the_time() ),
 				esc_html( get_the_date('c')),
 				esc_html( get_the_date() )
-			),
-			'<span class="byline"> ' . __( 'by', 'responsive' ) . ' </span>',
-			sprintf(
-				'<span class="author vcard" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><a class="url fn n" href="%1$s" title="%2$s" itemprop="url" rel="author"><span itemprop="name">%3$s</span></a></span>',
-				get_author_posts_url( get_the_author_meta( 'ID' ) ),
-				sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
-				esc_attr( get_the_author() )
 			)
 		);
+		
+		// Apply filter to get by_line_author option working.
+		$by_line_author = apply_filters( 'responsive_by_line_author', '1' );
+		if( $by_line_author ) {
+			printf(
+				/* Translators: ( by )(Author) */
+				__( '%1$s %2$s', 'responsive' ),
+				'<span class="byline"> ' . __( 'by', 'responsive' ) . ' </span>',
+				sprintf(
+					'<span class="author vcard" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><a class="url fn n" href="%1$s" title="%2$s" itemprop="url" rel="author"><span itemprop="name">%3$s</span></a></span>',
+					get_author_posts_url( get_the_author_meta( 'ID' ) ),
+					sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
+					esc_attr( get_the_author() )
+				)
+			);
+		}
 	}
 }
 
