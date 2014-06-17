@@ -34,9 +34,17 @@ responsive_entry_before(); ?>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 							<?php the_post_thumbnail(); ?>
 						</a>
-					<?php endif; ?>
-					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
-					<?php
+					<?php endif;
+					
+					// Adding filter to get excpert toggle option working.
+					$excerpt_toggle = apply_filters( 'responsive_post_excerpt', 0 );
+					
+					// Check if excpert toggle is on then call the excerpt, otherwise the full content.
+					if( $excerpt_toggle )
+						the_excerpt();
+					else
+						the_content( __( 'Read more &#8250;', 'responsive' ) );
+					
 					wp_link_pages( array(
 						               'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
 						               'after'  => '</div>',
