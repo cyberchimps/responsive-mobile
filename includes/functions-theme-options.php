@@ -104,25 +104,6 @@ function responsive_theme_options_set() {
 					'description' => __( 'Check to disable', 'responsive' ),
 					'default'     => false,
 					'validate'    => 'checkbox'
-				),
-				array(
-					'title'       => __( 'Blog Title Toggle', 'responsive' ),
-					'type'        => 'checkbox',
-					'id'          => 'blog_post_title_toggle',
-					'description' => __( 'Check to enable', 'responsive' ),
-					'default'     => false,
-					'validate'    => 'checkbox'
-				),
-				array(
-					'title'       => __( 'Title Text', 'responsive' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'text',
-					'id'          => 'blog_post_title_text',
-					'description' => '',
-					'placeholder' => __( 'Blog', 'responsive' ),
-					'default'     => '',
-					'validate'    => 'text'
 				)
 			)
 		),
