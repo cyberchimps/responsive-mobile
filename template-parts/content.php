@@ -30,7 +30,11 @@ responsive_entry_before(); ?>
 				</div><!-- .entry-summary -->
 			<?php else : ?>
 				<div class="entry-content">
-					<?php if ( has_post_thumbnail() ) : ?>
+					<?php
+					// Added filter to get featured_image option working.
+					$featured_image = apply_filters( 'responsive_featured_image', '1' );
+					
+					if ( has_post_thumbnail() && $featured_image ) : ?>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 							<?php the_post_thumbnail(); ?>
 						</a>
