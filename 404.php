@@ -28,7 +28,15 @@ get_header(); ?>
 					<?php responsive_entry_top(); ?>
 					<div class="post-entry">
 
-						<?php get_template_part( 'template-parts/content', 'none' ); ?>
+						<?php
+						// Added filter to get custom_404 option working.
+						$custom_404 = apply_filters( 'responsive_custom_404', '' );
+						
+						if( $custom_404 )
+							echo $custom_404;
+						else
+							get_template_part( 'template-parts/content', 'none' );
+						?>
 
 					</div><!-- .post-entry -->
 				</section><!-- #post-0 -->
