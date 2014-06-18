@@ -37,7 +37,11 @@ if ( ! defined( 'WPINC' ) ) {
 		<?php
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', __( ', ', 'responsive' ) );
-			if ( $tags_list ) :
+			
+			// Added filter to get by_line_tag option working.
+			$by_line_tag = apply_filters( 'responsive_by_line_tag', '1' );
+			
+			if ( $tags_list && $by_line_tag ) :
 		?>
 		<span class="tags-links">
 			<?php printf( __( 'Tagged with %1$s', 'responsive' ), $tags_list ); ?>
