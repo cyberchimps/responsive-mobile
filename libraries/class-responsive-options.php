@@ -278,6 +278,38 @@ Class Responsive_Options {
 
 		return $html;
 	}
+	
+	/**
+	 * Creates export textarea input
+	 *
+	 * @param $args array
+	 *
+	 * @return string
+	 */
+	protected function export( $args ) {
+
+		extract( $args );
+
+		$html = '<textarea rows="10" cols="50">' . esc_html( serialize( $this->responsive_options ) ) . '</textarea>';
+
+		return $html;
+	}
+	
+	/**
+	 * Creates import textarea input
+	 *
+	 * @param $args array
+	 *
+	 * @return string
+	 */
+	protected function import( $args ) {
+
+		extract( $args );
+
+		$html = '<textarea name="import" rows="10" cols="50"></textarea>';
+
+		return $html;
+	}
 
 	/**
 	 * Creates select dropdown input
@@ -401,8 +433,30 @@ Class Responsive_Options {
 	 * @return array|mixed|void
 	 */
 	public function theme_options_validate( $input ) {
+	
+		/* Add imported theme options to DB */
+		if( isset( $_POST['import'] ) ) {
+			if( trim( $_POST['import'] ) ) {
 
+				$string = stripslashes( trim( $_POST['import'] ) );
 
+				// check string is serialized and unserialize it
+				if( is_serialized( $string ) ) {
+					$try = unserialize( ( $string ) );
+				}
+
+				// make sure $try is set with the unserialized data
+				if( $try ) {
+					add_settings_error( 'responsive_theme_options', 'imported_success', __( 'Options Imported', 'responsive' ), 'updated fade' );
+
+					return $try;
+				}
+				else {
+					add_settings_error( 'responsive_theme_options', 'imported_failed', __( 'Invalid Data for Import', 'responsive' ), 'error fade' );
+				}
+			}
+		}
+		
 		$defaults = $this->default_options;
 		if ( isset( $input['reset'] ) ) {
 
