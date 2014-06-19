@@ -21,6 +21,8 @@ responsive_entry_before(); ?>
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php responsive_entry_top(); ?>
 
+		<?php do_action( 'responsive_post_format_icon' ); ?>
+		
 		<?php get_template_part( 'template-parts/post-meta' ); ?>
 
 		<div class="post-entry">
