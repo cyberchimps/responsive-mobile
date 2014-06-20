@@ -1387,3 +1387,25 @@ ul.error-list {
 .site-tracker {
   height: 150px;
 }
+
+/* Drag and Drop */
+.drag-drop-container ul {
+	min-height: 60px;
+	padding: 10px;
+	border: 1px solid gray;
+}
+
+.drag-drop-container li {
+	padding: 5px;
+	margin-bottom: 5px;
+	border: 1px solid gray;
+}
+
+.drag-drop-container li:hover {
+	cursor: default;
+}
+
+.drag-drop-container li.drag-drop-placeholder {
+	height: 28px;
+	border: 1px dashed #cccccc;
+}

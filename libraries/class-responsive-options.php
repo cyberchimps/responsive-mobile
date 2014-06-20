@@ -14,7 +14,7 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
+if ( !defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -51,6 +51,9 @@ Class Responsive_Options {
 		add_action( 'admin_print_styles-appearance_page_theme_options', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'admin_init', array( $this, 'theme_options_init' ) );
 		add_action( 'admin_menu', array( $this, 'theme_page_init' ) );
+
+		require_once( get_template_directory() . '/libraries/class-responsive-drag-drop.php' );
+
 	}
 
 	/**
@@ -84,9 +87,10 @@ Class Responsive_Options {
 	 */
 	public function admin_enqueue_scripts() {
 		wp_enqueue_style( 'responsive-theme-options' );
-		wp_enqueue_script( 'responsive-theme-options');
+		wp_enqueue_script( 'responsive-theme-options' );
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_script( 'wp-color-picker' );
+		wp_enqueue_script( 'jquery-drag-drop', get_template_directory() . '/libraries/js/jquery-ui-1.10.4.custom.min.js', array( 'jquery' ), '20140619', true );
 	}
 
 	/**
@@ -124,7 +128,8 @@ Class Responsive_Options {
 					<?php
 					$this->render_display();
 					?>
-				</div><!-- .row -->
+				</div>
+				<!-- .row -->
 			</form>
 		</div><!-- wrap -->
 	<?php
@@ -386,6 +391,43 @@ Class Responsive_Options {
 		return $html;
 	}
 
+	protected function dragdrop( $args ) {
+		extract( $args );
+
+		// for testing
+		$items = $options['items'];
+
+		$live_areas = $options['drop_zones'];
+
+		$html = '<div id="' . $id . '" class="drag-drop-container row">';
+		$html .= '<div class="items-container col-xs-4">';
+		$html .= '<h3>' . $options['items_title'] . '</h3>';
+		$html .= '<ul id="header-items" class="sortable">';
+		foreach ( $items as $key => $item ) {
+			$html .= '<li id="' . $key . '">' . $item . '</li>';
+		}
+
+		$html .= '</ul>';
+		$html .= '</div>';
+
+		foreach ( $live_areas as $id => $area ) {
+			$html .= '<div class="live-container col-xs-4">';
+			$html .= '<h3>' . $area . '</h3>';
+			$html .= '<ul id="live-' . $id . '" class="sortable">';
+			$html .= '</ul>';
+			$html .= '</div>';
+		}
+		$html .= '</div>';
+
+		// Hidden text box that will save data
+		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
+
+		$html .= '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" type="hidden" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" value="' . esc_html( $value
+			) .	'" />';
+
+		return $html;
+	}
+
 
 	/**
 	 * VALIDATION SECTION
@@ -401,7 +443,6 @@ Class Responsive_Options {
 	 * @return array|mixed|void
 	 */
 	public function theme_options_validate( $input ) {
-
 
 		$defaults = $this->default_options;
 		if ( isset( $input['reset'] ) ) {
@@ -453,7 +494,7 @@ Class Responsive_Options {
 	protected function validate_checkbox( $input, $key ) {
 
 		// if the input is anything other than a 1 make it a 0
-		if ( 1 == $input  ) {
+		if ( 1 == $input ) {
 			$input = 1;
 		} else {
 			$input = 0;
@@ -475,7 +516,7 @@ Class Responsive_Options {
 	protected function validate_select( $input, $key ) {
 
 		$options = $this->options_only[$key];
-		$input = ( array_key_exists( $input, $options['options'] ) ? $input : $this->default_options[$key] );
+		$input   = ( array_key_exists( $input, $options['options'] ) ? $input : $this->default_options[$key] );
 
 		return $input;
 	}
@@ -544,6 +585,7 @@ Class Responsive_Options {
 
 	/**
 	 * Validates the javascript textarea
+	 *
 	 * @param $input
 	 * @param $key
 	 *
@@ -570,7 +612,7 @@ Class Responsive_Options {
 			}
 
 		}
-		
+
 		return $new_array;
 	}
 
@@ -580,21 +622,22 @@ Class Responsive_Options {
 	 * When checkboxes are not checked they are not added to database leaving some undefined indexes, this adds them in
 	 *
 	 * @param $input
+	 *
 	 * @return array
 	 */
 	protected function add_missing_checkboxes( $input ) {
 		$checkboxes = array();
-		$new_array = array();
-		$options = $this->options_only;
+		$new_array  = array();
+		$options    = $this->options_only;
 
-		foreach ($options as $option => $value) {
-			if ( 'checkbox' == $value['type']) {
+		foreach ( $options as $option => $value ) {
+			if ( 'checkbox' == $value['type'] ) {
 				$checkboxes[$option] = 0;
 			}
 		}
 
 		$new_array = wp_parse_args( $input, $checkboxes );
-		
+
 		return $new_array;
 	}
 
@@ -645,7 +688,8 @@ Class Responsive_Options {
 			'placeholder' => '',
 			'options'     => array(),
 			'default'     => '',
-			'sanitize'    => ''
+			'validate'    => '',
+			'options'     => array()
 		);
 
 		$result = array_merge( $default_args, $args );
