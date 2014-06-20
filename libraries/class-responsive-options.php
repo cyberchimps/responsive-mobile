@@ -394,36 +394,80 @@ Class Responsive_Options {
 	protected function dragdrop( $args ) {
 		extract( $args );
 
-		// for testing
-		$items = $options['items'];
+		$items = array();
+		$original_items = array();
 
-		$live_areas = $options['drop_zones'];
+		// Get Original options
+		$original_items = $options['items'];
 
-		$html = '<div id="' . $id . '" class="drag-drop-container row">';
-		$html .= '<div class="items-container col-xs-4">';
-		$html .= '<h3>' . $options['items_title'] . '</h3>';
-		$html .= '<ul id="header-items" class="sortable">';
-		foreach ( $items as $key => $item ) {
-			$html .= '<li id="' . $key . '">' . $item . '</li>';
+		// If there is no settings saved just use the original options
+		if ( ! isset( $this->responsive_options[$id] ) ) {
+			$items[0] = $original_items;
+		} else {
+			// Get json from saved settings and decode it
+			$items = json_decode( $this->responsive_options[ $id ], true );
+
+			// Loop through the items and create an array that can be used by the display code
+			foreach ( $items as $key => $item ) {
+				foreach ( $item as $it ) {
+
+					$new_item[$key][$it] = $original_items[$it];
+
+					// Unset it from the original list so that we can see if there are any options left over
+					// anything left over will be new options added after the original save
+					unset( $original_items[$it] );
+				}
+
+			}
+
+			// After unsetting the original items if there are any left over then we need to add them to the first
+			// select box so a user can select it
+			if ( !empty( $original_items ) ) {
+				foreach( $original_items as $key => $item ) {
+					$new_item[0][$key] = $item;
+				}
+			}
+
+			$items = $new_item;
+
 		}
 
-		$html .= '</ul>';
-		$html .= '</div>';
+		// Create the home dropzone to be added at the start of the dropzones array
+		$select_items = array(
+			'select-items' => 	__( 'Select Items', 'responsive' )
+		);
+		
+		$drop_zones = $select_items + $options['drop_zones'];
 
-		foreach ( $live_areas as $id => $area ) {
-			$html .= '<div class="live-container col-xs-4">';
-			$html .= '<h3>' . $area . '</h3>';
-			$html .= '<ul id="live-' . $id . '" class="sortable">';
+		// Create the display html
+		$html = '<div id="' . $id . '" class="drag-drop-container row">';
+
+		$i = 0;
+		// Loop through the drop zones to create the sections
+		foreach ( $drop_zones as $drop_zone => $name ) {
+			$html .= '<div class="items-container col-xs-4">';
+			$html .= '<h4>' . $name . '</h4>';
+			$html .= '<ul id="' . $drop_zone . '" class="sortable">';
+
+			// If there are items in this drop zone then display them
+			if ( isset( $items[$i] ) ) {
+				foreach ( $items[$i] as $key => $item ) {
+						$html .= '<li id="' . $key . '">' . $item . '</li>';
+				}
+			}
+
+
 			$html .= '</ul>';
 			$html .= '</div>';
+
+			$i++;
 		}
 		$html .= '</div>';
 
 		// Hidden text box that will save data
 		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
 
-		$html .= '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" type="hidden" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" value="' . esc_html( $value
-			) .	'" />';
+		$html .= '<input type="hidden" id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" value="' . esc_html( $value ) . '" />';
 
 		return $html;
 	}

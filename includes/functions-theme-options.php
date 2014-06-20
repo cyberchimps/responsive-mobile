@@ -22,7 +22,8 @@ if ( !defined( 'WPINC' ) ) {
  * Retrieve Theme option settings
  *
  */
-function responsive_get_options() {
+function responsive_get_options()
+{
 	// Parse array of option defaults against user-configured Theme options
 	$responsive_options = Responsive_Options::$static_responsive_options;
 
@@ -40,7 +41,8 @@ add_filter( 'responsive_options_init', 'responsive_get_options' );
 /**
  * Get valid layouts
  */
-function responsive_valid_layouts() {
+function responsive_valid_layouts()
+{
 	$layouts = array(
 		'default'                   => __( 'Default', 'responsive' ),
 		'content-sidebar-page'      => __( 'Content/Sidebar', 'responsive' ),
@@ -56,7 +58,8 @@ function responsive_valid_layouts() {
 /**
  * Set Theme Options
  */
-function responsive_theme_options_set() {
+function responsive_theme_options_set()
+{
 
 	/**
 	 * Creates and array of sections and each section again conatains array of options.
@@ -295,14 +298,14 @@ function responsive_theme_options_set() {
 					'validate'    => 'url'
 				),
 				// TODO removed as no font icon for this yet
-//				array(
-//					'title'       => __( 'Yelp!', 'responsive' ),
-//					'type'        => 'text',
-//					'id'          => 'yelp_uid',
-//					'description' => __( 'Enter your Yelp! URL', 'responsive' ),
-//					'default'     => '',
-//					'validate'    => 'url'
-//				),
+				//				array(
+				//					'title'       => __( 'Yelp!', 'responsive' ),
+				//					'type'        => 'text',
+				//					'id'          => 'yelp_uid',
+				//					'description' => __( 'Enter your Yelp! URL', 'responsive' ),
+				//					'default'     => '',
+				//					'validate'    => 'url'
+				//				),
 				array(
 					'title'       => __( 'Vimeo', 'responsive' ),
 					'type'        => 'text',
@@ -374,11 +377,12 @@ function responsive_theme_options_set() {
 					'options'     => array(
 						'items_title' => __( 'Header Items', 'responsive' ),
 						'items'       => array(
-							'logo'        => __( 'Logo', 'responsive' ),
-							'blogname'    => __( 'Blog Name', 'responsive' ),
-							'description' => __( 'Blog Description', 'responsive' ),
-							'search'      => __( 'Search', 'responsive' ),
-							'login'       => __( 'Login', 'responsive' )
+							'site-logo'        => __( 'Logo', 'responsive' ),
+							'site-name'        => __( 'Blog Name', 'responsive' ),
+							'site-description' => __( 'Blog Description', 'responsive' ),
+							'site-search'      => __( 'Search', 'responsive' ),
+							'site-login'       => __( 'Login', 'responsive' ),
+							'site-meta-box'		=> __( 'Meta Box', 'responsive' )
 						),
 						'drop_zones'  => array(
 							'header1' => __( 'Header Left Side', 'responsive' ),

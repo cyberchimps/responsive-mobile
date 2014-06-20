@@ -1389,23 +1389,31 @@ ul.error-list {
 }
 
 /* Drag and Drop */
-.drag-drop-container ul {
+.drag-drop-container ul.sortable {
 	min-height: 60px;
 	padding: 10px;
-	border: 1px solid gray;
+	border: 1px solid #aaaaaa;
 }
 
-.drag-drop-container li {
+.drag-drop-container ul.sortable li {
+	width: auto;
 	padding: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	border: 1px solid gray;
+	background-color: #fff;
+	line-height: 1.5em;
 }
 
-.drag-drop-container li:hover {
-	cursor: default;
+.drag-drop-container ul.sortable li:hover {
+	cursor: move;
 }
 
-.drag-drop-container li.drag-drop-placeholder {
+.drag-drop-container ul.sortable li.drag-drop-placeholder {
 	height: 28px;
 	border: 1px dashed #cccccc;
+}
+
+.drag-drop-container ul.sortable li.ui-sortable-helper {
+	font-size: 1.2em;
+	box-shadow: 0 0 1em rgba(0,0,0,0.5);
 }
