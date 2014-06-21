@@ -22,13 +22,31 @@ if ( ! defined( 'WPINC' ) ) {
  * Add theme support for Infinite Scroll.
  * See: http://jetpack.me/support/infinite-scroll/
  */
+function responsive_infinite_scroll_render() {
+	get_template_part( 'template-parts/content', get_post_format() );
+}
+
 function responsive_jetpack_setup() {
 	add_theme_support( 'infinite-scroll', array(
-		'container' => 'main',
-		'footer'    => 'page',
+		'footer_widgets' => array( 'colophon-widget', 'footer-widget', ),
+		'container'      => 'main',
+		'render'         => 'responsive_infinite_scroll_render', 
+		'footer'         => 'page',
 	) );
 }
 add_action( 'after_setup_theme', 'responsive_jetpack_setup' );
+
+function responsive_jetpack_credit() {
+	$powered_by_text = sprintf(
+		/* Translators: Responsive Theme powered by WordPress */
+		__( '%1$s powered by %2$s', 'responsive' ),
+		'<a href="' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . '">' . __( 'Responsive Theme', 'responsive' ) . '</a>',
+		'<a href="' . esc_url( 'http://wordpress.org/' ) . '">' . __( 'WordPress', 'responsive' ) . '</a>'
+	);
+	$powered_by_text = apply_filters( 'responsive_powered_by_text', $powered_by_text );
+	return $powered_by_text;
+}
+add_filter( 'infinite_scroll_credit', 'responsive_jetpack_credit' );
 
 /**
  * WooCommerce

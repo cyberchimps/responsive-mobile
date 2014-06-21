@@ -57,15 +57,18 @@ li {
 
 .container {
 	@include container-fixed();
+	/*
 	@media (min-width: $screen-sm-min) {
 		width: $container-sm;
 	}
 	@media (min-width: $screen-md-min) {
 		width: $container-md;
 	}
+	*/
 	@media (min-width: $screen-lg-min) {
 		width: $container-lg;
 	}
+
 }
 
 .container-full-width {
@@ -463,7 +466,6 @@ main #featured-image {
 
 .site-main [class*="navigation"] {
 	overflow: hidden;
-	margin: 0 0 1.5em;
 }
 
 .navigation {

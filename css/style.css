@@ -1116,6 +1116,14 @@ li {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+  /*
+  @media (min-width: $screen-sm-min) {
+  	width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+  	width: $container-md;
+  }
+  */
 }
 .container:before, #footer #footer-wrapper:before, .container:after, #footer #footer-wrapper:after {
   content: " ";
@@ -1123,16 +1131,6 @@ li {
 }
 .container:after, #footer #footer-wrapper:after {
   clear: both;
-}
-@media (min-width: 768px) {
-  .container, #footer #footer-wrapper {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .container, #footer #footer-wrapper {
-    width: 970px;
-  }
 }
 @media (min-width: 1200px) {
   .container, #footer #footer-wrapper {
@@ -1639,7 +1637,6 @@ main #featured-content .call-to-action .cta-button:hover, main #featured-image .
 --------------------------------------------------------------*/
 .site-main [class*="navigation"] {
   overflow: hidden;
-  margin: 0 0 1.5em;
 }
 
 .navigation {
@@ -2565,6 +2562,10 @@ main#main.sitemap .sitemap-widgets:after {
 /* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
 .infinity-end.neverending .site-footer {
   display: block;
+}
+
+#infinite-footer .container, #infinite-footer #footer #footer-wrapper, #footer #infinite-footer #footer-wrapper {
+  width: 1170px;
 }
 
 /*--------------------------------------------------------------
