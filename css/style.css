@@ -1271,37 +1271,39 @@ li {
   #main-navigation ul {
     display: block;
   }
-  #main-navigation .main-nav > ul {
+  #main-navigation .main-nav ul {
     padding: 0;
   }
-  #main-navigation .main-nav > ul:before, #main-navigation .main-nav > ul:after {
+  #main-navigation .main-nav ul:before, #main-navigation .main-nav ul:after {
     content: " ";
     display: table;
   }
-  #main-navigation .main-nav > ul:after {
+  #main-navigation .main-nav ul:after {
     clear: both;
   }
-  #main-navigation .main-nav > ul li {
+  #main-navigation .main-nav ul li {
     margin: 0;
     padding: 0;
     list-style: none;
-  }
-  #main-navigation .main-nav > ul > li {
     position: relative;
     float: left;
   }
-  #main-navigation .main-nav > ul > li:hover ul {
+  #main-navigation .main-nav ul li:hover > ul {
     display: block;
   }
-  #main-navigation .main-nav > ul > li a {
+  #main-navigation .main-nav ul li li:hover > ul {
+    left: 100%;
+    top: 0;
+  }
+  #main-navigation .main-nav ul li a {
     margin: 10px;
     color: #eeeeee;
   }
-  #main-navigation .main-nav > ul > li a:hover {
+  #main-navigation .main-nav ul li a:hover {
     text-decoration: none;
     color: #999999;
   }
-  #main-navigation .main-nav > ul > li > ul {
+  #main-navigation .main-nav ul li > ul {
     position: absolute;
     z-index: 999;
     width: auto;
@@ -1309,13 +1311,13 @@ li {
     padding: 0;
     background-color: #333333;
   }
-  #main-navigation .main-nav > ul > li ul {
+  #main-navigation .main-nav ul li ul {
     display: none;
   }
-  #main-navigation .main-nav > ul > li ul li {
+  #main-navigation .main-nav ul li ul li {
     float: none;
   }
-  #main-navigation .main-nav > ul > li ul li a {
+  #main-navigation .main-nav ul li ul li a {
     line-height: 2.5em;
     white-space: nowrap;
   }
@@ -1523,6 +1525,7 @@ main #featured-content h1, main #featured-image h1, main #featured-content h2, m
 main #featured-content .call-to-action, main #featured-image .call-to-action {
   padding: 15px 0;
   text-align: center;
+  margin-top: 30px;
 }
 main #featured-content .call-to-action .cta-button, main #featured-image .call-to-action .cta-button {
   color: white;
@@ -1675,7 +1678,7 @@ main #featured-content .call-to-action .cta-button:hover, main #featured-image .
   list-style: none;
   padding-left: 0;
 }
-.commentlist li.alt {
+.commentlist li.alt > article {
   background: #f9f9f9;
 }
 .commentlist .children {
@@ -2074,7 +2077,6 @@ main#main.sitemap .sitemap-widgets:after {
 .search-form .search-submit {
   position: relative;
   height: 34px;
-  top: -1px;
   left: -4px;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
@@ -2541,6 +2543,14 @@ main#main.sitemap .sitemap-widgets:after {
   height: 1px;
   overflow: hidden;
   display: block;
+}
+
+/*--------------------------------------------------------------
+16.0 - Styles
+--------------------------------------------------------------*/
+blockquote cite {
+  display: block;
+  text-align: right;
 }
 
 /*--------------------------------------------------------------

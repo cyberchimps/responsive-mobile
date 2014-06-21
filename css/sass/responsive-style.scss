@@ -192,19 +192,21 @@ li {
 			display: block;
 		}
 		.main-nav {
-			> ul {
+			ul {
 				padding: 0;
 				@include clearfix;
 				li {
 					margin: 0;
 					padding: 0;
 					list-style: none;
-				}
-				> li {
 					position: relative;
 					float: left;
-					&:hover ul {
+					&:hover > ul {
 						display: block;
+					}
+					li:hover > ul {
+						left: 100%;
+						top: 0;
 					}
 					a {
 						margin: 10px;
@@ -279,19 +281,21 @@ li {
 		ul {
 			display: block;
 		}
-		& > ul {
+		& ul {
 			padding: 0;
 			@include clearfix;
 			li {
 				margin: 0;
 				padding: 0;
 				list-style: none;
-			}
-			> li {
 				position: relative;
 				float: left;
 				&:hover ul {
 					display: block;
+				}
+				li:hover > ul {
+					left: 100%;
+					top: 0;
 				}
 				a {
 					margin: 10px;
@@ -506,7 +510,7 @@ main #featured-image {
 .commentlist {
 	list-style: none;
 	padding-left: 0;
-	li.alt {
+	li.alt > article {
 		background: #f9f9f9
 	}
 	.children {
@@ -809,7 +813,6 @@ main#main {
 	.search-submit {
 		position: relative;
 		height: 34px;
-		top: -1px;
 		left: -4px;
 		border-bottom-left-radius: 0;
 		border-top-left-radius: 0;
@@ -1040,4 +1043,13 @@ main#main {
 	height: 1px;
 	overflow: hidden;
 	display: block;
+}
+
+/*--------------------------------------------------------------
+16.0 - Styles
+--------------------------------------------------------------*/
+
+blockquote cite {
+	display: block;
+	text-align: right;
 }
