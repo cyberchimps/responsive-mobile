@@ -17,7 +17,27 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
-// @TODO Add functions needed for update
+
+/*
+ * Update social icon options
+ *
+ * @since    1.9.4.9
+ */
+function responsive_update_social_icon_options() {
+	$responsive_options = responsive_get_options();
+	// If new option does not exist then copy the option
+	if ( !isset( $responsive_options['googleplus_uid'] ) ) {
+		$responsive_options['googleplus_uid'] = $responsive_options['google_plus_uid'];
+	}
+	if ( !isset( $responsive_options['stumbleupon_uid'] ) ) {
+		$responsive_options['stumbleupon_uid'] = $responsive_options['stumble_uid'];
+	}
+
+	// Update entire array
+	update_option( 'responsive_theme_options', $responsive_options );
+}
+
+add_action( 'after_setup_theme', 'responsive_update_social_icon_options' );
 
 /*
  * Update page templete meta data
@@ -28,33 +48,34 @@ if ( ! defined( 'WPINC' ) ) {
  *
  */
 function responsive_update_page_template_meta(){
-
-	$args = array (
+	$args = array(
 		'post_type' => 'page',
-		'meta_query'  => array(
+		'meta_query' => array(
 			array(
-				'key'     => '_wp_page_template',
-				'value'   => 'default',
+				'key' => '_wp_page_template',
+				'value' => 'default',
 				'compare' => '!='
 			)
 		)
 	);
 
-	$pages = get_pages( $args );
+	$query = new WP_Query( $args );
 
-	foreach ( $pages as $page ) {
+	if ( $query->have_posts() ) {
 
-		$meta_value = get_post_meta( $page->ID, '_wp_page_template', true );
-		$page_templates_dir = 'page-templates/';
-		$pos = strpos( $meta_value, $page_templates_dir );
+		while ( $query->have_posts() ) {
+			$query->the_post();
 
-		if ( $pos !== false ) {
-			$meta_value = $page_templates_dir . $meta_value;
-			update_post_meta( $post_id, '_wp_page_template', $meta_value );
-			//update_post_meta( $post_id, '_wp_page_template_responsive', $meta_value );
+			$meta_value = get_post_meta( get_the_ID(), '_wp_page_template', true );
+			$page_templates_dir = 'page-templates/';
+			$conatins = strpos( $meta_value, $page_templates_dir );
+
+			if ( false === $conatins ) {
+				$meta_value = $page_templates_dir . $meta_value;
+				update_post_meta( get_the_ID(), '_wp_page_template', $meta_value );
+			}
+
 		}
-
 	}
-
 }
-add_action( 'switch_theme', 'responsive_update_page_template_meta' );
+add_action( 'after_switch_theme', 'responsive_update_page_template_meta' );
