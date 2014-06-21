@@ -64,7 +64,7 @@ function responsive_get_layout() {
 		$layout_meta       = ( array_key_exists( $layout_meta_value, $valid_layouts ) ? $layout_meta_value : 'default' );
 
 		/* If post custom meta is set, use it */
-		if ( 'default' == $responsive_options['single_post_layout_default'] ) {
+		if ( 'default' != $layout_meta ) {
 			$layout = $layout_meta;
 		} /* Else, use the default */
 		else {

@@ -1834,7 +1834,7 @@ main#main {
 }
 @media (min-width: 992px) {
   .sidebar-content-page main#main {
-    left: 66.66667%;
+    left: 33.33333%;
   }
 }
 .content-sidebar-half-page main#main {

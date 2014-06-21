@@ -2161,7 +2161,7 @@ main#main {
 
 @media (min-width: 992px) {
   .sidebar-content-page main#main {
-    right: 66.66667%;
+    right: 33.33333%;
   }
 }
 

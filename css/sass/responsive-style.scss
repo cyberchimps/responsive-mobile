@@ -639,7 +639,7 @@ main#main {
 	//* Sidebar content ===================*/
 
 	.sidebar-content-page & {
-		@include make-md-column-push(8);
+		@include make-md-column-push(4);
 	}
 
 	//* Content sidebar half ===================*/
