@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 /*
  * If the sidebar is empty, exit
  */
-if (!is_active_sidebar('colophon-widget')) {
+if ( ! is_active_sidebar( 'colophon-widget' ) ) {
 	return;
 }
 ?>
@@ -29,11 +29,9 @@ if (!is_active_sidebar('colophon-widget')) {
 <?php responsive_widgets_before(); ?>
 <div id="colophon-widget" class="widget-area" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
 	<?php responsive_widgets(); ?>
-	<?php if (!dynamic_sidebar('colophon-sidebar')) : ?>
 
 		<?php dynamic_sidebar('colophon-widget'); ?>
 
-	<?php endif; // end sidebar widget area ?>
 	<?php responsive_widgets_end(); ?>
 </div>
 <!-- #colophon widget -->

@@ -21,7 +21,7 @@ if ( !defined( 'ABSPATH' ) ) {
 /*
  * If the sidebar is empty, exit
  */
-if ( !is_active_sidebar( 'top-widget' ) ) {
+if ( ! is_active_sidebar( 'top-widget' ) ) {
 	return;
 }
 ?>
