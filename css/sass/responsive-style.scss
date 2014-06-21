@@ -362,22 +362,17 @@ li {
 }
 
 /*--------------------------------------------------------------
- 8.0 - Content
---------------------------------------------------------------*/
-
-#content {
-
-}
-
-/*--------------------------------------------------------------
- 8.1 - Structure
+ 8.0 - Structure
 --------------------------------------------------------------*/
 
 .content-area {
 	@include clearfix();
 	margin-bottom: 20px;
-	padding-bottom: 20px;
+	padding: 15px;
 	background: #fff;
+	.front-page & {
+		padding: 0;
+	}
 }
 
 main {
@@ -394,7 +389,7 @@ main {
 
 main #featured-content {
 	@include make-md-column(6);
-	padding: 15px 0;
+	padding: 30px;
 	h1, h2, p {
 		text-align: center;
 	}
@@ -419,6 +414,9 @@ main #featured-image {
 	@include make-md-column(4);
 	.widget-wrapper {
 		background: #fff;
+		.widget-title-home {
+			margin-top: 0;
+		}
 	}
 }
 
@@ -766,7 +764,7 @@ main#main {
 }
 
 .widget-wrapper {
-	padding: 10px;
+	padding: 15px;
 }
 
 .widget_calendar {

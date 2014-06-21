@@ -1474,14 +1474,11 @@ li {
 }
 
 /*--------------------------------------------------------------
- 8.0 - Content
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
- 8.1 - Structure
+ 8.0 - Structure
 --------------------------------------------------------------*/
 .content-area {
   margin-bottom: 20px;
-  padding-bottom: 20px;
+  padding: 15px;
   background: #fff;
 }
 .content-area:before, .content-area:after {
@@ -1490,6 +1487,9 @@ li {
 }
 .content-area:after {
   clear: both;
+}
+.front-page .content-area {
+  padding: 0;
 }
 
 main:before, main:after {
@@ -1512,7 +1512,7 @@ main #featured-content, main #featured-image {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-  padding: 15px 0;
+  padding: 30px;
 }
 @media (min-width: 992px) {
   main #featured-content, main #featured-image {
@@ -1570,6 +1570,9 @@ main #featured-content .call-to-action .cta-button:hover, main #featured-image .
 }
 .home-widget .widget-wrapper {
   background: #fff;
+}
+.home-widget .widget-wrapper .widget-title-home {
+  margin-top: 0;
 }
 
 /*--------------------------------------------------------------
@@ -2024,7 +2027,7 @@ main#main.sitemap .sitemap-widgets:after {
 }
 
 .widget-wrapper {
-  padding: 10px;
+  padding: 15px;
 }
 
 .widget_calendar #wp-calendar {
