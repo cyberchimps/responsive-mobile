@@ -122,7 +122,6 @@ li {
 
 #main-menu {
 	position: relative;
-	margin-bottom: 20px;
 }
 
 #mobile-nav-button {
@@ -175,7 +174,7 @@ li {
 			a {
 				color: $gray-lighter;
 				text-decoration: none;
-				line-height: 2em;
+				line-height: 3em;
 				&:hover {
 					color: $gray-light;
 				}
@@ -194,7 +193,7 @@ li {
 		}
 		.main-nav {
 			> ul {
-				padding-top: 10px;
+				padding: 0;
 				@include clearfix;
 				li {
 					margin: 0;
@@ -204,12 +203,11 @@ li {
 				> li {
 					position: relative;
 					float: left;
-					padding-bottom: 10px;
 					&:hover ul {
 						display: block;
 					}
 					a {
-						margin-right: 20px;
+						margin: 10px;
 						color: $gray-lighter;
 						&:hover {
 							text-decoration: none;
@@ -221,7 +219,7 @@ li {
 						z-index: 999;
 						width: auto;
 						min-width: 200px;
-						padding: 10px;
+						padding: 0;
 						background-color: $gray-dark;
 					}
 					ul {
@@ -317,6 +315,7 @@ li {
 						float: none;
 						a {
 							line-height: 2.5em;
+							white-space: nowrap;
 						}
 					}
 				}
@@ -370,7 +369,7 @@ li {
 
 .content-area {
 	@include clearfix();
-	margin-bottom: 20px;
+	margin: 20px 0;
 	padding: 15px;
 	background: #fff;
 	.front-page & {
@@ -399,6 +398,7 @@ main #featured-content {
 	.call-to-action {
 		padding: 15px 0;
 		text-align: center;
+		margin-top: 30px;
 		.cta-button {
 			@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
 			@include button-size($padding-xlarge-vertical, $padding-xlarge-horizontal, $font-size-xlarge, $line-height-xlarge, $border-radius-base);

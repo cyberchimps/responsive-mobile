@@ -1342,7 +1342,6 @@ li {
 
 #main-menu {
   position: relative;
-  margin-bottom: 20px;
 }
 
 #mobile-nav-button {
@@ -1427,7 +1426,7 @@ li {
 #main-navigation ul li a {
   color: #eeeeee;
   text-decoration: none;
-  line-height: 2em;
+  line-height: 3em;
 }
 
 #main-navigation ul li a:hover {
@@ -1444,7 +1443,7 @@ li {
   }
 
   #main-navigation .main-nav > ul {
-    padding-top: 10px;
+    padding: 0;
   }
 
   #main-navigation .main-nav > ul:before,
@@ -1466,7 +1465,6 @@ li {
   #main-navigation .main-nav > ul > li {
     position: relative;
     float: right;
-    padding-bottom: 10px;
   }
 
   #main-navigation .main-nav > ul > li:hover ul {
@@ -1474,7 +1472,7 @@ li {
   }
 
   #main-navigation .main-nav > ul > li a {
-    margin-left: 20px;
+    margin: 10px;
     color: #eeeeee;
   }
 
@@ -1488,7 +1486,7 @@ li {
     z-index: 999;
     width: auto;
     min-width: 200px;
-    padding: 10px;
+    padding: 0;
     background-color: #333333;
   }
 
@@ -1611,6 +1609,7 @@ li {
 
   #sub-navigation > ul > li ul li a {
     line-height: 2.5em;
+    white-space: nowrap;
   }
 }
 
@@ -1691,7 +1690,7 @@ li {
 --------------------------------------------------------------*/
 
 .content-area {
-  margin-bottom: 20px;
+  margin: 20px 0;
   padding: 15px;
   background: #fff;
 }
