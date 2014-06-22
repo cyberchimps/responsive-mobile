@@ -17,6 +17,8 @@
 //	8.4 - Error page
 //	8.5 - Navigation
 //	8.6 - Comments
+//	8.7 - Elements
+//	8.8 - Breadcrumbs
 // 9.0 - Media
 //	9.1 - Galleries
 //10.0 - Page/Post Layouts
@@ -185,6 +187,11 @@ li {
 		> ul {
 			padding-top: 35px;
 		}
+		.menu li li a::before {
+			content: '\2013';
+			position: absolute;
+			margin-left: -15px;
+		}
 	}
 
 	@media (min-width: $screen-md-min) {
@@ -209,7 +216,7 @@ li {
 						top: 0;
 					}
 					a {
-						margin: 10px;
+						margin: 13px;
 						color: $gray-lighter;
 						&:hover {
 							text-decoration: none;
@@ -298,7 +305,7 @@ li {
 					top: 0;
 				}
 				a {
-					margin: 10px;
+					margin: 13px;
 					//color: ;
 					&:hover {
 						text-decoration: none;
@@ -524,6 +531,23 @@ main #featured-image {
 }
 
 .bypostauthor {
+}
+
+/*--------------------------------------------------------------
+ 8.7 - Elements
+--------------------------------------------------------------*/
+
+blockquote cite {
+	display: block;
+	text-align: right;
+}
+
+/*--------------------------------------------------------------
+ 8.8 - Breadcrumbs
+--------------------------------------------------------------*/
+
+.breadcrumb-list {
+	padding-top: 15px;
 }
 
 /*--------------------------------------------------------------
@@ -1043,13 +1067,4 @@ main#main {
 	height: 1px;
 	overflow: hidden;
 	display: block;
-}
-
-/*--------------------------------------------------------------
-16.0 - Styles
---------------------------------------------------------------*/
-
-blockquote cite {
-	display: block;
-	text-align: right;
 }

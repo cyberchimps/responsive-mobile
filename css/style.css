@@ -21,6 +21,8 @@
 	8.4 - Error page
 	8.5 - Navigation
 	8.6 - Comments
+	8.7 - Elements
+	8.8 - Breadcrumbs
  9.0 - Media
 	9.1 - Galleries
 10.0 - Page/Post Layouts
@@ -1267,6 +1269,11 @@ li {
 #main-navigation .main-nav > ul {
   padding-top: 35px;
 }
+#main-navigation .main-nav .menu li li a::before {
+  content: '\2013';
+  position: absolute;
+  margin-left: -15px;
+}
 @media (min-width: 992px) {
   #main-navigation ul {
     display: block;
@@ -1296,7 +1303,7 @@ li {
     top: 0;
   }
   #main-navigation .main-nav ul li a {
-    margin: 10px;
+    margin: 13px;
     color: #eeeeee;
   }
   #main-navigation .main-nav ul li a:hover {
@@ -1361,35 +1368,37 @@ li {
   #sub-navigation ul {
     display: block;
   }
-  #sub-navigation > ul {
+  #sub-navigation ul {
     padding: 0;
   }
-  #sub-navigation > ul:before, #sub-navigation > ul:after {
+  #sub-navigation ul:before, #sub-navigation ul:after {
     content: " ";
     display: table;
   }
-  #sub-navigation > ul:after {
+  #sub-navigation ul:after {
     clear: both;
   }
-  #sub-navigation > ul li {
+  #sub-navigation ul li {
     margin: 0;
     padding: 0;
     list-style: none;
-  }
-  #sub-navigation > ul > li {
     position: relative;
     float: left;
   }
-  #sub-navigation > ul > li:hover ul {
+  #sub-navigation ul li:hover ul {
     display: block;
   }
-  #sub-navigation > ul > li a {
-    margin: 10px;
+  #sub-navigation ul li li:hover > ul {
+    left: 100%;
+    top: 0;
   }
-  #sub-navigation > ul > li a:hover {
+  #sub-navigation ul li a {
+    margin: 13px;
+  }
+  #sub-navigation ul li a:hover {
     text-decoration: none;
   }
-  #sub-navigation > ul > li > ul {
+  #sub-navigation ul li > ul {
     position: absolute;
     z-index: 999;
     width: auto;
@@ -1397,13 +1406,13 @@ li {
     padding: 0;
     background-color: #fff;
   }
-  #sub-navigation > ul > li ul {
+  #sub-navigation ul li ul {
     display: none;
   }
-  #sub-navigation > ul > li ul li {
+  #sub-navigation ul li ul li {
     float: none;
   }
-  #sub-navigation > ul > li ul li a {
+  #sub-navigation ul li ul li a {
     line-height: 2.5em;
     white-space: nowrap;
   }
@@ -1688,6 +1697,21 @@ main #featured-content .call-to-action .cta-button:hover, main #featured-image .
   float: left;
   margin-right: 10px;
   vertical-align: middle;
+}
+
+/*--------------------------------------------------------------
+ 8.7 - Elements
+--------------------------------------------------------------*/
+blockquote cite {
+  display: block;
+  text-align: right;
+}
+
+/*--------------------------------------------------------------
+ 8.8 - Breadcrumbs
+--------------------------------------------------------------*/
+.breadcrumb-list {
+  padding-top: 15px;
 }
 
 /*--------------------------------------------------------------
@@ -2543,14 +2567,6 @@ main#main.sitemap .sitemap-widgets:after {
   height: 1px;
   overflow: hidden;
   display: block;
-}
-
-/*--------------------------------------------------------------
-16.0 - Styles
---------------------------------------------------------------*/
-blockquote cite {
-  display: block;
-  text-align: right;
 }
 
 /*--------------------------------------------------------------
