@@ -181,23 +181,29 @@ add_filter( 'excerpt_length', 'responsive_excerpt_length' );
  * Returns a "Read more" link for excerpts
  */
 function responsive_read_more() {
-	return '<div class="read-more"><a href="' . get_permalink() . '">' . __( 'Read more &#8250;', 'responsive' ) . '</a></div><!-- end of .read-more -->';
+	return sprintf( __( 'Read more %s', 'responsive' ), '<span class="screen-reader-text">' . get_the_title() . '</span><span class="meta-nav"> &#8250;</span>' );
 }
 
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and responsive_read_more_link().
  */
 function responsive_auto_excerpt_more( $more ) {
-	return '<span class="ellipsis">&hellip;</span>' . responsive_read_more();
+
+	if( false !== $ellipsis ) {
+		$more = '<span class="ellipsis">&hellip;</span>';
+	}
+
+	return $more . '<div class="read-more"><a href="' . get_permalink() . '">' . responsive_read_more() . '</a></div><!-- end of .read-more -->';
+
 }
 add_filter( 'excerpt_more', 'responsive_auto_excerpt_more' );
 
 /**
- * Adds a pretty "Read more" link to custom post excerpts.
+ * Adds a pretty "Read more" link to custom defined post excerpts.
  */
 function responsive_custom_excerpt_more( $output ) {
 	if( has_excerpt() && !is_attachment() ) {
-		$output .= responsive_read_more();
+		$output .= responsive_auto_excerpt_more( false );
 	}
 
 	return $output;

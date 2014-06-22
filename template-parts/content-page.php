@@ -25,12 +25,10 @@ if ( ! defined( 'WPINC' ) ) {
 
 	<div class="post-entry">
 		<?php the_content(); ?>
-		<?php
-			wp_link_pages( array(
+		<?php wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'responsive' ),
 				'after'  => '</div>',
-			) );
-		?>
+		) ); ?>
 		<?php get_template_part( 'template-parts/post-data' ); ?>
 		<?php responsive_entry_bottom(); ?>
 	</div><!-- .post-entry -->

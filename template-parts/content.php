@@ -43,25 +43,24 @@ responsive_entry_before(); ?>
 					<?php endif; ?>
 
 					<?php
-					// Adding filter to get excpert toggle option working.
-					$excerpt_toggle = apply_filters( 'responsive_post_excerpt', 0 );
+						// Adding filter to get excpert toggle option working.
+						$excerpt_toggle = apply_filters( 'responsive_post_excerpt', 0 );
 
-					// Check if excpert toggle is on then call the excerpt, otherwise the full content.
-					if( $excerpt_toggle ) {
-						the_excerpt();
-					} else{
-						the_content( __( 'Read more &#8250;', 'responsive' ) );
-					}
+						// Check if excpert toggle is on then call the excerpt, otherwise the full content.
+						if( $excerpt_toggle ) {
+							the_excerpt();
+						} else{
+							the_content( responsive_read_more() );
+						}
 
-					wp_link_pages( array(
-						'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
-						'after'  => '</div>',
-					) );
+						wp_link_pages( array(
+							'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
+							'after'  => '</div>',
+						) );
 					?>
 				</div><!-- .entry-content -->
 			<?php endif; ?>
-		</div>
-		<!-- .post-entry -->
+		</div><!-- .post-entry -->
 
 		<?php get_template_part( 'template-parts/post-data' ); ?>
 

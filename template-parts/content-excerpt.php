@@ -35,17 +35,14 @@ responsive_entry_before(); ?>
 							<?php the_post_thumbnail(); ?>
 						</a>
 					<?php endif; ?>
-					<?php the_excerpt( __( 'Read more &#8250;', 'responsive' ) ); ?>
-					<?php
-					wp_link_pages( array(
-						               'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
-						               'after'  => '</div>',
-					               ) );
-					?>
+					<?php the_excerpt(); ?>
+					<?php wp_link_pages( array(
+						'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
+						'after'  => '</div>',
+					) ); ?>
 				</div><!-- .entry-content -->
 			<?php endif; ?>
-		</div>
-		<!-- .post-entry -->
+		</div><!-- .post-entry -->
 
 		<?php get_template_part( 'template-parts/post-data' ); ?>
 
