@@ -189,7 +189,7 @@ function responsive_read_more() {
  */
 function responsive_auto_excerpt_more( $more ) {
 
-	if( false !== $ellipsis ) {
+	if( false !== $more ) {
 		$more = '<span class="ellipsis">&hellip;</span>';
 	}
 
