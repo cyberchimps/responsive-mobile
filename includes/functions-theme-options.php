@@ -14,7 +14,7 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
+if ( !defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -22,25 +22,27 @@ if ( ! defined( 'WPINC' ) ) {
  * Retrieve Theme option settings
  *
  */
-function responsive_get_options() {
+function responsive_get_options()
+{
 	// Parse array of option defaults against user-configured Theme options
 	$responsive_options = Responsive_Options::$static_responsive_options;
 
-	if( ! $responsive_options ) {
+	if ( !$responsive_options ) {
 		return Responsive_Options::$static_default_options;
 	}
 
 	// Return parsed args array
 	return $responsive_options;
 }
+
 // TODO is this filter actually doing anything?
 add_filter( 'responsive_options_init', 'responsive_get_options' );
-
 
 /**
  * Get valid layouts
  */
-function responsive_valid_layouts() {
+function responsive_valid_layouts()
+{
 	$layouts = array(
 		'default'                   => __( 'Default', 'responsive' ),
 		'content-sidebar-page'      => __( 'Content/Sidebar', 'responsive' ),
@@ -56,7 +58,8 @@ function responsive_valid_layouts() {
 /**
  * Set Theme Options
  */
-function responsive_theme_options_set() {
+function responsive_theme_options_set()
+{
 
 	/**
 	 * Creates and array of sections and each section again conatains array of options.
@@ -78,7 +81,7 @@ function responsive_theme_options_set() {
 	 * @options array used by select dropdown lists
 	 */
 	$options = array(
-		'theme_elements' => array(
+		'theme_elements'   => array(
 			'title'  => __( 'Theme Elements', 'responsive' ),
 			'fields' => array(
 				array(
@@ -107,7 +110,7 @@ function responsive_theme_options_set() {
 				)
 			)
 		),
-		'logo_upload' => array(
+		'logo_upload'      => array(
 			'title'  => __( 'Logo Upload', 'responsive' ),
 			'fields' => array(
 				array(
@@ -119,7 +122,7 @@ function responsive_theme_options_set() {
 				)
 			)
 		),
-		'home_page' => array(
+		'home_page'        => array(
 			'title'  => __( 'Home Page', 'responsive' ),
 			'fields' => array(
 				array(
@@ -190,7 +193,7 @@ function responsive_theme_options_set() {
 				)
 			)
 		),
-		'layouts' => array(
+		'layouts'          => array(
 			'title'  => __( 'Default Layouts', 'responsive' ),
 			'fields' => array(
 				array(
@@ -219,7 +222,7 @@ function responsive_theme_options_set() {
 				)
 			)
 		),
-		'social' => array(
+		'social'           => array(
 			'title'  => __( 'Social Icons', 'responsive' ),
 			'fields' => array(
 				array(
@@ -295,14 +298,14 @@ function responsive_theme_options_set() {
 					'validate'    => 'url'
 				),
 				// TODO removed as no font icon for this yet
-//				array(
-//					'title'       => __( 'Yelp!', 'responsive' ),
-//					'type'        => 'text',
-//					'id'          => 'yelp_uid',
-//					'description' => __( 'Enter your Yelp! URL', 'responsive' ),
-//					'default'     => '',
-//					'validate'    => 'url'
-//				),
+				//				array(
+				//					'title'       => __( 'Yelp!', 'responsive' ),
+				//					'type'        => 'text',
+				//					'id'          => 'yelp_uid',
+				//					'description' => __( 'Enter your Yelp! URL', 'responsive' ),
+				//					'default'     => '',
+				//					'validate'    => 'url'
+				//				),
 				array(
 					'title'       => __( 'Vimeo', 'responsive' ),
 					'type'        => 'text',
@@ -321,7 +324,7 @@ function responsive_theme_options_set() {
 				)
 			)
 		),
-		'css' => array(
+		'css'              => array(
 			'title'  => __( 'CSS Styles', 'responsive' ),
 			'fields' => array(
 				array(
@@ -335,7 +338,7 @@ function responsive_theme_options_set() {
 				)
 			)
 		),
-		'scripts' => array(
+		'scripts'          => array(
 			'title'  => __( 'Scripts', 'responsive' ),
 			'fields' => array(
 				array(
@@ -358,6 +361,7 @@ function responsive_theme_options_set() {
 				)
 			)
 		)
+
 	);
 
 	$options = apply_filters( 'responsive_option_options_filter', $options );
