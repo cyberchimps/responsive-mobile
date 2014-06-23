@@ -433,36 +433,32 @@ Class Responsive_Options {
 		extract( $args );
 
 		$items = array();
-		$original_items = array();
 
-		// Get Original options
 		$original_items = $options['items'];
 
 		// If there is no settings saved just use the original options
 		if ( ! isset( $this->responsive_options[$id] ) || '' === $this->responsive_options[$id] ) {
-			$items[0] = $original_items;
+			
+			$items = $original_items;
 		} else {
 			// Get json from saved settings and decode it
 			$items = json_decode( $this->responsive_options[ $id ], true );
 
-			// Loop through the items and create an array that can be used by the display code
-			foreach ( $items as $key => $item ) {
-				foreach ( $item as $it ) {
-
-					$new_item[$key][$it] = $original_items[$it];
+			foreach ( $items as $index => $item ) {
+				foreach ( $item as $i => $it ) {
+					$new_item[$index][$it] = $original_items[$it];
 
 					// Unset it from the original list so that we can see if there are any options left over
 					// anything left over will be new options added after the original save
-					unset( $original_items[$it] );
+					unset($original_items[$it]);
 				}
-
 			}
 
 			// After unsetting the original items if there are any left over then we need to add them to the first
 			// select box so a user can select it
 			if ( !empty( $original_items ) ) {
 				foreach( $original_items as $key => $item ) {
-					$new_item[0][$key] = $item;
+					$new_item[][$key] = $item;
 				}
 			}
 
@@ -759,22 +755,29 @@ Class Responsive_Options {
 	 * @return mixed|string|void
 	 */
 	protected function validate_drag_drop( $input, $key ) {
+		
 		// Get the defaults
 		$defaults = $this->default_options;
-		$defaults = $defaults[$key];
+		$defaults = json_decode( $defaults[$key], true );
 
-		$decoded = json_decode( $input );
+		$decoded = json_decode( $input, true );
+
+		$single_default = array();
+		// break defaults down into a single array
+		foreach( $defaults as $default ) {
+			foreach( $default as $index => $single ) {
+			$single_default[$index] = $single;
+			}
+		}
 
 		foreach ( $decoded as $index => $items ) {
 			foreach ( $items as $index2 => $item ) {
-				if ( ! array_key_exists( $item, $defaults ) ) {
+				if ( ! array_key_exists( $item, $single_default ) ) {
 					unset( $decoded[$index][$index2] );
 				}
 			}
 
 		}
-
-		$input = json_encode( $decoded );
 
 		return $input;
 	}
