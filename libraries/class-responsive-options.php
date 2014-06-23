@@ -765,21 +765,21 @@ Class Responsive_Options {
 		$single_default = array();
 		// break defaults down into a single array
 		foreach( $defaults as $default ) {
-			foreach( $default as $index => $single ) {
-			$single_default[$index] = $single;
+			foreach( $default as $single ) {
+				$single_default[] = $single;
 			}
 		}
 
-		foreach ( $decoded as $index => $items ) {
-			foreach ( $items as $index2 => $item ) {
-				if ( ! array_key_exists( $item, $single_default ) ) {
-					unset( $decoded[$index][$index2] );
+		foreach ( $decoded as $i => $items ) {
+			foreach ( $items as $i2 => $item ) {
+				if ( ! in_array( $item, $single_default ) ) {
+					unset( $decoded[$i][$i2] );
 				}
 			}
 
 		}
 
-		return $input;
+		return json_encode( $decoded );
 	}
 
 	/**
