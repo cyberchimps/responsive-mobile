@@ -1110,9 +1110,24 @@ h3.rwd-toggle .option-arrow {
   margin-left: -30px;
 }
 
-h4.sub-title {
-  float: left;
+.col-md-4 h4.title {
   width: 100%;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.col-md-4 .sub-title {
+	border-top: 1px solid #dddddd;
+	display: block;
+	font-size: 12px;
+	margin-top: 10px;
+	padding-top: 10px;
+	font-style: italic;
+	font-size: 0.9em;
+}
+
+.col-md-8 p {
+	margin-top: 0;
 }
 
 .rwd-container {
@@ -1222,11 +1237,8 @@ h4.sub-title {
 /* =Help Links
 -------------------------------------------------------------- */
 .help-links {
-  border-top: 1px solid #dddddd;
   display: block;
   font-size: 12px;
-  margin-top: 10px;
-  padding-top: 10px;
 }
 
 /* =Extra Links
@@ -1389,6 +1401,10 @@ ul.error-list {
 }
 
 /* Drag and Drop */
+.drag-drop-container h4 {
+	margin-top: 0;
+}
+
 .drag-drop-container ul.sortable {
 	min-height: 60px;
 	padding: 10px;

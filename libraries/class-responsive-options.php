@@ -189,9 +189,9 @@ Class Responsive_Options {
 		if ( !isset( $args['width'] ) || $args['width'] != 'full' ) {
 			$html = '<div class="col-md-4">';
 
-			$html .= $title;
+			$html .= '<h4 class="title">' . $title . '</h4>';
 
-			$html .= $sub_title;
+			$html .= ( '' !== $sub_title ) ? '<div class="sub-title"><p>' . $sub_title . '</p></div>' : '';
 
 			$html .= '</div><!-- .col-md-4 -->';
 
@@ -211,12 +211,16 @@ Class Responsive_Options {
 	 */
 	protected function section( $options ) {
 
-		$html = $this->sub_heading( $options['title'], $options['subtitle'] );
+		$html = '<div class="row">';
+
+		$html .= $this->sub_heading( $options['title'], $options['subtitle'] );
 
 		// If the width is not set to full then create normal size, otherwise create full width
 		$html .= ( !isset( $options['width'] ) || $options['width'] != 'full' ) ? '<div class="col-md-8">' : '<div class="col-md-12">';
 
 		$html .= $this->$options['type']( $options );
+
+		$html .= '</div>';
 
 		$html .= '</div>';
 
@@ -274,9 +278,12 @@ Class Responsive_Options {
 		$class[] = 'large-text';
 		$classes = implode( ' ', $class );
 
+		$description = ( '' !== $description ) ? '<label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>': '';
+		$heading = ( '' !== $heading ) ? '<p>' . esc_html( $heading ) . '</p>' : '';
+
 		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
 
-		$html = '<p>' . esc_html( $heading ) . '</p><textarea id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" class="' . esc_attr( $classes ) . '" cols="50" rows="30" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" placeholder="' . $placeholder . '">' . esc_html( $value ) . '</textarea><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
+		$html = $heading . '<textarea id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" class="' . esc_attr( $classes ) . '" cols="50" rows="30" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" placeholder="' . $placeholder . '">' . esc_html( $value ) . '</textarea>' . $description;
 
 		return $html;
 	}
