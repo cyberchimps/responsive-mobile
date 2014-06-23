@@ -470,7 +470,7 @@ Class Responsive_Options {
 
 		// Create the home dropzone to be added at the start of the dropzones array
 		$select_items = array(
-			'select-items' => 	__( 'Select Items', 'responsive' )
+			'select-items' => 	$options['items_title']
 		);
 		
 		$drop_zones = $select_items + $options['drop_zones'];
