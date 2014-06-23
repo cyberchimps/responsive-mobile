@@ -51,9 +51,6 @@ Class Responsive_Options {
 		add_action( 'admin_print_styles-appearance_page_theme_options', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'admin_init', array( $this, 'theme_options_init' ) );
 		add_action( 'admin_menu', array( $this, 'theme_page_init' ) );
-
-		require_once( get_template_directory() . '/libraries/class-responsive-drag-drop.php' );
-
 	}
 
 	/**

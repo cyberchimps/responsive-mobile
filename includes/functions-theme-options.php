@@ -360,38 +360,8 @@ function responsive_theme_options_set()
 					'validate'    => 'js'
 				)
 			)
-		),
-
-		'header_drag_drop' => array(
-			'title'  => __( 'Header Drag and Drop', 'responsive' ),
-			'fields' => array(
-				array(
-					'title'       => __( 'Header Structure', 'responsive' ),
-					'subtitle'    => '',
-					'heading'     => __( 'Organise your header elements', 'responsive' ),
-					'type'        => 'dragdrop',
-					'id'          => 'header_drag_drop',
-					'description' => __( 'Drag your elements over to the drop zones where you can sort them to the order you want', 'responsive' ),
-					'default'     => '',
-					'validate'    => '',
-					'options'     => array(
-						'items_title' => __( 'Header Items', 'responsive' ),
-						'items'       => array(
-							'site-logo'        => __( 'Logo', 'responsive' ),
-							'site-name'        => __( 'Blog Name', 'responsive' ),
-							'site-description' => __( 'Blog Description', 'responsive' ),
-							'site-search'      => __( 'Search', 'responsive' ),
-							'site-login'       => __( 'Login', 'responsive' ),
-							'site-meta-box'		=> __( 'Meta Box', 'responsive' )
-						),
-						'drop_zones'  => array(
-							'header1' => __( 'Header Left Side', 'responsive' ),
-							'header2' => __( 'Header Right Side', 'responsive' )
-						)
-					)
-				)
-			)
 		)
+
 	);
 
 	$options = apply_filters( 'responsive_option_options_filter', $options );
