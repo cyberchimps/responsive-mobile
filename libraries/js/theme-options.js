@@ -31,7 +31,6 @@ jQuery( document ).ready( function ( $ ) {
 
 			$( ".sortable" ).sortable( {
 				'connectWith': $( ".sortable" ),
-				'containment': $( ".drag-drop-container" ),
 				'items': $( ".sortable li" ),
 				'placeholder': 'drag-drop-placeholder',
 				'stop': function ( event, ui ) {
@@ -40,6 +39,7 @@ jQuery( document ).ready( function ( $ ) {
 					dragDrop.idArray( dragID );
 
 				}
+
 			} );
 		},
 

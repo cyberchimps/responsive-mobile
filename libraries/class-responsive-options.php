@@ -439,7 +439,7 @@ Class Responsive_Options {
 		$original_items = $options['items'];
 
 		// If there is no settings saved just use the original options
-		if ( ! isset( $this->responsive_options[$id] ) ) {
+		if ( ! isset( $this->responsive_options[$id] ) || '' === $this->responsive_options[$id] ) {
 			$items[0] = $original_items;
 		} else {
 			// Get json from saved settings and decode it
@@ -481,9 +481,14 @@ Class Responsive_Options {
 		$html = '<div id="' . $id . '" class="drag-drop-container row">';
 
 		$i = 0;
+
+		// Make the column size so that it fits in the row
+		$col_size = 12 / count( $drop_zones );
+		$col_size = intval( $col_size );
+
 		// Loop through the drop zones to create the sections
 		foreach ( $drop_zones as $drop_zone => $name ) {
-			$html .= '<div class="items-container col-xs-4">';
+			$html .= '<div class="items-container col-xs-' . $col_size . '">';
 			$html .= '<h4>' . $name . '</h4>';
 			$html .= '<ul id="' . $drop_zone . '" class="sortable">';
 
@@ -739,6 +744,37 @@ Class Responsive_Options {
 	protected function validate_js( $input, $key ) {
 
 		$input = wp_kses_stripslashes( $input );
+
+		return $input;
+	}
+
+	/**
+	 * Validates the Drag and Drop
+	 *
+	 * Checks input against defaults and if there is no match it removes it
+	 *
+	 * @param $input
+	 * @param $key
+	 *
+	 * @return mixed|string|void
+	 */
+	protected function validate_drag_drop( $input, $key ) {
+		// Get the defaults
+		$defaults = $this->default_options;
+		$defaults = $defaults[$key];
+
+		$decoded = json_decode( $input );
+
+		foreach ( $decoded as $index => $items ) {
+			foreach ( $items as $index2 => $item ) {
+				if ( ! array_key_exists( $item, $defaults ) ) {
+					unset( $decoded[$index][$index2] );
+				}
+			}
+
+		}
+
+		$input = json_encode( $decoded );
 
 		return $input;
 	}
