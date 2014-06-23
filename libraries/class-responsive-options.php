@@ -117,7 +117,7 @@ Class Responsive_Options {
 
 			<?php responsive_theme_options(); // Theme Options Hook ?>
 
-			<form method="post" action="options.php">
+			<form method="post" action="options.php" enctype="multipart/form-data" >
 				<?php settings_fields( 'responsive_options' ); ?>
 
 				<div class="settings-row">
@@ -289,9 +289,10 @@ Class Responsive_Options {
 	protected function export( $args ) {
 
 		extract( $args );
-
-		$html = '<textarea rows="10" cols="50">' . esc_html( serialize( $this->responsive_options ) ) . '</textarea>';
-
+		$options = esc_html( serialize( $this->responsive_options ) );
+		$html = '<textarea rows="10" cols="50">' . $options . '</textarea>';
+		$html .= '<br/><a class="export-option" href="data:text/octet-stream;charset=utf-8,' . str_replace( "#", "%23", $options ) . '" download="theme-option-backup.txt">Download</a>';
+		
 		return $html;
 	}
 	
@@ -307,6 +308,7 @@ Class Responsive_Options {
 		extract( $args );
 
 		$html = '<textarea name="import" rows="10" cols="50"></textarea>';
+		$html .= "<br/><input type='file' id='import_file' name='import_file' />";
 
 		return $html;
 	}
@@ -434,11 +436,26 @@ Class Responsive_Options {
 	 */
 	public function theme_options_validate( $input ) {
 	
-		/* Add imported theme options to DB */
-		if( isset( $_POST['import'] ) ) {
-			if( trim( $_POST['import'] ) ) {
+		/*
+		 * Import functionality
+		 *
+		 * Both the copy/paste and file upload options are active. First it checks for file, if any file is uploaded then
+		 * it processes that. Otherwise it checks if anything is sent with the textarea for the import.
+		 */
 
-				$string = stripslashes( trim( $_POST['import'] ) );
+		global $wp_filesystem;
+		
+		// Check if any file is uplaoded
+		if( isset( $_FILES['import_file'] ) && $_FILES['import_file']['name'] ) {
+
+			// Initialise WP filesystem.
+			WP_Filesystem( request_filesystem_credentials( 'options.php', '', false, false, null ) );
+
+			// Get the text of the uploaded file and trim it to remove space from either end.
+			$import_file_text = trim( $wp_filesystem->get_contents( $_FILES['import_file']['tmp_name'] ) );
+
+			if( $import_file_text ) {
+				$string = stripslashes( $import_file_text );
 
 				// check string is serialized and unserialize it
 				if( is_serialized( $string ) ) {
@@ -456,6 +473,31 @@ Class Responsive_Options {
 				}
 			}
 		}
+		// If no file is uploaded then check for the texarea field for improt option.
+		else {
+			if( isset( $_POST['import'] ) ) {
+				if( trim( $_POST['import'] ) ) {
+
+					$string = stripslashes( trim( $_POST['import'] ) );
+
+					// check string is serialized and unserialize it
+					if( is_serialized( $string ) ) {
+						$try = unserialize( ( $string ) );
+					}
+
+					// make sure $try is set with the unserialized data
+					if( $try ) {
+						add_settings_error( 'responsive_theme_options', 'imported_success', __( 'Options Imported', 'responsive' ), 'updated fade' );
+
+						return $try;
+					}
+					else {
+						add_settings_error( 'responsive_theme_options', 'imported_failed', __( 'Invalid Data for Import', 'responsive' ), 'error fade' );
+					}
+				}
+			}
+		}
+		/********************* End of Import Options functionality ************************/
 		
 		$defaults = $this->default_options;
 		if ( isset( $input['reset'] ) ) {
