@@ -14,7 +14,7 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
+if ( !defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -84,9 +84,10 @@ Class Responsive_Options {
 	 */
 	public function admin_enqueue_scripts() {
 		wp_enqueue_style( 'responsive-theme-options' );
-		wp_enqueue_script( 'responsive-theme-options');
+		wp_enqueue_script( 'responsive-theme-options' );
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_script( 'wp-color-picker' );
+		wp_enqueue_script( 'jquery-drag-drop', get_template_directory() . '/libraries/js/jquery-ui-1.10.4.custom.min.js', array( 'jquery' ), '20140619', true );
 	}
 
 	/**
@@ -124,7 +125,8 @@ Class Responsive_Options {
 					<?php
 					$this->render_display();
 					?>
-				</div><!-- .row -->
+				</div>
+				<!-- .row -->
 			</form>
 		</div><!-- wrap -->
 	<?php
@@ -418,6 +420,87 @@ Class Responsive_Options {
 		return $html;
 	}
 
+	protected function dragdrop( $args ) {
+		extract( $args );
+
+		$items = array();
+		$original_items = array();
+
+		// Get Original options
+		$original_items = $options['items'];
+
+		// If there is no settings saved just use the original options
+		if ( ! isset( $this->responsive_options[$id] ) ) {
+			$items[0] = $original_items;
+		} else {
+			// Get json from saved settings and decode it
+			$items = json_decode( $this->responsive_options[ $id ], true );
+
+			// Loop through the items and create an array that can be used by the display code
+			foreach ( $items as $key => $item ) {
+				foreach ( $item as $it ) {
+
+					$new_item[$key][$it] = $original_items[$it];
+
+					// Unset it from the original list so that we can see if there are any options left over
+					// anything left over will be new options added after the original save
+					unset( $original_items[$it] );
+				}
+
+			}
+
+			// After unsetting the original items if there are any left over then we need to add them to the first
+			// select box so a user can select it
+			if ( !empty( $original_items ) ) {
+				foreach( $original_items as $key => $item ) {
+					$new_item[0][$key] = $item;
+				}
+			}
+
+			$items = $new_item;
+
+		}
+
+		// Create the home dropzone to be added at the start of the dropzones array
+		$select_items = array(
+			'select-items' => 	__( 'Select Items', 'responsive' )
+		);
+		
+		$drop_zones = $select_items + $options['drop_zones'];
+
+		// Create the display html
+		$html = '<div id="' . $id . '" class="drag-drop-container row">';
+
+		$i = 0;
+		// Loop through the drop zones to create the sections
+		foreach ( $drop_zones as $drop_zone => $name ) {
+			$html .= '<div class="items-container col-xs-4">';
+			$html .= '<h4>' . $name . '</h4>';
+			$html .= '<ul id="' . $drop_zone . '" class="sortable">';
+
+			// If there are items in this drop zone then display them
+			if ( isset( $items[$i] ) ) {
+				foreach ( $items[$i] as $key => $item ) {
+						$html .= '<li id="' . $key . '">' . $item . '</li>';
+				}
+			}
+
+
+			$html .= '</ul>';
+			$html .= '</div>';
+
+			$i++;
+		}
+		$html .= '</div>';
+
+		// Hidden text box that will save data
+		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
+
+		$html .= '<input type="hidden" id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" value="' . esc_html( $value ) . '" />';
+
+		return $html;
+	}
+
 
 	/**
 	 * VALIDATION SECTION
@@ -507,7 +590,7 @@ Class Responsive_Options {
 	protected function validate_checkbox( $input, $key ) {
 
 		// if the input is anything other than a 1 make it a 0
-		if ( 1 == $input  ) {
+		if ( 1 == $input ) {
 			$input = 1;
 		} else {
 			$input = 0;
@@ -529,7 +612,7 @@ Class Responsive_Options {
 	protected function validate_select( $input, $key ) {
 
 		$options = $this->options_only[$key];
-		$input = ( array_key_exists( $input, $options['options'] ) ? $input : $this->default_options[$key] );
+		$input   = ( array_key_exists( $input, $options['options'] ) ? $input : $this->default_options[$key] );
 
 		return $input;
 	}
@@ -598,6 +681,7 @@ Class Responsive_Options {
 
 	/**
 	 * Validates the javascript textarea
+	 *
 	 * @param $input
 	 * @param $key
 	 *
@@ -624,7 +708,7 @@ Class Responsive_Options {
 			}
 
 		}
-		
+
 		return $new_array;
 	}
 
@@ -634,21 +718,22 @@ Class Responsive_Options {
 	 * When checkboxes are not checked they are not added to database leaving some undefined indexes, this adds them in
 	 *
 	 * @param $input
+	 *
 	 * @return array
 	 */
 	protected function add_missing_checkboxes( $input ) {
 		$checkboxes = array();
-		$new_array = array();
-		$options = $this->options_only;
+		$new_array  = array();
+		$options    = $this->options_only;
 
-		foreach ($options as $option => $value) {
-			if ( 'checkbox' == $value['type']) {
+		foreach ( $options as $option => $value ) {
+			if ( 'checkbox' == $value['type'] ) {
 				$checkboxes[$option] = 0;
 			}
 		}
 
 		$new_array = wp_parse_args( $input, $checkboxes );
-		
+
 		return $new_array;
 	}
 
@@ -699,7 +784,8 @@ Class Responsive_Options {
 			'placeholder' => '',
 			'options'     => array(),
 			'default'     => '',
-			'sanitize'    => ''
+			'validate'    => '',
+			'options'     => array()
 		);
 
 		$result = array_merge( $default_args, $args );
