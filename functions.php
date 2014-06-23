@@ -83,6 +83,11 @@ require $template_directory . '/includes/functions-sidebar.php';
 require $template_directory . '/includes/functions-plugins.php';
 
 /**
+ * Theme Update
+ */
+require $template_directory . '/includes/functions-update.php';
+
+/**
  * Plugin dependency
  */
 require $template_directory . '/core/functions-install.php';

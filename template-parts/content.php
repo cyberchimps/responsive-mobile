@@ -22,7 +22,7 @@ responsive_entry_before(); ?>
 		<?php responsive_entry_top(); ?>
 
 		<?php do_action( 'responsive_post_format_icon' ); ?>
-		
+
 		<?php get_template_part( 'template-parts/post-meta' ); ?>
 
 		<div class="post-entry">
@@ -35,31 +35,32 @@ responsive_entry_before(); ?>
 					<?php
 					// Added filter to get featured_image option working.
 					$featured_image = apply_filters( 'responsive_featured_image', '1' );
-					
+
 					if ( has_post_thumbnail() && $featured_image ) : ?>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 							<?php the_post_thumbnail(); ?>
 						</a>
-					<?php endif;
-					
-					// Adding filter to get excpert toggle option working.
-					$excerpt_toggle = apply_filters( 'responsive_post_excerpt', 0 );
-					
-					// Check if excpert toggle is on then call the excerpt, otherwise the full content.
-					if( $excerpt_toggle )
-						the_excerpt();
-					else
-						the_content( __( 'Read more &#8250;', 'responsive' ) );
-					
-					wp_link_pages( array(
-						               'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
-						               'after'  => '</div>',
-					               ) );
+					<?php endif; ?>
+
+					<?php
+						// Adding filter to get excpert toggle option working.
+						$excerpt_toggle = apply_filters( 'responsive_post_excerpt', 0 );
+
+						// Check if excpert toggle is on then call the excerpt, otherwise the full content.
+						if( $excerpt_toggle ) {
+							the_excerpt();
+						} else{
+							the_content( responsive_read_more() );
+						}
+
+						wp_link_pages( array(
+							'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
+							'after'  => '</div>',
+						) );
 					?>
 				</div><!-- .entry-content -->
 			<?php endif; ?>
-		</div>
-		<!-- .post-entry -->
+		</div><!-- .post-entry -->
 
 		<?php get_template_part( 'template-parts/post-data' ); ?>
 

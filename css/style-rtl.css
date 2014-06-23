@@ -21,6 +21,8 @@
 	8.4 - Error page
 	8.5 - Navigation
 	8.6 - Comments
+	8.7 - Elements
+	8.8 - Breadcrumbs
  9.0 - Media
 	9.1 - Galleries
 10.0 - Page/Post Layouts
@@ -1254,6 +1256,14 @@ li {
   margin-right: auto;
   padding-right: 15px;
   padding-left: 15px;
+  /*
+  @media (min-width: $screen-sm-min) {
+  	width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+  	width: $container-md;
+  }
+  */
 }
 
 .container:before,
@@ -1267,20 +1277,6 @@ li {
 .container:after,
 #footer #footer-wrapper:after {
   clear: both;
-}
-
-@media (min-width: 768px) {
-  .container,
-  #footer #footer-wrapper {
-    width: 750px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container,
-  #footer #footer-wrapper {
-    width: 970px;
-  }
 }
 
 @media (min-width: 1200px) {
@@ -1348,7 +1344,6 @@ li {
 
 #main-menu {
   position: relative;
-  margin-bottom: 20px;
 }
 
 #mobile-nav-button {
@@ -1433,7 +1428,7 @@ li {
 #main-navigation ul li a {
   color: #eeeeee;
   text-decoration: none;
-  line-height: 2em;
+  line-height: 3em;
 }
 
 #main-navigation ul li a:hover {
@@ -1444,69 +1439,76 @@ li {
   padding-top: 35px;
 }
 
+#main-navigation .main-nav .menu li li a::before {
+  content: '\2013';
+  position: absolute;
+  margin-right: -15px;
+}
+
 @media (min-width: 992px) {
   #main-navigation ul {
     display: block;
   }
 
-  #main-navigation .main-nav > ul {
-    padding-top: 10px;
+  #main-navigation .main-nav ul {
+    padding: 0;
   }
 
-  #main-navigation .main-nav > ul:before,
-  #main-navigation .main-nav > ul:after {
+  #main-navigation .main-nav ul:before,
+  #main-navigation .main-nav ul:after {
     content: " ";
     display: table;
   }
 
-  #main-navigation .main-nav > ul:after {
+  #main-navigation .main-nav ul:after {
     clear: both;
   }
 
-  #main-navigation .main-nav > ul li {
+  #main-navigation .main-nav ul li {
     margin: 0;
     padding: 0;
     list-style: none;
-  }
-
-  #main-navigation .main-nav > ul > li {
     position: relative;
     float: right;
-    padding-bottom: 10px;
   }
 
-  #main-navigation .main-nav > ul > li:hover ul {
+  #main-navigation .main-nav ul li:hover > ul {
     display: block;
   }
 
-  #main-navigation .main-nav > ul > li a {
-    margin-left: 20px;
+  #main-navigation .main-nav ul li li:hover > ul {
+    right: 100%;
+    top: 0;
+  }
+
+  #main-navigation .main-nav ul li a {
+    margin: 13px;
     color: #eeeeee;
   }
 
-  #main-navigation .main-nav > ul > li a:hover {
+  #main-navigation .main-nav ul li a:hover {
     text-decoration: none;
     color: #999999;
   }
 
-  #main-navigation .main-nav > ul > li > ul {
+  #main-navigation .main-nav ul li > ul {
     position: absolute;
     z-index: 999;
     width: auto;
     min-width: 200px;
-    padding: 10px;
+    padding: 0;
     background-color: #333333;
   }
 
-  #main-navigation .main-nav > ul > li ul {
+  #main-navigation .main-nav ul li ul {
     display: none;
   }
 
-  #main-navigation .main-nav > ul > li ul li {
+  #main-navigation .main-nav ul li ul li {
     float: none;
   }
 
-  #main-navigation .main-nav > ul > li ul li a {
+  #main-navigation .main-nav ul li ul li a {
     line-height: 2.5em;
     white-space: nowrap;
   }
@@ -1561,44 +1563,46 @@ li {
     display: block;
   }
 
-  #sub-navigation > ul {
+  #sub-navigation ul {
     padding: 0;
   }
 
-  #sub-navigation > ul:before,
-  #sub-navigation > ul:after {
+  #sub-navigation ul:before,
+  #sub-navigation ul:after {
     content: " ";
     display: table;
   }
 
-  #sub-navigation > ul:after {
+  #sub-navigation ul:after {
     clear: both;
   }
 
-  #sub-navigation > ul li {
+  #sub-navigation ul li {
     margin: 0;
     padding: 0;
     list-style: none;
-  }
-
-  #sub-navigation > ul > li {
     position: relative;
     float: right;
   }
 
-  #sub-navigation > ul > li:hover ul {
+  #sub-navigation ul li:hover ul {
     display: block;
   }
 
-  #sub-navigation > ul > li a {
-    margin: 10px;
+  #sub-navigation ul li li:hover > ul {
+    right: 100%;
+    top: 0;
   }
 
-  #sub-navigation > ul > li a:hover {
+  #sub-navigation ul li a {
+    margin: 13px;
+  }
+
+  #sub-navigation ul li a:hover {
     text-decoration: none;
   }
 
-  #sub-navigation > ul > li > ul {
+  #sub-navigation ul li > ul {
     position: absolute;
     z-index: 999;
     width: auto;
@@ -1607,16 +1611,17 @@ li {
     background-color: #fff;
   }
 
-  #sub-navigation > ul > li ul {
+  #sub-navigation ul li ul {
     display: none;
   }
 
-  #sub-navigation > ul > li ul li {
+  #sub-navigation ul li ul li {
     float: none;
   }
 
-  #sub-navigation > ul > li ul li a {
+  #sub-navigation ul li ul li a {
     line-height: 2.5em;
+    white-space: nowrap;
   }
 }
 
@@ -1693,16 +1698,12 @@ li {
 }
 
 /*--------------------------------------------------------------
- 8.0 - Content
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
- 8.1 - Structure
+ 8.0 - Structure
 --------------------------------------------------------------*/
 
 .content-area {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+  margin: 20px 0;
+  padding: 15px;
   background: #fff;
 }
 
@@ -1714,6 +1715,10 @@ li {
 
 .content-area:after {
   clear: both;
+}
+
+.front-page .content-area {
+  padding: 0;
 }
 
 main:before,
@@ -1740,7 +1745,7 @@ main #featured-image {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
-  padding: 15px 0;
+  padding: 30px;
 }
 
 @media (min-width: 992px) {
@@ -1764,6 +1769,7 @@ main #featured-content .call-to-action,
 main #featured-image .call-to-action {
   padding: 15px 0;
   text-align: center;
+  margin-top: 30px;
 }
 
 main #featured-content .call-to-action .cta-button,
@@ -1864,6 +1870,10 @@ main #featured-image .call-to-action .cta-button:hover {
   background: #fff;
 }
 
+.home-widget .widget-wrapper .widget-title-home {
+  margin-top: 0;
+}
+
 /*--------------------------------------------------------------
  8.3 - Post & Pages
 --------------------------------------------------------------*/
@@ -1937,7 +1947,6 @@ main #featured-image .call-to-action .cta-button:hover {
 
 .site-main [class*="navigation"] {
   overflow: hidden;
-  margin: 0 0 1.5em;
 }
 
 .navigation {
@@ -1984,7 +1993,7 @@ main #featured-image .call-to-action .cta-button:hover {
   padding-right: 0;
 }
 
-.commentlist li.alt {
+.commentlist li.alt > article {
   background: #f9f9f9;
 }
 
@@ -1996,6 +2005,23 @@ main #featured-image .call-to-action .cta-button:hover {
   float: right;
   margin-left: 10px;
   vertical-align: middle;
+}
+
+/*--------------------------------------------------------------
+ 8.7 - Elements
+--------------------------------------------------------------*/
+
+blockquote cite {
+  display: block;
+  text-align: left;
+}
+
+/*--------------------------------------------------------------
+ 8.8 - Breadcrumbs
+--------------------------------------------------------------*/
+
+.breadcrumb-list {
+  padding-top: 15px;
 }
 
 /*--------------------------------------------------------------
@@ -2164,7 +2190,7 @@ main#main {
 
 @media (min-width: 992px) {
   .sidebar-content-page main#main {
-    right: 66.66667%;
+    right: 33.33333%;
   }
 }
 
@@ -2401,7 +2427,7 @@ main#main.sitemap .sitemap-widgets ul li {
 }
 
 .widget-wrapper {
-  padding: 10px;
+  padding: 15px;
 }
 
 .widget_calendar #wp-calendar {
@@ -2461,7 +2487,6 @@ main#main.sitemap .sitemap-widgets ul li {
 .search-form .search-submit {
   position: relative;
   height: 34px;
-  top: -1px;
   right: -4px;
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
@@ -3012,6 +3037,12 @@ main#main.sitemap .sitemap-widgets ul li {
 
 .infinity-end.neverending .site-footer {
   display: block;
+}
+
+#infinite-footer .container,
+#infinite-footer #footer #footer-wrapper,
+#footer #infinite-footer #footer-wrapper {
+  width: 1170px;
 }
 
 /*--------------------------------------------------------------
