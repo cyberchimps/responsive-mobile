@@ -437,13 +437,13 @@ Class Responsive_Options {
 		$original_items = $options['items'];
 
 		// If there is no settings saved just use the original options
-		if ( ! isset( $this->responsive_options[$id] ) || '' === $this->responsive_options[$id] ) {
-			
-			$items = $original_items;
+		if ( ! isset( $this->responsive_options[$id] ) || '' === $this->responsive_options[$id] || 'null' === $this->responsive_options[$id] ) {
+			$items = json_decode( $default, true );
 		} else {
 			// Get json from saved settings and decode it
 			$items = json_decode( $this->responsive_options[ $id ], true );
 
+		}
 			foreach ( $items as $index => $item ) {
 				foreach ( $item as $i => $it ) {
 					$new_item[$index][$it] = $original_items[$it];
@@ -464,7 +464,6 @@ Class Responsive_Options {
 
 			$items = $new_item;
 
-		}
 
 		// Create the home dropzone to be added at the start of the dropzones array
 		$select_items = array(
@@ -755,31 +754,35 @@ Class Responsive_Options {
 	 * @return mixed|string|void
 	 */
 	protected function validate_drag_drop( $input, $key ) {
-		
-		// Get the defaults
-		$defaults = $this->default_options;
-		$defaults = json_decode( $defaults[$key], true );
 
-		$decoded = json_decode( $input, true );
+			// Get the defaults
+			$defaults = $this->default_options;
+			$defaults = json_decode( $defaults[$key], true );
 
-		$single_default = array();
-		// break defaults down into a single array
-		foreach( $defaults as $default ) {
-			foreach( $default as $single ) {
-				$single_default[] = $single;
-			}
-		}
-
-		foreach ( $decoded as $i => $items ) {
-			foreach ( $items as $i2 => $item ) {
-				if ( ! in_array( $item, $single_default ) ) {
-					unset( $decoded[$i][$i2] );
+		if ( '' !== $input && 'null' !== $input ) {
+			$decoded = json_decode( $input, true );
+	
+			$single_default = array();
+			// break defaults down into a single array
+			foreach( $defaults as $default ) {
+				foreach( $default as $single ) {
+					$single_default[] = $single;
 				}
 			}
-
+	
+			foreach ( $decoded as $i => $items ) {
+				foreach ( $items as $i2 => $item ) {
+					if ( ! in_array( $item, $single_default ) ) {
+						unset( $decoded[$i][$i2] );
+					}
+				}
+	
+			}
+	
+			return json_encode( $decoded );
+		} else {
+			return json_encode( $defaults );
 		}
-
-		return json_encode( $decoded );
 	}
 
 	/**
