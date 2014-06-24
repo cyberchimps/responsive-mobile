@@ -175,7 +175,7 @@ module.exports = function(grunt) {
 					'core/js/respond.min.js': ['core/js/respond.js'],
 					'core/js/skip-link-focus-fix.min.js': ['core/js/skip-link-focus-fix.js'],
 					'core/js/jquery-scroll-top.min.js': ['core/js/jquery-scroll-top.js'],
-					'core/js/theme-options.min.js': ['core/js/theme-options.js']
+					'libraries/js/theme-options.min.js': ['libraries/js/theme-options.js']
 				}
 			},
 		},

@@ -83,11 +83,12 @@ Class Responsive_Options {
 	 * A safe way of adding JavaScripts to a WordPress generated page.
 	 */
 	public function admin_enqueue_scripts() {
+		//@TODO Make sure the locations still work when in the plugin
 		wp_enqueue_style( 'responsive-theme-options' );
 		wp_enqueue_script( 'responsive-theme-options' );
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_script( 'wp-color-picker' );
-		wp_enqueue_script( 'jquery-drag-drop', get_template_directory() . '/libraries/js/jquery-ui-1.10.4.custom.min.js', array( 'jquery' ), '20140619', true );
+		wp_enqueue_script( 'jquery-drag-drop', get_template_directory_uri() . '/libraries/js/jquery-ui-1.10.4.custom.min.js', array( 'jquery' ), '20140619', true );
 	}
 
 	/**
