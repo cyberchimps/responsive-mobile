@@ -84,7 +84,6 @@ if ( ! defined( 'WPINC' ) ) {
 	<?php responsive_footer_bottom(); ?>
 </footer><!-- #footer -->
 <?php responsive_footer_after(); ?>
-</div><!-- #page -->
 <?php responsive_body_bottom(); ?>
 <?php wp_footer(); ?>
 </body>
