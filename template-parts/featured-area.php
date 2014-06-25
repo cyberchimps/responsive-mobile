@@ -66,8 +66,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 
 			<?php endif; ?>
 
-		</div>
-		<!-- end of .col-460 -->
+		</div><!-- end of #featured-content -->
 
 		<div id="featured-image">
 
@@ -75,9 +74,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 
 			<?php echo do_shortcode( wpautop( $featured_content ) ); ?>
 
-		</div>
-		<!-- end of #featured-image -->
+		</div><!-- end of #featured-image -->
 
-	</main>
-	<!-- end of #featured -->
+	</main><!-- end of #featured -->
 </div><!-- content-area -->
