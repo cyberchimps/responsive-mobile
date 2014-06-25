@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</head>
 
 <body <?php body_class(); ?> itemscope="itemscope" itemtype="http://schema.org/WebPage">
-<?php responsive_body_bottom(); ?>
+<?php responsive_body_top(); ?>
 <div id="container" class="site">
 <?php responsive_container_top(); ?>
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'responsive' ); ?></a>
