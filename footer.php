@@ -58,8 +58,8 @@ if ( ! defined( 'WPINC' ) ) {
 			<div class="copyright">
 				<?php
 					$copyright_text = '&copy; ' . date( 'Y' ) . ' <a href="' . home_url( '/' ) . '" title="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>';
-				$copyright_text = apply_filters( 'responsive_copyright_text', $copyright_text );
-				echo $copyright_text;
+					$copyright_text = apply_filters( 'responsive_copyright_text', $copyright_text );
+					echo $copyright_text;
 				?>
 			</div><!-- .copyright -->
 
