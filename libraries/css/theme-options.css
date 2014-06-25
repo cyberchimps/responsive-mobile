@@ -1110,24 +1110,9 @@ h3.rwd-toggle .option-arrow {
   margin-left: -30px;
 }
 
-.col-md-4 h4.title {
+h4.sub-title {
+  float: left;
   width: 100%;
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
-.col-md-4 .sub-title {
-	border-top: 1px solid #dddddd;
-	display: block;
-	font-size: 12px;
-	margin-top: 10px;
-	padding-top: 10px;
-	font-style: italic;
-	font-size: 0.9em;
-}
-
-.col-md-8 p {
-	margin-top: 0;
 }
 
 .rwd-container {
@@ -1237,8 +1222,11 @@ h3.rwd-toggle .option-arrow {
 /* =Help Links
 -------------------------------------------------------------- */
 .help-links {
+  border-top: 1px solid #dddddd;
   display: block;
   font-size: 12px;
+  margin-top: 10px;
+  padding-top: 10px;
 }
 
 /* =Extra Links
@@ -1398,38 +1386,4 @@ ul.error-list {
 -------------------------------------------------------------- */
 .site-tracker {
   height: 150px;
-}
-
-/* Drag and Drop */
-.drag-drop-container h4 {
-	margin-top: 0;
-}
-
-.drag-drop-container ul.sortable {
-	min-height: 60px;
-	padding: 10px;
-	border: 1px solid #aaaaaa;
-}
-
-.drag-drop-container ul.sortable li {
-	width: auto;
-	padding: 5px;
-	margin-bottom: 10px;
-	border: 1px solid gray;
-	background-color: #fff;
-	line-height: 1.5em;
-}
-
-.drag-drop-container ul.sortable li:hover {
-	cursor: move;
-}
-
-.drag-drop-container ul.sortable li.drag-drop-placeholder {
-	height: 28px;
-	border: 1px dashed #cccccc;
-}
-
-.drag-drop-container ul.sortable li.ui-sortable-helper {
-	font-size: 1.2em;
-	box-shadow: 0 0 1em rgba(0,0,0,0.5);
 }
