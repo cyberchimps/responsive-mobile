@@ -1,3 +1,5 @@
+$border-radius-none: 0;
+
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
@@ -10,7 +12,7 @@ input[type="button"] {
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
   white-space: nowrap;
-  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
+  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-none);
   @include button-variant( $btn-primary-color, $btn-primary-bg, $btn-primary-border );
 
   &,

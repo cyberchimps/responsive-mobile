@@ -999,7 +999,7 @@ input[type="button"] {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857;
-  border-radius: 4px;
+  border-radius: 0;
   color: white;
   background-color: #428bca;
   border-color: #357ebd;
@@ -2596,3 +2596,54 @@ main#main.sitemap .sitemap-widgets:after {
 /*--------------------------------------------------------------
 16.1 - WooCommerce
 --------------------------------------------------------------*/
+#breadcrumb {
+  padding: 40px 0 0 0;
+}
+
+#breadcrumb a {
+  color: #0066cc;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+#breadcrumb a:hover {
+  color: #444444;
+  text-decoration: none;
+}
+
+#content-woocommerce {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.products ul, ul.products {
+  margin-top: 40px;
+}
+
+.cart-collaterals .shipping_calculator {
+  width: 100%;
+}
+
+table.shop_table {
+  table-layout: fixed;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+@media screen and (max-width: 767px) {
+  table.shop_table {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 400px) {
+  table.shop_table {
+    font-size: 8px;
+  }
+}
+table.cart td.actions .coupon .input-text,
+table.cart td.actions .coupon .input-text {
+  cursor: text;
+}
