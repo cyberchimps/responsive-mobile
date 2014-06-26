@@ -55,7 +55,7 @@ jQuery( document ).ready( function ( $ ) {
 					} );
 				}
 
-			} )
+			} );
 
 			// Make the array a JSON string to pass to the hidden text field and save to the database
 			var stringJson = JSON.stringify(optionsArray);

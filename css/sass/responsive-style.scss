@@ -372,6 +372,7 @@ li {
 
 #secondary-header {
 	@include make-md-column(6);
+  text-align: right;
 }
 
 /*--------------------------------------------------------------

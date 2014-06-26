@@ -1434,6 +1434,7 @@ li {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  text-align: right;
 }
 @media (min-width: 992px) {
   #secondary-header {

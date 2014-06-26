@@ -1647,6 +1647,7 @@ li {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+  text-align: left;
 }
 
 @media (min-width: 992px) {
