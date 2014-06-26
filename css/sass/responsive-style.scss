@@ -367,11 +367,11 @@ li {
 }
 
 #site-branding {
-	@include make-md-column(8);
+	@include make-md-column(6);
 }
 
-#top-widget {
-	@include make-md-column(4);
+#secondary-header {
+	@include make-md-column(6);
 }
 
 /*--------------------------------------------------------------

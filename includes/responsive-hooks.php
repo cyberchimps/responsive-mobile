@@ -119,6 +119,20 @@ function responsive_in_header() {
 }
 
 /**
+ * Creates a hook for the first header content just after <div id="site-branding">
+ */
+function responsive_header_one() {
+	do_action( 'responsive_header_one' );
+}
+
+/**
+ * Creates a hook for the second header content just after
+ */
+function responsive_header_two() {
+	do_action( 'responsive_header_two' );
+}
+
+/**
  * Just after closing </div><!-- end of #header -->
  *
  * @see header.php

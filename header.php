@@ -72,25 +72,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="container">
 			<div class="header-row">
 				<div id="site-branding">
-					<?php if ( get_header_image() ) : ?>
-						<div id="logo">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url" title="<?php echo esc_attr( get_bloginfo( 'title' ) ) ?>">
-								<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php echo esc_attr( get_bloginfo( 'title' ) ) ?>" itemprop="image">
-							</a>
-						</div>
-					<?php endif; // End header image check. ?>
-					<?php if ( !get_header_image() ) : ?>
-						<div id="site-header-text">
-							<?php if ( 'blank' != get_theme_mod( 'header_textcolor' ) ) : ?>
-								<h1 class="site-name" itemprop="headline">
-									<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url"><?php bloginfo( 'name' ); ?></a>
-								</h1>
-								<h2 class="site-description" itemprop="description"><?php bloginfo( 'description' ); ?></h2>
-							<?php endif; // End header text check. ?>
-						</div>
-					<?php endif; // End header image check. ?>
+					<?php responsive_header_one(); ?>
 				</div>
-				<?php get_sidebar( 'top' ); ?>
+				<div id="secondary-header">
+					<?php responsive_header_two(); ?>
+				</div>
 			</div>
 		</div>
 

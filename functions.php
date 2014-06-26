@@ -55,6 +55,11 @@ require $template_directory . '/includes/responsive-hooks.php';
 require $template_directory . '/core/functions-theme-upsell.php';
 
 /**
+ * Create header items that hook into header.php
+ */
+require $template_directory . '/includes/functions-header.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require $template_directory . '/includes/functions-custom-header.php';
