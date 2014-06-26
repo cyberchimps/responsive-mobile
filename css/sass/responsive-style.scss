@@ -243,6 +243,11 @@ li {
 					}
 				}
 			}
+			.menu li li a::before {
+				content: '';
+				position: relative;
+				margin-left: 0;
+			}
 		}
 	}
 }
@@ -549,6 +554,16 @@ blockquote cite {
 
 .breadcrumb-list {
 	padding-top: 15px;
+}
+
+article .post-data {
+	margin-top: 35px;
+	.tags-links {
+		float: left;
+	}
+	.entry-meta {
+		float: right;
+	}
 }
 
 /*--------------------------------------------------------------

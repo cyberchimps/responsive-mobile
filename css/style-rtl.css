@@ -1,4 +1,45 @@
 /*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+// 0 - Bootstrap variables and mixins
+ 1.0 - Reset
+ 2.0 - Typography
+ 3.0 - Elements
+ 4.0 - Utilities
+ 5.0 - Main
+	5.1 - Structure
+ 6.0 - Navigation
+	6.1 - Top Menu
+	6.2 - Main Menu
+	6.3 - Sub header Menu
+	6.4 - Footer Menu
+ 7.0 - Header
+ 8.0 - Content
+	8.1 - Structure
+	8.2 - Featured area
+	8.3 - Post & Pages
+	8.4 - Error page
+	8.5 - Navigation
+	8.6 - Comments
+	8.7 - Elements
+	8.8 - Breadcrumbs
+ 9.0 - Media
+	9.1 - Galleries
+10.0 - Page/Post Layouts
+11.0 - Sidebar
+12.0 - Widgets
+13.0 - Footer
+	13.1 - Footer Widgets
+	13.2 - Social icons
+	13.3 - Copyright & Powered
+14.0 - Extras (alignment)
+15.0 - Accessibility
+16.0 - Plugin specific styles
+	16.1 - WooCommerce
+	16.2 - Jetpack
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
  1.0 - Reset
 --------------------------------------------------------------*/
 
@@ -327,7 +368,7 @@ th {
 
 html {
   font-size: 62.5%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -1471,6 +1512,12 @@ li {
     line-height: 2.5em;
     white-space: nowrap;
   }
+
+  #main-navigation .main-nav .menu li li a::before {
+    content: '';
+    position: relative;
+    margin-right: 0;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1982,6 +2029,18 @@ blockquote cite {
 
 .breadcrumb-list {
   padding-top: 15px;
+}
+
+article .post-data {
+  margin-top: 35px;
+}
+
+article .post-data .tags-links {
+  float: right;
+}
+
+article .post-data .entry-meta {
+  float: left;
 }
 
 /*--------------------------------------------------------------
