@@ -447,19 +447,20 @@ Class Responsive_Options {
 		}
 			foreach ( $items as $index => $item ) {
 				foreach ( $item as $i => $it ) {
-					$new_item[$index][$it] = $original_items[$it];
-
+					if ( isset( $original_items[$it] ) ) {
+						$new_item[$index][$it] = $original_items[$it];
+					}
 					// Unset it from the original list so that we can see if there are any options left over
 					// anything left over will be new options added after the original save
 					unset($original_items[$it]);
 				}
 			}
-
+		
 			// After unsetting the original items if there are any left over then we need to add them to the first
 			// select box so a user can select it
 			if ( !empty( $original_items ) ) {
 				foreach( $original_items as $key => $item ) {
-					$new_item[][$key] = $item;
+					$new_item[0][$key] = $item;
 				}
 			}
 
