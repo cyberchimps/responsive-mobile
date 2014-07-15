@@ -48,10 +48,6 @@ responsive_entry_before(); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .post-entry -->
 
-		<?php edit_post_link( __( 'Edit', 'responsive' ), '<div class="post-edit">', '</div>' ); ?>
-
-		<?php get_template_part( 'template-parts/post-data' ); ?>
-
 		<?php responsive_entry_bottom(); ?>
 	</article><!-- #post-## -->
 <?php responsive_entry_after(); ?>
