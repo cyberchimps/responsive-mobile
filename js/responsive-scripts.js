@@ -91,7 +91,7 @@
 
     };
 
-    $("button#mobile-nav-button").on("click", obj.onClick);
+    $("#main-navigation").on("click", obj.onClick);
 })(jQuery);
 
 /*! http://mths.be/placeholder v2.0.7 by @mathias */
