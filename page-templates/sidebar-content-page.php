@@ -21,7 +21,7 @@ if ( ! defined( 'WPINC' ) ) {
 get_header(); ?>
 
 	<div id="content" class="content-area">
-		<main id="main" class="site-main sidebar-content" role="main" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+		<main id="main" class="site-main sidebar-content" role="main">
 
 			<?php if ( have_posts() ) : ?>
 
