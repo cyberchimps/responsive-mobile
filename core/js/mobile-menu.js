@@ -1,5 +1,7 @@
 /*!
  * Mobile Menu
+ *
+ * GPL V2 License (c) CyberChimps
  */
 (function ($) {
     var obj = {

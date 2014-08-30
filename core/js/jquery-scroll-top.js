@@ -1,5 +1,7 @@
 /**
  * jQuery Scroll Top Plugin 1.0.0
+ *
+ * GPL V2 License (c) CyberChimps
  */
 jQuery(document).ready(function ($) {
 	$('a[href=#scroll-top]').click(function () {
