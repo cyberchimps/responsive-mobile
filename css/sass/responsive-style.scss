@@ -32,14 +32,6 @@
 //15.0 - Accessibility
 //--------------------------------------------------------------*/
 
-// RESPONSIVE 2.0 VARIABLES
-$shadow: 0 1px 1px rgba(0, 0, 0, .075);
-$padding-xlarge-vertical: 15px;
-$padding-xlarge-horizontal: 35px;
-$font-size-xlarge: 24px;
-$line-height-xlarge: 24px;
-//$border-radius-base:       ;
-
 /*--------------------------------------------------------------
  5.0 Main
 --------------------------------------------------------------*/
@@ -73,9 +65,15 @@ li {
 
 }
 
-.container-full-width {
+.container-full-width,
+.home-widgets {
 	margin-right: auto;
 	margin-left: auto;
+}
+
+.home-widgets,
+#featured-area {
+	@extend .container;
 }
 
 /*--------------------------------------------------------------
@@ -156,9 +154,12 @@ li {
 	}
 }
 
+#main-menu-container {
+	background-color: $gray-dark;
+}
+
 #main-navigation {
 	@include clearfix;
-	background-color: $gray-dark;
 	&.menu-open {
 		ul {
 			display: block;
@@ -257,10 +258,12 @@ li {
 --------------------------------------------------------------*/
 
 // TODO these styles need checking
+#sub-menu-container {
+	background-color: #fff;
+}
 
 #sub-navigation {
 	@include clearfix;
-	background-color: #fff;
 	&.menu-open {
 		ul {
 			display: block;

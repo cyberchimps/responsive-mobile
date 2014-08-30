@@ -368,7 +368,7 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 14px;
   line-height: 1.42857;
   color: #333333;
@@ -1113,7 +1113,8 @@ li {
 /*--------------------------------------------------------------
  5.1 Structure
 --------------------------------------------------------------*/
-.container, #footer #footer-wrapper {
+.container, .home-widgets,
+#featured-area, #footer #footer-wrapper {
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
@@ -1127,20 +1128,25 @@ li {
   }
   */
 }
-.container:before, #footer #footer-wrapper:before, .container:after, #footer #footer-wrapper:after {
+.container:before, .home-widgets:before,
+#featured-area:before, #footer #footer-wrapper:before, .container:after, .home-widgets:after,
+#featured-area:after, #footer #footer-wrapper:after {
   content: " ";
   display: table;
 }
-.container:after, #footer #footer-wrapper:after {
+.container:after, .home-widgets:after,
+#featured-area:after, #footer #footer-wrapper:after {
   clear: both;
 }
 @media (min-width: 1200px) {
-  .container, #footer #footer-wrapper {
+  .container, .home-widgets,
+  #featured-area, #footer #footer-wrapper {
     width: 1170px;
   }
 }
 
-.container-full-width {
+.container-full-width,
+.home-widgets {
   margin-right: auto;
   margin-left: auto;
 }
@@ -1234,9 +1240,10 @@ li {
   }
 }
 
-#main-navigation {
+#main-menu-container {
   background-color: #333333;
 }
+
 #main-navigation:before, #main-navigation:after {
   content: " ";
   display: table;
@@ -1338,9 +1345,10 @@ li {
 /*--------------------------------------------------------------
  6.3 Subheader Menu
 --------------------------------------------------------------*/
-#sub-navigation {
+#sub-menu-container {
   background-color: #fff;
 }
+
 #sub-navigation:before, #sub-navigation:after {
   content: " ";
   display: table;
@@ -2605,7 +2613,8 @@ main#main.sitemap .sitemap-widgets:after {
   display: block;
 }
 
-#infinite-footer .container, #infinite-footer #footer #footer-wrapper, #footer #infinite-footer #footer-wrapper {
+#infinite-footer .container, #infinite-footer .home-widgets,
+#infinite-footer #featured-area, #infinite-footer #footer #footer-wrapper, #footer #infinite-footer #footer-wrapper {
   width: 1170px;
 }
 

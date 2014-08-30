@@ -41,6 +41,17 @@
 	16.2 - Jetpack
 --------------------------------------------------------------*/
 
+//Variables
+$font-family-base: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+// RESPONSIVE 2.0 VARIABLES
+$shadow: 0 1px 1px rgba(0, 0, 0, .075);
+$padding-xlarge-vertical: 15px;
+$padding-xlarge-horizontal: 35px;
+$font-size-xlarge: 24px;
+$line-height-xlarge: 24px;
+//$border-radius-base:       ;
+
 ///*--------------------------------------------------------------
 // 0 - Bootstrap variables and mixins
 //--------------------------------------------------------------*/
@@ -70,7 +81,9 @@
 @import "forms";
 @import "buttons";
 
-// Theme Specific Styles
+///*--------------------------------------------------------------
+// 4.0 - 15.0 - Theme Specific Styles
+//--------------------------------------------------------------*/
 @import "responsive-style";
 
 /*--------------------------------------------------------------

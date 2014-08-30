@@ -372,7 +372,7 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 14px;
   line-height: 1.42857;
   color: #333333;
@@ -1251,6 +1251,8 @@ li {
 --------------------------------------------------------------*/
 
 .container,
+.home-widgets,
+#featured-area,
 #footer #footer-wrapper {
   margin-left: auto;
   margin-right: auto;
@@ -1267,26 +1269,35 @@ li {
 }
 
 .container:before,
+.home-widgets:before,
+#featured-area:before,
 #footer #footer-wrapper:before,
 .container:after,
+.home-widgets:after,
+#featured-area:after,
 #footer #footer-wrapper:after {
   content: " ";
   display: table;
 }
 
 .container:after,
+.home-widgets:after,
+#featured-area:after,
 #footer #footer-wrapper:after {
   clear: both;
 }
 
 @media (min-width: 1200px) {
   .container,
+  .home-widgets,
+  #featured-area,
   #footer #footer-wrapper {
     width: 1170px;
   }
 }
 
-.container-full-width {
+.container-full-width,
+.home-widgets {
   margin-left: auto;
   margin-right: auto;
 }
@@ -1394,7 +1405,7 @@ li {
   }
 }
 
-#main-navigation {
+#main-menu-container {
   background-color: #333333;
 }
 
@@ -1524,7 +1535,7 @@ li {
  6.3 Subheader Menu
 --------------------------------------------------------------*/
 
-#sub-navigation {
+#sub-menu-container {
   background-color: #fff;
 }
 
@@ -3059,6 +3070,8 @@ main#main.sitemap .sitemap-widgets ul li {
 }
 
 #infinite-footer .container,
+#infinite-footer .home-widgets,
+#infinite-footer #featured-area,
 #infinite-footer #footer #footer-wrapper,
 #footer #infinite-footer #footer-wrapper {
   width: 1170px;
