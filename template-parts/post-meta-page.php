@@ -24,7 +24,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 	<?php if ( comments_open() ) : ?>
 		<div class="post-meta">
-			<?php responsive_post_meta_data(); ?>
+			<?php responsive_II_post_meta_data(); ?>
 			<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
 				<span class="comments-link">
 					<span class="mdash">&mdash;</span>

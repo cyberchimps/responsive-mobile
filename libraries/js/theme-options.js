@@ -60,7 +60,7 @@ jQuery( document ).ready( function ( $ ) {
 			// Make the array a JSON string to pass to the hidden text field and save to the database
 			var stringJson = JSON.stringify(optionsArray);
 
-			$("#responsive_theme_options\\[" + id + "\\]").val( stringJson );
+			$("#responsive_II_theme_options\\[" + id + "\\]").val( stringJson );
 
 		}
 

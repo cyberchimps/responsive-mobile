@@ -26,13 +26,13 @@ if ( ! is_active_sidebar( 'colophon-widget' ) ) {
 }
 ?>
 
-<?php responsive_widgets_before(); ?>
+<?php responsive_II_widgets_before(); ?>
 <div id="colophon-widget" class="widget-area" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
-	<?php responsive_widgets(); ?>
+	<?php responsive_II_widgets(); ?>
 
 		<?php dynamic_sidebar('colophon-widget'); ?>
 
-	<?php responsive_widgets_end(); ?>
+	<?php responsive_II_widgets_end(); ?>
 </div>
 <!-- #colophon widget -->
-<?php responsive_widgets_after(); ?>
+<?php responsive_II_widgets_after(); ?>

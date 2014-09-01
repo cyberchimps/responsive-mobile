@@ -26,16 +26,16 @@ if ( ! is_active_sidebar( 'footer-widget' ) ) {
 }
 ?>
 
-<?php responsive_widgets_before(); ?>
+<?php responsive_II_widgets_before(); ?>
 <div id="footer-widget" class="widget-area" role="complementary" itemscope="itemscope"
      itemtype="http://schema.org/WPSideBar">
-	<?php responsive_widgets(); ?>
+	<?php responsive_II_widgets(); ?>
 	<?php if ( ! dynamic_sidebar( 'footer-sidebar' ) ) : ?>
 
 		<?php dynamic_sidebar( 'footer-widget' ); ?>
 
 	<?php endif; // end sidebar widget area ?>
-	<?php responsive_widgets_end(); ?>
+	<?php responsive_II_widgets_end(); ?>
 </div>
 <!-- #secondary -->
-<?php responsive_widgets_after(); ?>
+<?php responsive_II_widgets_after(); ?>

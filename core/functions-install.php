@@ -23,7 +23,7 @@ if ( ! defined( 'WPINC' ) ) {
  *
  * @since    1.9.5.0
  */
-function responsive_activation_notice() {
+function responsive_II_activation_notice() {
 	if ( isset( $_GET['activated'] ) ) {
 		$return = '<div class="updated activation"><p><strong>';
 					$my_theme = wp_get_theme();
@@ -40,14 +40,14 @@ function responsive_activation_notice() {
 		echo $return;
 	}
 }
-add_action( 'admin_notices', 'responsive_activation_notice' );
+add_action( 'admin_notices', 'responsive_II_activation_notice' );
 
 /*
  * Hide core theme activation message.
  *
  * @since    1.9.5.0
  */
-function responsive_admin_css() { ?>
+function responsive_II_admin_css() { ?>
 	<style>
 	.themes-php #message2 {
 		display: none;
@@ -57,7 +57,7 @@ function responsive_admin_css() { ?>
 	}
 	</style>
 <?php }
-add_action( 'admin_head', 'responsive_admin_css' );
+add_action( 'admin_head', 'responsive_II_admin_css' );
 
 /**
  * Add plugin automation file
@@ -71,31 +71,31 @@ if ( ! class_exists( 'Theme_Plugin_Dependency' ) ) {
  *
  * @since     2.0.0
  */
-function responsive_ignore_notice() {
+function responsive_II_ignore_notice() {
 	$current_user = wp_get_current_user();
 	$user_id = $current_user->ID;
 	/* If user clicks to ignore the notice, add that to their user meta */
-	if ( isset( $_GET[ 'responsive_ignore_notice'] ) && 'true' == $_GET[ 'responsive_ignore_notice'] ) {
-		update_user_meta( $user_id, 'responsive_ignore_notice', 'true' );
+	if ( isset( $_GET[ 'responsive_II_ignore_notice'] ) && 'true' == $_GET[ 'responsive_II_ignore_notice'] ) {
+		update_user_meta( $user_id, 'responsive_II_ignore_notice', 'true' );
 	}
-	if ( isset( $_GET[ 'responsive_ignore_notice'] ) && 'false' == $_GET[ 'responsive_ignore_notice'] ) {
-		delete_user_meta( $user_id, 'responsive_ignore_notice' );
+	if ( isset( $_GET[ 'responsive_II_ignore_notice'] ) && 'false' == $_GET[ 'responsive_II_ignore_notice'] ) {
+		delete_user_meta( $user_id, 'responsive_II_ignore_notice' );
 	}
 }
-add_action( 'admin_init', 'responsive_ignore_notice' );
+add_action( 'admin_init', 'responsive_II_ignore_notice' );
 
 /*
  * Add notification to Reading Settings page to notify if Custom Front Page is enabled.
  *
  * @since    1.9.4.0
  */
-function responsive_plugin_notice() {
+function responsive_II_plugin_notice() {
 	global $pagenow;
 	$current_user = wp_get_current_user();
 	$user_id = $current_user->ID;
 	// Check that the user hasn't already clicked to ignore the message
 	// Add plugin notification only if the current user ican install plugins and on theme.php
-	if ( ! get_user_meta( $user_id, 'responsive_ignore_notice' ) && current_user_can( 'install_plugins' ) && 'themes.php' == $pagenow ) {
+	if ( ! get_user_meta( $user_id, 'responsive_II_ignore_notice' ) && current_user_can( 'install_plugins' ) && 'themes.php' == $pagenow ) {
 
 		// Set array of plugins to be suggested.
 		$plugins = array(
@@ -141,11 +141,11 @@ function responsive_plugin_notice() {
 		} // End of the plugin loop.
 
 		// Show link to Hide the Notice.
-		$msg .= '</strong><a href="?responsive_ignore_notice=true">' . __( 'Hide Notice', 'responsive-II' ) . '</a></p></div>';
+		$msg .= '</strong><a href="?responsive_II_ignore_notice=true">' . __( 'Hide Notice', 'responsive-II' ) . '</a></p></div>';
 
 		echo $msg;
 	}
 
 }
-add_action( 'admin_notices', 'responsive_plugin_notice' );
+add_action( 'admin_notices', 'responsive_II_plugin_notice' );
 

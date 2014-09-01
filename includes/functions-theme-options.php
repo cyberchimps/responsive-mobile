@@ -22,26 +22,26 @@ if ( !defined( 'WPINC' ) ) {
  * Retrieve Theme option settings
  *
  */
-function responsive_get_options()
+function responsive_II_get_options()
 {
 	// Parse array of option defaults against user-configured Theme options
-	$responsive_options = Responsive_Options::$static_responsive_options;
+	$responsive_II_options = Responsive_Options::$static_responsive_II_options;
 
-	if ( !$responsive_options ) {
+	if ( !$responsive_II_options ) {
 		return Responsive_Options::$static_default_options;
 	}
 
 	// Return parsed args array
-	return $responsive_options;
+	return $responsive_II_options;
 }
 
 // TODO is this filter actually doing anything?
-add_filter( 'responsive_options_init', 'responsive_get_options' );
+add_filter( 'responsive_II_options_init', 'responsive_II_get_options' );
 
 /**
  * Get valid layouts
  */
-function responsive_valid_layouts()
+function responsive_II_valid_layouts()
 {
 	$layouts = array(
 		'default'                   => __( 'Default', 'responsive-II' ),
@@ -52,13 +52,13 @@ function responsive_valid_layouts()
 		'full-width-page'           => __( 'Full Width Page (no sidebar)', 'responsive-II' )
 	);
 
-	return apply_filters( 'responsive_valid_layouts', $layouts );
+	return apply_filters( 'responsive_II_valid_layouts', $layouts );
 }
 
 /**
  * Set Theme Options
  */
-function responsive_theme_options_set()
+function responsive_II_theme_options_set()
 {
 
 	/**
@@ -200,7 +200,7 @@ function responsive_theme_options_set()
 					'title'    => __( 'Default Static Page Layout', 'responsive-II' ),
 					'type'     => 'select',
 					'id'       => 'static_page_layout_default',
-					'options'  => responsive_valid_layouts(),
+					'options'  => responsive_II_valid_layouts(),
 					'default'  => 'default',
 					'validate' => 'select'
 				),
@@ -208,7 +208,7 @@ function responsive_theme_options_set()
 					'title'    => __( 'Default Single Blog Post Layout', 'responsive-II' ),
 					'type'     => 'select',
 					'id'       => 'single_post_layout_default',
-					'options'  => responsive_valid_layouts(),
+					'options'  => responsive_II_valid_layouts(),
 					'default'  => 'default',
 					'validate' => 'select'
 				),
@@ -216,7 +216,7 @@ function responsive_theme_options_set()
 					'title'    => __( 'Default Blog Posts Index Layout', 'responsive-II' ),
 					'type'     => 'select',
 					'id'       => 'blog_posts_index_layout_default',
-					'options'  => responsive_valid_layouts(),
+					'options'  => responsive_II_valid_layouts(),
 					'default'  => 'default',
 					'validate' => 'select'
 				)
@@ -331,7 +331,7 @@ function responsive_theme_options_set()
 					'title'       => __( 'Custom CSS Styles', 'responsive-II' ),
 					'subtitle'    => '<a class="help-links" href="https://developer.mozilla.org/en/CSS" title="CSS Tutorial" target="_blank">' . __( 'CSS Tutorial', 'responsive-II' ) . '</a>',
 					'type'        => 'textarea',
-					'id'          => 'responsive_inline_css',
+					'id'          => 'responsive_II_inline_css',
 					'description' => __( 'Enter your custom CSS styles.', 'responsive-II' ),
 					'default'     => '',
 					'validate'    => 'css'
@@ -346,7 +346,7 @@ function responsive_theme_options_set()
 					'subtitle'    => '<a class="help-links" href="http://codex.wordpress.org/Using_Javascript" title="Quick Tutorial" target="_blank">' . __( 'Quick Tutorial', 'responsive-II' ) . '</a>',
 					'heading'     => __( 'Embeds to header.php &darr;', 'responsive-II' ),
 					'type'        => 'textarea',
-					'id'          => 'responsive_inline_js_head',
+					'id'          => 'responsive_II_inline_js_head',
 					'description' => __( 'Enter your custom header script.', 'responsive-II' ),
 					'default'     => '',
 					'validate'    => 'js'
@@ -354,7 +354,7 @@ function responsive_theme_options_set()
 				array(
 					'heading'     => __( 'Embeds to footer.php &darr;', 'responsive-II' ),
 					'type'        => 'textarea',
-					'id'          => 'responsive_inline_js_footer',
+					'id'          => 'responsive_II_inline_js_footer',
 					'description' => __( 'Enter your custom footer script.', 'responsive-II' ),
 					'default'     => '',
 					'validate'    => 'js'
@@ -364,11 +364,11 @@ function responsive_theme_options_set()
 
 	);
 
-	$options = apply_filters( 'responsive_option_options_filter', $options );
+	$options = apply_filters( 'responsive_II_option_options_filter', $options );
 
 	$theme_options = new Responsive_Options( $options );
 
 	return $theme_options;
 }
 
-add_action( 'after_setup_theme', 'responsive_theme_options_set' );
+add_action( 'after_setup_theme', 'responsive_II_theme_options_set' );

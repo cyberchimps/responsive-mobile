@@ -16,9 +16,9 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
-responsive_entry_before(); ?>
+responsive_II_entry_before(); ?>
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<?php responsive_entry_top(); ?>
+		<?php responsive_II_entry_top(); ?>
 
 		<div class="post-entry">
 			<div class="widget-area sitemap-sidebar">
@@ -48,6 +48,6 @@ responsive_entry_before(); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive-II' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .post-entry -->
 
-		<?php responsive_entry_bottom(); ?>
+		<?php responsive_II_entry_bottom(); ?>
 	</article><!-- #post-## -->
-<?php responsive_entry_after(); ?>
+<?php responsive_II_entry_after(); ?>

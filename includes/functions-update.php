@@ -23,21 +23,21 @@ if ( ! defined( 'WPINC' ) ) {
  *
  * @since    1.9.4.9
  */
-function responsive_update_social_icon_options() {
-	$responsive_options = responsive_get_options();
+function responsive_II_update_social_icon_options() {
+	$responsive_II_options = responsive_II_get_options();
 	// If new option does not exist then copy the option
-	if ( !isset( $responsive_options['googleplus_uid'] ) && isset( $responsive_options['google_plus_uid'] ) ) {
-		$responsive_options['googleplus_uid'] = $responsive_options['google_plus_uid'];
+	if ( !isset( $responsive_II_options['googleplus_uid'] ) && isset( $responsive_II_options['google_plus_uid'] ) ) {
+		$responsive_II_options['googleplus_uid'] = $responsive_II_options['google_plus_uid'];
 	}
-	if ( !isset( $responsive_options['stumbleupon_uid'] ) && isset ( $responsive_options['stumble_uid'] ) ) {
-		$responsive_options['stumbleupon_uid'] = $responsive_options['stumble_uid'];
+	if ( !isset( $responsive_II_options['stumbleupon_uid'] ) && isset ( $responsive_II_options['stumble_uid'] ) ) {
+		$responsive_II_options['stumbleupon_uid'] = $responsive_II_options['stumble_uid'];
 	}
 
 	// Update entire array
-	update_option( 'responsive_theme_options', $responsive_options );
+	update_option( 'responsive_II_theme_options', $responsive_II_options );
 }
 
-add_action( 'after_setup_theme', 'responsive_update_social_icon_options' );
+add_action( 'after_setup_theme', 'responsive_II_update_social_icon_options' );
 
 /*
  * Update page templete meta data
@@ -47,7 +47,7 @@ add_action( 'after_setup_theme', 'responsive_update_social_icon_options' );
  * This function only needes to be run once but it does not mater when. after_setup_theme should be fine.
  *
  */
-function responsive_update_page_template_meta(){
+function responsive_II_update_page_template_meta(){
 	$args = array(
 		'post_type' => 'page',
 		'meta_query' => array(
@@ -78,4 +78,4 @@ function responsive_update_page_template_meta(){
 		}
 	}
 }
-add_action( 'after_switch_theme', 'responsive_update_page_template_meta' );
+add_action( 'after_switch_theme', 'responsive_II_update_page_template_meta' );

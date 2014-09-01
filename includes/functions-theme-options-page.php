@@ -21,7 +21,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Theme options upgrade bar
  */
-function responsive_upgrade_bar() {
+function responsive_II_upgrade_bar() {
 	// @TODO Update to new theme upsell structure
 	?>
 
@@ -54,12 +54,12 @@ function responsive_upgrade_bar() {
 
 <?php
 }
-//add_action( 'responsive_theme_options', 'responsive_upgrade_bar', 1 );
+//add_action( 'responsive_II_theme_options', 'responsive_II_upgrade_bar', 1 );
 
 /**
  * Theme Options Support and Information
  */
-function responsive_theme_support() {
+function responsive_II_theme_support() {
 	?>
 
 	<div id="info-box-wrapper" class="grid col-940">
@@ -85,19 +85,19 @@ function responsive_theme_support() {
 
 <?php
 }
-add_action( 'responsive_theme_options', 'responsive_theme_support', 2 );
+add_action( 'responsive_II_theme_options', 'responsive_II_theme_support', 2 );
 
 /*
  * Add notification to Reading Settings page to notify if Custom Front Page is enabled.
  *
  * @since    1.9.4.0
  */
-function responsive_front_page_reading_notice() {
+function responsive_II_front_page_reading_notice() {
 	$screen = get_current_screen();
-	$responsive_options = responsive_get_options();
+	$responsive_II_options = responsive_II_get_options();
 	if ( 'options-reading' == $screen->id ) {
 		$html = '<div class="updated">';
-			if ( 1 == $responsive_options['front_page'] ) {
+			if ( 1 == $responsive_II_options['front_page'] ) {
 				$html .= '<p>' . sprintf( __( 'The Custom Front Page is enabled. You can disable it in the <a href="%1$s">theme settings</a>.', 'responsive-II' ), admin_url( 'themes.php?page=theme_options' ) ) . '</p>';
 			} else {
 				$html .= '<p>' . sprintf( __( 'The Custom Front Page is disabled. You can enable it in the <a href="%1$s">theme settings</a>.', 'responsive-II' ), admin_url( 'themes.php?page=theme_options' ) ) . '</p>';
@@ -106,10 +106,10 @@ function responsive_front_page_reading_notice() {
 		echo $html;
 	}
 }
-add_action( 'admin_notices', 'responsive_front_page_reading_notice' );
+add_action( 'admin_notices', 'responsive_II_front_page_reading_notice' );
 
 
-function responsive_admin_bar_site_menu( $wp_admin_bar ) {
+function responsive_II_admin_bar_site_menu( $wp_admin_bar ) {
 	if ( ! current_user_can( 'edit_theme_options' ) ) {
 		return;
 	}
@@ -123,4 +123,4 @@ function responsive_admin_bar_site_menu( $wp_admin_bar ) {
 		) );
 	}
 }
-add_action( 'admin_bar_menu', 'responsive_admin_bar_site_menu', 30 );
+add_action( 'admin_bar_menu', 'responsive_II_admin_bar_site_menu', 30 );

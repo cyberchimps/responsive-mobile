@@ -20,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php responsive_entry_top(); ?>
+	<?php responsive_II_entry_top(); ?>
 	<?php get_template_part( 'template-parts/post-meta-page' ); ?>
 
 	<div class="post-entry">
@@ -30,7 +30,7 @@ if ( ! defined( 'WPINC' ) ) {
 				'after'  => '</div>',
 		) ); ?>
 		<?php get_template_part( 'template-parts/post-data' ); ?>
-		<?php responsive_entry_bottom(); ?>
+		<?php responsive_II_entry_bottom(); ?>
 	</div><!-- .post-entry -->
-	<?php responsive_entry_after(); ?>
+	<?php responsive_II_entry_after(); ?>
 </article><!-- #post-## -->

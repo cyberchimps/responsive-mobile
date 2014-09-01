@@ -26,8 +26,8 @@ if ( ! defined( 'WPINC' ) ) {
 			$categories_list = get_the_category_list( __( ', ', 'responsive-II' ) );
 			
 			// Added filter to get by_line_categories toggle option working.
-			$by_line_categories = apply_filters( 'responsive_by_line_categories', 1 );
-			if ( $categories_list && responsive_categorized_blog() && $by_line_categories ) :
+			$by_line_categories = apply_filters( 'responsive_II_by_line_categories', 1 );
+			if ( $categories_list && responsive_II_categorized_blog() && $by_line_categories ) :
 		?>
 		<span class="cat-links">
 			<?php printf( __( 'Posted in %1$s', 'responsive-II' ), $categories_list ); ?>
@@ -39,7 +39,7 @@ if ( ! defined( 'WPINC' ) ) {
 			$tags_list = get_the_tag_list( '', __( ', ', 'responsive-II' ) );
 			
 			// Added filter to get by_line_tag option working.
-			$by_line_tag = apply_filters( 'responsive_by_line_tag', '1' );
+			$by_line_tag = apply_filters( 'responsive_II_by_line_tag', '1' );
 			
 			if ( $tags_list && $by_line_tag ) :
 		?>

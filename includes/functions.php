@@ -25,7 +25,7 @@ if ( ! defined( 'WPINC' ) ) {
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function responsive_setup() {
+function responsive_II_setup() {
 
 	global $content_width;
 
@@ -93,7 +93,7 @@ function responsive_setup() {
 	// Setup the WordPress core custom background feature.
 	add_theme_support(
 		'custom-background',
-		apply_filters( 'responsive_custom_background_args', array(
+		apply_filters( 'responsive_II_custom_background_args', array(
 			// Background default color
 			'default-color' => '#efefef',
 		) )
@@ -103,7 +103,7 @@ function responsive_setup() {
 
 }
 
-add_action( 'after_setup_theme', 'responsive_setup' );
+add_action( 'after_setup_theme', 'responsive_II_setup' );
 
 /**
  * Adjust content width in certain contexts.
@@ -112,23 +112,23 @@ add_action( 'after_setup_theme', 'responsive_setup' );
  * templates, and when there are no active widgets in the sidebar.
  *
  */
-function responsive_content_width() {
+function responsive_II_content_width() {
 	global $content_width;
-	$full_width = is_page_template( 'full-width-page.php' ) || is_404() || 'full-width-page' == responsive_get_layout();
+	$full_width = is_page_template( 'full-width-page.php' ) || is_404() || 'full-width-page' == responsive_II_get_layout();
 	if ( $full_width ) {
 		$content_width = 1140;
 	}
-	$half_width = is_page_template( 'sidebar-content-half-page.php' ) || is_page_template( 'content-sidebar-half-page.php' ) || 'sidebar-content-half-page' == responsive_get_layout() || 'content-sidebar-half-page' == responsive_get_layout();
+	$half_width = is_page_template( 'sidebar-content-half-page.php' ) || is_page_template( 'content-sidebar-half-page.php' ) || 'sidebar-content-half-page' == responsive_II_get_layout() || 'content-sidebar-half-page' == responsive_II_get_layout();
 	if ( $half_width ) {
 		$content_width = 570;
 	}
 }
-add_action( 'template_redirect', 'responsive_content_width' );
+add_action( 'template_redirect', 'responsive_II_content_width' );
 
 /**
  * A safe way of adding JavaScripts to a WordPress generated page.
  */
-function responsive_js() {
+function responsive_II_js() {
 
 	global $is_IE;
 	$suffix                 = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
@@ -151,18 +151,18 @@ function responsive_js() {
 	wp_register_script( 'responsive-skip-link-focus-fix', get_template_directory_uri() . '/core/js/skip-link-focus-fix' . $suffix . '.js', array(), '20130115', true );
 
 }
-add_action( 'wp_enqueue_scripts', 'responsive_js' );
+add_action( 'wp_enqueue_scripts', 'responsive_II_js' );
 
 /**
  * A safe way of adding stylesheets to a WordPress generated page.
  */
-function responsive_css() {
+function responsive_II_css() {
 
 	$responsive             = wp_get_theme( 'responsive-II' );
-	$responsive_options     = responsive_get_options();
+	$responsive_II_options     = responsive_II_get_options();
 	$template_directory_uri = get_template_directory_uri();
 	$rtl                    = ( is_rtl() ) ? '-rtl' : '';
-	$suffix                 = ( "1" === $responsive_options['minified_css'] ) ? '.min' : '';
+	$suffix                 = ( "1" === $responsive_II_options['minified_css'] ) ? '.min' : '';
 
 	// Depending on the settings RTL or minified version will be loaded
 	wp_enqueue_style( 'responsive-style', $template_directory_uri . '/css/style' . $rtl . $suffix . '.css', false, $responsive['Version'] );
@@ -173,4 +173,4 @@ function responsive_css() {
 	}
 
 }
-add_action( 'wp_enqueue_scripts', 'responsive_css' );
+add_action( 'wp_enqueue_scripts', 'responsive_II_css' );

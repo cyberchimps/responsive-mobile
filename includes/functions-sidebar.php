@@ -21,7 +21,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Register widgetized area and update sidebar with default widgets.
  */
-function responsive_widgets_init() {
+function responsive_II_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Main Sidebar', 'responsive-II' ),
 		'description'   => __( 'Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates', 'responsive-II' ),
@@ -142,4 +142,4 @@ function responsive_widgets_init() {
 		'after_widget'  => '</div>'
 	) );
 }
-add_action( 'widgets_init', 'responsive_widgets_init' );
+add_action( 'widgets_init', 'responsive_II_widgets_init' );

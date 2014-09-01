@@ -37,7 +37,7 @@ get_header(); ?>
 
 					<?php endwhile; ?>
 
-					<?php responsive_paging_nav(); ?>
+					<?php responsive_II_paging_nav(); ?>
 
 				<?php else : ?>
 

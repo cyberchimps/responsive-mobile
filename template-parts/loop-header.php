@@ -21,7 +21,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Display breadcrumb
  */
-responsive_get_breadcrumb_lists();
+responsive_II_get_breadcrumb_lists();
 
 /**
  * Display archive information
@@ -29,7 +29,7 @@ responsive_get_breadcrumb_lists();
 if( is_category() || is_tag() || is_author() || is_date() ) : ?>
 	<header class="page-header">
 		<h1 class="title-archive">
-			<?php responsive_archive_title(); ?>
+			<?php responsive_II_archive_title(); ?>
 		</h1>
 		<?php
 			// Show an optional term description.

@@ -29,9 +29,9 @@ get_header(); ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php responsive_entry_before(); ?>
+					<?php responsive_II_entry_before(); ?>
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-						<?php responsive_entry_top(); ?>
+						<?php responsive_II_entry_top(); ?>
 						<h1 class="post-title"><?php the_title(); ?></h1>
 
 						<p><?php _e( '&#8249; Return to', 'responsive-II' ); ?> <a
@@ -40,7 +40,7 @@ get_header(); ?>
 						</p>
 
 						<div class="post-meta">
-							<?php responsive_post_meta_data(); ?>
+							<?php responsive_II_post_meta_data(); ?>
 
 							<?php if ( comments_open() ) : ?>
 								<span class="comments-link">
@@ -78,13 +78,13 @@ get_header(); ?>
 
 						<?php get_template_part( 'template-parts/post-data' ); ?>
 
-						<?php responsive_entry_bottom(); ?>
+						<?php responsive_II_entry_bottom(); ?>
 					</article><!-- end of #post-<?php the_ID(); ?> -->
-					<?php responsive_entry_after(); ?>
+					<?php responsive_II_entry_after(); ?>
 
-					<?php responsive_comments_before(); ?>
+					<?php responsive_II_comments_before(); ?>
 					<?php comments_template( '', true ); ?>
-					<?php responsive_comments_after(); ?>
+					<?php responsive_II_comments_after(); ?>
 
 				<?php
 				endwhile;

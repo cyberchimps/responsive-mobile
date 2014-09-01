@@ -24,24 +24,24 @@ if ( ! defined( 'WPINC' ) ) {
  * @param array $classes Classes for the body element.
  * @return array
  */
-function responsive_body_classes( $classes ) {
+function responsive_II_body_classes( $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
 	}
 	// Get Responsive theme option.
-	$responsive_options = responsive_get_options();
-	if( 1 == $responsive_options['front_page'] && is_front_page() ) {
+	$responsive_II_options = responsive_II_get_options();
+	if( 1 == $responsive_II_options['front_page'] && is_front_page() ) {
 		$classes[] = 'front-page';
 	}
 
-	$classes[] = responsive_get_layout();
+	$classes[] = responsive_II_get_layout();
 
 	$classes = array_map( 'esc_attr', $classes );
 
 	return $classes;
 }
-add_filter( 'body_class', 'responsive_body_classes' );
+add_filter( 'body_class', 'responsive_II_body_classes' );
 
 /**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
@@ -50,7 +50,7 @@ add_filter( 'body_class', 'responsive_body_classes' );
  * @param string $sep Optional separator.
  * @return string The filtered title.
  */
-function responsive_wp_title( $title, $sep ) {
+function responsive_II_wp_title( $title, $sep ) {
 	global $page, $paged;
 
 	if ( is_feed() ) {
@@ -73,7 +73,7 @@ function responsive_wp_title( $title, $sep ) {
 
 	return $title;
 }
-add_filter( 'wp_title', 'responsive_wp_title', 10, 2 );
+add_filter( 'wp_title', 'responsive_II_wp_title', 10, 2 );
 
 /**
  * wp_title() Filter for better SEO.
@@ -82,9 +82,9 @@ add_filter( 'wp_title', 'responsive_wp_title', 10, 2 );
  * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/wp_title
  *
  */
-if( !function_exists( 'responsive_wp_title' ) && !defined( 'AIOSEOP_VERSION' ) ) {
+if( !function_exists( 'responsive_II_wp_title' ) && !defined( 'AIOSEOP_VERSION' ) ) {
 
-	function responsive_wp_title( $title, $sep ) {
+	function responsive_II_wp_title( $title, $sep ) {
 		global $page, $paged;
 
 		if( is_feed() ) {
@@ -109,7 +109,7 @@ if( !function_exists( 'responsive_wp_title' ) && !defined( 'AIOSEOP_VERSION' ) )
 	}
 
 }
-add_filter( 'wp_title', 'responsive_wp_title', 10, 2 );
+add_filter( 'wp_title', 'responsive_II_wp_title', 10, 2 );
 
 /**
  * Sets the authordata global when viewing an author archive.
@@ -123,14 +123,14 @@ add_filter( 'wp_title', 'responsive_wp_title', 10, 2 );
  * @global WP_Query $wp_query WordPress Query object.
  * @return void
  */
-function responsive_setup_author() {
+function responsive_II_setup_author() {
 		global $wp_query;
 
 		if ( $wp_query->is_author() && isset( $wp_query->post ) ) {
 				$GLOBALS['authordata'] = get_userdata( $wp_query->post->post_author );
 		}
 }
-add_action( 'wp', 'responsive_setup_author' );
+add_action( 'wp', 'responsive_II_setup_author' );
 
 /**
  * Filter 'get_comments_number'
@@ -141,7 +141,7 @@ add_action( 'wp', 'responsive_setup_author' );
  *
  * Chip Bennett Contribution
  */
-function responsive_comment_count( $count ) {
+function responsive_II_comment_count( $count ) {
 	if( !is_admin() ) {
 		global $id;
 		$comments         = get_comments( 'status=approve&post_id=' . $id );
@@ -153,7 +153,7 @@ function responsive_comment_count( $count ) {
 		return $count;
 	}
 }
-add_filter( 'get_comments_number', 'responsive_comment_count', 0 );
+add_filter( 'get_comments_number', 'responsive_II_comment_count', 0 );
 
 /**
  * wp_list_comments() Pings Callback
@@ -161,7 +161,7 @@ add_filter( 'get_comments_number', 'responsive_comment_count', 0 );
  * wp_list_comments() Callback function for
  * Pings (Trackbacks/Pingbacks)
  */
-function responsive_comment_list_pings( $comment ) {
+function responsive_II_comment_list_pings( $comment ) {
 	$GLOBALS['comment'] = $comment;
 	?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>"><?php echo comment_author_link(); ?></li>
@@ -172,90 +172,90 @@ function responsive_comment_list_pings( $comment ) {
  * Sets the post excerpt length to 40 words.
  * Adopted from Coraline
  */
-function responsive_excerpt_length( $length ) {
+function responsive_II_excerpt_length( $length ) {
 	return 40;
 }
-add_filter( 'excerpt_length', 'responsive_excerpt_length' );
+add_filter( 'excerpt_length', 'responsive_II_excerpt_length' );
 
 /**
  * Returns a "Read more" link for excerpts
  */
-function responsive_read_more() {
+function responsive_II_read_more() {
 	return sprintf( __( 'Read more %s', 'responsive-II' ), '<span class="screen-reader-text">' . get_the_title() . '</span><span class="meta-nav"> &#8250;</span>' );
 }
 
 /**
- * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and responsive_read_more_link().
+ * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and responsive_II_read_more_link().
  */
-function responsive_auto_excerpt_more( $more ) {
+function responsive_II_auto_excerpt_more( $more ) {
 
 	if( false !== $more ) {
 		$more = '<span class="ellipsis">&hellip;</span>';
 	}
 
-	return $more . '<div class="read-more"><a href="' . get_permalink() . '">' . responsive_read_more() . '</a></div><!-- end of .read-more -->';
+	return $more . '<div class="read-more"><a href="' . get_permalink() . '">' . responsive_II_read_more() . '</a></div><!-- end of .read-more -->';
 
 }
-add_filter( 'excerpt_more', 'responsive_auto_excerpt_more' );
+add_filter( 'excerpt_more', 'responsive_II_auto_excerpt_more' );
 
 /**
  * Adds a pretty "Read more" link to custom defined post excerpts.
  */
-function responsive_custom_excerpt_more( $output ) {
+function responsive_II_custom_excerpt_more( $output ) {
 	if( has_excerpt() && !is_attachment() ) {
-		$output .= responsive_auto_excerpt_more( false );
+		$output .= responsive_II_auto_excerpt_more( false );
 	}
 
 	return $output;
 }
-add_filter( 'get_the_excerpt', 'responsive_custom_excerpt_more' );
+add_filter( 'get_the_excerpt', 'responsive_II_custom_excerpt_more' );
 
 /**
  * This function removes inline styles set by WordPress gallery.
  */
-function responsive_remove_gallery_css( $css ) {
+function responsive_II_remove_gallery_css( $css ) {
 	return preg_replace( "#<style type='text/css'>(.*?)</style>#s", '', $css );
 }
-add_filter( 'gallery_style', 'responsive_remove_gallery_css' );
+add_filter( 'gallery_style', 'responsive_II_remove_gallery_css' );
 
 /**
  * This function removes default styles set by WordPress recent comments widget.
  */
-function responsive_remove_recent_comments_style() {
+function responsive_II_remove_recent_comments_style() {
 	global $wp_widget_factory;
 	if( isset( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'] ) ) {
 		remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
 	}
 }
-add_action( 'widgets_init', 'responsive_remove_recent_comments_style' );
+add_action( 'widgets_init', 'responsive_II_remove_recent_comments_style' );
 
 /**
  * This function removes WordPress generated category and tag atributes.
  * For W3C validation purposes only.
  *
  */
-function responsive_category_rel_removal( $output ) {
+function responsive_II_category_rel_removal( $output ) {
 	$output = str_replace( ' rel="category tag"', '', $output );
 
 	return $output;
 }
-add_filter( 'wp_list_categories', 'responsive_category_rel_removal' );
-add_filter( 'the_category', 'responsive_category_rel_removal' );
+add_filter( 'wp_list_categories', 'responsive_II_category_rel_removal' );
+add_filter( 'the_category', 'responsive_II_category_rel_removal' );
 
 /**
  * Front Page function starts here. The Front page overides WP's show_on_front option. So when show_on_front option changes it sets the themes front_page to 0 therefore displaying the new option
  */
-function responsive_front_page_override( $new, $orig ) {
-	$responsive_options = responsive_get_options();
+function responsive_II_front_page_override( $new, $orig ) {
+	$responsive_II_options = responsive_II_get_options();
 
 	if( $orig !== $new ) {
-		$responsive_options['front_page'] = 0;
-		update_option( 'responsive_theme_options', $responsive_options );
+		$responsive_II_options['front_page'] = 0;
+		update_option( 'responsive_II_theme_options', $responsive_II_options );
 	}
 
 	return $new;
 }
-add_filter( 'pre_update_option_show_on_front', 'responsive_front_page_override', 10, 2 );
+add_filter( 'pre_update_option_show_on_front', 'responsive_II_front_page_override', 10, 2 );
 
 /**
  * Helps file locations in child themes. If the file is not being overwritten by the child theme then
@@ -265,7 +265,7 @@ add_filter( 'pre_update_option_show_on_front', 'responsive_front_page_override',
  *
  * @return string complete uri
  */
-function responsive_child_uri( $dir ) {
+function responsive_II_child_uri( $dir ) {
 	if( is_child_theme() ) {
 		$directory = get_stylesheet_directory() . $dir;
 		$test      = is_file( $directory );

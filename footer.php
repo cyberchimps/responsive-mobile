@@ -19,14 +19,14 @@ if ( ! defined( 'WPINC' ) ) {
 }
 ?>
 
-<?php responsive_wrapper_bottom(); // after wrapper content hook ?>
+<?php responsive_II_wrapper_bottom(); // after wrapper content hook ?>
 </div><!-- end of #wrapper -->
-<?php responsive_wrapper_end(); // after wrapper hook ?>
+<?php responsive_II_wrapper_end(); // after wrapper hook ?>
 </div><!-- end of #container -->
-<?php responsive_container_bottom();?>
+<?php responsive_II_container_bottom();?>
 
 <footer id="footer" class="site-footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
-	<?php responsive_footer_top(); ?>
+	<?php responsive_II_footer_top(); ?>
 	<div id="footer-wrapper">
 
 		<div id="footer-widgets-container">
@@ -48,7 +48,7 @@ if ( ! defined( 'WPINC' ) ) {
 				} ?>
 			</nav><!-- #footer-menu -->
 			<div id="social-icons-container">
-				<?php echo responsive_get_social_icons() ?>
+				<?php echo responsive_II_get_social_icons() ?>
 			</div><!-- #social-icons-container-->
 		</div><!-- #menu-social-container -->
 
@@ -58,7 +58,7 @@ if ( ! defined( 'WPINC' ) ) {
 			<div class="copyright">
 				<?php
 					$copyright_text = '&copy; ' . date( 'Y' ) . ' <a href="' . home_url( '/' ) . '" title="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>';
-					$copyright_text = apply_filters( 'responsive_copyright_text', $copyright_text );
+					$copyright_text = apply_filters( 'responsive_II_copyright_text', $copyright_text );
 					echo $copyright_text;
 				?>
 			</div><!-- .copyright -->
@@ -71,7 +71,7 @@ if ( ! defined( 'WPINC' ) ) {
 						'<a href="' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . '">' . __( 'Responsive Theme', 'responsive-II' ) . '</a>',
 						'<a href="' . esc_url( 'http://wordpress.org/' ) . '">' . __( 'WordPress', 'responsive-II' ) . '</a>'
 					);
-					$powered_by_text = apply_filters( 'responsive_powered_by_text', $powered_by_text );
+					$powered_by_text = apply_filters( 'responsive_II_powered_by_text', $powered_by_text );
 					echo $powered_by_text;
 				?>
 			</div><!-- end .powered -->
@@ -81,10 +81,10 @@ if ( ! defined( 'WPINC' ) ) {
 			</div><!-- .scroll-top -->
 		</div><!-- #footer-base -->
 	</div><!-- #footer-wrapper -->
-	<?php responsive_footer_bottom(); ?>
+	<?php responsive_II_footer_bottom(); ?>
 </footer><!-- #footer -->
-<?php responsive_footer_after(); ?>
-<?php responsive_body_bottom(); ?>
+<?php responsive_II_footer_after(); ?>
+<?php responsive_II_body_bottom(); ?>
 <?php wp_footer(); ?>
 </body>
 </html>

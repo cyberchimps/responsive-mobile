@@ -18,9 +18,9 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-responsive_widgets_before(); // above widgets container hook ?>
+responsive_II_widgets_before(); // above widgets container hook ?>
 	<div id="widgets" class="widget-area right-half-sidebar" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
-		<?php responsive_widgets(); // above widgets hook ?>
+		<?php responsive_II_widgets(); // above widgets hook ?>
 
 		<?php if( !dynamic_sidebar( 'right-sidebar-half' ) ) : ?>
 			<aside class="widget-wrapper">
@@ -33,6 +33,6 @@ responsive_widgets_before(); // above widgets container hook ?>
 			</aside><!-- end of .widget-wrapper -->
 		<?php endif; //end of sidebar-right-half ?>
 
-		<?php responsive_widgets_end(); // after widgets hook ?>
+		<?php responsive_II_widgets_end(); // after widgets hook ?>
 	</div><!-- end of #widgets -->
-<?php responsive_widgets_after(); // after widgets container hook ?>
+<?php responsive_II_widgets_after(); // after widgets container hook ?>

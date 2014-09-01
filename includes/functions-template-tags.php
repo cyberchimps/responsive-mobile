@@ -18,13 +18,13 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( !function_exists( 'responsive_paging_nav' ) ) {
+if ( !function_exists( 'responsive_II_paging_nav' ) ) {
 	/**
 	 * Display navigation to next/previous set of posts when applicable.
 	 *
 	 * @return void
 	 */
-	function responsive_paging_nav() {
+	function responsive_II_paging_nav() {
 		// Don't print empty markup if there's only one page.
 		if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 			return;
@@ -50,13 +50,13 @@ if ( !function_exists( 'responsive_paging_nav' ) ) {
 	}
 }
 
-if ( !function_exists( 'responsive_post_nav' ) ) {
+if ( !function_exists( 'responsive_II_post_nav' ) ) {
 	/**
 	 * Display navigation to next/previous post when applicable.
 	 *
 	 * @return void
 	 */
-	function responsive_post_nav() {
+	function responsive_II_post_nav() {
 		// Don't print empty markup if there's nowhere to navigate.
 		$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 		$next     = get_adjacent_post( false, '', false );
@@ -80,16 +80,16 @@ if ( !function_exists( 'responsive_post_nav' ) ) {
 	}
 }
 
-if ( !function_exists( 'responsive_post_thumbnail' ) ) {
+if ( !function_exists( 'responsive_II_post_thumbnail' ) ) {
 	/**
 	 * Creates the post thumbnail used throughout the templates
 	 *
 	 * @param string $size
 	 * @param null $attr
 	 */
-	function responsive_post_thumbnail( $size = 'post-thumbnail', $attr = null ) {
-		$size = apply_filters( 'responsive_filter_the_post_thumbnail_size', $size );
-		$attr = apply_filters( 'responsive_filter_the_post_thumbnail_attr', $attr );
+	function responsive_II_post_thumbnail( $size = 'post-thumbnail', $attr = null ) {
+		$size = apply_filters( 'responsive_II_filter_the_post_thumbnail_size', $size );
+		$attr = apply_filters( 'responsive_II_filter_the_post_thumbnail_attr', $attr );
 		?>
 		<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 			<?php the_post_thumbnail( $size, $attr ); ?>
@@ -98,13 +98,13 @@ if ( !function_exists( 'responsive_post_thumbnail' ) ) {
 	}
 }
 
-if ( !function_exists( 'responsive_comment' ) ) {
+if ( !function_exists( 'responsive_II_comment' ) ) {
 	/**
 	 * Template for comments and pingbacks.
 	 *
 	 * Used as a callback by wp_list_comments() for displaying the comments.
 	 */
-	function responsive_comment( $comment, $args, $depth ) {
+	function responsive_II_comment( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
 
 		if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
@@ -171,12 +171,12 @@ if ( !function_exists( 'responsive_comment' ) ) {
  * Ulrich Pogson Contribution
  *
  */
-if ( !function_exists( 'responsive_post_meta_data' ) ) {
+if ( !function_exists( 'responsive_II_post_meta_data' ) ) {
 
-	function responsive_post_meta_data() {
+	function responsive_II_post_meta_data() {
 	
 		// Apply filter to get by_line_date option working.
-		$by_line_date = apply_filters( 'responsive_by_line_date', '1' );
+		$by_line_date = apply_filters( 'responsive_II_by_line_date', '1' );
 		if( $by_line_date ) {
 			printf(
 				/* Translators: (Posted on )(Date) */
@@ -193,7 +193,7 @@ if ( !function_exists( 'responsive_post_meta_data' ) ) {
 		}
 		
 		// Apply filter to get by_line_author option working.
-		$by_line_author = apply_filters( 'responsive_by_line_author', '1' );
+		$by_line_author = apply_filters( 'responsive_II_by_line_author', '1' );
 		if( $by_line_author ) {
 			printf(
 				/* Translators: ( by )(Author) */
@@ -210,11 +210,11 @@ if ( !function_exists( 'responsive_post_meta_data' ) ) {
 	}
 }
 
-if ( !function_exists( 'responsive_posted_on' ) ) {
+if ( !function_exists( 'responsive_II_posted_on' ) ) {
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
-	function responsive_posted_on() {
+	function responsive_II_posted_on() {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
@@ -243,7 +243,7 @@ if ( !function_exists( 'responsive_posted_on' ) ) {
 /**
  * Returns true if a blog has more than 1 category.
  */
-function responsive_categorized_blog() {
+function responsive_II_categorized_blog() {
 	if ( false === ( $all_the_cool_cats = get_transient( 'all_the_cool_cats' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array( 'hide_empty' => 1 ) );
@@ -255,30 +255,30 @@ function responsive_categorized_blog() {
 	}
 
 	if ( '1' != $all_the_cool_cats ) {
-		// This blog has more than 1 category so responsive_categorized_blog should return true.
+		// This blog has more than 1 category so responsive_II_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so responsive_categorized_blog should return false.
+		// This blog has only 1 category so responsive_II_categorized_blog should return false.
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in responsive_categorized_blog.
+ * Flush out the transients used in responsive_II_categorized_blog.
  */
-function responsive_category_transient_flusher() {
+function responsive_II_category_transient_flusher() {
 	// Like, beat it. Dig?
 	delete_transient( 'all_the_cool_cats' );
 }
 
-add_action( 'edit_category', 'responsive_category_transient_flusher' );
-add_action( 'save_post', 'responsive_category_transient_flusher' );
+add_action( 'edit_category', 'responsive_II_category_transient_flusher' );
+add_action( 'save_post', 'responsive_II_category_transient_flusher' );
 
-if ( !function_exists( 'responsive_archive_title' ) ) {
+if ( !function_exists( 'responsive_II_archive_title' ) ) {
 	/**
 	 * Prints respective title for the archive page.
 	 */
-	function responsive_archive_title( $display = true ) {
+	function responsive_II_archive_title( $display = true ) {
 		if ( is_category() ) {
 			$archive_title = single_cat_title( "", false );
 
@@ -341,11 +341,11 @@ if ( !function_exists( 'responsive_archive_title' ) ) {
 /**
  * Mobile menu title
  */
-function responsive_menu_title( $display = true ) {
+function responsive_II_menu_title( $display = true ) {
 
 	$page_title = __( 'Menu', 'responsive-II' );
 
-	$page_title = apply_filters( 'responsive_menu_title', $page_title );
+	$page_title = apply_filters( 'responsive_II_menu_title', $page_title );
 
 	if ( $display ) {
 		echo $page_title;

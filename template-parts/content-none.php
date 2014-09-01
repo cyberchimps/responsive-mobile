@@ -19,9 +19,9 @@ if ( ! defined( 'WPINC' ) ) {
 }
 ?>
 
-<?php responsive_entry_before(); ?>
+<?php responsive_II_entry_before(); ?>
 <section id="post-0" class="error404 no-results not-found">
-	<?php responsive_entry_top(); ?>
+	<?php responsive_II_entry_top(); ?>
 	<header class="page-header">
 		<h1 class="title-404"><?php _e( '404 &#8212; Fancy meeting you here!', 'responsive-II' ) ?></h1>
 	</header><!-- .page-header -->

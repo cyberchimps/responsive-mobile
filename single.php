@@ -29,16 +29,16 @@ get_header(); ?>
 
 					<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
-					<?php responsive_post_nav(); ?>
+					<?php responsive_II_post_nav(); ?>
 
-					<?php responsive_comments_before(); ?>
+					<?php responsive_II_comments_before(); ?>
 					<?php
 						// If comments are open or we have at least one comment, load up the comment template
 						if ( comments_open() || '0' != get_comments_number() ) :
 							comments_template( '', true );
 						endif;
 					?>
-					<?php responsive_comments_after(); ?>
+					<?php responsive_II_comments_after(); ?>
 
 				<?php endwhile; // end of the loop. ?>
 

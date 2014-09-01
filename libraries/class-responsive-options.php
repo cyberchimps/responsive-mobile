@@ -24,9 +24,9 @@ Class Responsive_Options {
 
 	public $options;
 
-	public $responsive_options;
+	public $responsive_II_options;
 
-	public static $static_responsive_options;
+	public static $static_responsive_II_options;
 
 	public static $static_default_options;
 
@@ -40,10 +40,10 @@ Class Responsive_Options {
 	public function __construct( $options ) {
 		$this->options            = $options;
 		$this->options_only       = $this->get_options_only( $this->options );
-		$this->responsive_options = get_option( 'responsive_theme_options' );
+		$this->responsive_II_options = get_option( 'responsive_II_theme_options' );
 		$this->default_options    = $this->get_options_defaults( $this->options_only );
 
-		self::$static_responsive_options = $this->responsive_options;
+		self::$static_responsive_II_options = $this->responsive_II_options;
 		self::$static_default_options    = $this->default_options;
 
 		$this->attributes['onclick'] = 'return confirm("' . __( 'Do you want to restore the default settings?', 'responsive-II' ) . __( 'All theme settings will be lost!', 'responsive-II' ) . __( 'Click OK to restore.', 'responsive-II' ) . '")';
@@ -73,8 +73,8 @@ Class Responsive_Options {
 	public function theme_options_init() {
 
 		register_setting(
-			'responsive_options',
-			'responsive_theme_options',
+			'responsive_II_options',
+			'responsive_II_theme_options',
 			array( &$this, 'theme_options_validate' )
 		);
 	}
@@ -117,10 +117,10 @@ Class Responsive_Options {
 				<div class="updated fade"><p><strong><?php _e( 'Options Saved', 'responsive-II' ); ?></strong></p></div>
 			<?php endif; ?>
 
-			<?php responsive_theme_options(); // Theme Options Hook ?>
+			<?php responsive_II_theme_options(); // Theme Options Hook ?>
 
 			<form method="post" action="options.php" enctype="multipart/form-data" >
-				<?php settings_fields( 'responsive_options' ); ?>
+				<?php settings_fields( 'responsive_II_options' ); ?>
 
 				<div class="settings-row">
 					<?php
@@ -240,9 +240,9 @@ Class Responsive_Options {
 
 		extract( $args );
 
-		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
+		$value = ( !empty( $this->responsive_II_options[$id] ) ) ? $this->responsive_II_options[$id] : '';
 
-		$html = '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" class="regular-text" type="text" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" value="' . esc_html( $value ) . '" placeholder="' . esc_attr( $placeholder ) . '" /><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
+		$html = '<input id="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '" class="regular-text" type="text" name="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '" value="' . esc_html( $value ) . '" placeholder="' . esc_attr( $placeholder ) . '" /><label class="description" for="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
 
 		return $html;
 	}
@@ -258,9 +258,9 @@ Class Responsive_Options {
 
 		extract( $args );
 
-		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
+		$value = ( !empty( $this->responsive_II_options[$id] ) ) ? $this->responsive_II_options[$id] : '';
 
-		$html = '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" class="wp-color-picker regular-text" type="text" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" value="' . esc_html( $value ) . '" placeholder="' . esc_attr( $placeholder ) . '" /><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
+		$html = '<input id="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '" class="wp-color-picker regular-text" type="text" name="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '" value="' . esc_html( $value ) . '" placeholder="' . esc_attr( $placeholder ) . '" /><label class="description" for="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
 
 		return $html;
 	}
@@ -279,12 +279,12 @@ Class Responsive_Options {
 		$class[] = 'large-text';
 		$classes = implode( ' ', $class );
 
-		$description = ( '' !== $description ) ? '<label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>': '';
+		$description = ( '' !== $description ) ? '<label class="description" for="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>': '';
 		$heading = ( '' !== $heading ) ? '<p>' . esc_html( $heading ) . '</p>' : '';
 
-		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
+		$value = ( !empty( $this->responsive_II_options[$id] ) ) ? $this->responsive_II_options[$id] : '';
 
-		$html = $heading . '<textarea id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" class="' . esc_attr( $classes ) . '" cols="50" rows="30" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" placeholder="' . $placeholder . '">' . esc_html( $value ) . '</textarea>' . $description;
+		$html = $heading . '<textarea id="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '" class="' . esc_attr( $classes ) . '" cols="50" rows="30" name="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '" placeholder="' . $placeholder . '">' . esc_html( $value ) . '</textarea>' . $description;
 
 		return $html;
 	}
@@ -299,7 +299,7 @@ Class Responsive_Options {
 	protected function export( $args ) {
 
 		extract( $args );
-		$options = esc_html( serialize( $this->responsive_options ) );
+		$options = esc_html( serialize( $this->responsive_II_options ) );
 		$html = '<textarea rows="10" cols="50">' . $options . '</textarea>';
 		$html .= '<br/><a class="export-option" href="data:text/octet-stream;charset=utf-8,' . str_replace( "#", "%23", $options ) . '" download="theme-option-backup.txt">Download</a>';
 		
@@ -336,10 +336,10 @@ Class Responsive_Options {
 
 		extract( $args );
 
-		$html = '<select id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">';
+		$html = '<select id="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '" name="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '">';
 		foreach ( $options as $key => $value ) {
 			// looping through and creating all the options and making the one saved in the options as the chosen one otherwise falling back to the default
-			$html .= '<option' . selected( ( isset( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : $default, $key, false ) . ' value="' . esc_attr( $key ) . '">' . esc_html(
+			$html .= '<option' . selected( ( isset( $this->responsive_II_options[$id] ) ) ? $this->responsive_II_options[$id] : $default, $key, false ) . ' value="' . esc_attr( $key ) . '">' . esc_html(
 					$value
 				) .
 				'</option>';
@@ -361,9 +361,9 @@ Class Responsive_Options {
 
 		extract( $args );
 
-		$checked = ( isset( $this->responsive_options[$id] ) ) ? checked( 1, esc_attr( $this->responsive_options[$id] ), false ) : checked( 0, 1 );
+		$checked = ( isset( $this->responsive_II_options[$id] ) ) ? checked( 1, esc_attr( $this->responsive_II_options[$id] ), false ) : checked( 0, 1 );
 
-		$html = '<input id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" type="checkbox" value="1" ' . $checked . '/><label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . wp_kses_post( $description ) . '</label>';
+		$html = '<input id="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '" name="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '" type="checkbox" value="1" ' . $checked . '/><label class="description" for="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '">' . wp_kses_post( $description ) . '</label>';
 
 		return $html;
 	}
@@ -390,7 +390,7 @@ Class Responsive_Options {
 	 * @return string
 	 */
 	protected function save() {
-		$html = '<div class="col-md-12"><p class="submit">' . get_submit_button( __( 'Save Options', 'responsive-II' ), 'primary', 'responsive_theme_options[submit]', false ) . ' ' . get_submit_button( __( 'Restore Defaults', 'responsive-II' ), 'secondary', 'responsive_theme_options[reset]', false, $this->attributes ) . ' <a href="http://cyberchimps.com/store/responsivepro/" class="button upgrade">' . __( 'Upgrade', 'responsive-II' ) . '</a></p></div>';
+		$html = '<div class="col-md-12"><p class="submit">' . get_submit_button( __( 'Save Options', 'responsive-II' ), 'primary', 'responsive_II_theme_options[submit]', false ) . ' ' . get_submit_button( __( 'Restore Defaults', 'responsive-II' ), 'secondary', 'responsive_II_theme_options[reset]', false, $this->attributes ) . ' <a href="http://cyberchimps.com/store/responsivepro/" class="button upgrade">' . __( 'Upgrade', 'responsive-II' ) . '</a></p></div>';
 
 		return $html;
 
@@ -410,10 +410,10 @@ Class Responsive_Options {
 		$class[] = 'large-text';
 		$classes = implode( ' ', $class );
 
-		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
+		$value = ( !empty( $this->responsive_II_options[$id] ) ) ? $this->responsive_II_options[$id] : '';
 
 		$editor_settings = array(
-			'textarea_name' => 'responsive_theme_options[' . $id . ']',
+			'textarea_name' => 'responsive_II_theme_options[' . $id . ']',
 			'media_buttons' => true,
 			'tinymce'       => array( 'plugins' => 'wordpress' ),
 			'editor_class'  => esc_attr( $classes )
@@ -421,9 +421,9 @@ Class Responsive_Options {
 
 		$html = '<div class="tinymce-editor">';
 		ob_start();
-		$html .= wp_editor( $value, 'responsive_theme_options_' . $id . '_', $editor_settings );
+		$html .= wp_editor( $value, 'responsive_II_theme_options_' . $id . '_', $editor_settings );
 		$html .= ob_get_contents();
-		$html .= '<label class="description" for="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
+		$html .= '<label class="description" for="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '">' . esc_html( $description ) . '</label>';
 		$html .= '</div>';
 		ob_clean();
 
@@ -438,11 +438,11 @@ Class Responsive_Options {
 		$original_items = $options['items'];
 
 		// If there is no settings saved just use the original options
-		if ( ! isset( $this->responsive_options[$id] ) || '' === $this->responsive_options[$id] || 'null' === $this->responsive_options[$id] ) {
+		if ( ! isset( $this->responsive_II_options[$id] ) || '' === $this->responsive_II_options[$id] || 'null' === $this->responsive_II_options[$id] ) {
 			$items = json_decode( $default, true );
 		} else {
 			// Get json from saved settings and decode it
-			$items = json_decode( $this->responsive_options[ $id ], true );
+			$items = json_decode( $this->responsive_II_options[ $id ], true );
 
 		}
 			foreach ( $items as $index => $item ) {
@@ -505,9 +505,9 @@ Class Responsive_Options {
 		$html .= '</div>';
 
 		// Hidden text box that will save data
-		$value = ( !empty( $this->responsive_options[$id] ) ) ? $this->responsive_options[$id] : '';
+		$value = ( !empty( $this->responsive_II_options[$id] ) ) ? $this->responsive_II_options[$id] : '';
 
-		$html .= '<input type="hidden" id="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" name="' . esc_attr( 'responsive_theme_options[' . $id . ']' ) . '" value="' . esc_html( $value ) . '" />';
+		$html .= '<input type="hidden" id="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '" name="' . esc_attr( 'responsive_II_theme_options[' . $id . ']' ) . '" value="' . esc_html( $value ) . '" />';
 
 		return $html;
 	}
@@ -556,12 +556,12 @@ Class Responsive_Options {
 
 				// make sure $try is set with the unserialized data
 				if( $try ) {
-					add_settings_error( 'responsive_theme_options', 'imported_success', __( 'Options Imported', 'responsive-II' ), 'updated fade' );
+					add_settings_error( 'responsive_II_theme_options', 'imported_success', __( 'Options Imported', 'responsive-II' ), 'updated fade' );
 
 					return $try;
 				}
 				else {
-					add_settings_error( 'responsive_theme_options', 'imported_failed', __( 'Invalid Data for Import', 'responsive-II' ), 'error fade' );
+					add_settings_error( 'responsive_II_theme_options', 'imported_failed', __( 'Invalid Data for Import', 'responsive-II' ), 'error fade' );
 				}
 			}
 		}
@@ -579,12 +579,12 @@ Class Responsive_Options {
 
 					// make sure $try is set with the unserialized data
 					if( $try ) {
-						add_settings_error( 'responsive_theme_options', 'imported_success', __( 'Options Imported', 'responsive-II' ), 'updated fade' );
+						add_settings_error( 'responsive_II_theme_options', 'imported_success', __( 'Options Imported', 'responsive-II' ), 'updated fade' );
 
 						return $try;
 					}
 					else {
-						add_settings_error( 'responsive_theme_options', 'imported_failed', __( 'Invalid Data for Import', 'responsive-II' ), 'error fade' );
+						add_settings_error( 'responsive_II_theme_options', 'imported_failed', __( 'Invalid Data for Import', 'responsive-II' ), 'error fade' );
 					}
 				}
 			}
@@ -607,7 +607,7 @@ Class Responsive_Options {
 			$options = $this->options_only;
 
 			$input = $input ? $input : array();
-			$input = apply_filters( 'responsive_settings_sanitize', $input );
+			$input = apply_filters( 'responsive_II_settings_sanitize', $input );
 
 			// Loop through each setting being saved and pass it through a sanitization filter
 			foreach ( $input as $key => $value ) {
@@ -853,7 +853,7 @@ Class Responsive_Options {
 	 * @return array
 	 */
 	public static function get_parse_options() {
-		$options = wp_parse_args( self::$static_responsive_options, self::$static_default_options );
+		$options = wp_parse_args( self::$static_responsive_II_options, self::$static_default_options );
 
 		return $options;
 	}

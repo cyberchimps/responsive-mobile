@@ -1,6 +1,6 @@
 <wpml-config>
     <admin-texts>
-        <key name="responsive_theme_options">
+        <key name="responsive_II_theme_options">
             <key name="home_headline"/>
             <key name="home_subheadline"/>
             <key name="home_content_area"/>

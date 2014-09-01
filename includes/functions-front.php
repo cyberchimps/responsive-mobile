@@ -24,41 +24,41 @@ if ( ! defined( 'WPINC' ) ) {
  * Load inline CSS in the footer
  *
  */
-function responsive_inline_css() {
-	$responsive_options = responsive_get_options();
-	if( !empty( $responsive_options['responsive_inline_css'] ) ) {
+function responsive_II_inline_css() {
+	$responsive_II_options = responsive_II_get_options();
+	if( !empty( $responsive_II_options['responsive_II_inline_css'] ) ) {
 		echo '<!-- Custom CSS Styles -->' . "\n";
 		echo '<style type="text/css" media="screen">' . "\n";
-		echo esc_html( $responsive_options['responsive_inline_css'] ) . "\n";
+		echo esc_html( $responsive_II_options['responsive_II_inline_css'] ) . "\n";
 		echo '</style>' . "\n";
 	}
 }
-add_action( 'wp_head', 'responsive_inline_css', 110 );
+add_action( 'wp_head', 'responsive_II_inline_css', 110 );
 
 /*
  * Load inline js in the header
  *
  */
-function responsive_inline_js_head() {
-	$responsive_options = responsive_get_options();
-	if( !empty( $responsive_options['responsive_inline_js_head'] ) ) {
+function responsive_II_inline_js_head() {
+	$responsive_II_options = responsive_II_get_options();
+	if( !empty( $responsive_II_options['responsive_II_inline_js_head'] ) ) {
 		echo '<!-- Custom Scripts -->' . "\n";
-		echo $responsive_options['responsive_inline_js_head'];
+		echo $responsive_II_options['responsive_II_inline_js_head'];
 		echo "\n";
 	}
 }
-add_action( 'wp_head', 'responsive_inline_js_head' );
+add_action( 'wp_head', 'responsive_II_inline_js_head' );
 
 /*
  * Load inline js in the footer
  *
  */
-function responsive_inline_js_footer() {
-	$responsive_options = responsive_get_options();
-	if( !empty( $responsive_options['responsive_inline_js_footer'] ) ) {
+function responsive_II_inline_js_footer() {
+	$responsive_II_options = responsive_II_get_options();
+	if( !empty( $responsive_II_options['responsive_II_inline_js_footer'] ) ) {
 		echo '<!-- Custom Scripts -->' . "\n";
-		echo $responsive_options['responsive_inline_js_footer'];
+		echo $responsive_II_options['responsive_II_inline_js_footer'];
 		echo "\n";
 	}
 }
-add_action( 'wp_footer', 'responsive_inline_js_footer' );
+add_action( 'wp_footer', 'responsive_II_inline_js_footer' );

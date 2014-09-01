@@ -17,9 +17,9 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
-responsive_entry_before(); ?>
+responsive_II_entry_before(); ?>
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<?php responsive_entry_top(); ?>
+		<?php responsive_II_entry_top(); ?>
 
 		<?php get_template_part( 'template-parts/post-meta' ); ?>
 
@@ -46,6 +46,6 @@ responsive_entry_before(); ?>
 
 		<?php get_template_part( 'template-parts/post-data' ); ?>
 
-		<?php responsive_entry_bottom(); ?>
+		<?php responsive_II_entry_bottom(); ?>
 	</article><!-- #post-## -->
-<?php responsive_entry_after(); ?>
+<?php responsive_II_entry_after(); ?>

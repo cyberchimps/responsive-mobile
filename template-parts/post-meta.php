@@ -29,10 +29,10 @@ if ( ! defined( 'WPINC' ) ) {
 	<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="post-meta">
 			<?php
-			responsive_post_meta_data();
+			responsive_II_post_meta_data();
 			
 			// Added filter to get by_line_comments option working.
-			$by_line_comments = apply_filters( 'responsive_by_line_comments', '1' );
+			$by_line_comments = apply_filters( 'responsive_II_by_line_comments', '1' );
 			
 			if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) && $by_line_comments ) : ?>
 				<span class="comments-link">

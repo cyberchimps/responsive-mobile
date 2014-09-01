@@ -50,13 +50,13 @@ if ( post_password_required() ) {
 		<ol class="commentlist">
 			<?php
 				/* Loop through and list the comments. Tell wp_list_comments()
-				 * to use responsive_comment() to format the comments.
+				 * to use responsive_II_comment() to format the comments.
 				 * If you want to override this in a child theme, then you can
-				 * define responsive_comment() and that will be used instead.
-				 * See responsive_comment() in inc/template-tags.php for more.
+				 * define responsive_II_comment() and that will be used instead.
+				 * See responsive_II_comment() in inc/template-tags.php for more.
 				 */
 				wp_list_comments( array(
-					'callback'    => 'responsive_comment',
+					'callback'    => 'responsive_II_comment',
 					'avatar_size' => '60',
 					'type'        => 'comment'
 				) );

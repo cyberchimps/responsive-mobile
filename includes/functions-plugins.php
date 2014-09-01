@@ -22,50 +22,50 @@ if ( ! defined( 'WPINC' ) ) {
  * Add theme support for Infinite Scroll.
  * See: http://jetpack.me/support/infinite-scroll/
  */
-function responsive_infinite_scroll_render() {
+function responsive_II_infinite_scroll_render() {
 	get_template_part( 'template-parts/content', get_post_format() );
 }
 
-function responsive_jetpack_setup() {
+function responsive_II_jetpack_setup() {
 	add_theme_support( 'infinite-scroll', array(
 		'footer_widgets' => array( 'colophon-widget', 'footer-widget', ),
 		'container'      => 'main',
-		'render'         => 'responsive_infinite_scroll_render', 
+		'render'         => 'responsive_II_infinite_scroll_render', 
 		'footer'         => 'page',
 	) );
 }
-add_action( 'after_setup_theme', 'responsive_jetpack_setup' );
+add_action( 'after_setup_theme', 'responsive_II_jetpack_setup' );
 
-function responsive_jetpack_credit() {
+function responsive_II_jetpack_credit() {
 	$powered_by_text = sprintf(
 		/* Translators: Responsive Theme powered by WordPress */
 		__( '%1$s powered by %2$s', 'responsive-II' ),
 		'<a href="' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . '">' . __( 'Responsive Theme', 'responsive-II' ) . '</a>',
 		'<a href="' . esc_url( 'http://wordpress.org/' ) . '">' . __( 'WordPress', 'responsive-II' ) . '</a>'
 	);
-	$powered_by_text = apply_filters( 'responsive_powered_by_text', $powered_by_text );
+	$powered_by_text = apply_filters( 'responsive_II_powered_by_text', $powered_by_text );
 	return $powered_by_text;
 }
-add_filter( 'infinite_scroll_credit', 'responsive_jetpack_credit' );
+add_filter( 'infinite_scroll_credit', 'responsive_II_jetpack_credit' );
 
 /**
  * WooCommerce
  *
  * Unhook/Hook the WooCommerce Wrappers
  */
-function responsive_woocommerce_wrapper() {
+function responsive_II_woocommerce_wrapper() {
 	echo '<div id="content-woocommerce" class="content-area"><main id="main" class="site-main" role="main">';
 }
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
-add_action( 'woocommerce_before_main_content', 'responsive_woocommerce_wrapper', 10 );
+add_action( 'woocommerce_before_main_content', 'responsive_II_woocommerce_wrapper', 10 );
 
-function responsive_woocommerce_wrapper_end() {
+function responsive_II_woocommerce_wrapper_end() {
 	echo '</main><!-- #main -->';
 }
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
-add_action( 'woocommerce_after_main_content', 'responsive_woocommerce_wrapper_end', 10 );
+add_action( 'woocommerce_after_main_content', 'responsive_II_woocommerce_wrapper_end', 10 );
 
-function responsive_woocommerce_content_end() {
+function responsive_II_woocommerce_content_end() {
 	echo '</div><!-- #content-woocommerce -->';
 }
-add_action( 'woocommerce_sidebar', 'responsive_woocommerce_content_end', 11 );
+add_action( 'woocommerce_sidebar', 'responsive_II_woocommerce_content_end', 11 );

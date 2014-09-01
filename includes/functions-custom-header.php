@@ -21,31 +21,31 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Setup the WordPress core custom header feature.
  *
- * @uses responsive_header_style()
- * @uses responsive_admin_header_style()
- * @uses responsive_admin_header_image()
+ * @uses responsive_II_header_style()
+ * @uses responsive_II_admin_header_style()
+ * @uses responsive_II_admin_header_image()
  *
  * @package Responsive
  */
-function responsive_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'responsive_custom_header_args', array(
+function responsive_II_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'responsive_II_custom_header_args', array(
 		'flex-width'             => true,
 		'flex-height'            => true,
 		'default-text-color'     => '333',
-		'wp-head-callback'       => 'responsive_header_style',
-		'admin-head-callback'    => 'responsive_admin_header_style',
-		'admin-preview-callback' => 'responsive_admin_header_image',
+		'wp-head-callback'       => 'responsive_II_header_style',
+		'admin-head-callback'    => 'responsive_II_admin_header_style',
+		'admin-preview-callback' => 'responsive_II_admin_header_image',
 	) ) );
 }
-add_action( 'after_setup_theme', 'responsive_custom_header_setup' );
+add_action( 'after_setup_theme', 'responsive_II_custom_header_setup' );
 
-if ( ! function_exists( 'responsive_header_style' ) ) {
+if ( ! function_exists( 'responsive_II_header_style' ) ) {
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see responsive_custom_header_setup().
+ * @see responsive_II_custom_header_setup().
  */
-function responsive_header_style() {
+function responsive_II_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail
@@ -80,13 +80,13 @@ function responsive_header_style() {
 }
 }
 
-if ( ! function_exists( 'responsive_admin_header_style' ) ) {
+if ( ! function_exists( 'responsive_II_admin_header_style' ) ) {
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see responsive_custom_header_setup().
+ * @see responsive_II_custom_header_setup().
  */
-function responsive_admin_header_style() {
+function responsive_II_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
@@ -110,15 +110,15 @@ function responsive_admin_header_style() {
 	</style>
 <?php
 }
-} // responsive_admin_header_style
+} // responsive_II_admin_header_style
 
-if ( ! function_exists( 'responsive_admin_header_image' ) ) {
+if ( ! function_exists( 'responsive_II_admin_header_image' ) ) {
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see responsive_custom_header_setup().
+ * @see responsive_II_custom_header_setup().
  */
-function responsive_admin_header_image() {
+function responsive_II_admin_header_image() {
 	$style = sprintf( ' style="color:#%s;"', get_header_textcolor() );
 ?>
 	<div id="headimg">

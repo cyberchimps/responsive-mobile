@@ -26,12 +26,12 @@ if ( ! is_active_sidebar( 'top-widget' ) ) {
 }
 ?>
 
-<?php responsive_widgets_before(); // above widgets container hook ?>
+<?php responsive_II_widgets_before(); // above widgets container hook ?>
 	<div id="top-widget" class="top-widget" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
-		<?php responsive_widgets(); // above widgets hook ?>
+		<?php responsive_II_widgets(); // above widgets hook ?>
 
 			<?php dynamic_sidebar( 'top-widget' ); ?>
 
-		<?php responsive_widgets_end(); // after widgets hook ?>
+		<?php responsive_II_widgets_end(); // after widgets hook ?>
 	</div><!-- end of #top-widget -->
-<?php responsive_widgets_after(); // after widgets container hook ?>
+<?php responsive_II_widgets_after(); // after widgets container hook ?>

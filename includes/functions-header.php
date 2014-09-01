@@ -21,7 +21,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Adds header logo or site name to header
  */
-function responsive_header_branding() {
+function responsive_II_header_branding() {
 	if ( get_header_image() ) : ?>
 		<div id="logo">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" itemprop="url" title="<?php echo esc_attr( get_bloginfo( 'title' ) ) ?>">
@@ -39,13 +39,13 @@ function responsive_header_branding() {
 		</div>
 	<?php endif; // End header image check.
 }
-add_action( 'responsive_header_one', 'responsive_header_branding' );
+add_action( 'responsive_II_header_one', 'responsive_II_header_branding' );
 
 /**
  * Adds sidebar-top to header
  */
-function responsive_sidebar_top() {
+function responsive_II_sidebar_top() {
 	get_sidebar( 'top' );
 }
 
-add_action( 'responsive_header_two', 'responsive_sidebar_top' );
+add_action( 'responsive_II_header_two', 'responsive_II_sidebar_top' );

@@ -24,13 +24,13 @@ if ( !defined( 'ABSPATH' ) ) {
  * otherwise, display static front page
  * content
  */
-$responsive_options = responsive_get_options();
+$responsive_II_options = responsive_II_get_options();
 
-if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page'] != 1 ) {
+if ( 'posts' == get_option( 'show_on_front' ) && $responsive_II_options['front_page'] != 1 ) {
 
 	get_template_part( 'home' );
 
-} elseif ( 'page' == get_option( 'show_on_front' ) && $responsive_options['front_page'] != 1 ) {
+} elseif ( 'page' == get_option( 'show_on_front' ) && $responsive_II_options['front_page'] != 1 ) {
 
 	$template = get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true );
 	$template = ( $template == 'default' ) ? 'index.php' : $template;
@@ -40,7 +40,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 
 	get_header();
 
-	get_template_part( 'template-parts/featured-area', apply_filters( 'responsive_filter_featured_area_layout', '' ) );
+	get_template_part( 'template-parts/featured-area', apply_filters( 'responsive_II_filter_featured_area_layout', '' ) );
 
 	get_sidebar( 'home' );
 

@@ -24,16 +24,16 @@ if ( ! defined( 'WPINC' ) ) {
  * @param array $args Configuration arguments.
  * @return array
  */
-function responsive_page_menu_args( $args ) {
+function responsive_II_page_menu_args( $args ) {
 	$args['show_home'] = true;
 	return $args;
 }
-add_filter( 'wp_page_menu_args', 'responsive_page_menu_args' );
+add_filter( 'wp_page_menu_args', 'responsive_II_page_menu_args' );
 
 /**
  * Set a fallback menu that will show a home link.
  */
-function responsive_fallback_menu() {
+function responsive_II_fallback_menu() {
 	$args    = array(
 		'depth'       => 0,
 		'sort_column' => 'menu_order, post_title',

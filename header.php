@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!--[if gt IE 9]><!-->
 <html <?php language_attributes(); ?>>
 	<head>
-		<?php responsive_head_top(); ?>
+		<?php responsive_II_head_top(); ?>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -39,21 +39,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<link rel="profile" href="http://gmpg.org/xfn/11">
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-		<?php responsive_head_bottom(); ?>
+		<?php responsive_II_head_bottom(); ?>
 
 		<?php wp_head(); ?>
 	</head>
 
 <body <?php body_class(); ?> itemscope="itemscope" itemtype="http://schema.org/WebPage">
-<?php responsive_body_top(); ?>
+<?php responsive_II_body_top(); ?>
 <div id="container" class="site">
-<?php responsive_container_top(); ?>
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'responsive' ); ?></a>
-	<a class="skip-link screen-reader-text" href="#main-navigation"><?php _e( 'Skip to main menu', 'responsive' ); ?></a>
-<?php if ( has_nav_menu( 'top-menu', 'responsive' ) ) { ?>
+<?php responsive_II_container_top(); ?>
+	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'responsive-II' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#main-navigation"><?php _e( 'Skip to main menu', 'responsive-II' ); ?></a>
+<?php if ( has_nav_menu( 'top-menu', 'responsive-II' ) ) { ?>
 	<div id="top-menu-container" class="container-full-width">
 		<nav id="top-menu" class="container" itemscope itemtype="http://schema.org/SiteNavigationElement">
-			<?php responsive_header_top(); // before header content hook ?>
+			<?php responsive_II_header_top(); // before header content hook ?>
 			<?php wp_nav_menu(
 				array(
 					'container'      => '',
@@ -66,34 +66,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</nav>
 	</div><!-- top menu container -->
 <?php } ?>
-<?php responsive_header(); ?>
+<?php responsive_II_header(); ?>
 	<header id="header" class="container-full-width site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
-		<?php responsive_in_header(); ?>
+		<?php responsive_II_in_header(); ?>
 		<div class="container">
 			<div class="header-row">
 				<div id="site-branding">
-					<?php responsive_header_one(); ?>
+					<?php responsive_II_header_one(); ?>
 				</div>
 				<div id="secondary-header">
-					<?php responsive_header_two(); ?>
+					<?php responsive_II_header_two(); ?>
 				</div>
 			</div>
 		</div>
 
-		<?php responsive_header_bottom(); ?>
+		<?php responsive_II_header_bottom(); ?>
 	</header><!-- #header -->
-<?php responsive_header_end(); ?>
+<?php responsive_II_header_end(); ?>
 
 	<div id="main-menu-container" class="container-full-width">
 		<div id="main-menu" class="container">
 			<nav id="main-navigation" class="site-navigation" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-				<div id="mobile-current-item"><?php responsive_menu_title(); ?></div>
-				<button id="mobile-nav-button"><span class="accessibile-label"><?php _e( 'Mobile menu toggle', 'responsive' ); ?></span></button>
+				<div id="mobile-current-item"><?php responsive_II_menu_title(); ?></div>
+				<button id="mobile-nav-button"><span class="accessibile-label"><?php _e( 'Mobile menu toggle', 'responsive-II' ); ?></span></button>
 				<?php wp_nav_menu(
 					array(
 						'container'       => 'div',
 						'container_class' => 'main-nav',
-						'fallback_cb'     => 'responsive_fallback_menu',
+						'fallback_cb'     => 'responsive_II_fallback_menu',
 						'theme_location'  => 'header-menu'
 					)
 				); ?>
@@ -103,7 +103,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div id="sub-menu-container" class="container-full-width">
 		<div id="sub-menu" class="container">
 			<nav id="sub-navigation" class="site-navigation" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-			<?php if( has_nav_menu( 'sub-header-menu', 'responsive' ) ) {
+			<?php if( has_nav_menu( 'sub-header-menu', 'responsive-II' ) ) {
 				wp_nav_menu(
 					array(
 						'container'      => '',
@@ -115,7 +115,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</nav><!-- #site-navigation -->
 		</div><!-- #sub-menu -->
 	</div><!-- #sub-menu-container -->
-<?php responsive_wrapper(); // before wrapper container hook ?>
+<?php responsive_II_wrapper(); // before wrapper container hook ?>
 	<div id="wrapper" class="site-content container-full-width">
-<?php responsive_wrapper_top(); // before wrapper content hook ?>
-<?php responsive_in_wrapper(); // wrapper hook ?>
+<?php responsive_II_wrapper_top(); // before wrapper content hook ?>
+<?php responsive_II_in_wrapper(); // wrapper hook ?>

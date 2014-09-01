@@ -19,7 +19,7 @@ if ( !defined( 'ABSPATH' ) ) {
 /*
  * Load the correct sidebar according to the page layout
  */
-$layout = responsive_get_layout();
+$layout = responsive_II_get_layout();
 switch ( $layout ) {
 	case 'content-sidebar-page':
 		get_sidebar( 'right' );
@@ -47,9 +47,9 @@ switch ( $layout ) {
 }
 ?>
 
-<?php responsive_widgets_before(); ?>
+<?php responsive_II_widgets_before(); ?>
 <div id="widgets" class="widget-area default-sidebar" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
-	<?php responsive_widgets(); ?>
+	<?php responsive_II_widgets(); ?>
 	<?php if ( !dynamic_sidebar( 'main-sidebar' ) ) : ?>
 
 		<aside id="archives" class="widget-wrapper">
@@ -60,6 +60,6 @@ switch ( $layout ) {
 		</aside>
 
 	<?php endif; // end sidebar widget area ?>
-	<?php responsive_widgets_end(); ?>
+	<?php responsive_II_widgets_end(); ?>
 </div><!-- #default-sidebar -->
-<?php responsive_widgets_after(); ?>
+<?php responsive_II_widgets_after(); ?>

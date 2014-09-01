@@ -23,10 +23,10 @@ if ( ! defined( 'WPINC' ) ) {
  * Load the plugin from the plugin that is installed.
  *
  */
-function responsive_get_breadcrumb_lists() {
-	$responsive_options = get_option( 'responsive_theme_options' );
+function responsive_II_get_breadcrumb_lists() {
+	$responsive_II_options = get_option( 'responsive_II_theme_options' );
 	$yoast_options = get_option( 'wpseo_internallinks' );
-	if ( 1 == $responsive_options['breadcrumb'] ) {
+	if ( 1 == $responsive_II_options['breadcrumb'] ) {
 		return;
 	} elseif ( function_exists( 'bcn_display' ) ) {
 		bcn_display();
@@ -35,7 +35,7 @@ function responsive_get_breadcrumb_lists() {
 	} elseif ( function_exists( 'yoast_breadcrumb' ) && true === $yoast_options['breadcrumbs-enable'] ) {
 		yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
 	} elseif ( ! is_search() ) {
-		responsive_breadcrumb_lists();
+		responsive_II_breadcrumb_lists();
 	}
 }
 
@@ -46,9 +46,9 @@ function responsive_get_breadcrumb_lists() {
  * Adopted from Dimox
  *
  */
-if ( !function_exists( 'responsive_breadcrumb_lists' ) ) {
+if ( !function_exists( 'responsive_II_breadcrumb_lists' ) ) {
 
-	function responsive_breadcrumb_lists() {
+	function responsive_II_breadcrumb_lists() {
 
 		/* === OPTIONS === */
 		$text['home']     = __( 'Home', 'responsive-II' ); // text for the 'Home' link
@@ -213,13 +213,13 @@ if ( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 		echo $html_output;
 
-	} // end responsive_breadcrumb_lists
+	} // end responsive_II_breadcrumb_lists
 
 }
 
-function responsive_get_social_icons() {
+function responsive_II_get_social_icons() {
 
-	$responsive_options = responsive_get_options();
+	$responsive_II_options = responsive_II_get_options();
 
 	$sites = array (
 		'twitter'      => 'Twitter',
@@ -238,8 +238,8 @@ function responsive_get_social_icons() {
 
 	$html = '<ul class="social-icons">';
 	foreach( $sites as $key => $value ) {
-		if ( !empty( $responsive_options[$key . '_uid'] ) ) {
-			$html .= '<li class="' . esc_attr( $key ) . '-icon"><a href="' . $responsive_options[$key . '_uid'] . '"></a></li>';
+		if ( !empty( $responsive_II_options[$key . '_uid'] ) ) {
+			$html .= '<li class="' . esc_attr( $key ) . '-icon"><a href="' . $responsive_II_options[$key . '_uid'] . '"></a></li>';
 		}
 	}
 	$html .= '</ul><!-- .social-icons -->';
@@ -253,7 +253,7 @@ function responsive_get_social_icons() {
  * Allows user input in the post gallery shortcode.
  *
  */
-function responsive_gallery_atts( $out, $pairs, $atts ) {
+function responsive_II_gallery_atts( $out, $pairs, $atts ) {
 
 	$full_width = is_page_template( 'full-width-page.php' ) || is_page_template( 'landing-page.php' );
 
@@ -338,7 +338,7 @@ function responsive_gallery_atts( $out, $pairs, $atts ) {
 	return $out;
 
 }
-add_filter( 'shortcode_atts_gallery', 'responsive_gallery_atts', 10, 3 );
+add_filter( 'shortcode_atts_gallery', 'responsive_II_gallery_atts', 10, 3 );
 
 /*
  * Create image sizes for the galley

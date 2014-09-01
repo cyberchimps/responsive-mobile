@@ -23,7 +23,7 @@ get_header(); ?>
 	<div id="content-blog" class="content-area">
 			<main id="main" class="site-main" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
 
-				<?php do_action( 'responsive_blog_title' ); ?>
+				<?php do_action( 'responsive_II_blog_title' ); ?>
 				
 				<?php if ( have_posts() ) : ?>
 
@@ -42,7 +42,7 @@ get_header(); ?>
 
 					<?php endwhile; ?>
 
-					<?php responsive_paging_nav(); ?>
+					<?php responsive_II_paging_nav(); ?>
 
 				<?php else : ?>
 

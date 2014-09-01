@@ -23,14 +23,14 @@ get_header(); ?>
 	<div id="content" class="content-area">
 			<main id="main" class="site-main error-page" role="main">
 
-				<?php responsive_entry_before(); ?>
+				<?php responsive_II_entry_before(); ?>
 				<section id="post-0" class="error404 not-found">
-					<?php responsive_entry_top(); ?>
+					<?php responsive_II_entry_top(); ?>
 					<div class="post-entry">
 
 						<?php
 						// Added filter to get custom_404 option working.
-						$custom_404 = apply_filters( 'responsive_custom_404', '' );
+						$custom_404 = apply_filters( 'responsive_II_custom_404', '' );
 						
 						if( $custom_404 )
 							echo $custom_404;
