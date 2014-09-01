@@ -37,7 +37,7 @@ responsive_entry_before(); ?>
 					<?php endif; ?>
 					<?php the_excerpt(); ?>
 					<?php wp_link_pages( array(
-						'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
+						'before' => '<div class="pagination">' . __( 'Pages:', 'responsive-II' ),
 						'after'  => '</div>',
 					) ); ?>
 				</div><!-- .entry-content -->

@@ -37,7 +37,7 @@ if ( ! defined( 'WPINC' ) ) {
 			if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) && $by_line_comments ) : ?>
 				<span class="comments-link">
 					<span class="mdash">&mdash;</span>
-					<?php comments_popup_link( __( 'No Comments &darr;', 'responsive' ), __( '1 Comment &darr;', 'responsive' ), __( '% Comments &darr;', 'responsive' ) ); ?>
+					<?php comments_popup_link( __( 'No Comments &darr;', 'responsive-II' ), __( '1 Comment &darr;', 'responsive-II' ), __( '% Comments &darr;', 'responsive-II' ) ); ?>
 				</span>
 			<?php endif; ?>
 		</div><!-- .post-meta -->

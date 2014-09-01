@@ -39,9 +39,9 @@ add_action( 'after_setup_theme', 'responsive_jetpack_setup' );
 function responsive_jetpack_credit() {
 	$powered_by_text = sprintf(
 		/* Translators: Responsive Theme powered by WordPress */
-		__( '%1$s powered by %2$s', 'responsive' ),
-		'<a href="' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . '">' . __( 'Responsive Theme', 'responsive' ) . '</a>',
-		'<a href="' . esc_url( 'http://wordpress.org/' ) . '">' . __( 'WordPress', 'responsive' ) . '</a>'
+		__( '%1$s powered by %2$s', 'responsive-II' ),
+		'<a href="' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . '">' . __( 'Responsive Theme', 'responsive-II' ) . '</a>',
+		'<a href="' . esc_url( 'http://wordpress.org/' ) . '">' . __( 'WordPress', 'responsive-II' ) . '</a>'
 	);
 	$powered_by_text = apply_filters( 'responsive_powered_by_text', $powered_by_text );
 	return $powered_by_text;

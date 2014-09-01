@@ -27,8 +27,8 @@ function responsive_upgrade_bar() {
 
 	<div class="upgrade-callout">
 		<p><img src="<?php echo get_template_directory_uri(); ?>/core/images/chimp.png" alt="CyberChimps"/>
-			<?php printf( __( 'Welcome to %1$s! Upgrade to %2$s today.', 'responsive' ),
-				'Responsive',
+			<?php printf( __( 'Welcome to %1$s! Upgrade to %2$s today.', 'responsive-II' ),
+				'responsive-II',
 				'<a href="http://cyberchimps.com/store/responsivepro/" target="_blank" title="Responsive Pro">Responsive Pro</a> '
 			); ?>
 		</p>
@@ -65,20 +65,20 @@ function responsive_theme_support() {
 	<div id="info-box-wrapper" class="grid col-940">
 		<div class="info-box notice">
 
-			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/guides/r-free/' ); ?>" title="<?php esc_attr_e( 'Guides', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Instructions', 'responsive' ); ?></a>
+			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/guides/r-free/' ); ?>" title="<?php esc_attr_e( 'Guides', 'responsive-II' ); ?>" target="_blank">
+				<?php _e( 'Instructions', 'responsive-II' ); ?></a>
 
-			<a class="button button-primary" href="<?php echo esc_url( 'http://cyberchimps.com/forum/free/responsive/' ); ?>" title="<?php esc_attr_e( 'Help', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Help', 'responsive' ); ?></a>
+			<a class="button button-primary" href="<?php echo esc_url( 'http://cyberchimps.com/forum/free/responsive/' ); ?>" title="<?php esc_attr_e( 'Help', 'responsive-II' ); ?>" target="_blank">
+				<?php _e( 'Help', 'responsive-II' ); ?></a>
 
-			<a class="button" href="<?php echo esc_url( 'https://webtranslateit.com/en/projects/3598-Responsive-Theme' ); ?>" title="<?php esc_attr_e( 'Translate', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Translate', 'responsive' ); ?></a>
+			<a class="button" href="<?php echo esc_url( 'https://webtranslateit.com/en/projects/3598-Responsive-Theme' ); ?>" title="<?php esc_attr_e( 'Translate', 'responsive-II' ); ?>" target="_blank">
+				<?php _e( 'Translate', 'responsive-II' ); ?></a>
 
-			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/showcase/' ); ?>" title="<?php esc_attr_e( 'Showcase', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Showcase', 'responsive' ); ?></a>
+			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/showcase/' ); ?>" title="<?php esc_attr_e( 'Showcase', 'responsive-II' ); ?>" target="_blank">
+				<?php _e( 'Showcase', 'responsive-II' ); ?></a>
 
-			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/store/' ); ?>" title="<?php esc_attr_e( 'More Themes', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'More Themes', 'responsive' ); ?></a>
+			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/store/' ); ?>" title="<?php esc_attr_e( 'More Themes', 'responsive-II' ); ?>" target="_blank">
+				<?php _e( 'More Themes', 'responsive-II' ); ?></a>
 
 		</div>
 	</div>
@@ -98,9 +98,9 @@ function responsive_front_page_reading_notice() {
 	if ( 'options-reading' == $screen->id ) {
 		$html = '<div class="updated">';
 			if ( 1 == $responsive_options['front_page'] ) {
-				$html .= '<p>' . sprintf( __( 'The Custom Front Page is enabled. You can disable it in the <a href="%1$s">theme settings</a>.', 'responsive' ), admin_url( 'themes.php?page=theme_options' ) ) . '</p>';
+				$html .= '<p>' . sprintf( __( 'The Custom Front Page is enabled. You can disable it in the <a href="%1$s">theme settings</a>.', 'responsive-II' ), admin_url( 'themes.php?page=theme_options' ) ) . '</p>';
 			} else {
-				$html .= '<p>' . sprintf( __( 'The Custom Front Page is disabled. You can enable it in the <a href="%1$s">theme settings</a>.', 'responsive' ), admin_url( 'themes.php?page=theme_options' ) ) . '</p>';
+				$html .= '<p>' . sprintf( __( 'The Custom Front Page is disabled. You can enable it in the <a href="%1$s">theme settings</a>.', 'responsive-II' ), admin_url( 'themes.php?page=theme_options' ) ) . '</p>';
 			}
 		$html .= '</div>';
 		echo $html;
@@ -118,7 +118,7 @@ function responsive_admin_bar_site_menu( $wp_admin_bar ) {
 		$wp_admin_bar->add_menu( array(
 			'parent' => 'appearance',
 			'id'     => 'theme_options',
-			'title'  => __( 'Theme Options', 'responsive' ),
+			'title'  => __( 'Theme Options', 'responsive-II' ),
 			'href'   => admin_url( 'themes.php?page=theme_options' )
 		) );
 	}

@@ -34,7 +34,7 @@ get_header(); ?>
 						<?php responsive_entry_top(); ?>
 						<h1 class="post-title"><?php the_title(); ?></h1>
 
-						<p><?php _e( '&#8249; Return to', 'responsive' ); ?> <a
+						<p><?php _e( '&#8249; Return to', 'responsive-II' ); ?> <a
 								href="<?php echo get_permalink( $post->post_parent ); ?>"
 								rel="gallery"><?php echo get_the_title( $post->post_parent ); ?></a>
 						</p>
@@ -45,7 +45,7 @@ get_header(); ?>
 							<?php if ( comments_open() ) : ?>
 								<span class="comments-link">
 									<span class="mdash">&mdash;</span>
-									<?php comments_popup_link( __( 'No Comments &darr;', 'responsive' ), __( '1 Comment &darr;', 'responsive' ), __( '% Comments &darr;', 'responsive' ) ); ?>
+									<?php comments_popup_link( __( 'No Comments &darr;', 'responsive-II' ), __( '1 Comment &darr;', 'responsive-II' ), __( '% Comments &darr;', 'responsive-II' ) ); ?>
 								</span>
 							<?php endif; ?>
 						</div>
@@ -56,9 +56,9 @@ get_header(); ?>
 							<?php if ( ! empty( $post->post_excerpt ) ) {
 								the_excerpt();
 							} ?>
-							<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
+							<?php the_content( __( 'Read more &#8250;', 'responsive-II' ) ); ?>
 							<?php wp_link_pages( array(
-								'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
+								'before' => '<div class="pagination">' . __( 'Pages:', 'responsive-II' ),
 								'after'  => '</div>'
 							) ); ?>
 						</div><!-- end of .post-entry -->
@@ -70,8 +70,8 @@ get_header(); ?>
 
 						<?php if ( comments_open() ) : ?>
 							<div class="post-data">
-								<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
-								<?php the_category( __( 'Posted in %s', 'responsive' ) . ', ' ); ?>
+								<?php the_tags( __( 'Tagged with:', 'responsive-II' ) . ' ', ', ', '<br />' ); ?>
+								<?php the_category( __( 'Posted in %s', 'responsive-II' ) . ', ' ); ?>
 							</div><!-- end of .post-data -->
 						<?php endif; ?>
 

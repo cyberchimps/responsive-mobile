@@ -22,11 +22,11 @@ if ( ! $next && ! $previous ) {
 }
 ?>
 <nav class="navigation post-navigation" role="navigation">
-	<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'responsive' ); ?></h1>
+	<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'responsive-II' ); ?></h1>
 	<div class="nav-links">
 		<?php
-			previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . __( '&larr;', 'responsive' ) . '</span> %title' );
-			next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . __( '&rarr;', 'responsive' ) . '</span>' );
+			previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . __( '&larr;', 'responsive-II' ) . '</span> %title' );
+			next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . __( '&rarr;', 'responsive-II' ) . '</span>' );
 		?>
 	</div><!-- .nav-links -->
 </nav><!-- .navigation -->

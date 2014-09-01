@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 		<div id="menu-social-container">
 			<nav id="footer-menu-container">
-				<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
+				<?php if ( has_nav_menu( 'footer-menu', 'responsive-II' ) ) {
 					wp_nav_menu(
 						array(
 							'container'      => '',
@@ -67,9 +67,9 @@ if ( ! defined( 'WPINC' ) ) {
 				<?php
 					$powered_by_text = sprintf(
 						/* Translators: Responsive Theme powered by WordPress */
-						__( '%1$s powered by %2$s', 'responsive' ),
-						'<a href="' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . '">' . __( 'Responsive Theme', 'responsive' ) . '</a>',
-						'<a href="' . esc_url( 'http://wordpress.org/' ) . '">' . __( 'WordPress', 'responsive' ) . '</a>'
+						__( '%1$s powered by %2$s', 'responsive-II' ),
+						'<a href="' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . '">' . __( 'Responsive Theme', 'responsive-II' ) . '</a>',
+						'<a href="' . esc_url( 'http://wordpress.org/' ) . '">' . __( 'WordPress', 'responsive-II' ) . '</a>'
 					);
 					$powered_by_text = apply_filters( 'responsive_powered_by_text', $powered_by_text );
 					echo $powered_by_text;
@@ -77,7 +77,7 @@ if ( ! defined( 'WPINC' ) ) {
 			</div><!-- end .powered -->
 
 			<div class="scroll-top">
-				<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a>
+				<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive-II' ); ?>"><?php _e( '&uarr;', 'responsive-II' ); ?></a>
 			</div><!-- .scroll-top -->
 		</div><!-- #footer-base -->
 	</div><!-- #footer-wrapper -->

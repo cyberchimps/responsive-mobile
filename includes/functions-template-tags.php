@@ -31,16 +31,16 @@ if ( !function_exists( 'responsive_paging_nav' ) ) {
 		}
 		?>
 		<nav class="navigation paging-navigation" role="navigation">
-			<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'responsive' ); ?></h1>
+			<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'responsive-II' ); ?></h1>
 
 			<div class="nav-links">
 
 				<?php if ( get_next_posts_link() ) : ?>
-					<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'responsive' ) ); ?></div>
+					<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'responsive-II' ) ); ?></div>
 				<?php endif; ?>
 
 				<?php if ( get_previous_posts_link() ) : ?>
-					<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'responsive' ) ); ?></div>
+					<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'responsive-II' ) ); ?></div>
 				<?php endif; ?>
 
 			</div>
@@ -66,12 +66,12 @@ if ( !function_exists( 'responsive_post_nav' ) ) {
 		}
 		?>
 		<nav class="navigation post-navigation" role="navigation">
-			<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'responsive' ); ?></h1>
+			<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'responsive-II' ); ?></h1>
 
 			<div class="nav-links">
 
-				<div class="nav-previous"><?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'responsive' ) ); ?></div>
-				<div class="nav-next"><?php next_post_link( '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'responsive' ) ); ?></div>
+				<div class="nav-previous"><?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'responsive-II' ) ); ?></div>
+				<div class="nav-next"><?php next_post_link( '%link', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'responsive-II' ) ); ?></div>
 
 			</div>
 			<!-- .nav-links -->
@@ -111,7 +111,7 @@ if ( !function_exists( 'responsive_comment' ) ) {
 
 			<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
 			<div class="comment-body">
-				<?php _e( 'Pingback:', 'responsive' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'responsive' ), '<span class="edit-link">', '</span>' ); ?>
+				<?php _e( 'Pingback:', 'responsive-II' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'responsive-II' ), '<span class="edit-link">', '</span>' ); ?>
 			</div>
 
 		<?php else : ?>
@@ -123,22 +123,22 @@ if ( !function_exists( 'responsive_comment' ) ) {
 						<?php if ( 0 != $args['avatar_size'] ) {
 							echo get_avatar( $comment, $args['avatar_size'] );
 						} ?>
-						<?php printf( __( '%s <span class="says">says:</span>', 'responsive' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+						<?php printf( __( '%s <span class="says">says:</span>', 'responsive-II' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
 					</div>
 					<!-- .comment-author -->
 
 					<div class="comment-metadata">
 						<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 							<time datetime="<?php comment_time( 'c' ); ?>">
-								<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'responsive' ), get_comment_date(), get_comment_time() ); ?>
+								<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'responsive-II' ), get_comment_date(), get_comment_time() ); ?>
 							</time>
 						</a>
-						<?php edit_comment_link( __( 'Edit', 'responsive' ), '<span class="edit-link">', '</span>' ); ?>
+						<?php edit_comment_link( __( 'Edit', 'responsive-II' ), '<span class="edit-link">', '</span>' ); ?>
 					</div>
 					<!-- .comment-metadata -->
 
 					<?php if ( '0' == $comment->comment_approved ) : ?>
-						<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'responsive' ); ?></p>
+						<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'responsive-II' ); ?></p>
 					<?php endif; ?>
 				</footer>
 				<!-- .comment-meta -->
@@ -180,8 +180,8 @@ if ( !function_exists( 'responsive_post_meta_data' ) ) {
 		if( $by_line_date ) {
 			printf(
 				/* Translators: (Posted on )(Date) */
-				__( '%1$s %2$s', 'responsive' ),
-				'<span class="meta-prep meta-prep-author posted">' . __( 'Posted on', 'responsive' ) . ' </span>',
+				__( '%1$s %2$s', 'responsive-II' ),
+				'<span class="meta-prep meta-prep-author posted">' . __( 'Posted on', 'responsive-II' ) . ' </span>',
 				sprintf(
 					'<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" itemprop="datePublished" datetime="%3$s">%4$s</time></a>',
 					esc_url( get_permalink() ),
@@ -197,12 +197,12 @@ if ( !function_exists( 'responsive_post_meta_data' ) ) {
 		if( $by_line_author ) {
 			printf(
 				/* Translators: ( by )(Author) */
-				__( '%1$s %2$s', 'responsive' ),
-				'<span class="byline"> ' . __( 'by', 'responsive' ) . ' </span>',
+				__( '%1$s %2$s', 'responsive-II' ),
+				'<span class="byline"> ' . __( 'by', 'responsive-II' ) . ' </span>',
 				sprintf(
 					'<span class="author vcard" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><a class="url fn n" href="%1$s" title="%2$s" itemprop="url" rel="author"><span itemprop="name">%3$s</span></a></span>',
 					get_author_posts_url( get_the_author_meta( 'ID' ) ),
-					sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
+					sprintf( esc_attr__( 'View all posts by %s', 'responsive-II' ), get_the_author() ),
 					esc_attr( get_the_author() )
 				)
 			);
@@ -227,7 +227,7 @@ if ( !function_exists( 'responsive_posted_on' ) ) {
 								esc_html( get_the_modified_date() )
 		);
 
-		printf( __( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'responsive' ),
+		printf( __( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'responsive-II' ),
 				sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
 						 esc_url( get_permalink() ),
 						 $time_string
@@ -286,46 +286,46 @@ if ( !function_exists( 'responsive_archive_title' ) ) {
 			$archive_title = single_tag_title( "", false );
 
 		} elseif ( is_author() ) {
-			$archive_title = sprintf( __( 'Author: %s', 'responsive' ), '<span class="vcard">' . get_the_author() . '</span>' );
+			$archive_title = sprintf( __( 'Author: %s', 'responsive-II' ), '<span class="vcard">' . get_the_author() . '</span>' );
 
 		} elseif ( is_day() ) {
-			$archive_title = sprintf( __( 'Daily Archives: %s', 'responsive' ), '<span>' . get_the_date() . '</span>' );
+			$archive_title = sprintf( __( 'Daily Archives: %s', 'responsive-II' ), '<span>' . get_the_date() . '</span>' );
 
 		} elseif ( is_month() ) {
-			$archive_title = sprintf( __( 'Monthly Archives: %s', 'responsive' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'responsive' ) ) . '</span>' );
+			$archive_title = sprintf( __( 'Monthly Archives: %s', 'responsive-II' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'responsive-II' ) ) . '</span>' );
 
 		} elseif ( is_year() ) {
-			$archive_title = sprintf( __( 'Yearly Archives: %s', 'responsive' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'responsive' ) ) . '</span>' );
+			$archive_title = sprintf( __( 'Yearly Archives: %s', 'responsive-II' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'responsive-II' ) ) . '</span>' );
 
 		} elseif ( is_tax( 'post_format', 'post-format-aside' ) ) {
-			$archive_title = __( 'Asides', 'responsive' );
+			$archive_title = __( 'Asides', 'responsive-II' );
 
 		} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-			$archive_title = __( 'Galleries', 'responsive' );
+			$archive_title = __( 'Galleries', 'responsive-II' );
 
 		} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-			$archive_title = __( 'Images', 'responsive' );
+			$archive_title = __( 'Images', 'responsive-II' );
 
 		} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-			$archive_title = __( 'Videos', 'responsive' );
+			$archive_title = __( 'Videos', 'responsive-II' );
 
 		} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-			$archive_title = __( 'Quotes', 'responsive' );
+			$archive_title = __( 'Quotes', 'responsive-II' );
 
 		} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-			$archive_title = __( 'Links', 'responsive' );
+			$archive_title = __( 'Links', 'responsive-II' );
 
 		} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-			$archive_title = __( 'Statuses', 'responsive' );
+			$archive_title = __( 'Statuses', 'responsive-II' );
 
 		} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-			$archive_title = __( 'Audios', 'responsive' );
+			$archive_title = __( 'Audios', 'responsive-II' );
 
 		} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-			$archive_title = __( 'Chats', 'responsive' );
+			$archive_title = __( 'Chats', 'responsive-II' );
 
 		} else {
-			$archive_title = __( 'Archives', 'responsive' );
+			$archive_title = __( 'Archives', 'responsive-II' );
 
 		}
 
@@ -343,7 +343,7 @@ if ( !function_exists( 'responsive_archive_title' ) ) {
  */
 function responsive_menu_title( $display = true ) {
 
-	$page_title = __( 'Menu', 'responsive' );
+	$page_title = __( 'Menu', 'responsive-II' );
 
 	$page_title = apply_filters( 'responsive_menu_title', $page_title );
 

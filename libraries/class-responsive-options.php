@@ -46,7 +46,7 @@ Class Responsive_Options {
 		self::$static_responsive_options = $this->responsive_options;
 		self::$static_default_options    = $this->default_options;
 
-		$this->attributes['onclick'] = 'return confirm("' . __( 'Do you want to restore the default settings?', 'responsive' ) . __( 'All theme settings will be lost!', 'responsive' ) . __( 'Click OK to restore.', 'responsive' ) . '")';
+		$this->attributes['onclick'] = 'return confirm("' . __( 'Do you want to restore the default settings?', 'responsive-II' ) . __( 'All theme settings will be lost!', 'responsive-II' ) . __( 'Click OK to restore.', 'responsive-II' ) . '")';
 
 		add_action( 'admin_print_styles-appearance_page_theme_options', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'admin_init', array( $this, 'theme_options_init' ) );
@@ -59,8 +59,8 @@ Class Responsive_Options {
 	public function theme_page_init() {
 		// Register the page
 		add_theme_page(
-			__( 'Theme Options', 'responsive' ),
-			__( 'Theme Options', 'responsive' ),
+			__( 'Theme Options', 'responsive-II' ),
+			__( 'Theme Options', 'responsive-II' ),
 			'edit_theme_options',
 			'theme_options',
 			array( $this, 'theme_options_do_page' )
@@ -110,11 +110,11 @@ Class Responsive_Options {
 			?>
 			<?php $theme_name = function_exists( 'wp_get_theme' ) ? wp_get_theme() : get_current_theme(); ?>
 			<?php screen_icon();
-			echo "<h2>" . $theme_name . " " . __( 'Theme Options', 'responsive' ) . "</h2>"; ?>
+			echo "<h2>" . $theme_name . " " . __( 'Theme Options', 'responsive-II' ) . "</h2>"; ?>
 
 
 			<?php if ( false !== $_REQUEST['settings-updated'] ) : ?>
-				<div class="updated fade"><p><strong><?php _e( 'Options Saved', 'responsive' ); ?></strong></p></div>
+				<div class="updated fade"><p><strong><?php _e( 'Options Saved', 'responsive-II' ); ?></strong></p></div>
 			<?php endif; ?>
 
 			<?php responsive_theme_options(); // Theme Options Hook ?>
@@ -390,7 +390,7 @@ Class Responsive_Options {
 	 * @return string
 	 */
 	protected function save() {
-		$html = '<div class="col-md-12"><p class="submit">' . get_submit_button( __( 'Save Options', 'responsive' ), 'primary', 'responsive_theme_options[submit]', false ) . ' ' . get_submit_button( __( 'Restore Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false, $this->attributes ) . ' <a href="http://cyberchimps.com/store/responsivepro/" class="button upgrade">' . __( 'Upgrade', 'responsive' ) . '</a></p></div>';
+		$html = '<div class="col-md-12"><p class="submit">' . get_submit_button( __( 'Save Options', 'responsive-II' ), 'primary', 'responsive_theme_options[submit]', false ) . ' ' . get_submit_button( __( 'Restore Defaults', 'responsive-II' ), 'secondary', 'responsive_theme_options[reset]', false, $this->attributes ) . ' <a href="http://cyberchimps.com/store/responsivepro/" class="button upgrade">' . __( 'Upgrade', 'responsive-II' ) . '</a></p></div>';
 
 		return $html;
 
@@ -556,12 +556,12 @@ Class Responsive_Options {
 
 				// make sure $try is set with the unserialized data
 				if( $try ) {
-					add_settings_error( 'responsive_theme_options', 'imported_success', __( 'Options Imported', 'responsive' ), 'updated fade' );
+					add_settings_error( 'responsive_theme_options', 'imported_success', __( 'Options Imported', 'responsive-II' ), 'updated fade' );
 
 					return $try;
 				}
 				else {
-					add_settings_error( 'responsive_theme_options', 'imported_failed', __( 'Invalid Data for Import', 'responsive' ), 'error fade' );
+					add_settings_error( 'responsive_theme_options', 'imported_failed', __( 'Invalid Data for Import', 'responsive-II' ), 'error fade' );
 				}
 			}
 		}
@@ -579,12 +579,12 @@ Class Responsive_Options {
 
 					// make sure $try is set with the unserialized data
 					if( $try ) {
-						add_settings_error( 'responsive_theme_options', 'imported_success', __( 'Options Imported', 'responsive' ), 'updated fade' );
+						add_settings_error( 'responsive_theme_options', 'imported_success', __( 'Options Imported', 'responsive-II' ), 'updated fade' );
 
 						return $try;
 					}
 					else {
-						add_settings_error( 'responsive_theme_options', 'imported_failed', __( 'Invalid Data for Import', 'responsive' ), 'error fade' );
+						add_settings_error( 'responsive_theme_options', 'imported_failed', __( 'Invalid Data for Import', 'responsive-II' ), 'error fade' );
 					}
 				}
 			}

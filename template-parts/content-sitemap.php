@@ -24,28 +24,28 @@ responsive_entry_before(); ?>
 			<div class="widget-area sitemap-sidebar">
 
 				<div class="sitemap-widget widget_categories">
-					<div class="widget-title"><h3><?php _e( 'Categories', 'responsive' ); ?></h3></div>
+					<div class="widget-title"><h3><?php _e( 'Categories', 'responsive-II' ); ?></h3></div>
 					<ul><?php wp_list_categories( 'sort_column=name&optioncount=1&hierarchical=0&title_li=' ); ?></ul>
 				</div><!-- .sitemap-widget -->
 
 				<div class="sitemap-widget widget_recent_entries">
-					<div class="widget-title"><h3><?php _e( 'Latest Posts', 'responsive' ); ?></h3></div>
+					<div class="widget-title"><h3><?php _e( 'Latest Posts', 'responsive-II' ); ?></h3></div>
 					<ul><?php $archive_query = new WP_Query( 'posts_per_page=-1' );
 						while( $archive_query->have_posts() ) : $archive_query->the_post(); ?>
 							<li>
-								<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf( __( 'Permanent Link to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
+								<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf( __( 'Permanent Link to %s', 'responsive-II' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
 							</li>
 						<?php endwhile; ?>
 					</ul>
 				</div><!-- .sitemap-widget -->
 
 				<div class="sitemap-widget widget_pages">
-					<div class="widget-title"><h3><?php _e( 'Pages', 'responsive' ); ?></h3></div>
+					<div class="widget-title"><h3><?php _e( 'Pages', 'responsive-II' ); ?></h3></div>
 					<ul><?php wp_list_pages( "title_li=" ); ?></ul>
 				</div><!-- .sitemap-widget -->
 
 			</div><!-- end of .sitemap-widgets -->
-			<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
+			<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive-II' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .post-entry -->
 
 		<?php responsive_entry_bottom(); ?>

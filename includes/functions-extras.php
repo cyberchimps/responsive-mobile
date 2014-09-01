@@ -68,7 +68,7 @@ function responsive_wp_title( $title, $sep ) {
 
 	// Add a page number if necessary:
 	if ( $paged >= 2 || $page >= 2 ) {
-		$title .= " $sep " . sprintf( __( 'Page %s', 'responsive' ), max( $paged, $page ) );
+		$title .= " $sep " . sprintf( __( 'Page %s', 'responsive-II' ), max( $paged, $page ) );
 	}
 
 	return $title;
@@ -102,7 +102,7 @@ if( !function_exists( 'responsive_wp_title' ) && !defined( 'AIOSEOP_VERSION' ) )
 
 		// Add a page number if necessary.
 		if( $paged >= 2 || $page >= 2 ) {
-			$title .= " $sep " . sprintf( __( 'Page %s', 'responsive' ), max( $paged, $page ) );
+			$title .= " $sep " . sprintf( __( 'Page %s', 'responsive-II' ), max( $paged, $page ) );
 		}
 
 		return $title;
@@ -181,7 +181,7 @@ add_filter( 'excerpt_length', 'responsive_excerpt_length' );
  * Returns a "Read more" link for excerpts
  */
 function responsive_read_more() {
-	return sprintf( __( 'Read more %s', 'responsive' ), '<span class="screen-reader-text">' . get_the_title() . '</span><span class="meta-nav"> &#8250;</span>' );
+	return sprintf( __( 'Read more %s', 'responsive-II' ), '<span class="screen-reader-text">' . get_the_title() . '</span><span class="meta-nav"> &#8250;</span>' );
 }
 
 /**

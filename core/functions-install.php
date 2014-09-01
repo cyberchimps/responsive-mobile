@@ -32,10 +32,10 @@ function responsive_activation_notice() {
 		} else {
 			$return .= sprintf( __( '%s activated successfully.' ), $my_theme->get( 'Name' ) );
 		}
-		$return .= '</strong> <a href="' . home_url( '/' ) . '">' . __( 'Visit site', 'responsive' ) . '</a></p>';
-		//$return .= '<p><a class="button button-primary customize load-customize" href="' . admin_url( 'customize.php?theme=' . get_stylesheet() ) . '">' . __( 'Customize', 'responsive' ) . '</a>';
-		$return .= ' <a class="button button-primary theme-options" href="' . admin_url( 'themes.php?page=theme_options' ) . '">' . __( 'Theme Options', 'responsive' ) . '</a>';
-		$return .= ' <a class="button button-primary help" href="https://cyberchimps.com/forum/free/responsive/">' . __( 'Help', 'responsive' ) . '</a>';
+		$return .= '</strong> <a href="' . home_url( '/' ) . '">' . __( 'Visit site', 'responsive-II' ) . '</a></p>';
+		//$return .= '<p><a class="button button-primary customize load-customize" href="' . admin_url( 'customize.php?theme=' . get_stylesheet() ) . '">' . __( 'Customize', 'responsive-II' ) . '</a>';
+		$return .= ' <a class="button button-primary theme-options" href="' . admin_url( 'themes.php?page=theme_options' ) . '">' . __( 'Theme Options', 'responsive-II' ) . '</a>';
+		$return .= ' <a class="button button-primary help" href="https://cyberchimps.com/forum/free/responsive/">' . __( 'Help', 'responsive-II' ) . '</a>';
 		$return .= '</p></div>';
 		echo $return;
 	}
@@ -113,7 +113,7 @@ function responsive_plugin_notice() {
 
 		// Initialise plugin suggestion text.
 		$msg = '';
-		$msg .= '<div class="updated"><p>' . __( 'This theme recommends the following plugins:', 'responsive' ) . '</br><strong>';
+		$msg .= '<div class="updated"><p>' . __( 'This theme recommends the following plugins:', 'responsive-II' ) . '</br><strong>';
 
 		// Loop through each plugin.
 		foreach( $plugins as $plugin ) {
@@ -126,22 +126,22 @@ function responsive_plugin_notice() {
 
 			// Check if the plugin is allready installed then show link to Activate it.
 			if ( $plugin_object->check() ) {
-				$msg .= ' | <a href="' . $plugin_object->activate_link() . '">' . __( 'Activate', 'responsive' ) . '</a>,</br>';
+				$msg .= ' | <a href="' . $plugin_object->activate_link() . '">' . __( 'Activate', 'responsive-II' ) . '</a>,</br>';
 			}
 
 			// Otherwise if it is not installed, but the install link is availble then show link to install it.
 			elseif ( $install_link = $plugin_object->install_link() ) {
-				$msg .= ' | <a href="' . $install_link . '">' .  __( 'Install', 'responsive' ) . '</a>,</br>';
+				$msg .= ' | <a href="' . $install_link . '">' .  __( 'Install', 'responsive-II' ) . '</a>,</br>';
 			}
 
 			// If the install link is not availble then display message to install manually.
 			else {
-				$msg .= sprintf( __( '%s is not installed. Please install this plugin manually.', 'responsive' ), $plugin['name'] ) . '</br>';
+				$msg .= sprintf( __( '%s is not installed. Please install this plugin manually.', 'responsive-II' ), $plugin['name'] ) . '</br>';
 			}
 		} // End of the plugin loop.
 
 		// Show link to Hide the Notice.
-		$msg .= '</strong><a href="?responsive_ignore_notice=true">' . __( 'Hide Notice', 'responsive' ) . '</a></p></div>';
+		$msg .= '</strong><a href="?responsive_ignore_notice=true">' . __( 'Hide Notice', 'responsive-II' ) . '</a></p></div>';
 
 		echo $msg;
 	}

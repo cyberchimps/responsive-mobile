@@ -25,7 +25,7 @@ responsive_widgets_before(); // above widgets container hook ?>
 		<?php if( !dynamic_sidebar( 'left-sidebar' ) ) : ?>
 			<aside id="archives" class="widget-wrapper">
 
-				<h1 class="widget-title"><?php _e( 'In Archive', 'responsive' ); ?></h1>
+				<h1 class="widget-title"><?php _e( 'In Archive', 'responsive-II' ); ?></h1>
 				<ul>
 					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 				</ul>

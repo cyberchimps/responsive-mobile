@@ -26,7 +26,7 @@ if ( ! defined( 'WPINC' ) ) {
 	<div class="post-entry">
 		<?php the_content(); ?>
 		<?php wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'responsive' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'responsive-II' ),
 				'after'  => '</div>',
 		) ); ?>
 		<?php get_template_part( 'template-parts/post-data' ); ?>

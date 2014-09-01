@@ -101,7 +101,7 @@ function responsive_add_layout_meta_box( $post ) {
 
 	add_meta_box(
 		'responsive_layout',
-		__( 'Layout', 'responsive' ),
+		__( 'Layout', 'responsive-II' ),
 		'responsive_layout_meta_box',
 		'post',
 		$context,

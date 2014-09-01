@@ -28,7 +28,7 @@ if ( ! defined( 'WPINC' ) ) {
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
+				'before' => '<div class="pagination">' . __( 'Pages:', 'responsive-II' ),
 				'after'  => '</div>',
 			) );
 		?>

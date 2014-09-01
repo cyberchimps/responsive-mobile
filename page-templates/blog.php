@@ -59,13 +59,13 @@ get_header(); ?>
 				<?php if ( $blog_query->max_num_pages > 1 ) :
 					?>
 					<nav class="navigation paging-navigation" role="navigation">
-						<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'responsive' ); ?></h1>
+						<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'responsive-II' ); ?></h1>
 
 						<div class="nav-links">
 
-							<div class="nav-previous"><?php next_posts_link( __( '&#8249; Older posts', 'responsive' ), $blog_query->max_num_pages ); ?></div>
+							<div class="nav-previous"><?php next_posts_link( __( '&#8249; Older posts', 'responsive-II' ), $blog_query->max_num_pages ); ?></div>
 
-							<div class="nav-next"><?php previous_posts_link( __( 'Newer posts &#8250;', 'responsive' ), $blog_query->max_num_pages ); ?></div>
+							<div class="nav-next"><?php previous_posts_link( __( 'Newer posts &#8250;', 'responsive-II' ), $blog_query->max_num_pages ); ?></div>
 
 						</div><!-- .nav-links -->
 					</nav><!-- .navigation -->

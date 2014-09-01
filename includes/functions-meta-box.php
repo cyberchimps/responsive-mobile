@@ -28,7 +28,7 @@ if( is_admin() ) {
 			'type'  => 'checkbox',
 			'id'    => 'cyberchimps_page_title_toggle',
 			'class' => 'checkbox',
-			'name'  => __( 'Page Title', 'responsive' ),
+			'name'  => __( 'Page Title', 'responsive-II' ),
 			'std'   => 1
 		),
 
@@ -39,7 +39,7 @@ if( is_admin() ) {
 	 */
 	$config = array(
 		'id'             => 'cyberchimps_page_options', // meta box id, unique per meta box
-		'title'          => __( 'Page Options', 'responsive' ), // meta box title
+		'title'          => __( 'Page Options', 'responsive-II' ), // meta box title
 		'pages'          => array( 'page' ), // post types, accept custom post types as well, default is array('post'); optional
 		'context'        => 'normal', // where the meta box appear: normal (default), advanced, side; optional
 		'priority'       => 'high', // order of meta box: high (default), low; optional

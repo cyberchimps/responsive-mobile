@@ -23,20 +23,20 @@ if ( ! defined( 'WPINC' ) ) {
 	<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
 		<?php
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( __( ', ', 'responsive' ) );
+			$categories_list = get_the_category_list( __( ', ', 'responsive-II' ) );
 			
 			// Added filter to get by_line_categories toggle option working.
 			$by_line_categories = apply_filters( 'responsive_by_line_categories', 1 );
 			if ( $categories_list && responsive_categorized_blog() && $by_line_categories ) :
 		?>
 		<span class="cat-links">
-			<?php printf( __( 'Posted in %1$s', 'responsive' ), $categories_list ); ?>
+			<?php printf( __( 'Posted in %1$s', 'responsive-II' ), $categories_list ); ?>
 		</span><br/>
 		<?php endif; // End if categories ?>
 
 		<?php
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', __( ', ', 'responsive' ) );
+			$tags_list = get_the_tag_list( '', __( ', ', 'responsive-II' ) );
 			
 			// Added filter to get by_line_tag option working.
 			$by_line_tag = apply_filters( 'responsive_by_line_tag', '1' );
@@ -44,12 +44,12 @@ if ( ! defined( 'WPINC' ) ) {
 			if ( $tags_list && $by_line_tag ) :
 		?>
 		<span class="tags-links">
-			<?php printf( __( 'Tagged with %1$s', 'responsive' ), $tags_list ); ?>
+			<?php printf( __( 'Tagged with %1$s', 'responsive-II' ), $tags_list ); ?>
 		</span>
 		<?php endif; // End if $tags_list ?>
 	<?php endif; // End if 'post' == get_post_type() ?>
 
 	<div class="entry-meta">
-		<?php edit_post_link( __( 'Edit', 'responsive' ), '<span class="post-edit">', '</span>' ); ?>
+		<?php edit_post_link( __( 'Edit', 'responsive-II' ), '<span class="post-edit">', '</span>' ); ?>
 	</div><!-- .entry-meta -->
 </footer><!-- .post-data -->

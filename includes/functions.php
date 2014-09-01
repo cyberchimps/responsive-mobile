@@ -43,7 +43,7 @@ function responsive_setup() {
 	 * then from the child theme and then lastly from the parent theme.
 	 * @link http://codex.wordpress.org/Function_Reference/load_theme_textdomain
 	 */
-	$domain = 'responsive';
+	$domain = 'responsive-II';
 
 	load_theme_textdomain( $domain, WP_LANG_DIR . '/responsive/' );
 	load_theme_textdomain( $domain, get_stylesheet_directory() . '/languages/' );
@@ -75,10 +75,10 @@ function responsive_setup() {
 	 * @see http://codex.wordpress.org/Function_Reference/register_nav_menus
 	 */
 	register_nav_menus( array(
-		'top-menu'        => __( 'Top Menu', 'responsive' ),
-		'header-menu'     => __( 'Header Menu', 'responsive' ),
-		'sub-header-menu' => __( 'Sub-Header Menu', 'responsive' ),
-		'footer-menu'     => __( 'Footer Menu', 'responsive' )
+		'top-menu'        => __( 'Top Menu', 'responsive-II' ),
+		'header-menu'     => __( 'Header Menu', 'responsive-II' ),
+		'sub-header-menu' => __( 'Sub-Header Menu', 'responsive-II' ),
+		'footer-menu'     => __( 'Footer Menu', 'responsive-II' )
 	) );
 
 	// Enable support for HTML5 markup.
@@ -158,7 +158,7 @@ add_action( 'wp_enqueue_scripts', 'responsive_js' );
  */
 function responsive_css() {
 
-	$responsive             = wp_get_theme( 'responsive' );
+	$responsive             = wp_get_theme( 'responsive-II' );
 	$responsive_options     = responsive_get_options();
 	$template_directory_uri = get_template_directory_uri();
 	$rtl                    = ( is_rtl() ) ? '-rtl' : '';

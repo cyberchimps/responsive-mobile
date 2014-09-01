@@ -46,6 +46,6 @@ if( is_category() || is_tag() || is_author() || is_date() ) : ?>
  */
 if( is_search() ) : ?>
 	<header class="page-header">
-		<h1 class="page-title title-search-results"><?php printf( __( 'Search Results for: %s', 'responsive' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+		<h1 class="page-title title-search-results"><?php printf( __( 'Search Results for: %s', 'responsive-II' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 	</header><!-- .page-header -->
 <?php endif;

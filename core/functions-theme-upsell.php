@@ -26,8 +26,8 @@ function cyberchimps_upsell_style() {
 // Add upsell page to the menu.
 function cyberchimps_add_upsell() {
 	$page = add_theme_page(
-		__( 'More Themes', 'responsive' ),
-		__( 'More Themes', 'responsive' ),
+		__( 'More Themes', 'responsive-II' ),
+		__( 'More Themes', 'responsive-II' ),
 		'administrator',
 		'cyberchimps-themes',
 		'cyberchimps_display_upsell'
@@ -54,7 +54,7 @@ function cyberchimps_display_upsell() {
 							</a>
 						</h2>
 
-						<h3><?php _e( 'Themes You Can Trust', 'responsive' ); ?></h3>
+						<h3><?php _e( 'Themes You Can Trust', 'responsive-II' ); ?></h3>
 					</div>
 				</div>
 
@@ -89,7 +89,7 @@ function cyberchimps_display_upsell() {
 									</div>
 								</div>
 								<div class="theme-details active">
-									<span class="theme-name"><?php echo $theme->name . ':' . __( 'Current theme', 'responsive' ); ?></span>
+									<span class="theme-name"><?php echo $theme->name . ':' . __( 'Current theme', 'responsive-II' ); ?></span>
 									<a class="button button-secondary customize right" target="_blank" href="<?php echo get_site_url(). '/wp-admin/customize.php' ?>">Customize</a>
 								</div>
 							</div>
@@ -135,7 +135,7 @@ function cyberchimps_display_upsell() {
 									<?php if( wp_get_theme( $theme->slug )->exists() ) { ?>
 
 										<!-- Show the tick image notifying the theme is already installed. -->
-										<img data-toggle="tooltip" title="<?php _e( 'Already installed', 'responsive' ); ?>" data-placement="bottom" class="theme-exists" src="<?php echo $directory_uri ?>/core/images/tick.png"/>
+										<img data-toggle="tooltip" title="<?php _e( 'Already installed', 'responsive-II' ); ?>" data-placement="bottom" class="theme-exists" src="<?php echo $directory_uri ?>/core/images/tick.png"/>
 
 										<!-- Activate Button -->
 										<a  class="button button-primary activate right"
@@ -150,11 +150,11 @@ function cyberchimps_display_upsell() {
 											), self_admin_url( 'update.php' ) );
 									?>
 										<!-- Install Button -->
-										<a data-toggle="tooltip" data-placement="bottom" title="<?php echo 'Downloaded ' . number_format( $theme_details->downloaded ) . ' times'; ?>" class="button button-primary install right" href="<?php echo esc_url( wp_nonce_url( $install_url, 'install-theme_' . $theme->slug ) ); ?>" ><?php _e( 'Install Now', 'responsive' ); ?></a>
+										<a data-toggle="tooltip" data-placement="bottom" title="<?php echo 'Downloaded ' . number_format( $theme_details->downloaded ) . ' times'; ?>" class="button button-primary install right" href="<?php echo esc_url( wp_nonce_url( $install_url, 'install-theme_' . $theme->slug ) ); ?>" ><?php _e( 'Install Now', 'responsive-II' ); ?></a>
 									<?php } ?>
 
 									<!-- Preview button -->
-									<a class="button button-secondary preview right" target="_blank" href="<?php echo $theme->preview_url; ?>"><?php _e( 'Live Preview', 'responsive' ); ?></a>
+									<a class="button button-secondary preview right" target="_blank" href="<?php echo $theme->preview_url; ?>"><?php _e( 'Live Preview', 'responsive-II' ); ?></a>
 								</div>
 							</div>
 							<?php
