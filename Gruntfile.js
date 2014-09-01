@@ -103,6 +103,20 @@ module.exports = function(grunt) {
 			}
 		},
 
+		cssjanus: {
+			style: {
+				options: {
+					swapLtrRtlInUrl: false,
+					swapLeftRightInUrl: false
+				},
+				expand: true,
+				ext: '-rtl.css',
+				src: [
+					'css/style.css',
+				]
+			},
+		},
+
 		cssmin: {
 			front: {
 				expand: true,
@@ -246,7 +260,7 @@ module.exports = function(grunt) {
 
 	// Default task(s).
 	grunt.registerTask( 'build', [ 'clean', 'copy', 'compress' ] );
-	grunt.registerTask( 'css', [ 'sass', 'cssflip', 'cssmin' ] );
+	grunt.registerTask( 'css', [ 'sass', 'cssjanus', 'cssmin' ] );
 	grunt.registerTask( 'js', [ 'concat', 'uglify' ] );
 	grunt.registerTask( 'i18n', [ 'checktextdomain', 'makepot', 'exec', 'po2mo' ] );
 
