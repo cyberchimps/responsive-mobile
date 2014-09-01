@@ -81,6 +81,8 @@
 
 /*!
  * Mobile Menu
+ *
+ * GPL V2 License (c) CyberChimps
  */
 (function ($) {
     var obj = {
@@ -91,7 +93,7 @@
 
     };
 
-    $("#main-navigation").on("click", obj.onClick);
+    $("button#mobile-nav-button").on("click", obj.onClick);
 })(jQuery);
 
 /*! http://mths.be/placeholder v2.0.7 by @mathias */
@@ -1149,6 +1151,11 @@
 
   return Response;
 }));
+/*!
+ * Move focus in Internet Explorer and Chrome
+ *
+ * GPL V2+ License (C) 2012-2014 Automattic, Inc.
+ */
 ( function() {
 	var is_webkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,
 	    is_opera  = navigator.userAgent.toLowerCase().indexOf( 'opera' )  > -1,
@@ -1171,6 +1178,8 @@
 
 /**
  * jQuery Scroll Top Plugin 1.0.0
+ *
+ * GPL V2 License (c) CyberChimps
  */
 jQuery(document).ready(function ($) {
 	$('a[href=#scroll-top]').click(function () {
