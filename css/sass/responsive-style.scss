@@ -38,7 +38,7 @@
 
 body {
 	word-wrap: break-word;
-	background: #efefef;
+	background: #fff;
 }
 
 li {
@@ -69,11 +69,6 @@ li {
 .home-widgets {
 	margin-right: auto;
 	margin-left: auto;
-}
-
-.home-widgets,
-#featured-area {
-	@extend .container;
 }
 
 /*--------------------------------------------------------------
@@ -259,7 +254,7 @@ li {
 
 // TODO these styles need checking
 #sub-menu-container {
-	background-color: #fff;
+	background-color: $gray-light;
 }
 
 #sub-navigation {
@@ -279,11 +274,11 @@ li {
 			padding: 0;
 			list-style: none;
 			a {
-				//color: ;
+				color: #fff;
 				text-decoration: none;
 				line-height: 3em;
 				&:hover {
-					//color: ;
+					color: #fff;
 				}
 			}
 		}
@@ -314,10 +309,10 @@ li {
 				}
 				a {
 					margin: 13px;
-					//color: ;
+					color: #fff;
 					&:hover {
 						text-decoration: none;
-						//color: ;
+						color: #fff;
 					}
 				}
 				> ul {
@@ -326,7 +321,7 @@ li {
 					width: auto;
 					min-width: 200px;
 					padding: 0;
-					background-color: #fff;
+					background-color: $gray-light;
 				}
 				ul {
 					display: none;
@@ -349,14 +344,33 @@ li {
 
 #footer-menu-container {
 	.footer-menu {
-		padding: 0;
 		@media (min-width: $screen-md-min) {
 			float: left;
 		}
+		margin: 0;
+		padding: 0;
 		li {
-			display: inline-block;
-			margin-right: 10px;
+			float: left;
+			margin-left: 10px;
 			list-style: none;
+			&:after {
+				content: '|';
+				color: $gray-light;
+				font-weight: 100;
+				margin-left: 10px;
+			}
+			&:last-child:after {
+				margin-left: 0;
+				content: '';
+			}
+			a {
+				text-decoration: none;
+				color: $gray-lighter;
+				font-size: 0.8em;
+				&:hover {
+					color: $link-color;
+				}
+			}
 		}
 	}
 }
@@ -375,12 +389,12 @@ li {
 }
 
 #site-branding {
-	@include make-md-column(6);
+	@include make-md-column(8);
 }
 
 #secondary-header {
-	@include make-md-column(6);
-  text-align: right;
+	@include make-md-column(4);
+	text-align: right;
 }
 
 /*--------------------------------------------------------------
@@ -389,11 +403,15 @@ li {
 
 .content-area {
 	@include clearfix();
-	margin: 20px 0;
+	@extend .container;
 	padding: 15px;
 	background: #fff;
 	.front-page & {
+		width: 100%;
 		padding: 0;
+		background: #0079C0;
+		margin: 0;
+		color: #fff;
 	}
 }
 
@@ -406,12 +424,12 @@ main {
 --------------------------------------------------------------*/
 
 #featured-area {
-	background: #fff;
+	@extend .container;
 }
 
 main #featured-content {
 	@include make-md-column(6);
-	padding: 30px;
+	padding: 40px 30px;
 	h1, h2, p {
 		text-align: center;
 	}
@@ -420,7 +438,7 @@ main #featured-content {
 		text-align: center;
 		margin-top: 30px;
 		.cta-button {
-			@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+			@include button-variant($btn-cta-color, $btn-cta-bg, $btn-cta-border);
 			@include button-size($padding-xlarge-vertical, $padding-xlarge-horizontal, $font-size-xlarge, $line-height-xlarge, $border-radius-base);
 			&:hover {
 				text-decoration: none;
@@ -436,8 +454,8 @@ main #featured-image {
 .home-widget {
 	@include make-md-column(4);
 	.widget-wrapper {
-		background: #fff;
 		.widget-title-home {
+			text-align: center;
 			margin-top: 0;
 		}
 	}
@@ -763,7 +781,8 @@ main#main {
 //* Home sidebar ===================*/
 
 .home-widgets {
-	@include make-row();
+	@extend .container;
+	margin-top: 40px;
 }
 
 //* Left sidebar ===================*/
@@ -844,6 +863,10 @@ main#main {
 
 .sitemap .sitemap-widget {
 	@include make-md-column(4);
+}
+
+.widget_search {
+	margin-top: 40px;
 }
 
 .search-form {
@@ -941,7 +964,7 @@ main#main {
 		list-style: none;
 		margin-left: 5px;
 		a {
-			color: $gray-light;
+			color: #fff;
 			display: block;
 			width: 24px;
 			height: 24px;
@@ -951,37 +974,37 @@ main#main {
 			}
 		}
 		&.facebook-icon a:before {
-			@include fa_icon($fa-var-facebook);
+			@include fa_icon($fa-var-facebook, #fff);
 		}
 		&.foursquare-icon a:before {
-			@include fa_icon($fa-var-foursquare);
+			@include fa_icon($fa-var-foursquare, #fff);
 		}
 		&.googleplus-icon a:before {
-			@include fa_icon($fa-var-google-plus);
+			@include fa_icon($fa-var-google-plus, #fff);
 		}
 		&.instagram-icon a:before {
-			@include fa_icon($fa-var-instagram);
+			@include fa_icon($fa-var-instagram, #fff);
 		}
 		&.linkedin-icon a:before {
-			@include fa_icon($fa-var-linkedin);
+			@include fa_icon($fa-var-linkedin, #fff);
 		}
 		&.pinterest-icon a:before {
-			@include fa_icon($fa-var-pinterest);
+			@include fa_icon($fa-var-pinterest, #fff);
 		}
 		&.rss-icon a:before {
-			@include fa_icon($fa-var-rss);
+			@include fa_icon($fa-var-rss, #fff);
 		}
 		&.stumbleupon-icon a:before {
-			@include fa_icon($fa-var-stumbleupon);
+			@include fa_icon($fa-var-stumbleupon, #fff);
 		}
 		&.twitter-icon a:before {
-			@include fa_icon($fa-var-twitter);
+			@include fa_icon($fa-var-twitter, #fff);
 		}
 		&.vimeo-icon a:before {
-			@include fa_icon($fa-var-vimeo-square);
+			@include fa_icon($fa-var-vimeo-square, #fff);
 		}
 		&.youtube-icon a:before {
-			@include fa_icon($fa-var-youtube);
+			@include fa_icon($fa-var-youtube, #fff);
 		}
 
 	}

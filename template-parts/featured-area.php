@@ -70,7 +70,7 @@ $emtpy_cta = ( empty( $responsive_II_options['cta_text'] ) ) ? false : true;
 
 		<div id="featured-image">
 
-			<?php $featured_content = ( !empty( $responsive_II_options['featured_content'] ) ) ? $responsive_II_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/images/featured-image.jpg" width="497" height="297" alt="" />'; ?>
+			<?php $featured_content = ( !empty( $responsive_II_options['featured_content'] ) ) ? $responsive_II_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/images/featured-image.png" width="497" height="297" alt="" />'; ?>
 
 			<?php echo do_shortcode( wpautop( $featured_content ) ); ?>
 

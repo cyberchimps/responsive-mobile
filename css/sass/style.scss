@@ -50,7 +50,11 @@ $padding-xlarge-vertical: 15px;
 $padding-xlarge-horizontal: 35px;
 $font-size-xlarge: 24px;
 $line-height-xlarge: 24px;
-//$border-radius-base:       ;
+$border-radius-base: 0;
+
+$btn-cta-color:  #fff;
+$btn-cta-bg:     #0D4C82;
+$btn-cta-border: darken($btn-cta-bg, 5%);
 
 ///*--------------------------------------------------------------
 // 0 - Bootstrap variables and mixins
