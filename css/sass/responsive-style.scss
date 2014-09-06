@@ -390,6 +390,14 @@ li {
 
 #site-branding {
 	@include make-md-column(8);
+	.site-name {
+		a {
+			color: $gray-dark;
+		}
+	}
+	.site-description {
+		font-size: 20px;
+	}
 }
 
 #secondary-header {
@@ -452,7 +460,7 @@ main #featured-image {
 }
 
 .home-widget {
-	@include make-md-column(4);
+	@include make-md-column(4,0);
 	.widget-wrapper {
 		.widget-title-home {
 			text-align: center;
@@ -867,6 +875,10 @@ main#main {
 
 .widget_search {
 	margin-top: 40px;
+	text-align: center;
+	@media (min-width: $screen-lg-min) {
+		text-align: right;
+	}
 }
 
 .search-form {

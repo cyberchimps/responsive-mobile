@@ -1500,6 +1500,12 @@ li {
     width: 66.66667%;
   }
 }
+#site-branding .site-name a {
+  color: #333333;
+}
+#site-branding .site-description {
+  font-size: 20px;
+}
 
 #secondary-header {
   position: relative;
@@ -1601,8 +1607,8 @@ main #featured-content .call-to-action .cta-button:hover, main #featured-image .
 .home-widget {
   position: relative;
   min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
 }
 @media (min-width: 992px) {
   .home-widget {
@@ -2125,6 +2131,12 @@ main#main.sitemap .sitemap-widgets:after {
 
 .widget_search {
   margin-top: 40px;
+  text-align: center;
+}
+@media (min-width: 1200px) {
+  .widget_search {
+    text-align: right;
+  }
 }
 
 .search-form {
