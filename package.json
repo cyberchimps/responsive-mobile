@@ -20,6 +20,7 @@
     "grunt-contrib-csslint": "~0.2.0",
     "grunt-checktextdomain": "~0.1.0",
     "grunt-contrib-compress": "~0.5.2",
-    "grunt-cssjanus": "I:\\Work\\GitHub\\grunt-cssjanus"
+    "grunt-cssjanus": "I:\\Work\\GitHub\\grunt-cssjanus",
+    "grunt-replace": "~0.7.9"
   }
 }

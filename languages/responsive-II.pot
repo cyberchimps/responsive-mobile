@@ -1,0 +1,1112 @@
+# Copyright (C) 2014 CyberChimps
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Responsive II 0.0.1\n"
+"Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
+"POT-Creation-Date: 2014-09-14 21:53:25+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Ulrich Pogson <ulrich@cyberchimps.com>\n"
+"Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-Sourcecharset: utf-8\n"
+"X-Poedit-Keywordslist: "
+"__;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_"
+"x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Textdomain-Support: yes\n"
+
+#: comments.php:27
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: comments.php:44 comments.php:68
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:45 comments.php:69
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:46 comments.php:70
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:80
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:86
+msgid "Pings&#47;Trackbacks"
+msgstr ""
+
+#: comments.php:89
+msgid "%1$d %2$s for \"%3$s\""
+msgstr ""
+
+#: comments.php:104
+msgid "Name"
+msgstr ""
+
+#: comments.php:106
+msgid "E-mail"
+msgstr ""
+
+#: comments.php:108
+msgid "Website"
+msgstr ""
+
+#: core/functions-install.php:31
+msgid "Settings saved and %s activated successfully."
+msgstr ""
+
+#: core/functions-install.php:33
+msgid "%s activated successfully."
+msgstr ""
+
+#: core/functions-install.php:35
+msgid "Visit site"
+msgstr ""
+
+#: core/functions-install.php:37 includes/functions-theme-options-page.php:121
+#: libraries/class-responsive-options.php:62
+#: libraries/class-responsive-options.php:63
+#: libraries/class-responsive-options.php:113
+msgid "Theme Options"
+msgstr ""
+
+#: core/functions-install.php:38 includes/functions-theme-options-page.php:71
+#: includes/functions-theme-options-page.php:72
+msgid "Help"
+msgstr ""
+
+#: core/functions-install.php:116
+msgid "This theme recommends the following plugins:"
+msgstr ""
+
+#: core/functions-install.php:129
+msgid "Activate"
+msgstr ""
+
+#: core/functions-install.php:134
+msgid "Install"
+msgstr ""
+
+#: core/functions-install.php:139
+msgid "%s is not installed. Please install this plugin manually."
+msgstr ""
+
+#: core/functions-install.php:144
+msgid "Hide Notice"
+msgstr ""
+
+#: core/functions-theme-upsell.php:29 core/functions-theme-upsell.php:30
+#: includes/functions-theme-options-page.php:80
+#: includes/functions-theme-options-page.php:81
+msgid "More Themes"
+msgstr ""
+
+#: core/functions-theme-upsell.php:57
+msgid "Themes You Can Trust"
+msgstr ""
+
+#: core/functions-theme-upsell.php:92
+msgid "Current theme"
+msgstr ""
+
+#: core/functions-theme-upsell.php:138
+msgid "Already installed"
+msgstr ""
+
+#: core/functions-theme-upsell.php:153
+msgid "Install Now"
+msgstr ""
+
+#: core/functions-theme-upsell.php:157
+msgid "Live Preview"
+msgstr ""
+
+#: footer.php:70 includes/functions-plugins.php:42
+#. Translators: Responsive Theme powered by WordPress
+msgid "%1$s powered by %2$s"
+msgstr ""
+
+#: footer.php:71 includes/functions-plugins.php:43
+msgid "Responsive Theme"
+msgstr ""
+
+#: footer.php:72 includes/functions-plugins.php:44
+msgid "WordPress"
+msgstr ""
+
+#: footer.php:80
+msgid "scroll to top"
+msgstr ""
+
+#: footer.php:80
+msgid "&uarr;"
+msgstr ""
+
+#: header.php:51
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:52
+msgid "Skip to main menu"
+msgstr ""
+
+#: header.php:91
+msgid "Mobile menu toggle"
+msgstr ""
+
+#: image.php:37
+msgid "&#8249; Return to"
+msgstr ""
+
+#: image.php:48 template-parts/post-meta-page.php:31
+#: template-parts/post-meta.php:40
+msgid "No Comments &darr;"
+msgstr ""
+
+#: image.php:48 template-parts/post-meta-page.php:31
+#: template-parts/post-meta.php:40
+msgid "1 Comment &darr;"
+msgstr ""
+
+#: image.php:48 template-parts/post-meta-page.php:31
+#: template-parts/post-meta.php:40
+msgid "% Comments &darr;"
+msgstr ""
+
+#: image.php:59
+msgid "Read more &#8250;"
+msgstr ""
+
+#: image.php:61 template-parts/content-excerpt.php:40
+#: template-parts/content-page.php:29 template-parts/content-single.php:31
+#: template-parts/content-sitemap.php:48 template-parts/content.php:57
+msgid "Pages:"
+msgstr ""
+
+#: image.php:73
+msgid "Tagged with:"
+msgstr ""
+
+#: image.php:74
+msgid "Posted in %s"
+msgstr ""
+
+#: includes/functions-extentions.php:54 template-parts/content-none.php:53
+msgid "Home"
+msgstr ""
+
+#: includes/functions-extentions.php:55
+msgid "Archive for %s"
+msgstr ""
+
+#: includes/functions-extentions.php:56
+msgid "Search results for: %s"
+msgstr ""
+
+#: includes/functions-extentions.php:57
+msgid "Posts tagged %s"
+msgstr ""
+
+#: includes/functions-extentions.php:58
+#: includes/functions-template-tags.php:205
+msgid "View all posts by %s"
+msgstr ""
+
+#: includes/functions-extentions.php:59
+msgid "Error 404"
+msgstr ""
+
+#: includes/functions-extentions.php:206 includes/functions-extras.php:71
+#: includes/functions-extras.php:105
+msgid "Page %s"
+msgstr ""
+
+#: includes/functions-extras.php:184
+msgid "Read more %s"
+msgstr ""
+
+#: includes/functions-layout.php:104
+msgid "Layout"
+msgstr ""
+
+#: includes/functions-meta-box.php:31
+msgid "Page Title"
+msgstr ""
+
+#: includes/functions-meta-box.php:42
+msgid "Page Options"
+msgstr ""
+
+#: includes/functions-sidebar.php:26
+msgid "Main Sidebar"
+msgstr ""
+
+#: includes/functions-sidebar.php:27
+msgid ""
+"Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page "
+"templates"
+msgstr ""
+
+#: includes/functions-sidebar.php:36
+msgid "Right Sidebar"
+msgstr ""
+
+#: includes/functions-sidebar.php:37
+msgid "Area 2 - sidebar-right.php - Displays on Content/Sidebar page templates"
+msgstr ""
+
+#: includes/functions-sidebar.php:46
+msgid "Left Sidebar"
+msgstr ""
+
+#: includes/functions-sidebar.php:47
+msgid "Area 3 - sidebar-left.php - Displays on Sidebar/Content page templates"
+msgstr ""
+
+#: includes/functions-sidebar.php:56
+msgid "Left Sidebar Half Page"
+msgstr ""
+
+#: includes/functions-sidebar.php:57
+msgid ""
+"Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page "
+"templates"
+msgstr ""
+
+#: includes/functions-sidebar.php:66
+msgid "Right Sidebar Half Page"
+msgstr ""
+
+#: includes/functions-sidebar.php:67
+msgid ""
+"Area 5 - sidebar-right-half.php - Displays on Content/Sidebar Half Page "
+"page templates"
+msgstr ""
+
+#: includes/functions-sidebar.php:76 sidebar-home.php:29
+msgid "Home Widget 1"
+msgstr ""
+
+#: includes/functions-sidebar.php:77
+msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: includes/functions-sidebar.php:86 sidebar-home.php:44
+msgid "Home Widget 2"
+msgstr ""
+
+#: includes/functions-sidebar.php:87
+msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: includes/functions-sidebar.php:96 sidebar-home.php:59
+msgid "Home Widget 3"
+msgstr ""
+
+#: includes/functions-sidebar.php:97
+msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: includes/functions-sidebar.php:106
+msgid "Gallery Sidebar"
+msgstr ""
+
+#: includes/functions-sidebar.php:107
+msgid ""
+"Area 9 - sidebar-gallery.php - Displays on the page after an image has been "
+"clicked in a Gallery"
+msgstr ""
+
+#: includes/functions-sidebar.php:116
+msgid "Colophon Widget"
+msgstr ""
+
+#: includes/functions-sidebar.php:117
+msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
+msgstr ""
+
+#: includes/functions-sidebar.php:126
+msgid "Top Widget"
+msgstr ""
+
+#: includes/functions-sidebar.php:127
+msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
+msgstr ""
+
+#: includes/functions-sidebar.php:136
+msgid "Footer Widget"
+msgstr ""
+
+#: includes/functions-sidebar.php:137
+msgid "Area 12 - sidebar-footer.php - Maximum of 3 widgets per row"
+msgstr ""
+
+#: includes/functions-template-tags.php:34 page-templates/blog.php:62
+msgid "Posts navigation"
+msgstr ""
+
+#: includes/functions-template-tags.php:39
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: includes/functions-template-tags.php:43
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: includes/functions-template-tags.php:69 template-parts/loop-nav.php:25
+msgid "Post navigation"
+msgstr ""
+
+#: includes/functions-template-tags.php:114
+msgid "Pingback:"
+msgstr ""
+
+#: includes/functions-template-tags.php:114
+#: includes/functions-template-tags.php:136 template-parts/post-data.php:53
+msgid "Edit"
+msgstr ""
+
+#: includes/functions-template-tags.php:126
+msgid "%s <span class=\"says\">says:</span>"
+msgstr ""
+
+#: includes/functions-template-tags.php:141
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: includes/functions-template-tags.php:183
+#: includes/functions-template-tags.php:200
+#. Translators: (Posted on )(Date)
+#. Translators: ( by )(Author)
+msgid "%1$s %2$s"
+msgstr ""
+
+#: includes/functions-template-tags.php:184
+msgid "Posted on"
+msgstr ""
+
+#: includes/functions-template-tags.php:201
+msgid "by"
+msgstr ""
+
+#: includes/functions-template-tags.php:230
+msgid ""
+"<span class=\"posted-on\">Posted on %1$s</span><span class=\"byline\"> by "
+"%2$s</span>"
+msgstr ""
+
+#: includes/functions-template-tags.php:289
+msgid "Author: %s"
+msgstr ""
+
+#: includes/functions-template-tags.php:292
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: includes/functions-template-tags.php:295
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: includes/functions-template-tags.php:298
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: includes/functions-template-tags.php:301
+msgid "Asides"
+msgstr ""
+
+#: includes/functions-template-tags.php:304
+msgid "Galleries"
+msgstr ""
+
+#: includes/functions-template-tags.php:307
+msgid "Images"
+msgstr ""
+
+#: includes/functions-template-tags.php:310
+msgid "Videos"
+msgstr ""
+
+#: includes/functions-template-tags.php:313
+msgid "Quotes"
+msgstr ""
+
+#: includes/functions-template-tags.php:316
+msgid "Links"
+msgstr ""
+
+#: includes/functions-template-tags.php:319
+msgid "Statuses"
+msgstr ""
+
+#: includes/functions-template-tags.php:322
+msgid "Audios"
+msgstr ""
+
+#: includes/functions-template-tags.php:325
+msgid "Chats"
+msgstr ""
+
+#: includes/functions-template-tags.php:328
+msgid "Archives"
+msgstr ""
+
+#: includes/functions-template-tags.php:346
+msgid "Menu"
+msgstr ""
+
+#: includes/functions-theme-options-page.php:30
+msgid "Welcome to %1$s! Upgrade to %2$s today."
+msgstr ""
+
+#: includes/functions-theme-options-page.php:68
+msgid "Guides"
+msgstr ""
+
+#: includes/functions-theme-options-page.php:69
+msgid "Instructions"
+msgstr ""
+
+#: includes/functions-theme-options-page.php:74
+#: includes/functions-theme-options-page.php:75
+msgid "Translate"
+msgstr ""
+
+#: includes/functions-theme-options-page.php:77
+#: includes/functions-theme-options-page.php:78
+msgid "Showcase"
+msgstr ""
+
+#: includes/functions-theme-options-page.php:101
+msgid ""
+"The Custom Front Page is enabled. You can disable it in the <a "
+"href=\"%1$s\">theme settings</a>."
+msgstr ""
+
+#: includes/functions-theme-options-page.php:103
+msgid ""
+"The Custom Front Page is disabled. You can enable it in the <a "
+"href=\"%1$s\">theme settings</a>."
+msgstr ""
+
+#: includes/functions-theme-options.php:47
+msgid "Default"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Content/Sidebar"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Sidebar/Content"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Content/Sidebar Half Page"
+msgstr ""
+
+#: includes/functions-theme-options.php:51
+msgid "Sidebar/Content Half Page"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Full Width Page (no sidebar)"
+msgstr ""
+
+#: includes/functions-theme-options.php:85
+msgid "Theme Elements"
+msgstr ""
+
+#: includes/functions-theme-options.php:88
+msgid "Disable breadcrumb list?"
+msgstr ""
+
+#: includes/functions-theme-options.php:91
+#: includes/functions-theme-options.php:99
+#: includes/functions-theme-options.php:107
+msgid "Check to disable"
+msgstr ""
+
+#: includes/functions-theme-options.php:96
+msgid "Use minified CSS"
+msgstr ""
+
+#: includes/functions-theme-options.php:104
+msgid "Disable Call to Action Button?"
+msgstr ""
+
+#: includes/functions-theme-options.php:114
+msgid "Logo Upload"
+msgstr ""
+
+#: includes/functions-theme-options.php:117
+msgid "Custom Header"
+msgstr ""
+
+#: includes/functions-theme-options.php:120
+msgid "Need to replace or remove default logo?"
+msgstr ""
+
+#: includes/functions-theme-options.php:120
+msgid "Click here"
+msgstr ""
+
+#: includes/functions-theme-options.php:126
+msgid "Home Page"
+msgstr ""
+
+#: includes/functions-theme-options.php:129
+msgid "Enable Custom Front Page"
+msgstr ""
+
+#: includes/functions-theme-options.php:132
+msgid "Overrides the WordPress %1sfront page option%2s"
+msgstr ""
+
+#: includes/functions-theme-options.php:137
+msgid "Headline"
+msgstr ""
+
+#: includes/functions-theme-options.php:142
+msgid "Enter your headline"
+msgstr ""
+
+#: includes/functions-theme-options.php:143 template-parts/featured-area.php:26
+msgid "Hello, World!"
+msgstr ""
+
+#: includes/functions-theme-options.php:148
+msgid "Subheadline"
+msgstr ""
+
+#: includes/functions-theme-options.php:151
+msgid "Enter your subheadline"
+msgstr ""
+
+#: includes/functions-theme-options.php:152 template-parts/featured-area.php:36
+msgid "Your H2 subheadline here"
+msgstr ""
+
+#: includes/functions-theme-options.php:157
+msgid "Content Area"
+msgstr ""
+
+#: includes/functions-theme-options.php:160
+msgid "Enter your content"
+msgstr ""
+
+#: includes/functions-theme-options.php:161 template-parts/featured-area.php:46
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+
+#: includes/functions-theme-options.php:166
+msgid "Call to Action (URL)"
+msgstr ""
+
+#: includes/functions-theme-options.php:169
+msgid "Enter your call to action URL"
+msgstr ""
+
+#: includes/functions-theme-options.php:175
+msgid "Call to Action (Text)"
+msgstr ""
+
+#: includes/functions-theme-options.php:178
+msgid "Enter your call to action text"
+msgstr ""
+
+#: includes/functions-theme-options.php:179 template-parts/featured-area.php:60
+msgid "Call to Action"
+msgstr ""
+
+#: includes/functions-theme-options.php:184
+msgid "Featured Content"
+msgstr ""
+
+#: includes/functions-theme-options.php:185
+#: includes/functions-theme-options.php:186
+msgid "See Docs"
+msgstr ""
+
+#: includes/functions-theme-options.php:189
+msgid "Paste your shortcode, video or image source"
+msgstr ""
+
+#: includes/functions-theme-options.php:197
+msgid "Default Layouts"
+msgstr ""
+
+#: includes/functions-theme-options.php:200
+msgid "Default Static Page Layout"
+msgstr ""
+
+#: includes/functions-theme-options.php:208
+msgid "Default Single Blog Post Layout"
+msgstr ""
+
+#: includes/functions-theme-options.php:216
+msgid "Default Blog Posts Index Layout"
+msgstr ""
+
+#: includes/functions-theme-options.php:226
+msgid "Social Icons"
+msgstr ""
+
+#: includes/functions-theme-options.php:229
+msgid "Twitter"
+msgstr ""
+
+#: includes/functions-theme-options.php:232
+msgid "Enter your Twitter URL"
+msgstr ""
+
+#: includes/functions-theme-options.php:237
+msgid "Facebook"
+msgstr ""
+
+#: includes/functions-theme-options.php:240
+msgid "Enter your Facebook URL"
+msgstr ""
+
+#: includes/functions-theme-options.php:245
+msgid "LinkedIn"
+msgstr ""
+
+#: includes/functions-theme-options.php:248
+msgid "Enter your LinkedIn URL"
+msgstr ""
+
+#: includes/functions-theme-options.php:253
+msgid "YouTube"
+msgstr ""
+
+#: includes/functions-theme-options.php:256
+msgid "Enter your YouTube URL"
+msgstr ""
+
+#: includes/functions-theme-options.php:261
+msgid "StumbleUpon"
+msgstr ""
+
+#: includes/functions-theme-options.php:264
+msgid "Enter your StumbleUpon URL"
+msgstr ""
+
+#: includes/functions-theme-options.php:269
+msgid "RSS Feed"
+msgstr ""
+
+#: includes/functions-theme-options.php:272
+msgid "Enter your RSS Feed URL"
+msgstr ""
+
+#: includes/functions-theme-options.php:277
+msgid "Google+"
+msgstr ""
+
+#: includes/functions-theme-options.php:280
+msgid "Enter your Google+ URL"
+msgstr ""
+
+#: includes/functions-theme-options.php:285
+msgid "Instagram"
+msgstr ""
+
+#: includes/functions-theme-options.php:288
+msgid "Enter your Instagram URL"
+msgstr ""
+
+#: includes/functions-theme-options.php:293
+msgid "Pinterest"
+msgstr ""
+
+#: includes/functions-theme-options.php:296
+msgid "Enter your Pinterest URL"
+msgstr ""
+
+#: includes/functions-theme-options.php:310
+msgid "Vimeo"
+msgstr ""
+
+#: includes/functions-theme-options.php:313
+msgid "Enter your Vimeo URL"
+msgstr ""
+
+#: includes/functions-theme-options.php:318
+msgid "foursquare"
+msgstr ""
+
+#: includes/functions-theme-options.php:321
+msgid "Enter your foursquare URL"
+msgstr ""
+
+#: includes/functions-theme-options.php:328
+msgid "CSS Styles"
+msgstr ""
+
+#: includes/functions-theme-options.php:331
+msgid "Custom CSS Styles"
+msgstr ""
+
+#: includes/functions-theme-options.php:332
+msgid "CSS Tutorial"
+msgstr ""
+
+#: includes/functions-theme-options.php:335
+msgid "Enter your custom CSS styles."
+msgstr ""
+
+#: includes/functions-theme-options.php:342
+msgid "Scripts"
+msgstr ""
+
+#: includes/functions-theme-options.php:345
+msgid "Custom Scripts for Header and Footer"
+msgstr ""
+
+#: includes/functions-theme-options.php:346
+msgid "Quick Tutorial"
+msgstr ""
+
+#: includes/functions-theme-options.php:347
+msgid "Embeds to header.php &darr;"
+msgstr ""
+
+#: includes/functions-theme-options.php:350
+msgid "Enter your custom header script."
+msgstr ""
+
+#: includes/functions-theme-options.php:355
+msgid "Embeds to footer.php &darr;"
+msgstr ""
+
+#: includes/functions-theme-options.php:358
+msgid "Enter your custom footer script."
+msgstr ""
+
+#: includes/functions.php:78
+msgid "Top Menu"
+msgstr ""
+
+#: includes/functions.php:79
+msgid "Header Menu"
+msgstr ""
+
+#: includes/functions.php:80
+msgid "Sub-Header Menu"
+msgstr ""
+
+#: includes/functions.php:81
+msgid "Footer Menu"
+msgstr ""
+
+#: libraries/class-meta-box.php:415 libraries/class-meta-box.php:457
+msgid "Remove"
+msgstr ""
+
+#: libraries/class-meta-box.php:428
+msgid "Add"
+msgstr ""
+
+#: libraries/class-meta-box.php:1932 libraries/class-meta-box.php:1942
+msgid "Sorry, you cannot upload this file type for this field."
+msgstr ""
+
+#: libraries/class-meta-box.php:2084
+msgid "Upload"
+msgstr ""
+
+#: libraries/class-meta-box.php:2085
+msgid "or enter URL"
+msgstr ""
+
+#: libraries/class-responsive-options.php:49
+msgid "Do you want to restore the default settings?"
+msgstr ""
+
+#: libraries/class-responsive-options.php:49
+msgid "All theme settings will be lost!"
+msgstr ""
+
+#: libraries/class-responsive-options.php:49
+msgid "Click OK to restore."
+msgstr ""
+
+#: libraries/class-responsive-options.php:117
+msgid "Options Saved"
+msgstr ""
+
+#: libraries/class-responsive-options.php:393
+msgid "Save Options"
+msgstr ""
+
+#: libraries/class-responsive-options.php:393
+msgid "Restore Defaults"
+msgstr ""
+
+#: libraries/class-responsive-options.php:393
+msgid "Upgrade"
+msgstr ""
+
+#: libraries/class-responsive-options.php:559
+#: libraries/class-responsive-options.php:582
+msgid "Options Imported"
+msgstr ""
+
+#: libraries/class-responsive-options.php:564
+#: libraries/class-responsive-options.php:587
+msgid "Invalid Data for Import"
+msgstr ""
+
+#: page-templates/blog-excerpt.php:54 page-templates/blog.php:66
+msgid "&#8249; Older posts"
+msgstr ""
+
+#: page-templates/blog-excerpt.php:55 page-templates/blog.php:68
+msgid "Newer posts &#8250;"
+msgstr ""
+
+#: sidebar-gallery.php:29
+msgid "Image Information"
+msgstr ""
+
+#: sidebar-gallery.php:33
+msgid "Full Size:"
+msgstr ""
+
+#: sidebar-gallery.php:39
+msgid "Aperture: f&#47;"
+msgstr ""
+
+#: sidebar-gallery.php:44
+msgid "Focal Length:"
+msgstr ""
+
+#: sidebar-gallery.php:44
+msgid "mm"
+msgstr ""
+
+#: sidebar-gallery.php:49
+msgid "ISO:"
+msgstr ""
+
+#: sidebar-gallery.php:53
+msgid "Shutter:"
+msgstr ""
+
+#: sidebar-gallery.php:69
+msgid "Camera:"
+msgstr ""
+
+#: sidebar-home.php:30
+msgid ""
+"This is your first home widget box. To edit please go to Appearance > "
+"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
+"Title is also manageable from widgets as well."
+msgstr ""
+
+#: sidebar-home.php:45
+msgid ""
+"This is your second home widget box. To edit please go to Appearance > "
+"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
+"Title is also manageable from widgets as well."
+msgstr ""
+
+#: sidebar-home.php:60
+msgid ""
+"This is your third home widget box. To edit please go to Appearance > "
+"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
+"Title is also manageable from widgets as well."
+msgstr ""
+
+#: sidebar-left-half.php:28 sidebar-left.php:28 sidebar-right-half.php:28
+#: sidebar-right.php:28 sidebar.php:56
+msgid "In Archive"
+msgstr ""
+
+#: template-parts/content-none.php:26
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr ""
+
+#: template-parts/content-none.php:33
+msgid "Ready to publish your first post?"
+msgstr ""
+
+#: template-parts/content-none.php:34
+msgid "Get started here"
+msgstr ""
+
+#: template-parts/content-none.php:39
+msgid "Your search for %s did not match any entries."
+msgstr ""
+
+#: template-parts/content-none.php:44
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
+msgstr ""
+
+#: template-parts/content-none.php:45
+msgid ""
+"The URL may be misspelled or the page you are looking for is no longer "
+"available."
+msgstr ""
+
+#: template-parts/content-none.php:49
+msgid "You can return %s or search for the page you were looking for."
+msgstr ""
+
+#: template-parts/content-none.php:54
+msgid "&larr; Home"
+msgstr ""
+
+#: template-parts/content-sitemap.php:27
+msgid "Categories"
+msgstr ""
+
+#: template-parts/content-sitemap.php:32
+msgid "Latest Posts"
+msgstr ""
+
+#: template-parts/content-sitemap.php:36
+msgid "Permanent Link to %s"
+msgstr ""
+
+#: template-parts/content-sitemap.php:43
+msgid "Pages"
+msgstr ""
+
+#: template-parts/loop-header.php:49
+msgid "Search Results for: %s"
+msgstr ""
+
+#: template-parts/loop-nav.php:28
+msgid "&larr;"
+msgstr ""
+
+#: template-parts/loop-nav.php:29
+msgid "&rarr;"
+msgstr ""
+
+#: template-parts/post-data.php:26 template-parts/post-data.php:39
+#. translators: used between list items, there is a space after the comma
+msgid ", "
+msgstr ""
+
+#: template-parts/post-data.php:33
+msgid "Posted in %1$s"
+msgstr ""
+
+#: template-parts/post-data.php:47
+msgid "Tagged with %1$s"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Responsive II"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://cyberchimps.com/responsive-theme/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Responsive II has a responsive, mobile first grid system that adapts your "
+"website to mobile devices and the desktop or any other viewing environment. "
+"Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 "
+"Menu Positions and more. Powerful but simple Theme Options for full CMS "
+"control with easy Logo Upload and Social Networking etc. Responsive II is "
+"WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, "
+"Retina-Ready, Search Engine Friendly and W3C Markup Validated. "
+"Cross-Browser compatible. <a "
+"href=\"http://cyberchimps.com/forum/free/responsive/\">Official support "
+"forum</a> (http://cyberchimps.com/forum/free/responsive/)"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "CyberChimps"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://cyberchimps.com"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Blog Excerpt (summary)"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Blog (full posts)"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Landing Page (no menu)"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Sidebar/Content (half page)"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Sitemap"
+msgstr ""
+
+#: comments.php:37
+msgctxt "comments title"
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/functions-template-tags.php:73
+msgctxt "Previous post link"
+msgid "<span class=\"meta-nav\">&larr;</span> %title"
+msgstr ""
+
+#: includes/functions-template-tags.php:74
+msgctxt "Next post link"
+msgid "%title <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: includes/functions-template-tags.php:133
+msgctxt "1: date, 2: time"
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: includes/functions-template-tags.php:295
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr ""
+
+#: includes/functions-template-tags.php:298
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: searchform.php:21
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:22
+msgctxt "placeholder"
+msgid "Search here &hellip;"
+msgstr ""
+
+#: searchform.php:24
+msgctxt "submit button"
+msgid "Go"
+msgstr ""

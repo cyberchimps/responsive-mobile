@@ -31,8 +31,11 @@ module.exports = function(grunt) {
 			files: {
 				src:  [
 					'**/*.php',
+					'!**/*.scss',
 					'!**/class-tgm-plugin-activation.php',
+					'!**/wp-updates-theme.php',
 					'!node_modules/**',
+					'!core/bootstrap/**',
 					'!core/**',
 					'!build/**',
 					'!**/*~'
@@ -46,7 +49,7 @@ module.exports = function(grunt) {
 				options: {
 					domainPath: '/languages/',    // Where to save the POT file.
 					mainFile: 'style.css',      // Main project file.
-					potFilename: 'responsive.pot',   // Name of the POT file.
+					potFilename: 'responsive-II.pot',   // Name of the POT file.
 					type: 'wp-theme',  // Type of project (wp-plugin or wp-theme).
 					exclude: ['core/includes/classes/class-tgm-plugin-activation.php', 'core/includes/functions-install.php', 'build/.*'],       // List of files or directories to ignore.
 					processPot: function( pot, options ) {
@@ -224,6 +227,7 @@ module.exports = function(grunt) {
 					'!core/bootstrap/stylesheets/bootstrap/**',
 					'!responsive/css/sass/**',
 					'!node_modules/**',
+					'!**/wp-updates-theme.php',
 					'!build/**',
 					'!.git/**',
 					'!Gruntfile.js',
