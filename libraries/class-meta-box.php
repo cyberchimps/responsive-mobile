@@ -412,7 +412,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 
 					echo '
         <span class="re-control at-re-toggle"><img src="' . $plugin_path . '/images/edit.png" alt="Edit" title="Edit"/></span> 
-        <span class="re-control"><img src="' . $plugin_path . '/images/remove.png" alt="' . __( 'Remove', 'responsive-II' ) . '" title="' . __( 'Remove', 'responsive-II' ) . '" id="remove-' . $field['id'] . '"></span>
+        <span class="re-control"><img src="' . $plugin_path . '/images/remove.png" alt="' . __( 'Remove', 'responsive-mobile' ) . '" title="' . __( 'Remove', 'responsive-mobile' ) . '" id="remove-' . $field['id'] . '"></span>
         <span class="re-control-clear"></span></div>';
 					$c = $c + 1;
 				}
@@ -425,7 +425,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 			else {
 				echo 'http://i.imgur.com/w5Tuc.png';
 			}
-			echo '" alt="' . __( 'Add', 'responsive-II' ) . '" title="' . __( 'Add', 'responsive-II' ) . '" id="add-' . $field['id'] . '"><br/></div>';
+			echo '" alt="' . __( 'Add', 'responsive-mobile' ) . '" title="' . __( 'Add', 'responsive-mobile' ) . '" id="add-' . $field['id'] . '"><br/></div>';
 
 			//create all fields once more for js function and catch with object buffer
 			ob_start();
@@ -454,7 +454,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 			if( $field['inline'] ) {
 				echo '</tr>';
 			}
-			echo '</table><img src="' . $plugin_path . '/images/remove.png" alt="' . __( 'Remove', 'responsive-II' ) . '" title="' . __( 'Remove', 'responsive-II' ) . '" id="remove-' . $field['id'] . '"></div>';
+			echo '</table><img src="' . $plugin_path . '/images/remove.png" alt="' . __( 'Remove', 'responsive-mobile' ) . '" title="' . __( 'Remove', 'responsive-mobile' ) . '" id="remove-' . $field['id'] . '"></div>';
 			$counter = 'countadd_' . $field['id'];
 			$js_code = ob_get_clean();
 			$js_code = str_replace( "\n", "", $js_code );
@@ -1929,7 +1929,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 				$ext     = substr( strrchr( $file['name'], '.' ), 1 );
 
 				if( !in_array( $ext, (array)$allowed ) ) {
-					$file['error'] = __( 'Sorry, you cannot upload this file type for this field.', 'responsive-II' );
+					$file['error'] = __( 'Sorry, you cannot upload this file type for this field.', 'responsive-mobile' );
 
 					return $file;
 				}
@@ -1939,7 +1939,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 						return $file;
 					}
 				}
-				$file['error'] = __( 'Sorry, you cannot upload this file type for this field.', 'responsive-II' );
+				$file['error'] = __( 'Sorry, you cannot upload this file type for this field.', 'responsive-mobile' );
 			}
 
 			return $file;
@@ -1984,7 +1984,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 		 */
 		public function load_textdomain() {
 			//In themes/plugins/mu-plugins directory
-			load_textdomain( 'responsive-II', dirname( __FILE__ ) . '/lang/' . get_locale() . 'mo' );
+			load_textdomain( 'responsive-mobile', dirname( __FILE__ ) . '/lang/' . get_locale() . 'mo' );
 		}
 	} // End Class
 endif; // End Check Class Exists
@@ -2081,8 +2081,8 @@ class CyberChimps_Meta_Box extends AT_Meta_Box {
 			echo "<img class='image-preview' src='{$meta}' /><br/>";
 		}
 
-		echo "<input type='button' class='upload-image-button' value='" . __( 'Upload', 'responsive-II' ) . "' />";
-		echo "<div class='upload-desc-field'>" . __( 'or enter URL', 'responsive-II' ) . "</div>";
+		echo "<input type='button' class='upload-image-button' value='" . __( 'Upload', 'responsive-mobile' ) . "' />";
+		echo "<div class='upload-desc-field'>" . __( 'or enter URL', 'responsive-mobile' ) . "</div>";
 		echo "<input class='upload-image-field' type='text' size='50' name='{$field['id']}' value='{$meta}'/>";
 
 		$this->show_field_end( $field, $meta );

@@ -4,7 +4,7 @@
  *
  * Displays when an image url is visited
  *
- * @package      Responsive_II
+ * @package      responsive_mobile
  * @license      license.txt
  * @copyright    2014 CyberChimps Inc
  * @since        0.0.1
@@ -29,23 +29,23 @@ get_header(); ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php responsive_II_entry_before(); ?>
+					<?php responsive_mobile_entry_before(); ?>
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-						<?php responsive_II_entry_top(); ?>
+						<?php responsive_mobile_entry_top(); ?>
 						<h1 class="post-title"><?php the_title(); ?></h1>
 
-						<p><?php _e( '&#8249; Return to', 'responsive-II' ); ?> <a
+						<p><?php _e( '&#8249; Return to', 'responsive-mobile' ); ?> <a
 								href="<?php echo get_permalink( $post->post_parent ); ?>"
 								rel="gallery"><?php echo get_the_title( $post->post_parent ); ?></a>
 						</p>
 
 						<div class="post-meta">
-							<?php responsive_II_post_meta_data(); ?>
+							<?php responsive_mobile_post_meta_data(); ?>
 
 							<?php if ( comments_open() ) : ?>
 								<span class="comments-link">
 									<span class="mdash">&mdash;</span>
-									<?php comments_popup_link( __( 'No Comments &darr;', 'responsive-II' ), __( '1 Comment &darr;', 'responsive-II' ), __( '% Comments &darr;', 'responsive-II' ) ); ?>
+									<?php comments_popup_link( __( 'No Comments &darr;', 'responsive-mobile' ), __( '1 Comment &darr;', 'responsive-mobile' ), __( '% Comments &darr;', 'responsive-mobile' ) ); ?>
 								</span>
 							<?php endif; ?>
 						</div>
@@ -56,9 +56,9 @@ get_header(); ?>
 							<?php if ( ! empty( $post->post_excerpt ) ) {
 								the_excerpt();
 							} ?>
-							<?php the_content( __( 'Read more &#8250;', 'responsive-II' ) ); ?>
+							<?php the_content( __( 'Read more &#8250;', 'responsive-mobile' ) ); ?>
 							<?php wp_link_pages( array(
-								'before' => '<div class="pagination">' . __( 'Pages:', 'responsive-II' ),
+								'before' => '<div class="pagination">' . __( 'Pages:', 'responsive-mobile' ),
 								'after'  => '</div>'
 							) ); ?>
 						</div><!-- end of .post-entry -->
@@ -70,21 +70,21 @@ get_header(); ?>
 
 						<?php if ( comments_open() ) : ?>
 							<div class="post-data">
-								<?php the_tags( __( 'Tagged with:', 'responsive-II' ) . ' ', ', ', '<br />' ); ?>
-								<?php the_category( __( 'Posted in %s', 'responsive-II' ) . ', ' ); ?>
+								<?php the_tags( __( 'Tagged with:', 'responsive-mobile' ) . ' ', ', ', '<br />' ); ?>
+								<?php the_category( __( 'Posted in %s', 'responsive-mobile' ) . ', ' ); ?>
 							</div><!-- end of .post-data -->
 						<?php endif; ?>
 
 
 						<?php get_template_part( 'template-parts/post-data' ); ?>
 
-						<?php responsive_II_entry_bottom(); ?>
+						<?php responsive_mobile_entry_bottom(); ?>
 					</article><!-- end of #post-<?php the_ID(); ?> -->
-					<?php responsive_II_entry_after(); ?>
+					<?php responsive_mobile_entry_after(); ?>
 
-					<?php responsive_II_comments_before(); ?>
+					<?php responsive_mobile_comments_before(); ?>
 					<?php comments_template( '', true ); ?>
-					<?php responsive_II_comments_after(); ?>
+					<?php responsive_mobile_comments_after(); ?>
 
 				<?php
 				endwhile;

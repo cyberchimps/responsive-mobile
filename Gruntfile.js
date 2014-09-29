@@ -49,7 +49,7 @@ module.exports = function(grunt) {
 				options: {
 					domainPath: '/languages/',    // Where to save the POT file.
 					mainFile: 'style.css',      // Main project file.
-					potFilename: 'responsive-II.pot',   // Name of the POT file.
+					potFilename: 'responsive-mobile.pot',   // Name of the POT file.
 					type: 'wp-theme',  // Type of project (wp-plugin or wp-theme).
 					exclude: ['core/includes/classes/class-tgm-plugin-activation.php', 'core/includes/functions-install.php', 'build/.*'],       // List of files or directories to ignore.
 					processPot: function( pot, options ) {

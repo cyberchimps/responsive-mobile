@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive II 0.0.1\n"
+"Project-Id-Version: Responsive Mobile 0.0.1\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
 "POT-Creation-Date: 2014-09-14 21:53:25+00:00\n"
 "MIME-Version: 1.0\n"
@@ -1015,7 +1015,7 @@ msgid "Tagged with %1$s"
 msgstr ""
 
 #. Theme Name of the plugin/theme
-msgid "Responsive II"
+msgid "Responsive Mobile"
 msgstr ""
 
 #. Theme URI of the plugin/theme
@@ -1024,11 +1024,11 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Responsive II has a responsive, mobile first grid system that adapts your "
+"Responsive Mobile has a responsive, mobile first grid system that adapts your "
 "website to mobile devices and the desktop or any other viewing environment. "
 "Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 "
 "Menu Positions and more. Powerful but simple Theme Options for full CMS "
-"control with easy Logo Upload and Social Networking etc. Responsive II is "
+"control with easy Logo Upload and Social Networking etc. Responsive Mobile is "
 "WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, "
 "Retina-Ready, Search Engine Friendly and W3C Markup Validated. "
 "Cross-Browser compatible. <a "
