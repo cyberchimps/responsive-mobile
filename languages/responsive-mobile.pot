@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Mobile 0.0.1\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2014-09-14 21:53:25+00:00\n"
+"POT-Creation-Date: 2014-10-13 21:39:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -136,8 +136,8 @@ msgstr ""
 msgid "%1$s powered by %2$s"
 msgstr ""
 
-#: footer.php:71 includes/functions-plugins.php:43
-msgid "Responsive Theme"
+#. Theme Name of the plugin/theme
+msgid "Responsive Mobile"
 msgstr ""
 
 #: footer.php:72 includes/functions-plugins.php:44
@@ -245,6 +245,10 @@ msgstr ""
 
 #: includes/functions-meta-box.php:42
 msgid "Page Options"
+msgstr ""
+
+#: includes/functions-plugins.php:43
+msgid "Responsive Theme"
 msgstr ""
 
 #: includes/functions-sidebar.php:26
@@ -1014,24 +1018,20 @@ msgstr ""
 msgid "Tagged with %1$s"
 msgstr ""
 
-#. Theme Name of the plugin/theme
-msgid "Responsive Mobile"
-msgstr ""
-
 #. Theme URI of the plugin/theme
 msgid "http://cyberchimps.com/responsive-theme/"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Responsive Mobile has a responsive, mobile first grid system that adapts your "
-"website to mobile devices and the desktop or any other viewing environment. "
-"Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 "
-"Menu Positions and more. Powerful but simple Theme Options for full CMS "
-"control with easy Logo Upload and Social Networking etc. Responsive Mobile is "
-"WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, "
-"Retina-Ready, Search Engine Friendly and W3C Markup Validated. "
-"Cross-Browser compatible. <a "
+"Responsive Mobile has a responsive, mobile first grid system that adapts "
+"your website to mobile devices and the desktop or any other viewing "
+"environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template "
+"Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for "
+"full CMS control with easy Logo Upload and Social Networking etc. "
+"Responsive Mobile is WooCommerce Compatible, Multilingual Ready (WPML), "
+"RTL-Language Support, Retina-Ready, Search Engine Friendly and W3C Markup "
+"Validated. Cross-Browser compatible. <a "
 "href=\"http://cyberchimps.com/forum/free/responsive/\">Official support "
 "forum</a> (http://cyberchimps.com/forum/free/responsive/)"
 msgstr ""
