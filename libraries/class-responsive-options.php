@@ -390,7 +390,7 @@ Class Responsive_Options {
 	 * @return string
 	 */
 	protected function save() {
-		$html = '<div class="col-md-12"><p class="submit">' . get_submit_button( __( 'Save Options', 'responsive-mobile' ), 'primary', 'responsive_mobile_theme_options[submit]', false ) . ' ' . get_submit_button( __( 'Restore Defaults', 'responsive-mobile' ), 'secondary', 'responsive_mobile_theme_options[reset]', false, $this->attributes ) . ' <a href="http://cyberchimps.com/store/responsivepro/" class="button upgrade">' . __( 'Upgrade', 'responsive-mobile' ) . '</a></p></div>';
+		$html = '<div class="col-md-12"><p class="submit">' . get_submit_button( __( 'Save Options', 'responsive-mobile' ), 'primary', 'responsive_mobile_theme_options[submit]', false ) . ' ' . get_submit_button( __( 'Restore Defaults', 'responsive-mobile' ), 'secondary', 'responsive_mobile_theme_options[reset]', false, $this->attributes ) . '</p></div>';
 
 		return $html;
 
