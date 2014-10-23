@@ -100,11 +100,6 @@ function responsive_mobile_plugin_notice() {
 		// Set array of plugins to be suggested.
 		$plugins = array(
 			array(
-				'name' => 'Responsive Add Ons', // Name of the plugin.
-				'slug' => 'responsive-add-ons', // The plugin slug (typically the folder name)
-				'uri'  => 'http://wordpress.org/plugins/responsive-add-ons/' // plugin url ( http://wordpress.org/plugins/plugin_slug )
-			),
-			array(
 				'name' => 'Clef', // Name of the plugin.
 				'slug' => 'wpclef', // The plugin slug (typically the folder name)
 				'uri'  => 'http://wordpress.org/extend/plugins/wpclef' // plugin url ( http://wordpress.org/plugins/plugin_slug )
