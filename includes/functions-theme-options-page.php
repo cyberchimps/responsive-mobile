@@ -27,9 +27,11 @@ function responsive_mobile_upgrade_bar() {
 
 	<div class="upgrade-callout">
 		<p><img src="<?php echo get_template_directory_uri(); ?>/core/images/chimp.png" alt="CyberChimps"/>
-			<?php printf( __( 'Welcome to %1$s! Upgrade to %2$s today.', 'responsive-mobile' ),
-				'responsive-mobile',
-				'<a href="http://cyberchimps.com/store/responsivepro/" target="_blank" title="Responsive Pro">Responsive Pro</a> '
+			<?php printf( __( 'Welcome to %s!', 'responsive-mobile' ),
+				'Responsive II'
+			); ?>
+			<?php printf( __( 'Get more features with %s!', 'responsive-mobile' ),
+				'<a href="http://cyberchimps.com/store/pro-features/" target="_blank" title="Pro Features Plugin">Pro Features Plugin</a> '
 			); ?>
 		</p>
 
@@ -54,7 +56,7 @@ function responsive_mobile_upgrade_bar() {
 
 <?php
 }
-//add_action( 'responsive_mobile_theme_options', 'responsive_mobile_upgrade_bar', 1 );
+add_action( 'responsive_mobile_theme_options', 'responsive_mobile_upgrade_bar', 1 );
 
 /**
  * Theme Options Support and Information
