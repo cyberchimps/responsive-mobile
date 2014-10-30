@@ -103,14 +103,7 @@ Class Responsive_Options {
 		?>
 
 		<div class="wrap">
-			<?php
-			/**
-			 * < 3.4 Backward Compatibility
-			 */
-			?>
-			<?php $theme_name = function_exists( 'wp_get_theme' ) ? wp_get_theme() : get_current_theme(); ?>
-			<?php screen_icon();
-			echo "<h2>" . $theme_name . " " . __( 'Theme Options', 'responsive-mobile' ) . "</h2>"; ?>
+			<?php echo "<h2>" . wp_get_theme() . " " . __( 'Theme Options', 'responsive-mobile' ) . "</h2>"; ?>
 
 
 			<?php if ( false !== $_REQUEST['settings-updated'] ) : ?>
