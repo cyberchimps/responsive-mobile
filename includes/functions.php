@@ -156,19 +156,33 @@ add_action( 'wp_enqueue_scripts', 'responsive_mobile_js' );
  */
 function responsive_mobile_css() {
 
-	$responsive             = wp_get_theme( 'responsive-mobile' );
-	$responsive_mobile_options     = responsive_mobile_get_options();
-	$template_directory_uri = get_template_directory_uri();
-	$rtl                    = ( is_rtl() ) ? '-rtl' : '';
-	$suffix                 = ( "1" === $responsive_mobile_options['minified_css'] ) ? '.min' : '';
-
-	// Depending on the settings RTL or minified version will be loaded
-	wp_enqueue_style( 'responsive-style', $template_directory_uri . '/css/style' . $rtl . $suffix . '.css', false, $responsive['Version'] );
+	$responsive_mobile = wp_get_theme( 'responsive-mobile' );
+	$responsive_mobile_options = responsive_mobile_get_options();
+	$suffix = ( "1" === $responsive_mobile_options['minified_css'] ) ? '.min' : '';
 
 	if ( is_child_theme() ) {
 		$theme = wp_get_theme();
-		wp_enqueue_style( 'responsive-child-style', get_stylesheet_uri(), false, $theme['Version'] );
+		wp_enqueue_style( 'responsive-mobile-child-style', get_stylesheet_uri(), false, $theme['Version'] );
+		wp_enqueue_style( 'responsive-mobile-style', get_template_directory_uri() . '/css/style' . $suffix . '.css', false, $responsive_mobile['Version'] );
+	} else {
+		wp_enqueue_style( 'responsive-mobile-style', get_stylesheet_uri(), false, $responsive_mobile['Version'] );
 	}
 
 }
 add_action( 'wp_enqueue_scripts', 'responsive_mobile_css' );
+
+/**
+ * Change the location of the default stylesheet
+ */
+function responsive_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
+	$responsive_mobile_options = responsive_mobile_get_options();
+	$suffix = ( "1" === $responsive_mobile_options['minified_css'] ) ? '.min' : '';
+	$rtl    = ( is_rtl() ) ? '-rtl' : '';
+
+	if ( ! is_child_theme() ) {
+		$stylesheet_uri = $stylesheet_dir_uri . '/css/style' . $rtl . $suffix . '.css';
+	}
+
+	return $stylesheet_uri;
+}
+add_action( 'stylesheet_uri', 'responsive_stylesheet_uri', 10, 2 );
