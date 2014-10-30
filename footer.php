@@ -68,7 +68,7 @@ if ( ! defined( 'WPINC' ) ) {
 					$powered_by_text = sprintf(
 						/* Translators: Responsive Theme powered by WordPress */
 						__( '%1$s powered by %2$s', 'responsive-mobile' ),
-						'<a href="' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . '">' . __( 'Responsive Mobile', 'responsive-mobile' ) . '</a>',
+						'<a href="' . esc_url( 'http://cyberchimps.com/responsive-II/' ) . '">' . __( 'Responsive II', 'responsive-mobile' ) . '</a>',
 						'<a href="' . esc_url( 'http://wordpress.org/' ) . '">' . __( 'WordPress', 'responsive-mobile' ) . '</a>'
 					);
 					$powered_by_text = apply_filters( 'responsive_mobile_powered_by_text', $powered_by_text );

@@ -1,7 +1,7 @@
 Responsive Mobile
 =============
 
-Responsive Mobile is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload and Social Networking etc. Responsive Mobile is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly and W3C Markup Validated. Cross-Browser compatible. <a href="http://cyberchimps.com/forum/free/responsive/">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)
+Responsive II (codename Responsive Mobile) is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload and Social Networking etc. Responsive II is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly and W3C Markup Validated. Cross-Browser compatible. <a href="http://cyberchimps.com/forum/free/responsive/">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)
 
 
 Responsive Mobile WordPress Theme, Copyright 2014 CyberChimps
