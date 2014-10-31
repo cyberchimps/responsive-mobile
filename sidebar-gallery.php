@@ -30,23 +30,20 @@ responsive_mobile_widgets_before(); // above widgets container hook
 			<ul>
 				<?php $responsive_mobile_data = get_post_meta( $post->ID, '_wp_attachment_metadata', true ); ?>
 				<?php if ( is_array( $responsive_mobile_data ) ) : ?>
-					<span class="full-size"><?php _e( 'Full Size:', 'responsive-mobile' ); ?> <a
-							href="<?php echo wp_get_attachment_url( $post->ID ); ?>"><?php echo $responsive_mobile_data['width'] . '&#215;' . $responsive_mobile_data['height']; ?></a>px</span>
+					<span class="full-size"><?php _e( 'Full Size:', 'responsive-mobile' ); ?> <a href="<?php echo esc_url( wp_get_attachment_url( $post->ID ) ); ?>"><?php echo absint( $responsive_mobile_data['width'] ) . '&#215;' . absint( $responsive_mobile_data['height'] ); ?></a>px</span>
 
 					<?php if ( is_array( $responsive_mobile_data['image_meta'] ) ) : ?>
 						<?php if ( $responsive_mobile_data['image_meta']['aperture'] ) : ?>
-							<span
-								class="aperture"><?php _e( 'Aperture: f&#47;', 'responsive-mobile' ); ?><?php echo $responsive_mobile_data['image_meta']['aperture']; ?></span>
+							<span class="aperture"><?php _e( 'Aperture: f&#47;', 'responsive-mobile' ); ?><?php echo esc_html( $responsive_mobile_data['image_meta']['aperture'] ); ?></span>
 						<?php endif; ?>
 
 						<?php if ( $responsive_mobile_data['image_meta']['focal_length'] ) : ?>
 							<span
-								class="focal-length"><?php _e( 'Focal Length:', 'responsive-mobile' ); ?> <?php echo $responsive_mobile_data['image_meta']['focal_length']; ?><?php _e( 'mm', 'responsive-mobile' ); ?></span>
+								class="focal-length"><?php _e( 'Focal Length:', 'responsive-mobile' ); ?> <?php echo esc_html( $responsive_mobile_data['image_meta']['focal_length'] ); ?><?php _e( 'mm', 'responsive-mobile' ); ?></span>
 						<?php endif; ?>
 
 						<?php if ( $responsive_mobile_data['image_meta']['iso'] ) : ?>
-							<span
-								class="iso"><?php _e( 'ISO:', 'responsive-mobile' ); ?> <?php echo $responsive_mobile_data['image_meta']['iso']; ?></span>
+							<span class="iso"><?php _e( 'ISO:', 'responsive-mobile' ); ?> <?php echo esc_html( $responsive_mobile_data['image_meta']['iso'] ); ?></span>
 						<?php endif; ?>
 
 						<?php if ( $responsive_mobile_data['image_meta']['shutter_speed'] ) : ?>
@@ -59,14 +56,13 @@ responsive_mobile_widgets_before(); // above widgets container hook
 										echo number_format( ( 1 / $responsive_mobile_data['image_meta']['shutter_speed'] ), 1, '.', '' ) . ' sec';
 									}
 								} else {
-									echo $responsive_mobile_data['image_meta']['shutter_speed'] . ' sec';
+									echo esc_html( $responsive_mobile_data['image_meta']['shutter_speed'] ) . ' sec';
 								} ?>
 							</span>
 						<?php endif; ?>
 
 						<?php if ( $responsive_mobile_data['image_meta']['camera'] ) : ?>
-							<span
-								class="camera"><?php _e( 'Camera:', 'responsive-mobile' ); ?> <?php echo $responsive_mobile_data['image_meta']['camera']; ?></span>
+							<span class="camera"><?php _e( 'Camera:', 'responsive-mobile' ); ?> <?php echo esc_html( $responsive_mobile_data['image_meta']['camera'] ); ?></span>
 						<?php endif; ?>
 					<?php endif; ?>
 				<?php endif; ?>
