@@ -21,7 +21,7 @@ $emtpy_cta = ( empty( $responsive_mobile_options['cta_text'] ) ) ? false : true;
 			<h1 class="featured-title">
 				<?php
 				if ( isset( $responsive_mobile_options['home_headline'] ) && $db && $empty ) {
-					echo $responsive_mobile_options['home_headline'];
+					echo esc_html( $responsive_mobile_options['home_headline'] );
 				} else {
 					_e( 'Hello, World!', 'responsive-mobile' );
 				}
@@ -31,7 +31,7 @@ $emtpy_cta = ( empty( $responsive_mobile_options['cta_text'] ) ) ? false : true;
 			<h2 class="featured-subtitle">
 				<?php
 				if ( isset( $responsive_mobile_options['home_subheadline'] ) && $db && $empty ) {
-					echo $responsive_mobile_options['home_subheadline'];
+					echo esc_html( $responsive_mobile_options['home_subheadline'] );
 				} else {
 					_e( 'Your H2 subheadline here', 'responsive-mobile' );
 				}
@@ -41,7 +41,7 @@ $emtpy_cta = ( empty( $responsive_mobile_options['cta_text'] ) ) ? false : true;
 			<p>
 				<?php
 				if ( isset( $responsive_mobile_options['home_content_area'] ) && $db && $empty ) {
-					echo do_shortcode( wpautop( $responsive_mobile_options['home_content_area'] ) );
+					echo esc_html( do_shortcode( wpautop( $responsive_mobile_options['home_content_area'] ) ) );
 				} else {
 					_e( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive-mobile' );
 				}
@@ -55,7 +55,7 @@ $emtpy_cta = ( empty( $responsive_mobile_options['cta_text'] ) ) ? false : true;
 					<a href="<?php echo $responsive_mobile_options['cta_url']; ?>" class="btn cta-button">
 						<?php
 						if ( isset( $responsive_mobile_options['cta_text'] ) && $db && $emtpy_cta ) {
-							echo $responsive_mobile_options['cta_text'];
+							echo esc_html( $responsive_mobile_options['cta_text'] );
 						} else {
 							_e( 'Call to Action', 'responsive-mobile' );
 						}
@@ -72,7 +72,7 @@ $emtpy_cta = ( empty( $responsive_mobile_options['cta_text'] ) ) ? false : true;
 
 			<?php $featured_content = ( !empty( $responsive_mobile_options['featured_content'] ) ) ? $responsive_mobile_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/images/featured-image.png" width="497" height="297" alt="" />'; ?>
 
-			<?php echo do_shortcode( wpautop( $featured_content ) ); ?>
+			<?php echo esc_html( do_shortcode( wpautop( $featured_content ) ) ); ?>
 
 		</div><!-- end of #featured-image -->
 
