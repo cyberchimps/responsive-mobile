@@ -33,7 +33,7 @@ get_header(); ?>
 						$custom_404 = apply_filters( 'responsive_mobile_custom_404', '' );
 						
 						if( $custom_404 )
-							echo $custom_404;
+							echo esc_html( $custom_404 );
 						else
 							get_template_part( 'template-parts/content', 'none' );
 						?>
