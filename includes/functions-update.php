@@ -19,27 +19,6 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /*
- * Update social icon options
- *
- * @since    1.9.4.9
- */
-function responsive_mobile_update_social_icon_options() {
-	$responsive_mobile_options = responsive_mobile_get_options();
-	// If new option does not exist then copy the option
-	if ( !isset( $responsive_mobile_options['googleplus_uid'] ) && isset( $responsive_mobile_options['google_plus_uid'] ) ) {
-		$responsive_mobile_options['googleplus_uid'] = $responsive_mobile_options['google_plus_uid'];
-	}
-	if ( !isset( $responsive_mobile_options['stumbleupon_uid'] ) && isset ( $responsive_mobile_options['stumble_uid'] ) ) {
-		$responsive_mobile_options['stumbleupon_uid'] = $responsive_mobile_options['stumble_uid'];
-	}
-
-	// Update entire array
-	update_option( 'responsive_mobile_theme_options', $responsive_mobile_options );
-}
-
-add_action( 'after_setup_theme', 'responsive_mobile_update_social_icon_options' );
-
-/*
  * Update page templete meta data
  *
  * E.g: Change from `full-width-page.php` to `page-templates/full-width-page.php`
