@@ -60,11 +60,6 @@ function responsive_mobile_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	/**
-	 * Enable support for custom menus
-	 */
-	add_theme_support( 'menus' );
-
-	/**
 	 * This feature enables woocommerce support for a theme.
 	 * @link http://docs.woothemes.com/document/third-party-custom-theme-compatibility/#section-2
 	 */
