@@ -211,14 +211,6 @@ function responsive_mobile_custom_excerpt_more( $output ) {
 add_filter( 'get_the_excerpt', 'responsive_mobile_custom_excerpt_more' );
 
 /**
- * This function removes inline styles set by WordPress gallery.
- */
-function responsive_mobile_remove_gallery_css( $css ) {
-	return preg_replace( "#<style type='text/css'>(.*?)</style>#s", '', $css );
-}
-add_filter( 'gallery_style', 'responsive_mobile_remove_gallery_css' );
-
-/**
  * This function removes default styles set by WordPress recent comments widget.
  */
 function responsive_mobile_remove_recent_comments_style() {
@@ -256,27 +248,3 @@ function responsive_mobile_front_page_override( $new, $orig ) {
 	return $new;
 }
 add_filter( 'pre_update_option_show_on_front', 'responsive_mobile_front_page_override', 10, 2 );
-
-/**
- * Helps file locations in child themes. If the file is not being overwritten by the child theme then
- * return the parent theme location of the file. Great for images.
- *
- * @param $dir string directory
- *
- * @return string complete uri
- */
-function responsive_mobile_child_uri( $dir ) {
-	if( is_child_theme() ) {
-		$directory = get_stylesheet_directory() . $dir;
-		$test      = is_file( $directory );
-		if( is_file( $directory ) ) {
-			$file = get_stylesheet_directory_uri() . $dir;
-		} else {
-			$file = get_template_directory_uri() . $dir;
-		}
-	} else {
-		$file = get_template_directory_uri() . $dir;
-	}
-
-	return $file;
-}

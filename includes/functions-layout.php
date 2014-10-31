@@ -168,12 +168,4 @@ function responsive_mobile_save_layout_post_metadata() {
 
 	update_post_meta( $post->ID, '_responsive_mobile_layout', $layout );
 }
-
-// Hook the save layout post custom meta data into
-// publish_{post-type}, draft_{post-type}, and future_{post-type}
-add_action( 'publish_post', 'responsive_mobile_save_layout_post_metadata' );
-add_action( 'publish_page', 'responsive_mobile_save_layout_post_metadata' );
-add_action( 'draft_post', 'responsive_mobile_save_layout_post_metadata' );
-add_action( 'draft_page', 'responsive_mobile_save_layout_post_metadata' );
-add_action( 'future_post', 'responsive_mobile_save_layout_post_metadata' );
-add_action( 'future_page', 'responsive_mobile_save_layout_post_metadata' );
+add_action( 'save_post', 'responsive_mobile_save_layout_post_metadata' );
