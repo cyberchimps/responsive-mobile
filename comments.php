@@ -49,14 +49,7 @@ if ( post_password_required() ) {
 
 		<ol class="commentlist">
 			<?php
-				/* Loop through and list the comments. Tell wp_list_comments()
-				 * to use responsive_mobile_comment() to format the comments.
-				 * If you want to override this in a child theme, then you can
-				 * define responsive_mobile_comment() and that will be used instead.
-				 * See responsive_mobile_comment() in inc/template-tags.php for more.
-				 */
 				wp_list_comments( array(
-					'callback'    => 'responsive_mobile_comment',
 					'avatar_size' => '60',
 					'type'        => 'comment'
 				) );
@@ -109,9 +102,7 @@ if ( post_password_required() ) {
 			'<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>',
 		);
 
-		$defaults = array( 'fields' => apply_filters( 'comment_form_default_fields', $fields ) );
-
-		comment_form( $defaults );
+		comment_form();
 		?>
 
 	<?php endif; ?>
