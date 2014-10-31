@@ -93,7 +93,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 					array(
 						'container'       => 'div',
 						'container_class' => 'main-nav',
-						'fallback_cb'     => 'responsive_mobile_fallback_menu',
 						'theme_location'  => 'header-menu'
 					)
 				); ?>

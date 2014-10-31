@@ -26,26 +26,7 @@ if ( ! defined( 'WPINC' ) ) {
  */
 function responsive_mobile_page_menu_args( $args ) {
 	$args['show_home'] = true;
+	$args['menu_class'] = 'main-nav';
 	return $args;
 }
 add_filter( 'wp_page_menu_args', 'responsive_mobile_page_menu_args' );
-
-/**
- * Set a fallback menu that will show a home link.
- */
-function responsive_mobile_fallback_menu() {
-	$args    = array(
-		'depth'       => 0,
-		'sort_column' => 'menu_order, post_title',
-		'menu_class'  => 'main-nav',
-		'include'     => '',
-		'exclude'     => '',
-		'echo'        => false,
-		'show_home'   => true,
-		'link_before' => '',
-		'link_after'  => ''
-	);
-	$pages   = wp_page_menu( $args );
-	$output  = $pages;
-	echo $output;
-}
