@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -41,7 +41,7 @@ $emtpy_cta = ( empty( $responsive_mobile_options['cta_text'] ) ) ? false : true;
 			<p>
 				<?php
 				if ( isset( $responsive_mobile_options['home_content_area'] ) && $db && $empty ) {
-					echo esc_html( do_shortcode( wpautop( $responsive_mobile_options['home_content_area'] ) ) );
+					echo responsive_mobile_esc_content( do_shortcode( wpautop( $responsive_mobile_options['home_content_area'] ) ) );
 				} else {
 					_e( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive-mobile' );
 				}
@@ -52,7 +52,7 @@ $emtpy_cta = ( empty( $responsive_mobile_options['cta_text'] ) ) ? false : true;
 
 				<div class="call-to-action">
 
-					<a href="<?php echo $responsive_mobile_options['cta_url']; ?>" class="btn cta-button">
+					<a href="<?php echo esc_url( $responsive_mobile_options['cta_url'] ); ?>" class="btn cta-button">
 						<?php
 						if ( isset( $responsive_mobile_options['cta_text'] ) && $db && $emtpy_cta ) {
 							echo esc_html( $responsive_mobile_options['cta_text'] );
@@ -70,9 +70,9 @@ $emtpy_cta = ( empty( $responsive_mobile_options['cta_text'] ) ) ? false : true;
 
 		<div id="featured-image">
 
-			<?php $featured_content = ( !empty( $responsive_mobile_options['featured_content'] ) ) ? $responsive_mobile_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/images/featured-image.png" width="497" height="297" alt="" />'; ?>
+			<?php $featured_content = ( ! empty( $responsive_mobile_options['featured_content'] ) ) ? $responsive_mobile_options['featured_content'] : '<img class="aligncenter" src="' . responsive_mobile_child_uri( '/images/featured-image.png' ) . '" width="497" height="297" alt="" />'; ?>
 
-			<?php echo esc_html( do_shortcode( wpautop( $featured_content ) ) ); ?>
+			<?php echo responsive_mobile_esc_content( do_shortcode( wpautop( $featured_content ) ) ); ?>
 
 		</div><!-- end of #featured-image -->
 

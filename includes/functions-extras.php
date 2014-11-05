@@ -248,3 +248,34 @@ function responsive_mobile_front_page_override( $new, $orig ) {
 	return $new;
 }
 add_filter( 'pre_update_option_show_on_front', 'responsive_mobile_front_page_override', 10, 2 );
+
+/**
+ * Helps file locations in child themes. If the file is not being overwritten by the child theme then
+ * return the parent theme location of the file. Great for images.
+ *
+ * @param $dir string directory
+ *
+ * @return string complete uri
+ */
+function responsive_mobile_child_uri( $dir ) {
+	if( is_child_theme() ) {
+		$directory = get_stylesheet_directory() . $dir;
+		if( is_file( $directory ) ) {
+			$file = get_stylesheet_directory_uri() . $dir;
+		} else {
+			$file = get_template_directory_uri() . $dir;
+		}
+	} else {
+		$file = get_template_directory_uri() . $dir;
+	}
+
+	return $file;
+}
+
+/**
+ * Run the same code as WordPress core does on the content
+ */
+function responsive_mobile_esc_content( $content ) {
+	$content = str_replace( ']]>', ']]&gt;', $content );
+	echo $content;
+}
