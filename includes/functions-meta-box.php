@@ -23,7 +23,7 @@ if ( ! defined( 'WPINC' ) ) {
 if( is_admin() ) {
 
 	/*********************************** PAGE OPTIONS STARTS ******************************************/
-	$fields = array(
+	$responsive_mobile_fields = array(
 		array(
 			'type'  => 'checkbox',
 			'id'    => 'cyberchimps_page_title_toggle',
@@ -37,13 +37,13 @@ if( is_admin() ) {
 	/*
 	 * configure your meta box
 	 */
-	$config = array(
+	$responsive_mobile_config = array(
 		'id'             => 'cyberchimps_page_options', // meta box id, unique per meta box
 		'title'          => __( 'Page Options', 'responsive-mobile' ), // meta box title
 		'pages'          => array( 'page' ), // post types, accept custom post types as well, default is array('post'); optional
 		'context'        => 'normal', // where the meta box appear: normal (default), advanced, side; optional
 		'priority'       => 'high', // order of meta box: high (default), low; optional
-		'fields'         => $fields, // list of meta fields (can be added by field arrays)
+		'fields'         => $responsive_mobile_fields, // list of meta fields (can be added by field arrays)
 		'local_images'   => false, // Use local or hosted images (meta box images for add/remove)
 		'use_with_theme' => true //change path if used with theme set to true, false for a plugin or anything else for a custom path(default false).
 	);
@@ -51,6 +51,6 @@ if( is_admin() ) {
 	/*
 	 * Initiate your meta box
 	 */
-	$my_meta = new Cyberchimps_Meta_Box( $config );
+	$responsive_mobile_my_meta = new Cyberchimps_Meta_Box( $responsive_mobile_config );
 	/************************************ PAGE OPTIONS ENDS ***************************************/
 }
