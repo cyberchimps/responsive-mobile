@@ -323,7 +323,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 					$meta = is_array( $meta ) ? array_map( 'esc_attr', $meta ) : esc_attr( $meta );
 				}
 
-				$class = ( ( $field['class'] != '' ) ) ? ' class="' . $field['class'] . '-container"' : '';
+				$class = ( ( $field['class'] != '' ) ) ? ' class="' . esc_attr( $field['class'] ) . '-container"' : '';
 				if( $this->inGroup !== true ) {
 					echo '<tr' . $class . '>';
 				}
@@ -362,7 +362,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 			echo "<td class='at-field'" . ( ( $this->inGroup === true ) ? " valign='top'" : "" ) . ">";
 			if( $field['name'] != '' || $field['name'] != false ) {
 				echo "<div class='at-label'>";
-				echo "<label for='{$field['id']}'>{$field['name']}</label>";
+				echo '<label for="' . esc_attr( $field['id'] ) . '">' . esc_attr( $field['name'] ) .'</label>';
 				echo "</div>";
 			}
 		}
@@ -379,7 +379,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 		public function show_field_end( $field, $meta = null, $group = false ) {
 			//print description
 			if( isset( $field['desc'] ) && $field['desc'] != '' ) {
-				echo "<div class='desc-field'>{$field['desc']}</div>";
+				echo '<div class="desc-field">' . esc_attr( $field['desc'] ) . '</div>';
 			}
 			echo "</td>";
 		}
@@ -395,7 +395,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 		 */
 		public function show_field_text( $field, $meta ) {
 			$this->show_field_begin( $field, $meta );
-			echo "<input type='text' class='at-text" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}' id='{$field['id']}' value='{$meta}' size='30' " . ( isset( $field['style'] ) ? "style='{$field['style']}'" : '' ) . "/>";
+			echo '<input type="text" class="at-text' . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . '" name="' . esc_attr( $field['id'] ) . '" id="' . esc_attr( $field['id'] ) . '" value="' . $meta . '" size="30" ' . ( isset( $field['style'] ) ? 'style="' . esc_attr( $field['style'] ) . '"' : '' ) . '/>';
 			$this->show_field_end( $field, $meta );
 		}
 
@@ -411,9 +411,9 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 		public function show_field_number( $field, $meta ) {
 			$this->show_field_begin( $field, $meta );
 			$step = ( isset( $field['step'] ) || $field['step'] != '1' ) ? "step='" . $field['step'] . "' " : '';
-			$min  = isset( $field['min'] ) ? "min='" . $field['min'] . "' " : '';
-			$max  = isset( $field['max'] ) ? "max='" . $field['max'] . "' " : '';
-			echo "<input type='number' class='at-number" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}' id='{$field['id']}' value='{$meta}' size='30' " . $step . $min . $max . ( isset( $field['style'] ) ? "style='{$field['style']}'" : '' ) . "/>";
+			$min  = isset( $field['min'] ) ? "min='" . esc_attr( $field['min'] ) . "' " : '';
+			$max  = isset( $field['max'] ) ? "max='" . esc_attr( $field['max'] ) . "' " : '';
+			echo "<input type='number' class='at-number" . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . "' name='" . esc_attr( $field['id'] ) . "' id='" . esc_attr( $field['id'] ) . "' value='" . esc_attr( $meta ) . "' size='30' " . esc_attr( $step ) . esc_attr( $min ) . esc_attr( $max ) . ( isset( $field['style'] ) ? "style='" . esc_attr( $field['style'] ) . "'" : '' ) . "/>";
 			$this->show_field_end( $field, $meta );
 		}
 
@@ -428,7 +428,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 		 */
 		public function show_field_hidden( $field, $meta ) {
 			//$this->show_field_begin( $field, $meta );
-			echo "<input type='hidden' " . ( isset( $field['style'] ) ? "style='{$field['style']}' " : '' ) . "class='at-text" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}' id='{$field['id']}' value='{$meta}'/>";
+			echo "<input type='hidden' " . ( isset( $field['style'] ) ? "style='" . esc_attr( $field['style'] ) . "' " : '' ) . "class='at-text" . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . "' name='" . esc_attr( $field['id'] ) . "' id='" . esc_attr( $field['id'] ) . "' value='" . esc_attr( $meta ) . "'/>";
 			//$this->show_field_end( $field, $meta );
 		}
 
@@ -442,7 +442,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 		 */
 		public function show_field_paragraph( $field ) {
 			//$this->show_field_begin( $field, $meta );
-			echo '<p>' . $field['value'] . '</p>';
+			echo '<p>' . esc_attr( $field['value'] ) . '</p>';
 			//$this->show_field_end( $field, $meta );
 		}
 
@@ -457,7 +457,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 		 */
 		public function show_field_textarea( $field, $meta ) {
 			$this->show_field_begin( $field, $meta );
-			echo "<textarea class='at-textarea large-text" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}' id='{$field['id']}' " . ( isset( $field['style'] ) ? "style='{$field['style']}' " : '' ) . " cols='60' rows='10'>{$meta}</textarea>";
+			echo "<textarea class='at-textarea large-text" . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . "' name='" . esc_attr( $field['id'] ) . "' id='" . esc_attr( $field['id'] ) . "' " . ( isset( $field['style'] ) ? "style='" . esc_attr( $field['style'] ) . "' " : '' ) . " cols='60' rows='10'>" . esc_attr( $meta ) . "</textarea>";
 			$this->show_field_end( $field, $meta );
 		}
 		
@@ -472,7 +472,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 		 */
 		public function show_field_unfiltered_textarea( $field, $meta ) {
 			$this->show_field_begin( $field, $meta );
-			echo "<textarea class='at-textarea large-text" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}' id='{$field['id']}' " . ( isset( $field['style'] ) ? "style='{$field['style']}' " : '' ) . " cols='60' rows='10'>{$meta}</textarea>";
+			echo "<textarea class='at-textarea large-text" . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . "' name='" . esc_attr( $field['id'] ) . "' id='" . esc_attr( $field['id'] ) . "' " . ( isset( $field['style'] ) ? "style='" . esc_attr( $field['style'] ) . "' " : '' ) . " cols='60' rows='10'>" . esc_attr( $meta ) . "</textarea>";
 			$this->show_field_end( $field, $meta );
 		}
 
@@ -492,9 +492,9 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 			}
 
 			$this->show_field_begin( $field, $meta );
-			echo "<select " . ( isset( $field['style'] ) ? "style='{$field['style']}' " : '' ) . " class='at-select" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}" . ( $field['multiple'] ? "[]' id='{$field['id']}' multiple='multiple'" : "'" ) . ">";
+			echo "<select " . ( isset( $field['style'] ) ? "style='" . esc_attr( $field['style'] ) . "' " : '' ) . " class='at-select" . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . "' name='{$field['id']}" . ( $field['multiple'] ? "[]' id='" . esc_attr( $field['id'] ) . "' multiple='multiple'" : "'" ) . ">";
 			foreach( $field['options'] as $key => $value ) {
-				echo "<option value='{$key}'" . selected( in_array( $key, $meta ), true, false ) . ">{$value}</option>";
+				echo "<option value='" . esc_attr( $key ) . "'" . selected( in_array( $key, $meta ), true, false ) . ">" . esc_attr( $value ) . "</option>";
 			}
 			echo "</select>";
 			$this->show_field_end( $field, $meta );
@@ -518,7 +518,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 
 			$this->show_field_begin( $field, $meta );
 			foreach( $field['options'] as $key => $value ) {
-				echo "<input type='radio' " . ( isset( $field['style'] ) ? "style='{$field['style']}' " : '' ) . " class='at-radio" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}' value='{$key}'" . checked( in_array( $key, $meta ), true, false ) . " /> <span class='at-radio-label'>{$value}</span>";
+				echo "<input type='radio' " . ( isset( $field['style'] ) ? "style='" . esc_attr( $field['style'] ) . "' " : '' ) . " class='at-radio" . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . "' name='" . esc_attr( $field['id'] ) . "' value='" . esc_attr( $key ) . "'" . checked( in_array( $key, $meta ), true, false ) . " /> <span class='at-radio-label'>" . esc_attr( $value ) . "</span>";
 			}
 			$this->show_field_end( $field, $meta );
 		}
@@ -535,7 +535,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 		public function show_field_checkbox( $field, $meta ) {
 
 			$this->show_field_begin( $field, $meta );
-			echo "<input type='checkbox' " . ( isset( $field['style'] ) ? "style='{$field['style']}' " : '' ) . " class='rw-checkbox" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}' id='{$field['id']}'" . checked( !empty( $meta ), true, false ) . " />";
+			echo "<input type='checkbox' " . ( isset( $field['style'] ) ? "style='" . esc_attr( $field['style'] ) . "' " : '' ) . " class='rw-checkbox" . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . "' name='" . esc_attr( $field['id'] ) . "' id='" . esc_attr( $field['id'] ) . "'" . checked( !empty( $meta ), true, false ) . " />";
 			$this->show_field_end( $field, $meta );
 
 		}
@@ -553,14 +553,13 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 			$this->show_field_begin( $field, $meta );
 
 			if( $in_repeater ) {
-				echo "<textarea class='at-editor theEditor large-text" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}' id='{$field['id']}' cols='60' rows='10'>{$meta}</textarea>";
-			}
-			else {
+				echo "<textarea class='at-editor theEditor large-text" . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . "' name='" . esc_attr( $field['id'] ) . "' id='" . esc_attr( $field['id'] ) . "' cols='60' rows='10'>" . esc_attr( $meta ) . "</textarea>";
+			} else {
 				$default_settings = array( 'media_buttons' => false );
 				
 				// Use new wp_editor() since WP 3.3
 				$settings                 = ( isset( $field['settings'] ) && is_array( $field['settings'] ) ? $field['settings'] : $default_settings );
-				$settings['editor_class'] = 'at-editor' . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' );
+				$settings['editor_class'] = 'at-editor' . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' );
 				$id                       = str_replace( "_", "", $this->stripNumeric( strtolower( $field['id'] ) ) );
 				wp_editor( html_entity_decode( $meta ), $id, $settings );
 			}
@@ -594,13 +593,13 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 			$li       = ( $has_file ) ? "<li><a href='{$value['url']}' target='_blank'>{$value['url']}</a></li>" : "";
 
 			echo "<span class='simplePanelfilePreview'><ul>{$li}</ul></span>";
-			echo "<input type='hidden' name='{$name}[id]' value='{$value['id']}'/>";
-			echo "<input type='hidden' name='{$name}[url]' value='{$value['url']}'/>";
+			echo "<input type='hidden' name='" . esc_attr( $name ) . "[id]' value='" . esc_attr( $value['id'] ) . "'/>";
+			echo "<input type='hidden' name='" . esc_url( $name ) . "[url]' value='" . esc_url( $value['url'] ) . "'/>";
 			if( $has_file ) {
-				echo "<input type='button' class='{$multiple} button simplePanelfileUploadclear' id='{$id}' value='Remove File' data-mime_type='{$type}' data-ext='{$ext}'/>";
+				echo "<input type='button' class='" . esc_attr( $multiple ) . " button simplePanelfileUploadclear' id='" . esc_attr( $id ) . "' value='Remove File' data-mime_type='" . esc_attr( $type ) . "' data-ext='" . esc_attr( $ext ) . "'/>";
 			}
 			else {
-				echo "<input type='button' class='{$multiple} button simplePanelfileUpload' id='{$id}' value='Upload File' data-mime_type='{$type}' data-ext='{$ext}'/>";
+				echo "<input type='button' class='" . esc_attr( $multiple ) . " button simplePanelfileUpload' id='" . esc_attr( $id ) . "' value='Upload File' data-mime_type='" . esc_attr( $type ) . "' data-ext='" . esc_attr( $ext ) . "'/>";
 			}
 
 			$this->show_field_end( $field, $meta );
@@ -634,13 +633,13 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 			$multiple     = ( $multiple ) ? "multiFile " : "";
 
 			echo "<span class='simplePanelImagePreview'><img {$PreviewStyle} src='{$value['url']}'><br/></span>";
-			echo "<input type='hidden' name='{$name}[id]' value='{$value['id']}'/>";
-			echo "<input type='hidden' name='{$name}[url]' value='{$value['url']}'/>";
+			echo "<input type='hidden' name='" . esc_attr( $name ) . "[id]' value='" . esc_attr( $value['id'] ) . "'/>";
+			echo "<input type='hidden' name='" . esc_url( $name ) . "[url]' value='" . esc_url( $value['url'] ) . "'/>";
 			if( $has_image ) {
-				echo "<input class='{$multiple} button  simplePanelimageUploadclear' id='{$id}' value='Remove Image' type='button'/>";
+				echo "<input class='" . esc_attr( $multiple ) . " button  simplePanelimageUploadclear' id='" . esc_url( $id ) . "' value='Remove Image' type='button'/>";
 			}
 			else {
-				echo "<input class='{$multiple} button simplePanelimageUpload' id='{$id}' value='Upload Image' type='button'/>";
+				echo "<input class='" . esc_attr( $multiple ) . " button simplePanelimageUpload' id='" . esc_url( $id ) . "' value='Upload Image' type='button'/>";
 			}
 			$this->show_field_end( $field, $meta );
 		}
@@ -661,8 +660,8 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 			}
 
 			$this->show_field_begin( $field, $meta );
-			echo '<div class="input-prepend ' . $field['class'] . '"><input class="of-color" name="' . $field['id'] . '" id="' . $field['id'] . '" type="text" value="' . $meta . '" />';
-			echo '<div id="' . $field['id'] . '_picker'  . '" class="add-on colorSelector"><div style="' . esc_attr( 'background-color:' . $meta ) . '"></div></div></div>';
+			echo '<div class="input-prepend ' . esc_attr( $field['class'] ) . '"><input class="of-color" name="' . esc_attr( $field['id'] ) . '" id="' . esc_attr( $field['id'] ) . '" type="text" value="' . $meta . '" />';
+			echo '<div id="' . esc_attr( $field['id'] ) . '_picker'  . '" class="add-on colorSelector"><div style="background-color:' . esc_attr( $meta ) . '"></div></div></div>';
 			
 			$this->show_field_end( $field, $meta );
 
@@ -688,7 +687,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 			$html = array();
 
 			foreach( $field['options'] as $key => $value ) {
-				$html[] = "<input type='checkbox' " . ( isset( $field['style'] ) ? "style='{$field['style']}' " : '' ) . "  class='at-checkbox_list" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}[]' value='{$key}'" . checked( in_array( $key, $meta ), true, false ) . " /> {$value}";
+				$html[] = "<input type='checkbox' " . ( isset( $field['style'] ) ? "style='" . esc_attr( $field['style'] ) . "' " : '' ) . "  class='at-checkbox_list" . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . "' name='" . esc_attr( $field['id'] ) . "[]' value='" . esc_attr( $key ) . "'" . checked( in_array( $key, $meta ), true, false ) . " /> " . esc_attr( $value );
 			}
 
 			echo implode( '<br />', $html );
@@ -708,7 +707,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 		 */
 		public function show_field_date( $field, $meta ) {
 			$this->show_field_begin( $field, $meta );
-			echo "<input type='text'  " . ( isset( $field['style'] ) ? "style='{$field['style']}' " : '' ) . " class='at-date" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}' id='{$field['id']}' rel='{$field['format']}' value='{$meta}' size='30' />";
+			echo "<input type='text'  " . ( isset( $field['style'] ) ? "style='" . esc_attr( $field['style'] ) . "' " : '' ) . " class='at-date" . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . "' name='" . esc_attr( $field['id'] ) . "' id='" . esc_attr( $field['id'] ) . "' rel='" . esc_attr( $field['format'] ) . "' value='" . esc_attr( $meta ) . "' size='30' />";
 			$this->show_field_end( $field, $meta );
 		}
 
@@ -724,7 +723,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 		public function show_field_time( $field, $meta ) {
 			$this->show_field_begin( $field, $meta );
 			$ampm = ( $field['ampm'] ) ? 'true' : 'false';
-			echo "<input type='text'  " . ( isset( $field['style'] ) ? "style='{$field['style']}' " : '' ) . " class='at-time" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}' id='{$field['id']}' data-ampm='{$ampm}' rel='{$field['format']}' value='{$meta}' size='30' />";
+			echo "<input type='text'  " . ( isset( $field['style'] ) ? "style='" . esc_attr( $field['style'] ) . "' " : '' ) . " class='at-time" . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . "' name='" . esc_attr( $field['id'] ) . "' id='" . esc_attr( $field['id'] ) . "' data-ampm='{$ampm}' rel='" . esc_attr( $field['format'] ) . "' value='" . esc_attr( $meta ) . "' size='30' />";
 			$this->show_field_end( $field, $meta );
 		}
 
@@ -750,14 +749,14 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 			// checkbox_list
 			if( 'checkbox_list' == $options['type'] ) {
 				foreach( $posts as $p ) {
-					echo "<input type='checkbox' " . ( isset( $field['style'] ) ? "style='{$field['style']}' " : '' ) . " class='at-posts-checkbox" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}[]' value='$p->ID'" . checked( in_array( $p->ID, $meta ), true, false ) . " /> $p->post_title<br/>";
+					echo "<input type='checkbox' " . ( isset( $field['style'] ) ? "style='" . esc_attr( $field['style'] ) . "' " : '' ) . " class='at-posts-checkbox" . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . "' name='" . esc_attr( $field['id'] ) . "[]' value='$p->ID'" . checked( in_array( $p->ID, $meta ), true, false ) . " /> $p->post_title<br/>";
 				}
 			}
 			// select
 			else {
-				echo "<select " . ( isset( $field['style'] ) ? "style='{$field['style']}' " : '' ) . " class='at-posts-select" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}" . ( $field['multiple'] ? "[]' multiple='multiple' style='height:auto'" : "'" ) . ">";
+				echo "<select " . ( isset( $field['style'] ) ? "style='" . esc_attr( $field['style'] ) . "' " : '' ) . " class='at-posts-select" . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . "' name='" . esc_attr( $field['id'] ) . ( $field['multiple'] ? "[]' multiple='multiple' style='height:auto'" : "'" ) . ">";
 				foreach( $posts as $p ) {
-					echo "<option value='$p->ID'" . selected( in_array( $p->ID, $meta ), true, false ) . ">$p->post_title</option>";
+					echo "<option value='" . esc_attr( $p->ID ) . "'" . selected( in_array( $p->ID, $meta ), true, false ) . ">$p->post_title</option>";
 				}
 				echo "</select>";
 			}
@@ -790,12 +789,12 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 			// checkbox_list
 			if( 'checkbox_list' == $options['type'] ) {
 				foreach( $terms as $term ) {
-					echo "<input type='checkbox' " . ( isset( $field['style'] ) ? "style='{$field['style']}' " : '' ) . " class='at-tax-checkbox" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}[]' value='$term->slug'" . checked( in_array( $term->slug, $meta ), true, false ) . " /> $term->name<br/>";
+					echo "<input type='checkbox' " . ( isset( $field['style'] ) ? "style='" . esc_attr( $field['style'] ) . "' " : '' ) . " class='at-tax-checkbox" . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . "' name='" . esc_attr( $field['id'] ) . "[]' value='$term->slug'" . checked( in_array( $term->slug, $meta ), true, false ) . " /> $term->name<br/>";
 				}
 			}
 			// select
 			else {
-				echo "<select " . ( isset( $field['style'] ) ? "style='{$field['style']}' " : '' ) . " class='at-tax-select" . ( isset( $field['class'] ) ? ' ' . $field['class'] : '' ) . "' name='{$field['id']}" . ( $field['multiple'] ? "[]' multiple='multiple' style='height:auto'" : "'" ) . ">";
+				echo "<select " . ( isset( $field['style'] ) ? "style='" . esc_attr( $field['style'] ) . "' " : '' ) . " class='at-tax-select" . ( isset( $field['class'] ) ? ' ' . esc_attr( $field['class'] ) : '' ) . "' name='{$field['id']}" . ( $field['multiple'] ? "[]' multiple='multiple' style='height:auto'" : "'" ) . ">";
 				foreach( $terms as $term ) {
 					echo "<option value='$term->slug'" . selected( in_array( $term->slug, $meta ), true, false ) . ">$term->name</option>";
 				}
@@ -821,7 +820,7 @@ if( !class_exists( 'AT_Meta_Box' ) ) :
 			if( is_array( $meta ) && isset( $meta['enabled'] ) && $meta['enabled'] == 'on' ) {
 				$checked = true;
 			}
-			echo "<input type='checkbox' class='conditinal_control' name='{$field['id']}[enabled]' id='{$field['id']}'" . checked( $checked, true, false ) . " />";
+			echo "<input type='checkbox' class='conditinal_control' name='{$field['id']}[enabled]' id='" . esc_attr( $field['id'] ) . "'" . checked( $checked, true, false ) . " />";
 			//start showing the fields
 			$display = ( $checked ) ? '' : ' style="display: none;"';
 
@@ -1858,7 +1857,7 @@ class CyberChimps_Meta_Box extends AT_Meta_Box {
 		foreach( $field['options'] as $key => $option ) {
 			echo "<img data-key='{$key}' class='" . ( $key == $meta ? ' selected' : '' ) . "' src='{$option}' />";
 		}
-		echo "<input type='hidden' name='{$field['id']}' />";
+		echo "<input type='hidden' name='" . esc_attr( $field['id'] ) . "' />";
 		echo "</div>";
 		$this->show_field_end( $field, $meta );
 	}
@@ -1943,7 +1942,7 @@ class CyberChimps_Meta_Box extends AT_Meta_Box {
 
 		echo "<input type='button' class='upload-image-button' value='" . __( 'Upload', 'responsive-mobile' ) . "' />";
 		echo "<div class='upload-desc-field'>" . __( 'or enter URL', 'responsive-mobile' ) . "</div>";
-		echo "<input class='upload-image-field' type='text' size='50' name='{$field['id']}' value='{$meta}'/>";
+		echo "<input class='upload-image-field' type='text' size='50' name='" . esc_attr( $field['id'] ) . "' value='" . esc_attr( $meta ) . "'/>";
 
 		$this->show_field_end( $field, $meta );
 	}
