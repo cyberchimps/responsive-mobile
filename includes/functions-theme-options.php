@@ -130,7 +130,7 @@ function responsive_mobile_theme_options_set()
 					'type'        => 'checkbox',
 					'id'          => 'front_page',
 					'description' => sprintf( __( 'Overrides the WordPress %1sfront page option%2s', 'responsive-mobile' ), '<a href="options-reading.php">', '</a>' ),
-					'default'     => 1,
+					'default'     => '',
 					'validate'    => 'checkbox'
 				),
 				array(
