@@ -8,6 +8,27 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(09/15/14) - Improvements - Version 0.0.1
+(11/15/14) - Improvements - Version 0.0.3
+
+[*] Escape variables in meta box class
+[*] Change default value of front page
+[*] Prefixed all variables with responsive_mobile_
+[*] Escape featured content & allow image to be replaced in child theme
+[x] Removed show_field_repeater()
+[x] Removed blog templates
+[x] Removed unneded code
+
+-----
+
+(11/01/14) - Improvements - Version 0.0.2
+
+[*] Activate responsive_mobile_upgrade_bar
+[*] Use the filter stylesheet_uri
+[x] Removed duplicate WooCommerce support
+[x] Removed 3.4 compatability
+
+-----
+
+(09/15/14) - Initial Release - Version 0.0.1
 
 [+] Initial Release
