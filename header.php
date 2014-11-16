@@ -47,13 +47,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 <body <?php body_class(); ?> itemscope="itemscope" itemtype="http://schema.org/WebPage">
 <?php responsive_mobile_body_top(); ?>
 <div id="container" class="site">
-<?php responsive_mobile_container_top(); ?>
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'responsive-mobile' ); ?></a>
 	<a class="skip-link screen-reader-text" href="#main-navigation"><?php _e( 'Skip to main menu', 'responsive-mobile' ); ?></a>
+<?php responsive_mobile_container_top(); ?>
 <?php if ( has_nav_menu( 'top-menu', 'responsive-mobile' ) ) { ?>
 	<div id="top-menu-container" class="container-full-width">
 		<nav id="top-menu" class="container" itemscope itemtype="http://schema.org/SiteNavigationElement">
-			<?php responsive_mobile_header_top(); // before header content hook ?>
 			<?php wp_nav_menu(
 				array(
 					'container'      => '',
@@ -66,9 +65,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</nav>
 	</div><!-- top menu container -->
 <?php } ?>
-<?php responsive_mobile_header(); ?>
+<?php responsive_mobile_header_before(); ?>
 	<header id="header" class="container-full-width site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
-		<?php responsive_mobile_in_header(); ?>
+		<?php responsive_mobile_header_top(); ?>
 		<div class="container">
 			<div class="header-row">
 				<div id="site-branding">

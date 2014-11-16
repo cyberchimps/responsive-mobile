@@ -55,7 +55,7 @@ function responsive_mobile_body_bottom() {
  * @see header.php
  */
 function responsive_mobile_container_top() {
-	do_action( 'responsive_mobile_container' );
+	do_action( 'responsive_mobile_container_top' );
 }
 
 /**
@@ -94,8 +94,8 @@ function responsive_mobile_head_bottom() {
  *
  * @see header.php
  */
-function responsive_mobile_header() {
-	do_action( 'responsive_mobile_header' );
+function responsive_mobile_header_before() {
+	do_action( 'responsive_mobile_header_before' );
 	tha_header_before();
 }
 
@@ -107,15 +107,6 @@ function responsive_mobile_header() {
 function responsive_mobile_header_top() {
 	do_action( 'responsive_mobile_header_top' );
 	tha_header_top();
-}
-
-/**
- * Just after opening <div id="header">
- *
- * @see header.php
- */
-function responsive_mobile_in_header() {
-	do_action( 'responsive_mobile_in_header' );
 }
 
 /**
