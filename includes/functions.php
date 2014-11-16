@@ -157,8 +157,8 @@ function responsive_mobile_css() {
 
 	if ( is_child_theme() ) {
 		$theme = wp_get_theme();
-		wp_enqueue_style( 'responsive-mobile-child-style', get_stylesheet_uri(), false, $theme['Version'] );
 		wp_enqueue_style( 'responsive-mobile-style', get_template_directory_uri() . '/css/style' . $suffix . '.css', false, $responsive_mobile['Version'] );
+		wp_enqueue_style( 'responsive-mobile-child-style', get_stylesheet_uri(), false, $theme['Version'] );
 	} else {
 		wp_enqueue_style( 'responsive-mobile-style', get_stylesheet_uri(), false, $responsive_mobile['Version'] );
 	}
