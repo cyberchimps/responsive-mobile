@@ -20,16 +20,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <!DOCTYPE html>
-<!--[if !IE]>
-<html class="no-js non-ie" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 7 ]>
-<html class="no-js ie7" <?php language_attributes(); ?>> <![endif]-->
 <!--[if IE 8 ]>
-<html class="no-js ie8" <?php language_attributes(); ?>> <![endif]-->
+	<html class="no-js ie8" <?php language_attributes(); ?>>
+<![endif]-->
 <!--[if IE 9 ]>
-<html class="no-js ie9" <?php language_attributes(); ?>> <![endif]-->
+	<html class="no-js ie9" <?php language_attributes(); ?>>
+<![endif]-->
 <!--[if gt IE 9]><!-->
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?>><!--<![endif]-->
 	<head>
 		<?php responsive_mobile_head_top(); ?>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
