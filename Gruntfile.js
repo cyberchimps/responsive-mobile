@@ -178,6 +178,9 @@ module.exports = function(grunt) {
 		},
 
 		uglify: {
+			options: {
+				mangle: false
+			},
 			bootstrap: {
 				files: {
 					'core/bootstrap/javascripts/bootstrap.min.js': ['core/bootstrap/javascripts/bootstrap.js']
