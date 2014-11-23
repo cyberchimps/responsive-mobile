@@ -78,3 +78,9 @@
 		});
 	};
 })(jQuery);
+
+// FitVids
+jQuery(function($) {
+// Target your #container, #wrapper etc.
+	$("#wrapper").fitVids({ ignore: '.ls-container'});
+});
