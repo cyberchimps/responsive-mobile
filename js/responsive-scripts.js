@@ -99,7 +99,7 @@ jQuery(function($) {
 
     };
 
-    $("button#mobile-nav-button").on("click", obj.onClick);
+    $("nav#main-navigation").on("click", obj.onClick);
 })(jQuery);
 
 /*! http://mths.be/placeholder v2.0.7 by @mathias */

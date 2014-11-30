@@ -12,5 +12,5 @@
 
     };
 
-    $("button#mobile-nav-button").on("click", obj.onClick);
+    $("nav#main-navigation").on("click", obj.onClick);
 })(jQuery);
