@@ -76,7 +76,7 @@ function responsive_mobile_widgets_init() {
 		'name'          => __( 'Home Widget 1', 'responsive-mobile' ),
 		'description'   => __( 'Area 6 - sidebar-home.php - Displays on the Home Page', 'responsive-mobile' ),
 		'id'            => 'home-widget-1',
-		'before_title'  => '<div id="widget-title-one" class="widget-title-home"><h3>',
+		'before_title'  => '<div id="widget-title-one" class="widget-title-home"><h3 class="widget-title-home">',
 		'after_title'   => '</h3></div>',
 		'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
 		'after_widget'  => '</div>'
@@ -86,7 +86,7 @@ function responsive_mobile_widgets_init() {
 		'name'          => __( 'Home Widget 2', 'responsive-mobile' ),
 		'description'   => __( 'Area 7 - sidebar-home.php - Displays on the Home Page', 'responsive-mobile' ),
 		'id'            => 'home-widget-2',
-		'before_title'  => '<div id="widget-title-two" class="widget-title-home"><h3>',
+		'before_title'  => '<div id="widget-title-two" class="widget-title-home"><h3 class="widget-title-home">',
 		'after_title'   => '</h3></div>',
 		'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
 		'after_widget'  => '</div>'
@@ -96,7 +96,7 @@ function responsive_mobile_widgets_init() {
 		'name'          => __( 'Home Widget 3', 'responsive-mobile' ),
 		'description'   => __( 'Area 8 - sidebar-home.php - Displays on the Home Page', 'responsive-mobile' ),
 		'id'            => 'home-widget-3',
-		'before_title'  => '<div id="widget-title-three" class="widget-title-home"><h3>',
+		'before_title'  => '<div id="widget-title-three" class="widget-title-home"><h3 class="widget-title-home">',
 		'after_title'   => '</h3></div>',
 		'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
 		'after_widget'  => '</div>'
