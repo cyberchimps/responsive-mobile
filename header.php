@@ -14,9 +14,9 @@
  * should be made in a child theme.
  */
 
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
 }
 ?>
 <!DOCTYPE html>
