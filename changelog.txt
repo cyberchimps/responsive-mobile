@@ -4,9 +4,22 @@ Changelog Legend:
 [+] = Added
 [*] = Changed
 [^] = Moved
-[=] = No Changes
 [x] = Deleted
 [!] = Bugs
+
+(12/28/14) - Improvements - Version 0.0.4
+
+[!] Fix issues with IE code
+[!] Initiate FitVids correctly
+[!] Fix search button alignment in FF
+[*] Only minify js and not concentrate
+[*] Allow mobile menu to opened by clicking on the whole bar
+[*] Reduce padding of #featured-content on smaller screens
+[*] Readd blog templates
+[+] Add class to home widget titles
+[+] Add featured image to single posts
+
+-----
 
 (11/15/14) - Improvements - Version 0.0.3
 
