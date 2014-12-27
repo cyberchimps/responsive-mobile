@@ -437,7 +437,10 @@ main {
 
 main #featured-content {
 	@include make-md-column(6);
-	padding: 40px 30px;
+	@media (min-width: $screen-md-min) {
+		padding: 40px 30px;
+	}
+	padding: 40px 0;
 	h1, h2, p {
 		text-align: center;
 	}

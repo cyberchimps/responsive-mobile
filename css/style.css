@@ -1559,12 +1559,17 @@ main #featured-content, main #featured-image {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-  padding: 40px 30px;
+  padding: 40px 0;
 }
 @media (min-width: 992px) {
   main #featured-content, main #featured-image {
     float: left;
     width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  main #featured-content, main #featured-image {
+    padding: 40px 30px;
   }
 }
 main #featured-content h1, main #featured-image h1, main #featured-content h2, main #featured-image h2, main #featured-content p, main #featured-image p {
