@@ -86,6 +86,7 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				options: {
+					sourcemap: 'none',
 					style: 'expanded'
 				},
 				files: {
@@ -261,7 +262,7 @@ module.exports = function(grunt) {
 				src: ['**/*'],
 				dest: '<%= pkg.name %>/'
 			}
-		},
+		}
 
 	});
 
