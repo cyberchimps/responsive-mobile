@@ -40,7 +40,9 @@
 	16.1 - WooCommerce
 	16.2 - Jetpack
 --------------------------------------------------------------*/
-
+@function unicode($str){
+    @return unquote("\"") + $str + unquote("\"");
+}
 //Variables
 $font-family-base: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
