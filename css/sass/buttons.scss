@@ -35,4 +35,10 @@ input[type="button"] {
 	background-image: none;
 	@include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
   }
+
+  .post-password-form & {
+	vertical-align: bottom;
+	margin-bottom: 5px;
+  }
+
 }
