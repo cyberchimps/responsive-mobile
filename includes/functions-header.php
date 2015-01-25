@@ -41,11 +41,10 @@ function responsive_mobile_header_branding() {
 }
 add_action( 'responsive_mobile_header_one', 'responsive_mobile_header_branding' );
 
-/**
+/** 
  * Adds sidebar-top to header
  */
 function responsive_mobile_sidebar_top() {
 	get_sidebar( 'top' );
 }
-
 add_action( 'responsive_mobile_header_two', 'responsive_mobile_sidebar_top' );
