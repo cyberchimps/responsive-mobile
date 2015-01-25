@@ -30,9 +30,13 @@ function responsive_mobile_upgrade_bar() {
 			<?php printf( __( 'Welcome to %s!', 'responsive-mobile' ),
 				'Responsive II'
 			); ?>
-			<?php printf( __( 'Get more features with %s!', 'responsive-mobile' ),
-				'<a href="http://cyberchimps.com/store/pro-features/" target="_blank" title="Pro Features Plugin">Pro Features Plugin</a> '
-			); ?>
+			<?php
+			if ( ! class_exists( 'cyberchimpsoptions' ) ) {
+				printf( __( 'Get more features with %s!', 'responsive-mobile' ),
+					'<a href="http://cyberchimps.com/store/pro-features/" target="_blank" title="Pro Features Plugin">Pro Features Plugin</a> '
+				);
+			}
+			?>
 		</p>
 
 		<div class="social-container">
