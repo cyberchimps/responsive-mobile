@@ -20,7 +20,9 @@ if ( ! defined( 'WPINC' ) ) {
 ?>
 
 <header class="entry-header">
-	<?php the_title( '<h1 class="entry-title post-title">', '</h1>' ); ?>
+	<?php if( get_post_meta( get_the_ID(), 'cyberchimps_page_title_toggle', true ) ) {
+		the_title( '<h1 class="entry-title post-title">', '</h1>' ); 
+	}?>
 
 	<?php if ( comments_open() ) : ?>
 		<div class="post-meta">
