@@ -7,6 +7,15 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(02/04/14) - Improvements - Version 0.0.5
+
+[*] - Change check if file is called directly.
+[+] - Added check for pro feature plugin.
+[+] - Add post password form css.
+[!] - Fixed page title option issue.
+[!] - Fixed custom css issue.
+
+
 (12/28/14) - Improvements - Version 0.0.4
 
 [!] Fix issues with IE code
