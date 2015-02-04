@@ -14,6 +14,7 @@ Changelog Legend:
 [+] - Add post password form css.
 [!] - Fixed page title option issue.
 [!] - Fixed custom css issue.
+[+] - Added new plugin suggestion.
 
 
 (12/28/14) - Improvements - Version 0.0.4
