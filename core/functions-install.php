@@ -103,6 +103,16 @@ function responsive_mobile_plugin_notice() {
 				'name' => 'Clef', // Name of the plugin.
 				'slug' => 'wpclef', // The plugin slug (typically the folder name)
 				'uri'  => 'http://wordpress.org/extend/plugins/wpclef' // plugin url ( http://wordpress.org/plugins/plugin_slug )
+			),
+			array(
+				'name'     => 'Wp Product Review', // The plugin name
+				'slug'     => 'wp-product-review', // The plugin slug (typically the folder name)
+				'uri'  => 'http://wordpress.org/extend/plugins/wp-product-review'
+			),
+			array(
+				'name'     => 'Tweet Old Post', // The plugin name
+				'slug'     => 'tweet-old-post', // The plugin slug (typically the folder name)
+				'uri'  => 'http://wordpress.org/extend/plugins/tweet-old-post'
 			)
 		);
 
