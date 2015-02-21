@@ -22,12 +22,13 @@ if ( ! defined( 'WPINC' ) ) {
 <?php responsive_mobile_entry_before(); ?>
 <section id="post-0" class="error404 no-results not-found">
 	<?php responsive_mobile_entry_top(); ?>
-	<header class="page-header">
-		<h1 class="title-404"><?php _e( '404 &#8212; Fancy meeting you here!', 'responsive-mobile' ) ?></h1>
-	</header><!-- .page-header -->
 
 	<div class="page-content">
 		<?php if ( is_home() || is_archive() && current_user_can( 'publish_posts' ) ) : ?>
+
+			<header class="page-header">
+				<h1 class="title-title"><?php _e( 'No posts published yet', 'responsive-mobile' ) ?></h1>
+			</header><!-- .page-header -->
 
 			<p>
 				<?php _e( 'Ready to publish your first post?', 'responsive-mobile' ); ?>
@@ -36,10 +37,18 @@ if ( ! defined( 'WPINC' ) ) {
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p><?php sprintf( __( 'Your search for %s did not match any entries.', 'responsive-mobile' ), get_search_query() ); ?></p>
+			<header class="page-header">
+				<h1 class="title-title"><?php _e( 'No results', 'responsive-mobile' ) ?></h1>
+			</header><!-- .page-header -->
+
+			<p><?php printf( __( 'Your search for "%s" did not match any entries.', 'responsive-mobile' ), get_search_query() ); ?></p>
 			<?php get_search_form(); ?>
 
 		<?php else : ?>
+
+			<header class="page-header">
+				<h1 class="title-404"><?php _e( '404 &#8212; Fancy meeting you here!', 'responsive-mobile' ) ?></h1>
+			</header><!-- .page-header -->
 
 			<p><?php _e( 'Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here.', 'responsive-mobile' ); ?></p>
 			<p><?php _e( 'The URL may be misspelled or the page you are looking for is no longer available.', 'responsive-mobile' ); ?></p>
