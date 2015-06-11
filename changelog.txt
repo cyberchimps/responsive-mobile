@@ -7,12 +7,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(03/15/14) - Improvements - Version 0.0.6
+(03/15/15) - Improvements - Version 0.0.6
 
 [*] - Updated translations
 [!] - Fixed code on 404.php
 
-(02/04/14) - Improvements - Version 0.0.5
+(02/04/15) - Improvements - Version 0.0.5
 
 [*] - Change check if file is called directly.
 [+] - Added check for pro feature plugin.
