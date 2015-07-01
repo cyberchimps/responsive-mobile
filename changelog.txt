@@ -7,6 +7,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(07/01/15) - Improvements - Version 0.0.7
+
+[!] - Fixed header image crop issue
+
 (03/15/14) - Improvements - Version 0.0.6
 
 [*] - Updated translations
