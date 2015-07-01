@@ -31,6 +31,8 @@ function responsive_mobile_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'responsive_mobile_custom_header_args', array(
 		'flex-width'             => true,
 		'flex-height'            => true,
+		'width'                  => 780,
+		'height'                 => 200,
 		'default-text-color'     => '333',
 		'wp-head-callback'       => 'responsive_mobile_header_style',
 		'admin-head-callback'    => 'responsive_mobile_admin_header_style',
