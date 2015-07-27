@@ -271,7 +271,7 @@ function responsive_mobile_theme_options_set()
 					'id'          => 'rss_uid',
 					'description' => __( 'Enter your RSS Feed URL', 'responsive-mobile' ),
 					'default'     => '',
-					'validate'    => 'checkbox'
+					'validate'    => 'url'
 				),
 				array(
 					'title'       => __( 'Google+', 'responsive-mobile' ),
