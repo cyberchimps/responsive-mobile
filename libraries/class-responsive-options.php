@@ -212,7 +212,7 @@ Class Responsive_Options {
 		// If the width is not set to full then create normal size, otherwise create full width
 		$html .= ( !isset( $options['width'] ) || $options['width'] != 'full' ) ? '<div class="col-md-8">' : '<div class="col-md-12">';
 
-		$html .= $this->$options['type']( $options );
+		$html .= $this->{$options['type']}( $options );
 
 		$html .= '</div>';
 
