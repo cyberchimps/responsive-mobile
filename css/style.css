@@ -1675,6 +1675,10 @@ main #featured-content .call-to-action .cta-button:hover, main #featured-image .
   margin-bottom: 20px;
 }
 
+.page-feature-image {
+    padding-bottom: 10px;
+}
+
 /*--------------------------------------------------------------
  8.4 - Error Page
 --------------------------------------------------------------*/

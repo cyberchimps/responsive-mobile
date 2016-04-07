@@ -7,6 +7,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+
+(07/04/16) - Improvements - Version 0.0.8
+
+[!] - Fixed PHP 7 compatibility issue
+[!] - Fixed translation issue
+[+] - Added featured image support for Pages
+
 (07/01/15) - Improvements - Version 0.0.7
 
 [!] - Fixed header image crop issue
