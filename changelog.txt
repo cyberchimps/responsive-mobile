@@ -8,11 +8,11 @@ Changelog Legend:
 [!] = Bugs
 
 
-(06/04/16) - Improvements - Version 0.0.8
+(07/04/16) - Improvements - Version 0.0.8
 
 [!] - Fixed PHP 7 compatibility issue
-[*] - Changed Translation file names
-[+] - Added Feature image support for Pages.
+[!] - Fixed translation issue
+[+] - Added featured image support for Pages
 
 (07/01/15) - Improvements - Version 0.0.7
 
