@@ -101,3 +101,10 @@ require $template_directory . '/core/functions-install.php';
  * Admin functionality
  */
 require $template_directory . '/core/functions-admin.php';
+
+// enabling theme support for title tag
+function responsivemobile_title_setup() 
+{
+	add_theme_support( 'title-tag' );
+}
+add_action( 'after_setup_theme', 'responsivemobile_title_setup' );
