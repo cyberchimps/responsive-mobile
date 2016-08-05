@@ -32,7 +32,7 @@ function responsive_mobile_upgrade_bar() {
 			); ?>
 			<?php
 			if ( ! class_exists( 'cyberchimpsoptions' ) ) {
-				printf( __( 'Go Pro with the %s! - Get 30%% off using PROPLUGIN30', 'responsive-mobile' ),
+				printf( __( 'Go Pro with the %s! - Get 30%% off using <span style="color:red">PROPLUGIN30</span>', 'responsive-mobile' ),
 					'<a href="http://cyberchimps.com/store/pro-features/" target="_blank" title="Pro Features Plugin">Pro Features Plugin</a> '
 				);
 			}
