@@ -7,6 +7,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(05/08/16) - Improvements - Version 0.0.10
+
+[!] - Updated as per latest Theme Check guidelines
+
 (27/04/16) - Improvements - Version 0.0.9
 
 [!] - Fixed scroll-top jquery conflict with WordPress 4.5 version
