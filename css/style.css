@@ -2146,11 +2146,11 @@ main#main.sitemap .sitemap-widgets:after {
 
 .widget_search {
   margin-top: 40px;
-  text-align: center;
+  text-align: left;
 }
 @media (min-width: 1200px) {
   .widget_search {
-    text-align: right;
+    text-align: left;
   }
 }
 
@@ -2165,7 +2165,7 @@ main#main.sitemap .sitemap-widgets:after {
 .search-form .search-submit {
   position: relative;
   height: 34px;
-  left: -4px;
+  left: 0;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
