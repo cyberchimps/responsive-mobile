@@ -7,6 +7,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(13/09/16) - Improvements - Version 0.0.11
+
+[!] - Fixed issue with searchbar display in sidebar.
+
 (05/08/16) - Improvements - Version 0.0.10
 
 [!] - Updated as per latest Theme Check guidelines
