@@ -1511,6 +1511,12 @@ li {
 }
 #site-branding .site-description {
   font-size: 20px;
+	margin-bottom: 0.3em;
+}
+#site-branding .site-name {
+	font-size: 36px;
+    margin-top: 0.4em;
+    margin-bottom: 0.3em;
 }
 
 #secondary-header {
