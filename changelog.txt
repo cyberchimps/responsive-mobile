@@ -9,7 +9,7 @@ Changelog Legend:
 
 (26/10/16) - Improvements - Version 1.0
 
-[!] - SEO improvement (removed H1 tag).
+[!] - SEO improvement (removed H1 tag for site title).
 
 (13/09/16) - Improvements - Version 0.0.11
 
