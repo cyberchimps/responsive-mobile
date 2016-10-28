@@ -7,6 +7,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(26/10/16) - Improvements - Version 1.0
+
+[!] - SEO improvement (removed H1 tag).
+
 (13/09/16) - Improvements - Version 0.0.11
 
 [!] - Fixed issue with searchbar display in sidebar.
