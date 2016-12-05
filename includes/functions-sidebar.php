@@ -128,7 +128,7 @@ function responsive_mobile_widgets_init() {
 		'id'            => 'top-widget',
 		'before_title'  => '<div class="widget-title"><h3>',
 		'after_title'   => '</h3></div>',
-		'before_widget' => '<div id="%1$s" class="%2$s">',
+		'before_widget' => '<div id="%1$s" class="responsive-mobile-top-widget %2$s">',
 		'after_widget'  => '</div>'
 	) );
 
