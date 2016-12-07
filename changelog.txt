@@ -9,7 +9,7 @@ Changelog Legend:
 
 (07/12/16) - Improvements - Version 1.1
 
-[!] - Resolved issue of error in customizer for widget 
+[!] - Fixed customizer issue for widget 
 
 (26/10/16) - Improvements - Version 1.0
 

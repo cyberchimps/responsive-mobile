@@ -2717,3 +2717,7 @@ table.cart td.actions .coupon .input-text,
 table.cart td.actions .coupon .input-text {
   cursor: text;
 }
+.responsive-mobile-top-widget
+{
+	display:block;
+}
