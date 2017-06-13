@@ -31,6 +31,7 @@ require $template_directory . '/includes/functions.php';
 require $template_directory . '/libraries/class-responsive-options.php';
 require $template_directory . '/includes/functions-theme-options.php';
 require $template_directory . '/includes/functions-theme-options-page.php';
+require( $template_directory . '/includes/customizer.php' );
 
 /**
  * Meta Box Options

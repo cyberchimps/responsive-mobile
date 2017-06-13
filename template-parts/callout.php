@@ -27,11 +27,6 @@ $src = $xpath->evaluate("string(//img/@src)");
 }
 $img_callout= get_template_directory_uri() . "/images/background.jpg";
 
-error_log("src");
-error_log("$src");
-error_log("img_callout");
-error_log("$img_callout");
-
 $img_call = $src == "" ? $img_callout : $src;
 
 if($responsive_mobile_options['callout_toggle_btn'] == 1)
@@ -74,7 +69,7 @@ if($responsive_mobile_options['callout_toggle_btn'] == 1)
 		</div><!-- end of #featured-content -->
 
 		<div id="featured-image">
-<div class="call-to-action">
+<div class="call-to-action callout_button">
 
 					<a href="<?php echo esc_url( $responsive_mobile_options['callout_cta_url'] ); ?>" class="btn cta-button" style="color:<?php echo $callout_btn_text_color; ?>; background:<?php echo $callout_btn_back_color; ?>;">
 						<?php
