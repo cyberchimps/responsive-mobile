@@ -2722,3 +2722,8 @@ table.cart td.actions .coupon .input-text {
 	display:block;
 }
 
+
+#callout_content
+{
+	background:#000;
+}

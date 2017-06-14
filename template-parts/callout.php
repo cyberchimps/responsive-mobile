@@ -16,15 +16,9 @@ $callout_text_color=$responsive_mobile_options['callout_text_color'];
 $callout_btn_text_color=$responsive_mobile_options['callout_btn_text_color'];
 $callout_btn_back_color=$responsive_mobile_options['callout_btn_back_color'];
 
-$src="";
-$html = $responsive_mobile_options['callout_featured_content'];
-if($html)
-{
-$doc = new DOMDocument();
-$doc->loadHTML($html);
-$xpath = new DOMXPath($doc);
-$src = $xpath->evaluate("string(//img/@src)"); 
-}
+$callout_img = $responsive_mobile_options['callout_featured_content'];
+error_log($html);
+
 $img_callout= get_template_directory_uri() . "/images/background.jpg";
 
 $img_call = $src == "" ? $img_callout : $src;
@@ -35,7 +29,7 @@ if($responsive_mobile_options['callout_toggle_btn'] == 1)
 <style>
 #callout_content
 {
-	background:url('<?php echo $img_call; ?>');
+	background:url('<?php echo $callout_img; ?>');
 }
 </style>
 <div id="callout_content" class="content-area" style="color:<?php echo $callout_text_color; ?>;">

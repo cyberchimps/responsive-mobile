@@ -272,13 +272,10 @@ function responsive_mobile_theme_options_set()
 				),
 				array(
 					'title'       => __( 'Featured Content', 'responsive-mobile' ),
-					'subtitle'    => '<a class="help-links" href="' . esc_url( 'http://cyberchimps.com/guide/responsive/' ) . '" title="' . esc_attr__( 'See Docs', 'responsive-mobile' ) . '" target="_blank">' .
-						__( 'See Docs', 'responsive-mobile' ) . '</a>',
-					'type'        => 'editor',
+					'type'        => 'upload',
 					'id'          => 'callout_featured_content',
-					'description' => __( 'Paste your shortcode, video or image source', 'responsive-mobile' ),
 					'default'     => '',
-					'validate'    => 'editor'
+					'button'      => 'Upload'
 				)
 			)
 		),

@@ -133,13 +133,14 @@ function responsive_customize_register( $wp_customize ) {
 
 /************************Callout******************************/
 
-	$wp_customize->add_setting( 'responsive_mobile_theme_options[callout_toggle_btn]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'transport' => 'refresh', 'type' => 'option' ) );
+	$wp_customize->add_setting( 'responsive_mobile_theme_options[callout_toggle_btn]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'transport' => 'postMessage', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_callout_toggle_btn', array(
 		'label'                 => __( 'Enable Callout Element', 'responsive-mobile' ),
 		'section'               => 'home_page',
 		'settings'              => 'responsive_mobile_theme_options[callout_toggle_btn]',
 		'type'                  => 'checkbox'
 	) );
+
 	$wp_customize->add_setting( 'responsive_mobile_theme_options[callout_headline]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'HAPPINESS', 'responsive' ), 'type' => 'option' ));
 	$wp_customize->add_control( 'res_callout_headline', array(
 		'label'                 => __( 'Headline', 'responsive' ),
@@ -203,7 +204,7 @@ function responsive_customize_register( $wp_customize ) {
 		'label'                 => __( 'Featured Content', 'responsive' ),
 		'section'               => 'home_page',
 		'settings'              => 'responsive_mobile_theme_options[callout_featured_content]',
-		'type'                  => 'textarea',
+		'type'                  => 'upload',
 		'description'           => __( 'Paste your image source', 'responsive' ),
                 'priority'              => 20
 	) );

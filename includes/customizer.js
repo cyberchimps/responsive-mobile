@@ -43,6 +43,12 @@
 	} );
 
 /* Callout */
+	wp.customize( 'responsive_mobile_theme_options[callout_toggle_btn]', function( value ) {
+		value.bind( function( to ) {
+			$( '#callout_content' ).toggle();
+		} );
+	} );
+
 	wp.customize( 'responsive_mobile_theme_options[callout_headline]', function( value ) {
 		value.bind( function( to ) {
 			$( '.callout-title' ).text( to );
@@ -86,9 +92,44 @@
 
 	wp.customize( 'responsive_mobile_theme_options[callout_featured_content]', function( value ) {
 		value.bind( function( to ) {
-			$( '#callout_content' ).css.background( 'url',to );
+			$( '#callout_content' ).css( 'background-url',to );
 		} );
 	} );
 
 } )( jQuery );
 
+jQuery(document).ready(function ($) {
+	//doesn't wait for images, style sheets etc..
+	//is called after the DOM has been initialized
+	var _custom_media = true,
+		_orig_send_attachment = wp.media.editor.send.attachment;
+
+	$('.media-upload .button.upload').click(function (e) {
+		var send_attachment_bkp = wp.media.editor.send.attachment;
+		var button = $(this);
+		var id = button.attr('id').replace('_upload', '');
+		_custom_media = true;
+		wp.media.editor.send.attachment = function (props, attachment) {
+
+			if (_custom_media) {
+				$("#" + id).val(attachment.url);
+			} else {
+				return _orig_send_attachment.apply(this, [props, attachment]);
+			}
+			;
+		}
+
+		wp.media.editor.open(button);
+		return false;
+	});
+
+	$('.add_media').on('click', function () {
+		_custom_media = false;
+	});
+
+	jQuery('.responsive-layouts-wrapper img').click(function(e){
+
+		jQuery('.grid.col-620.fit').find('img').removeClass('selected-grid');
+		jQuery(this).addClass('selected-grid');
+	});
+});
