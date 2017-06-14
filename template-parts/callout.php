@@ -17,11 +17,6 @@ $callout_btn_text_color=$responsive_mobile_options['callout_btn_text_color'];
 $callout_btn_back_color=$responsive_mobile_options['callout_btn_back_color'];
 
 $callout_img = $responsive_mobile_options['callout_featured_content'];
-error_log($html);
-
-$img_callout= get_template_directory_uri() . "/images/background.jpg";
-
-$img_call = $src == "" ? $img_callout : $src;
 
 if($responsive_mobile_options['callout_toggle_btn'] == 1)
 {
@@ -32,7 +27,7 @@ if($responsive_mobile_options['callout_toggle_btn'] == 1)
 	background:url('<?php echo $callout_img; ?>');
 }
 </style>
-<div id="callout_content" class="content-area" style="color:<?php echo $callout_text_color; ?>;">
+<div id="callout_content" class="content-area" style="background-color:#000;color:<?php echo $callout_text_color; ?>;">
 	<main id="featured-area" role="main">
 
 		<div id="featured-content">
@@ -46,7 +41,7 @@ if($responsive_mobile_options['callout_toggle_btn'] == 1)
 				}
 				?>
 			</h1>
-			<p>
+			<p class="callout-text">
 				<?php
 				if ( isset( $responsive_mobile_options['callout_content_area'] ) && $db && $empty ) {
 					echo responsive_mobile_esc_content( do_shortcode( wpautop( $responsive_mobile_options['callout_content_area'] ) ) );

@@ -275,7 +275,7 @@ function responsive_mobile_theme_options_set()
 					'type'        => 'upload',
 					'id'          => 'callout_featured_content',
 					'default'     => '',
-					'button'      => 'Upload'
+					'button'      => 'Browse'
 				)
 			)
 		),

@@ -76,7 +76,7 @@ function responsive_customize_register( $wp_customize ) {
 		'title'                 => __( 'Home Page', 'responsive' ),
 		'priority'              => 30
 	) );
-	$wp_customize->add_setting( 'responsive_mobile_theme_options[front_page]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
+	$wp_customize->add_setting( 'responsive_mobile_theme_options[front_page]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'transport' => 'postMessage', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_front_page', array(
 		'label'                 => __( 'Enable Custom Front Page', 'responsive-mobile' ),
 		'section'               => 'home_page',
@@ -199,15 +199,13 @@ function responsive_customize_register( $wp_customize ) {
 		'type'                  => 'color'
 	) );
     
-	$wp_customize->add_setting( 'responsive_mobile_theme_options[callout_featured_content]', array( 'sanitize_callback' => 'responsive_sanitize_textarea', 'transport' => 'postMessage', 'type' => 'option' ) );
-	$wp_customize->add_control( 'res_callout_featured_content', array(
-		'label'                 => __( 'Featured Content', 'responsive' ),
-		'section'               => 'home_page',
-		'settings'              => 'responsive_mobile_theme_options[callout_featured_content]',
-		'type'                  => 'upload',
-		'description'           => __( 'Paste your image source', 'responsive' ),
-                'priority'              => 20
-	) );
+	$wp_customize->add_setting( 'responsive_mobile_theme_options[callout_featured_content]', array( 'sanitize_callback' => 'esc_url_raw','transport' => 'postMessage', 'type' => 'option' ) );
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'responsive_mobile_theme_options[callout_featured_content]', array(
+    'label'    => __( 'Callout background', 'responsive-mobile' ),
+    'section'  => 'home_page',
+    'settings' => 'responsive_mobile_theme_options[callout_featured_content]',
+) ) );
+
 
 
 /*--------------------------------------------------------------
