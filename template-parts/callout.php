@@ -32,7 +32,7 @@ if($responsive_mobile_options['callout_toggle_btn'] == 1)
 
 		<div id="featured-content">
 
-			<h1 class="callout-title">
+			<h2 class="callout-title">
 				<?php
 				if ( isset( $responsive_mobile_options['callout_headline'] ) && $db && $empty ) {
 					echo esc_html( $responsive_mobile_options['callout_headline'] );
@@ -40,7 +40,7 @@ if($responsive_mobile_options['callout_toggle_btn'] == 1)
 					_e( 'Hello, World!', 'responsive-mobile' );
 				}
 				?>
-			</h1>
+			</h2>
 			<p class="callout-text">
 				<?php
 				if ( isset( $responsive_mobile_options['callout_content_area'] ) && $db && $empty ) {
@@ -58,7 +58,7 @@ if($responsive_mobile_options['callout_toggle_btn'] == 1)
 		</div><!-- end of #featured-content -->
 
 		<div id="featured-image">
-<div class="call-to-action callout_button">
+<div class="call-to-action callout_button" id="callout-cta">
 
 					<a href="<?php echo esc_url( $responsive_mobile_options['callout_cta_url'] ); ?>" class="btn cta-button" style="color:<?php echo $callout_btn_text_color; ?>; background:<?php echo $callout_btn_back_color; ?>;">
 						<?php

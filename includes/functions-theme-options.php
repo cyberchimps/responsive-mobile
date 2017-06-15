@@ -211,15 +211,6 @@ function responsive_mobile_theme_options_set()
 					'validate'    => 'text'
 				),
 				array(
-					'title'       => __( 'Subheadline', 'responsive-mobile' ),
-					'type'        => 'text',
-					'id'          => 'callout_subheadline',
-					'description' => __( 'Enter callout subheadline', 'responsive-mobile' ),
-					'placeholder' => __( 'Your H2 subheadline here', 'responsive-mobile' ),
-					'default'     => '',
-					'validate'    => 'text'
-				),
-				array(
 					'title'       => __( 'Content Area', 'responsive-mobile' ),
 					'type'        => 'editor',
 					'id'          => 'callout_content_area',
