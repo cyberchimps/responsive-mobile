@@ -110,7 +110,7 @@ function responsivemobile_title_setup()
 }
 add_action( 'after_setup_theme', 'responsivemobile_title_setup' );
 
-function twentyseventeen_customize_register( $wp_customize ) {
+function responsive_mobile_customize_register( $wp_customize ) {
    
    $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
    $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
@@ -128,77 +128,56 @@ function twentyseventeen_customize_register( $wp_customize ) {
 
    $wp_customize->selective_refresh->add_partial( 'blogname', array(
 'selector' => '.site-name a',
-'render_callback' => 'twentyseventeen_customize_partial_blogname',
 ) );
 
 	$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
 		'selector' => '.site-description',
-		'render_callback' => 'twentyseventeen_customize_partial_blogdescription',
 	) );
 
 
 	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[copyright_textbox]', array(
 		'selector' => '.copyright',
-		'render_callback' => 'twentyseventeen_customize_partial_copyright',
 	) );
 
 	$wp_customize->selective_refresh->add_partial( 'nav_menu_locations[top-menu]', array(
 		'selector' => '.main-nav',
-		'render_callback' => 'twentyseventeen_customize_partial_menu',
 	) );
 
 	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[home_headline]', array(
 		'selector' => '.featured-title',
-		'render_callback' => 'twentyseventeen_customize_partial_menu',
 	) );
 
 	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[home_subheadline]', array(
 		'selector' => '.featured-subtitle',
-		'render_callback' => 'twentyseventeen_customize_partial_menu',
 	) );
 
 	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[home_content_area]', array(
 		'selector' => '.featured-text',
-		'render_callback' => 'twentyseventeen_customize_partial_menu',
 	) );
 
 	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[cta_text]', array(
 		'selector' => '#call-to-action',
-		'render_callback' => 'twentyseventeen_customize_partial_menu',
 	) );
 
 	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[featured_content]', array(
 		'selector' => '.featured-image',
-		'render_callback' => 'twentyseventeen_customize_partial_menu',
 	) );
 
 	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[callout_headline]', array(
 		'selector' => '.callout-title',
-		'render_callback' => 'twentyseventeen_customize_partial_menu',
 	) );
 
 	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[callout_content_area]', array(
 		'selector' => '.callout-text',
-		'render_callback' => 'twentyseventeen_customize_partial_menu',
 	) );
 
 	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[callout_cta_text]', array(
 		'selector' => '#callout-cta',
-		'render_callback' => 'twentyseventeen_customize_partial_menu',
 	) );
-
 	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[poweredby_link]', array(
 		'selector' => '.powered',
-		'render_callback' => 'twentyseventeen_customize_partial_menu',
 	) );
 
 }
-function twentyseventeen_customize_partial_blogname() {
-bloginfo( 'name' );
-}
 
-function twentyseventeen_customize_partial_blogdescription() {
-	bloginfo( 'description' );
-}
-
-add_action( 'customize_register', 'twentyseventeen_customize_register' );
+add_action( 'customize_register', 'responsive_mobile_customize_register' );
