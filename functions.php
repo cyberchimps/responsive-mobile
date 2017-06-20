@@ -31,6 +31,7 @@ require $template_directory . '/includes/functions.php';
 require $template_directory . '/libraries/class-responsive-options.php';
 require $template_directory . '/includes/functions-theme-options.php';
 require $template_directory . '/includes/functions-theme-options-page.php';
+require( $template_directory . '/includes/customizer.php' );
 
 /**
  * Meta Box Options
@@ -108,3 +109,75 @@ function responsivemobile_title_setup()
 	add_theme_support( 'title-tag' );
 }
 add_action( 'after_setup_theme', 'responsivemobile_title_setup' );
+
+function responsive_mobile_customize_register( $wp_customize ) {
+   
+   $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+   $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+   $wp_customize->get_setting( 'responsive_mobile_theme_options[copyright_textbox]' )->transport   = 'postMessage';
+   $wp_customize->get_setting( 'nav_menu_locations[top-menu]' )->transport   = 'postMessage';
+   $wp_customize->get_setting( 'responsive_mobile_theme_options[home_headline]' )->transport   = 'postMessage';
+   $wp_customize->get_setting( 'responsive_mobile_theme_options[home_subheadline]' )->transport   = 'postMessage';
+   $wp_customize->get_setting( 'responsive_mobile_theme_options[home_content_area]' )->transport   = 'postMessage';
+   $wp_customize->get_setting( 'responsive_mobile_theme_options[cta_text]' )->transport   = 'postMessage';
+   $wp_customize->get_setting( 'responsive_mobile_theme_options[featured_content]' )->transport   = 'postMessage';
+   $wp_customize->get_setting( 'responsive_mobile_theme_options[callout_headline]' )->transport   = 'postMessage';
+   $wp_customize->get_setting( 'responsive_mobile_theme_options[callout_content_area]' )->transport   = 'postMessage';
+   $wp_customize->get_setting( 'responsive_mobile_theme_options[callout_cta_text]' )->transport   = 'postMessage';
+   $wp_customize->get_setting( 'responsive_mobile_theme_options[poweredby_link]' )->transport   = 'postMessage';
+
+   $wp_customize->selective_refresh->add_partial( 'blogname', array(
+'selector' => '.site-name a',
+) );
+
+	$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
+		'selector' => '.site-description',
+	) );
+
+
+	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[copyright_textbox]', array(
+		'selector' => '.copyright',
+	) );
+
+	$wp_customize->selective_refresh->add_partial( 'nav_menu_locations[top-menu]', array(
+		'selector' => '.main-nav',
+	) );
+
+	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[home_headline]', array(
+		'selector' => '.featured-title',
+	) );
+
+	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[home_subheadline]', array(
+		'selector' => '.featured-subtitle',
+	) );
+
+	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[home_content_area]', array(
+		'selector' => '.featured-text',
+	) );
+
+	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[cta_text]', array(
+		'selector' => '#call-to-action',
+	) );
+
+	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[featured_content]', array(
+		'selector' => '.featured-image',
+	) );
+
+	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[callout_headline]', array(
+		'selector' => '.callout-title',
+	) );
+
+	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[callout_content_area]', array(
+		'selector' => '.callout-text',
+	) );
+
+	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[callout_cta_text]', array(
+		'selector' => '#callout-cta',
+	) );
+	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[poweredby_link]', array(
+		'selector' => '.powered',
+	) );
+
+}
+
+add_action( 'customize_register', 'responsive_mobile_customize_register' );

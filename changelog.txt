@@ -7,6 +7,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(21/06/17) - Improvements - Version 1.2
+
+[+] - Added callout element 
+
 (07/12/16) - Improvements - Version 1.1
 
 [!] - Fixed customizer issue for widget 

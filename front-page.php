@@ -42,6 +42,8 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_mobile_options['fro
 
 	get_template_part( 'template-parts/featured-area', apply_filters( 'responsive_mobile_filter_featured_area_layout', '' ) );
 
+	get_template_part( 'template-parts/callout', apply_filters( 'responsive_mobile_filter_callout_layout', '' ) );
+
 	get_sidebar( 'home' );
 
 	get_footer();

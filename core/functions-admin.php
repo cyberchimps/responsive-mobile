@@ -29,5 +29,8 @@ function cyberchimps_admin_style() {
 	wp_register_style( 'upsell-style', $template_directory_uri . '/core/css/upsell' . $suffix . '.css', array(), '2.0.0' );
 	wp_register_style( 'responsive-theme-options', $template_directory_uri . '/libraries/css/theme-options' . $suffix . '.css', array(), '2.0.0' );
 	wp_register_script( 'responsive-theme-options', $template_directory_uri . '/libraries/js/theme-options' . $suffix . '.js', array( 'jquery' ), '2.0.0' );
+
+	wp_enqueue_media();
+	wp_enqueue_script( 'responsive-pro-options-js', $template_directory_uri . '/includes/options-scripts.js', false, '1.0' );
 }
 add_action( 'admin_enqueue_scripts', 'cyberchimps_admin_style' );

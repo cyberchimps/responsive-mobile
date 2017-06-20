@@ -38,7 +38,7 @@ $emtpy_cta = ( empty( $responsive_mobile_options['cta_text'] ) ) ? false : true;
 				?>
 			</h2>
 
-			<p>
+			<p class="featured-text">
 				<?php
 				if ( isset( $responsive_mobile_options['home_content_area'] ) && $db && $empty ) {
 					echo responsive_mobile_esc_content( do_shortcode( wpautop( $responsive_mobile_options['home_content_area'] ) ) );
@@ -50,7 +50,7 @@ $emtpy_cta = ( empty( $responsive_mobile_options['cta_text'] ) ) ? false : true;
 
 			<?php if ( $responsive_mobile_options['cta_button'] == 0 ): ?>
 
-				<div class="call-to-action">
+				<div class="call-to-action" id="call-to-action">
 
 					<a href="<?php echo esc_url( $responsive_mobile_options['cta_url'] ); ?>" class="btn cta-button">
 						<?php
@@ -68,7 +68,7 @@ $emtpy_cta = ( empty( $responsive_mobile_options['cta_text'] ) ) ? false : true;
 
 		</div><!-- end of #featured-content -->
 
-		<div id="featured-image">
+		<div id="featured-image" class="featured-image">
 
 			<?php $featured_content = ( ! empty( $responsive_mobile_options['featured_content'] ) ) ? $responsive_mobile_options['featured_content'] : '<img class="aligncenter" src="' . responsive_mobile_child_uri( '/images/featured-image.png' ) . '" width="497" height="297" alt="" />'; ?>
 

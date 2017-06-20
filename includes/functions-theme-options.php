@@ -190,6 +190,83 @@ function responsive_mobile_theme_options_set()
 					'placeholder' => '<img class="aligncenter" src="' . get_template_directory_uri() . '"/core/images/featured-image.png" width="440" height="300" alt="" />',
 					'default'     => '',
 					'validate'    => 'editor'
+				),
+				array(
+					'title'       => __( 'Enable Callout element', 'responsive-mobile' ),
+					'type'        => 'checkbox',
+					'id'          => 'callout_toggle_btn',
+					'description' => '',
+					'default'     => '',
+					'validate'    => 'checkbox'
+				),
+				array(
+					'title'       => __( 'Headline', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'callout_headline',
+					'description' => __( 'Enter callout headline', 'responsive-mobile' ),
+					'placeholder' => __( 'Hello, World!', 'responsive-mobile' ),
+					'default'     => '',
+					'validate'    => 'text'
+				),
+				array(
+					'title'       => __( 'Content Area', 'responsive-mobile' ),
+					'type'        => 'editor',
+					'id'          => 'callout_content_area',
+					'description' => __( 'Enter your content', 'responsive-mobile' ),
+					'placeholder' => __( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive-mobile' ),
+					'default'     => '',
+					'validate'    => 'editor'
+				),
+				array(
+					'title'       => __( 'Content Text Color', 'responsive-mobile' ),
+					'type'        => 'color',
+					'id'          => 'callout_text_color',
+					'description' => __( 'Select color for your text', 'responsive-mobile' ),
+					'default'     => '',
+					'validate'    => 'text'
+				),
+				array(
+					'title'       => __( 'Call to Action (URL)', 'responsive-mobile' ),
+					'type'        => 'text',
+					'id'          => 'callout_cta_url',
+					'description' => __( 'Enter your call to action URL', 'responsive-mobile' ),
+					'placeholder' => '#nogo',
+					'default'     => '',
+					'validate'    => 'url'
+				),
+				array(
+					'title'       => __( 'Call to Action (Text)', 'responsive-mobile' ),
+					'type'        => 'text',
+					'id'          => 'callout_cta_text',
+					'description' => __( 'Enter your call to action text', 'responsive-mobile' ),
+					'placeholder' => __( 'Call to Action', 'responsive-mobile' ),
+					'default'     => '',
+					'validate'    => 'text'
+				),
+				array(
+					'title'       => __( 'Callout Button Text Color', 'responsive-mobile' ),
+					'type'        => 'color',
+					'id'          => 'callout_btn_text_color',
+					'description' => __( 'Select color for button text', 'responsive-mobile' ),
+					'default'     => '',
+					'validate'    => 'text'
+				),
+				array(
+					'title'       => __( 'Callout Button Background Color', 'responsive-mobile' ),
+					'type'        => 'color',
+					'id'          => 'callout_btn_back_color',
+					'description' => __( 'Select color for button background', 'responsive-mobile' ),
+					'default'     => '',
+					'validate'    => 'text'
+				),
+				array(
+					'title'       => __( 'Featured Content', 'responsive-mobile' ),
+					'type'        => 'upload',
+					'id'          => 'callout_featured_content',
+					'default'     => '',
+					'button'      => 'Browse'
 				)
 			)
 		),
