@@ -202,6 +202,7 @@ function responsive_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'responsive_mobile_theme_options[callout_featured_content]', array( 'sanitize_callback' => 'esc_url_raw','transport' => 'postMessage', 'type' => 'option' ) );
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'responsive_mobile_theme_options[callout_featured_content]', array(
     'label'    => __( 'Callout background', 'responsive-mobile' ),
+    'description' => 'Recommended Image size is 1366px X 273px.',
     'section'  => 'home_page',
     'settings' => 'responsive_mobile_theme_options[callout_featured_content]',
 ) ) );
