@@ -114,17 +114,6 @@ function responsive_mobile_customize_register( $wp_customize ) {
    
    $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
    $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-   $wp_customize->get_setting( 'responsive_mobile_theme_options[copyright_textbox]' )->transport   = 'postMessage';
-   $wp_customize->get_setting( 'nav_menu_locations[top-menu]' )->transport   = 'postMessage';
-   $wp_customize->get_setting( 'responsive_mobile_theme_options[home_headline]' )->transport   = 'postMessage';
-   $wp_customize->get_setting( 'responsive_mobile_theme_options[home_subheadline]' )->transport   = 'postMessage';
-   $wp_customize->get_setting( 'responsive_mobile_theme_options[home_content_area]' )->transport   = 'postMessage';
-   $wp_customize->get_setting( 'responsive_mobile_theme_options[cta_text]' )->transport   = 'postMessage';
-   $wp_customize->get_setting( 'responsive_mobile_theme_options[featured_content]' )->transport   = 'postMessage';
-   $wp_customize->get_setting( 'responsive_mobile_theme_options[callout_headline]' )->transport   = 'postMessage';
-   $wp_customize->get_setting( 'responsive_mobile_theme_options[callout_content_area]' )->transport   = 'postMessage';
-   $wp_customize->get_setting( 'responsive_mobile_theme_options[callout_cta_text]' )->transport   = 'postMessage';
-   $wp_customize->get_setting( 'responsive_mobile_theme_options[poweredby_link]' )->transport   = 'postMessage';
 
    $wp_customize->selective_refresh->add_partial( 'blogname', array(
 'selector' => '.site-name a',
@@ -178,6 +167,19 @@ function responsive_mobile_customize_register( $wp_customize ) {
 		'selector' => '.powered',
 	) );
 
+	$wp_customize->selective_refresh->add_partial( 'sidebars_widgets[home-widget-1]', array(
+		'selector' => '#home_widget_1',
+	) );
+
+	$wp_customize->selective_refresh->add_partial( 'sidebars_widgets[home-widget-2]', array(
+		'selector' => '#home_widget_2',
+	) );
+
+	$wp_customize->selective_refresh->add_partial( 'sidebars_widgets[home-widget-3]', array(
+		'selector' => '#home_widget_3',
+	) );
+	
 }
 
 add_action( 'customize_register', 'responsive_mobile_customize_register' );
+add_theme_support( 'customize-selective-refresh-widgets' );

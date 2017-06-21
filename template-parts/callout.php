@@ -18,10 +18,21 @@ $callout_btn_back_color=$responsive_mobile_options['callout_btn_back_color'];
 
 $callout_img = $responsive_mobile_options['callout_featured_content'];
 
+
 if($responsive_mobile_options['callout_toggle_btn'] == 1)
 {
 ?>
 <style>
+<?php if(strlen($responsive_mobile_options['callout_cta_text']) > 30) 
+	{
+?>
+#callout_content main #featured-content .call-to-action .cta-button, #callout_content main #featured-image .call-to-action .cta-button
+{
+	font-size:14px;
+}
+<?php	
+	}
+?>
 #callout_content
 {
 	background:url('<?php echo $callout_img; ?>');

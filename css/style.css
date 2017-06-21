@@ -1579,6 +1579,15 @@ main #featured-content, main #featured-image {
     float: left;
     width: 50%;
   }
+  #callout_content main #featured-content {
+   float: left;
+   width: 65%;
+ }
+ #callout_content main #featured-image
+ {
+   float: left;
+   width: 34%;
+ }
 }
 @media (min-width: 992px) {
   main #featured-content, main #featured-image {
@@ -2721,4 +2730,20 @@ table.cart td.actions .coupon .input-text {
 .responsive-mobile-top-widget
 {
 	display:block;
+}
+
+/**************** Customizer edit links **************************/
+.customize-partial-edit-shortcut-button
+{
+	top:-20px !important;
+	left:-10px !important;
+}
+
+/**************** Callout button *********************/
+@media screen and (max-width: 500px)
+{
+	main #featured-content .call-to-action .cta-button, main #featured-image .call-to-action .cta-button
+	{
+		font-size:14px;
+	}
 }

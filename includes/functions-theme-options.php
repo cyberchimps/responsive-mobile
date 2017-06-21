@@ -262,8 +262,9 @@ function responsive_mobile_theme_options_set()
 					'validate'    => 'text'
 				),
 				array(
-					'title'       => __( 'Featured Content', 'responsive-mobile' ),
+					'title'       => __( 'Callout Background Image', 'responsive-mobile' ),
 					'type'        => 'upload',
+					'description' => 'Recommended Image size is 1366px X 273px.',
 					'id'          => 'callout_featured_content',
 					'default'     => '',
 					'button'      => 'Browse'
