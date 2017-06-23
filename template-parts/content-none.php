@@ -32,7 +32,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 			<p>
 				<?php _e( 'Ready to publish your first post?', 'responsive-mobile' ); ?>
-				<?php echo '<a href="' . esc_url( admin_url( 'post-new.php' ) . '">' . __( 'Get started here', 'responsive-mobile' ) ) . '</a>' ?>
+				<?php echo '<a href="' . esc_url( admin_url( 'post-new.php' )) . '">' . __( 'Get started here', 'responsive-mobile' )  . '</a>' ?>
 			</p>
 
 		<?php elseif ( is_search() ) : ?>
