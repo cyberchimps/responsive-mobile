@@ -118,7 +118,7 @@ function responsive_mobile_plugin_notice() {
 				'name'     => 'SlideDeck Lite', // The plugin name
 				'slug'     => 'slidedeck3', // The plugin slug (typically the folder name)
 				'uri'  => 'http://wordpress.org/extend/plugins/slidedeck3'
-			),
+			)
 		);
 
 		// Initialise plugin suggestion text.
