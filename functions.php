@@ -32,6 +32,7 @@ require $template_directory . '/libraries/class-responsive-options.php';
 require $template_directory . '/includes/functions-theme-options.php';
 require $template_directory . '/includes/functions-theme-options-page.php';
 require( $template_directory . '/includes/customizer.php' );
+require( $template_directory . '/includes/admin-about.php' );
 
 /**
  * Meta Box Options
@@ -104,14 +105,14 @@ require $template_directory . '/core/functions-install.php';
 require $template_directory . '/core/functions-admin.php';
 
 // enabling theme support for title tag
-function responsivemobile_title_setup() 
+function responsivemobile_title_setup()
 {
 	add_theme_support( 'title-tag' );
 }
 add_action( 'after_setup_theme', 'responsivemobile_title_setup' );
 
 function responsive_mobile_customize_register( $wp_customize ) {
-   
+
    $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
    $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
@@ -178,8 +179,23 @@ function responsive_mobile_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial( 'sidebars_widgets[home-widget-3]', array(
 		'selector' => '#home_widget_3',
 	) );
-	
+
 }
 
 add_action( 'customize_register', 'responsive_mobile_customize_register' );
 add_theme_support( 'customize-selective-refresh-widgets' );
+
+add_action( 'admin_notices', 'responsive_mobile_rating_notice' );
+function responsive_mobile_rating_notice()
+{
+	$check_screen = get_admin_page_title();
+
+	if ( $check_screen == 'Theme Options' )
+	{
+	?>
+    <div class="notice notice-success is-dismissible">
+        <b><p>Liked this theme? <a href="https://wordpress.org/support/theme/responsive-mobile/reviews/#new-post">Leave us</a> a ***** rating. Thank you! </p></b>
+    </div>
+    <?php
+	}
+}
