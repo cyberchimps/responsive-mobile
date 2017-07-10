@@ -21,9 +21,8 @@ function cyberchimps_about_style() {
 
 	// Set template directory uri
 	$directory_uri = get_template_directory_uri();
-	$suffix        = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-	wp_enqueue_style( 'about-upsell_style', get_template_directory_uri() . '/core/includes/upsell/css/upsell' . $suffix . '.css' );
+
 	wp_enqueue_style( 'about_style', get_template_directory_uri() . '/css/about.css' );
 
 }

@@ -7,6 +7,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/07/17) - Improvements - Version 1..
+
+[!] - Bug Fixes
+
 (21/06/17) - Improvements - Version 1.2
 
 [+] - Added callout element 
