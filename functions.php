@@ -194,7 +194,7 @@ function responsive_mobile_rating_notice()
 	{
 	?>
     <div class="notice notice-success is-dismissible">
-        <b><p>Liked this theme? <a href="https://wordpress.org/support/theme/responsive-mobile/reviews/#new-post">Leave us</a> a ***** rating. Thank you! </p></b>
+        <b><p>Liked this theme? <a href="https://wordpress.org/support/theme/responsive-mobile/reviews/#new-post" target="_blank">Leave us</a> a ***** rating. Thank you! </p></b>
     </div>
     <?php
 	}

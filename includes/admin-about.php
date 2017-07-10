@@ -150,9 +150,14 @@ function cyberchimps_display_about() {
 			</thead>
 			</table>
 		</div>
+		<?php
+		 if( !class_exists('cyberchimpsoptions') )
+					{
+		 ?>
 		<div class="buy">
 		<a class="button button-primary buylink" target="_blank" href="https://cyberchimps.com/store/pro-features/?utm_source=about">Buy Pro Features Plugin</a>
 		</div>
+		<?php } ?>
 	</div>
 <?php
 }
