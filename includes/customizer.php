@@ -14,13 +14,17 @@ function responsive_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 
-
 /*--------------------------------------------------------------
 	// Theme Elements
 --------------------------------------------------------------*/
+	$wp_customize->add_section( 'rate_us', array(
+		'title'                 => __( 'Rate Us', 'responsive' ),
+		'description'		=> 'Description'
+	) );
 
 	$wp_customize->add_section( 'theme_elements', array(
 		'title'                 => __( 'Theme Elements', 'responsive' ),
+		'description'		=> 'Description',
 		'priority'              => 30
 	) );
 	$wp_customize->add_setting( 'responsive_mobile_theme_options[featured_images]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
@@ -156,14 +160,19 @@ function responsive_customize_register( $wp_customize ) {
 		'settings'              => 'responsive_mobile_theme_options[callout_content_area]',
 		'type'                  => 'textarea'
 	) );
+	
+	$wp_customize->add_setting( 'responsive_mobile_theme_options[callout_text_color]', array(
+			'sanitize_callback' => 'sanitize_text_field',
+			'type' => 'option',
+			'transport' => 'postMessage',
+			'default' => ''
+		    ) );
 
-	$wp_customize->add_setting( 'responsive_mobile_theme_options[callout_text_color]', array( 'sanitize_callback' => 'esc_url_raw','default' => '#nogo','transport' => 'postMessage', 'type' => 'option' ) );
-	$wp_customize->add_control( 'res_callout_text_color', array(
-		'label'                 => __( 'Callout Text (Color)', 'responsive' ),
-		'section'               => 'home_page',
-		'settings'              => 'responsive_mobile_theme_options[callout_text_color]',
-		'type'                  => 'color'
-	) );
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'responsive_mobile_theme_options[callout_text_color]', array(
+			'label' => __( 'Callout Text (Color)', 'responsive' ),
+			'section' => 'home_page',
+			'settings' => 'responsive_mobile_theme_options[callout_text_color]',
+		) ) );
 
 	$wp_customize->add_setting( 'responsive_mobile_theme_options[callout_cta_url]', array( 'sanitize_callback' => 'esc_url_raw','default' => '#nogo','transport' => 'postMessage', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_callout_cta_url', array(
@@ -182,22 +191,34 @@ function responsive_customize_register( $wp_customize ) {
 		'settings'              => 'responsive_mobile_theme_options[callout_cta_text]',
 		'type'                  => 'text'
 	) );
+	$wp_customize->add_setting( 'responsive_mobile_theme_options[callout_btn_text_color]', array(
+			'sanitize_callback' => 'sanitize_text_field',
+			'type' => 'option',
+			'transport' => 'postMessage',
+			'default' => ''
+		    ) );
 
-	$wp_customize->add_setting( 'responsive_mobile_theme_options[callout_btn_text_color]', array( 'sanitize_callback' => 'esc_url_raw','transport' => 'postMessage', 'type' => 'option' ) );
-	$wp_customize->add_control( 'res_callout_btn_text_color', array(
-		'label'                 => __( 'Callout Button ( Text Color)', 'responsive' ),
-		'section'               => 'home_page',
-		'settings'              => 'responsive_mobile_theme_options[callout_btn_text_color]',
-		'type'                  => 'color'
-	) );
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'responsive_mobile_theme_options[callout_btn_text_color]', array(
+			'label' => __( 'Callout Button ( Text Color)', 'responsive' ),
+			'section' => 'home_page',
+			'settings' => 'responsive_mobile_theme_options[callout_btn_text_color]',
+		) ) );
 
-	$wp_customize->add_setting( 'responsive_mobile_theme_options[callout_btn_back_color]', array( 'sanitize_callback' => 'esc_url_raw','transport' => 'postMessage', 'type' => 'option' ) );
-	$wp_customize->add_control( 'res_callout_btn_back_color', array(
-		'label'                 => __( 'Callout Button ( Background Color)', 'responsive' ),
-		'section'               => 'home_page',
-		'settings'              => 'responsive_mobile_theme_options[callout_btn_back_color]',
-		'type'                  => 'color'
-	) );
+	
+	$wp_customize->add_setting( 'responsive_mobile_theme_options[callout_btn_back_color]', array(
+			'sanitize_callback' => 'sanitize_text_field',
+			'type' => 'option',
+			'transport' => 'postMessage',
+			'default' => ''
+		    ) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'responsive_mobile_theme_options[callout_btn_back_color]', array(
+			'label' => __( 'Callout Button ( Background Color)', 'responsive' ),
+			'section' => 'home_page',
+			'settings' => 'responsive_mobile_theme_options[callout_btn_back_color]',
+		) ) );
+		
+		
     
 	$wp_customize->add_setting( 'responsive_mobile_theme_options[callout_featured_content]', array( 'sanitize_callback' => 'esc_url_raw','transport' => 'postMessage', 'type' => 'option' ) );
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'responsive_mobile_theme_options[callout_featured_content]', array(
