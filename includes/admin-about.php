@@ -57,7 +57,7 @@ function cyberchimps_display_about() {
 
 			?>
 			<span><img src="<?php echo $directory_uri ?>/images/logo.png"></span>
-			<?php printf( __( '<p> Responsive ii is an HTML Mobile-first responsive WordPress theme that looks classy on any device like iPad, tablet, Desktop, iPhone etc. It has a new light framework. This Free WordPress theme comes with simple but powerful theme options for full CMS control.')
+			<?php printf(  '<p> Responsive ii is an HTML Mobile-first responsive WordPress theme that looks classy on any device like iPad, tablet, Desktop, iPhone etc. It has a new light framework. This Free WordPress theme comes with simple but powerful theme options for full CMS control.'
 			); ?>
 		</div>
 
