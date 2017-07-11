@@ -193,6 +193,16 @@ function responsive_mobile_rating_notice()
 	if ( $check_screen == 'Theme Options' )
 	{
 	?>
+	<h4 class="notice notice-success is-dismissible" style="margin-top:15px;margin-left:0;">
+<p>
+<?php 
+	$utm_link="https://cyberchimps.com/free-download-50-stock-images-use-please/?utm_source=responsive-mobile";
+ 	$utm_text="FREE - Download CyberChimps' Pack of 50 High-Resolution Stock Images Now";
+	printf('<a href="' . $utm_link . '" target="_blank" style="font-size:18px;">' . $utm_text . '</a> ');
+?>	 
+</p>
+</h4>
+	
     <div class="notice notice-success is-dismissible">
         <b><p>Liked this theme? <a href="https://wordpress.org/support/theme/responsive-mobile/reviews/#new-post" target="_blank">Leave us</a> a ***** rating. Thank you! </p></b>
     </div>
