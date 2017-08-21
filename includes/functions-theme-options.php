@@ -80,6 +80,16 @@ function responsive_mobile_theme_options_set()
 	 * @placeholder The placeholder for text and textarea
 	 * @options array used by select dropdown lists
 	 */
+	 // Get custom categories of boxes element
+	$ht_team_terms = get_terms( 'ht_team_categories', 'hide_empty=0' );
+	if( !is_wp_error( $ht_team_terms ) ) {
+		foreach( $ht_team_terms as $term ) {
+			$ht_team_options[$term->slug] = $term->name;
+		}
+	}
+	else {
+		$ht_team_options = null;
+	}
 	$options = array(
 		'theme_elements'   => array(
 			'title'  => __( 'Theme Elements', 'responsive-mobile' ),
@@ -437,6 +447,39 @@ function responsive_mobile_theme_options_set()
 					'default'     => '',
 					'validate'    => 'js'
 				)
+			)
+		),
+		'Team Section'          => array(
+			'title'  => __( 'Team Section', 'responsive-mobile' ),
+			'fields' => array(
+			array(
+					'title'       => __( 'Enable Team Section', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'checkbox',
+					'id'          => 'team',
+					'description' => __( 'The featured image, title and content from the posts with category Team will be used. Recommended image size for the featured images: 164 x 164px', 'responsive-mobile' ),
+					'placeholder' => ''
+			),
+			array(
+					'title'       => __( 'Team Title', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'team_title',
+					'description' => __( 'Enter your team title', 'responsive-mobile' ),
+					'placeholder' => __( 'Team', 'responsive-mobile' )
+			),
+			array(
+					'title'       => __( 'Select Category for team', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'select',
+					'id'          => 'team_val',
+					'description' => '',
+					'placeholder' => '',
+					'options'     => Responsive_Options::responsive_pro_categorylist_validate()
+			)
 			)
 		)
 

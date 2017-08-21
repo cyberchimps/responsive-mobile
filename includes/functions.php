@@ -142,9 +142,12 @@ function responsive_mobile_js() {
 	wp_register_script( 'bootstrap', $template_directory_uri . '/core/bootstrap/javascripts/bootstrap' . $suffix . '.js', array( 'jquery' ), '3.1.1' );
 	wp_register_script( 'responsive-mobile-menu', get_template_directory_uri() . '/core/js/mobile-menu' . $suffix . '.js', array( 'jquery' ), '20120206', true );
 	wp_register_script( 'responsive-skip-link-focus-fix', get_template_directory_uri() . '/core/js/skip-link-focus-fix' . $suffix . '.js', array(), '20130115', true );
+	
+	wp_enqueue_style( 'bootstrap', $template_directory_uri . '/libraries/bootstrap/css/bootstrap.min.css');
+	wp_enqueue_script( 'bootstrap-js', $template_directory_uri . '/libraries/bootstrap/js/bootstrap.min.js');
 
 }
-add_action( 'wp_enqueue_scripts', 'responsive_mobile_js' );
+add_action( 'wp_enqueue_scripts', 'responsive_mobile_js', 100 );
 
 /**
  * A safe way of adding stylesheets to a WordPress generated page.
@@ -182,3 +185,70 @@ function responsive_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
 	return $stylesheet_uri;
 }
 add_action( 'stylesheet_uri', 'responsive_stylesheet_uri', 10, 2 );
+
+
+add_action( 'add_meta_boxes', 'responsive_team_add_meta_box' );
+
+function responsive_team_add_meta_box()
+{   global $post;
+
+add_meta_box( 'responsive_team_meta_box', 'Team Section Options', 'responsive_team_meta_box_cb', 'post', 'normal', 'high' );
+}
+function responsive_team_meta_box_cb()
+{
+	global $post;
+	$values = get_post_custom( $post->ID );
+	$responsive_meta_box_designation = isset( $values['responsive_meta_box_designation'] ) ? $values['responsive_meta_box_designation'][0] : '';
+	$responsive_meta_box_facebook = isset( $values['responsive_meta_box_facebook'] ) ? $values['responsive_meta_box_facebook'][0] : '';
+	$responsive_meta_box_twitter = isset( $values['responsive_meta_box_twitter'] ) ? $values['responsive_meta_box_twitter'][0] : '';
+	$responsive_meta_box_googleplus = isset( $values['responsive_meta_box_googleplus'] ) ? $values['responsive_meta_box_googleplus'][0] : '';
+	$responsive_meta_box_linkedin = isset( $values['responsive_meta_box_text_linkedin'] ) ? $values['responsive_meta_box_text_linkedin'][0] : '';
+
+	wp_nonce_field( 'responsive_meta_box_nonce', 'meta_box_nonce' );
+	?>
+	<p><?php echo esc_html(__("To use this post for front page's team section, please enter below details:",'responsive')); ?>
+    </p>
+	<p>
+        <label for="responsive_meta_box_designation"><?php echo esc_html(__('Member designation','responsive')); ?></label>
+        <input type="text" name="responsive_meta_box_designation" id="responsive_meta_box_designationion" value="<?php echo $responsive_meta_box_designation; ?>" />
+    </p> 
+	<p>
+        <label for="responsive_meta_box_facebook"><?php echo esc_html(__('Facebook Link','responsive')); ?></label>
+        <input type="text" name="responsive_meta_box_facebook" id="responsive_meta_box_facebook" value="<?php echo $responsive_meta_box_facebook; ?>" />
+    </p> 
+	<p>
+        <label for="responsive_meta_box_twitter"><?php echo esc_html(__('Twitter Link','responsive')); ?></label>
+        <input type="text" name="responsive_meta_box_twitter" id="responsive_meta_box_twitter" value="<?php echo $responsive_meta_box_twitter; ?>" />
+    </p> 
+	<p>
+        <label for="responsive_meta_box_googleplus"><?php echo esc_html(__('GooglePlus Link','responsive')); ?></label>
+        <input type="text" name="responsive_meta_box_googleplus" id="responsive_meta_box_googleplus" value="<?php echo $responsive_meta_box_googleplus; ?>" />
+    </p> 
+	<p>
+        <label for="responsive_meta_box_text_linkedin"><?php echo esc_html(__('LinkedIn Link','responsive')); ?></label>
+        <input type="text" name="responsive_meta_box_text_linkedin" id="responsive_meta_box_text_linkedin" value="<?php echo $responsive_meta_box_linkedin; ?>" />
+    </p> 
+  
+<?php 
+}
+add_action( 'save_post', 'responsive_team_meta_box_save' ); 
+function responsive_team_meta_box_save( $post_id )
+{
+	$allowed = array( 
+        'a' => array( // on allow a tags
+            'href' => array() // and those anchors can only have href attribute
+        )
+    );
+	
+	if( isset( $_POST['responsive_meta_box_designation'] ) )
+        update_post_meta( $post_id, 'responsive_meta_box_designation', wp_kses( $_POST['responsive_meta_box_designation'], $allowed ) ); 
+	if( isset( $_POST['responsive_meta_box_facebook'] ) )
+        update_post_meta( $post_id, 'responsive_meta_box_facebook', wp_kses( $_POST['responsive_meta_box_facebook'], $allowed ) );
+	if( isset( $_POST['responsive_meta_box_twitter'] ) )
+        update_post_meta( $post_id, 'responsive_meta_box_twitter', wp_kses( $_POST['responsive_meta_box_twitter'], $allowed ) );
+	if( isset( $_POST['responsive_meta_box_googleplus'] ) )
+        update_post_meta( $post_id, 'responsive_meta_box_googleplus', wp_kses( $_POST['responsive_meta_box_googleplus'], $allowed ) );
+	if( isset( $_POST['responsive_meta_box_text_linkedin'] ) )
+        update_post_meta( $post_id, 'responsive_meta_box_text_linkedin', wp_kses( $_POST['responsive_meta_box_text_linkedin'], $allowed ) );	
+}
+
