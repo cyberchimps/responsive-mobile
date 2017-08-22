@@ -109,7 +109,7 @@ $responsive_options = responsive_mobile_get_options();
 			<?php echo esc_html($responsive_showcase_designation); ?>
 		     </div>
 		     <div class="team_desc">
-			<?php echo esc_html($responsive_showcase_desc); ?>
+			<?php echo esc_html(wp_trim_words($responsive_showcase_desc, 12, '...')); ?>
 		     </div>
 
 
@@ -140,7 +140,7 @@ $responsive_options = responsive_mobile_get_options();
 			<?php echo esc_html($responsive_showcase_designation); ?>
 		     </div>
 		     <div class="team_desc">
-			<?php echo esc_html($responsive_showcase_desc); ?>
+			<?php echo esc_html(wp_trim_words($responsive_showcase_desc, 12, '...')); ?>
 		     </div>
 
 			<div class="social">
