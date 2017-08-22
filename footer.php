@@ -109,7 +109,7 @@ $responsive_options = responsive_mobile_get_options();
 			<?php echo esc_html($responsive_showcase_designation); ?>
 		     </div>
 		     <div class="team_desc">
-			<?php echo esc_html(wp_trim_words($responsive_showcase_desc, 12, '...')); ?>
+			<?php echo esc_html(wp_trim_words($responsive_showcase_desc, 20, '...')); ?>
 		     </div>
 
 
@@ -131,8 +131,20 @@ $responsive_options = responsive_mobile_get_options();
 		<?php }
 		else{?>
 		<div class="team_single_row col-md-6">
+		
+			<div class="col-xs-6 col-sm-6 col-md-6 col-md-push-6 col-lg-push-6 team_img">
+			
+			<a href="#portfolioModal<?php echo $post_id;?>" class="portfolio-link" data-toggle="modal">
+											<div class="entry_hover animate_icon"></div>
+											<div style="background:url('<?php echo esc_url($responsive_showcase_img); ?>'); background-size:cover; height:290px; background-position:center;"></div>
+											<i class="fa fa-plus" aria-hidden="true"></i>
+										</a>
+										<div class="arrow-right"></div>
 
-		     <div class="col-xs-6 col-sm-6 col-md-6 team_data">
+
+			</div>
+
+		     <div class="col-xs-6 col-sm-6 col-md-6 col-md-pull-6 col-lg-pull-6 team_data">
 		     <div class="team_member">
 			<?php echo esc_html($responsive_showcase_title); ?>
 		     </div>
@@ -140,7 +152,7 @@ $responsive_options = responsive_mobile_get_options();
 			<?php echo esc_html($responsive_showcase_designation); ?>
 		     </div>
 		     <div class="team_desc">
-			<?php echo esc_html(wp_trim_words($responsive_showcase_desc, 12, '...')); ?>
+			<?php echo esc_html(wp_trim_words($responsive_showcase_desc, 20, '...')); ?>
 		     </div>
 
 			<div class="social">
@@ -158,17 +170,7 @@ $responsive_options = responsive_mobile_get_options();
 			<?php } ?></div>
 		     </div>
 		
-			<div class="col-xs-6 col-sm-6 col-md-6 team_img">
-			
-			<a href="#portfolioModal<?php echo $post_id;?>" class="portfolio-link" data-toggle="modal">
-											<div class="entry_hover animate_icon"></div>
-											<div style="background:url('<?php echo esc_url($responsive_showcase_img); ?>'); background-size:cover; height:290px; background-position:center;"></div>
-											<i class="fa fa-plus" aria-hidden="true"></i>
-										</a>
-										<div class="arrow-right"></div>
 
-
-			</div>
 		</div>
 		<?php } ?>
 	

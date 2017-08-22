@@ -2749,7 +2749,7 @@ table.cart td.actions .coupon .input-text {
 
 /*============ our team =============*/
 #team_inner_div {
-  margin-top: 5%; }
+  margin-top: 3%; }
   .team_single_row {
     display: -moz-box;
     display: flex;
@@ -2780,7 +2780,7 @@ table.cart td.actions .coupon .input-text {
         right: 0px;
         padding: 12px;
         background-color: #fff;
-        color: #e14c3d;
+        color: #1f73d1;
         font-size: 20px;
         visibility: hidden; }
     .team_single_row .team_data {
@@ -2818,7 +2818,7 @@ table.cart td.actions .coupon .input-text {
   .symbol_widget:hover {
     color: #1da1f2; }
   .entry_hover {
-    background-color: #e14c3d;
+    background-color: #1f73d1;
     display: block;
     height: 100%;
     opacity: 0;
@@ -2830,9 +2830,9 @@ table.cart td.actions .coupon .input-text {
     -moz-transition: all .8s;
     transition: all .8s; }
   .team_img:hover .entry_hover {
-    background-color: #e14c3d;
+    background-color: #1f73d1;
     display: block;
-    opacity: .85;
+    opacity: .70;
     visibility: visible;
     cursor: pointer; }
   .team_img:hover .fa {
@@ -2875,7 +2875,7 @@ table.cart td.actions .coupon .input-text {
 @media all and (max-width: 480px) {
   .team_single_row .team_img,
   .team_single_row .team_data {
-    width: 85%;
+    width: 100%;
     margin: 0px auto;
     display: block; }
   .team_single_row .team_data .team_member {
@@ -2887,13 +2887,7 @@ table.cart td.actions .coupon .input-text {
   .team_single_row .team_data {
     padding-top: 10px;
     padding-bottom: 10px; }
-  .arrow-right{
-    border-right: 10px solid transparent;
-    border-left: 10px solid transparent;
-    border-top: 10px solid #f6f6f6;
-    top: 0;
-    right: 50%;
-    left: 50%; }
+  .arrow-right,
   .arrow-left {
     border-right: 10px solid transparent;
     border-left: 10px solid transparent;
@@ -2927,3 +2921,13 @@ table.cart td.actions .coupon .input-text {
 
 .section_title{
     text-align:center; }
+    
+.portfolio-modal .modal-content .modal-body
+{
+	padding:0;
+}
+
+.portfolio-modal .modal-content .modal-body p
+{
+	margin:10px 0;
+}

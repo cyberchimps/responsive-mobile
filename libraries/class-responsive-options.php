@@ -691,7 +691,7 @@ Class Responsive_Options {
 		return $input;
 	}
 
-	public static function responsive_mobile_categorylist_validate( ) {
+	public static function responsive_mobile_categorylist_validate() {
 		// An array of valid results
 		$args = array(
 				'type'         => 'post',
@@ -883,7 +883,7 @@ Class Responsive_Options {
 
 		$defaults = array();
 		foreach ( $options as $option ) {
-			$defaults[$option['id']] = $option['default'];
+			$defaults[$option['id']] = isset($option['default']);
 		}
 
 		return $defaults;

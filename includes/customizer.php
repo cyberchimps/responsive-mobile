@@ -88,7 +88,7 @@ function responsive_customize_register( $wp_customize ) {
 	) );
 	
 	$option_categories = array();
-	$category_lists = get_categories( $args );
+	$category_lists = get_categories();
 	$option_categories[''] = esc_html(__( 'Choose Category', 'responsive' ));
 	foreach( $category_lists as $category ){
 		$option_categories[$category->term_id] = $category->name;
@@ -100,7 +100,7 @@ function responsive_customize_register( $wp_customize ) {
 		'section'               => 'theme_elements',
 		'settings'              => 'responsive_mobile_theme_options[team_val]',
 		'type'                  => 'select',
-		'description'           => __( 'The featured image, title and content from the posts with category Team will be used. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
+		'description'           => __( 'The featured image, title and content from the selected post caategory will be used. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
 		'choices'               => $option_categories
 	) );
 
