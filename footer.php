@@ -33,7 +33,7 @@ $responsive_options = responsive_mobile_get_options();
 	wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/css/font-awesome.min.css', false, '4.7.0');
 
  if ( isset( $responsive_options['team']) && $responsive_options['team'] == '1') { ?>
-<div class="container" id="ht_team_inner_div">
+<div class="container" id="team_inner_div">
 <?php 
 	$responsive_team_title = isset( $responsive_options['team_title']) ?  $responsive_options['team_title'] : 'Team';
 			
@@ -64,7 +64,7 @@ $responsive_options = responsive_mobile_get_options();
  	if(!empty($team_posts))
  	{
  	?>
- 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ht_team_first_row">
+ 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 team_first_row">
  	<?php
  	
  	$count_array=array(1,2,5,6,9,10);
@@ -89,8 +89,8 @@ $responsive_options = responsive_mobile_get_options();
 		?>
 		
 		<?php if(in_array($count,$count_array)){?>
-		<div class="ht_team_single_row col-md-6">
-			<div class="col-xs-6 col-sm-6 col-md-6 ht_team_img">
+		<div class="team_single_row col-md-6">
+			<div class="col-xs-6 col-sm-6 col-md-6 team_img">
 			
 			<a href="#portfolioModal<?php echo $post_id;?>" class="portfolio-link" data-toggle="modal">
 											<div class="entry_hover animate_icon"></div>
@@ -101,7 +101,7 @@ $responsive_options = responsive_mobile_get_options();
 
 
 			</div>
-		     <div class="col-xs-6 col-sm-6 col-md-6 ht_team_data">
+		     <div class="col-xs-6 col-sm-6 col-md-6 team_data">
 		     <div class="team_member">
 			<?php echo esc_html($responsive_showcase_title); ?>
 		     </div>
@@ -130,9 +130,9 @@ $responsive_options = responsive_mobile_get_options();
 		</div>
 		<?php }
 		else{?>
-		<div class="ht_team_single_row col-md-6">
+		<div class="team_single_row col-md-6">
 
-		     <div class="col-xs-6 col-sm-6 col-md-6 ht_team_data">
+		     <div class="col-xs-6 col-sm-6 col-md-6 team_data">
 		     <div class="team_member">
 			<?php echo esc_html($responsive_showcase_title); ?>
 		     </div>
@@ -158,7 +158,7 @@ $responsive_options = responsive_mobile_get_options();
 			<?php } ?></div>
 		     </div>
 		
-			<div class="col-xs-6 col-sm-6 col-md-6 ht_team_img">
+			<div class="col-xs-6 col-sm-6 col-md-6 team_img">
 			
 			<a href="#portfolioModal<?php echo $post_id;?>" class="portfolio-link" data-toggle="modal">
 											<div class="entry_hover animate_icon"></div>

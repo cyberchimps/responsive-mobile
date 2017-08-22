@@ -105,7 +105,7 @@
 	
 	wp.customize( 'responsive_mobile_theme_options[team]', function( value ) {
 		value.bind( function( to ) {
-			$( '#ht_team_inner_div' ).toggle();
+			$( '#team_inner_div' ).toggle();
 		} );
 	} );
 

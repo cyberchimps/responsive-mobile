@@ -81,15 +81,7 @@ function responsive_mobile_theme_options_set()
 	 * @options array used by select dropdown lists
 	 */
 	 // Get custom categories of boxes element
-	$ht_team_terms = get_terms( 'ht_team_categories', 'hide_empty=0' );
-	if( !is_wp_error( $ht_team_terms ) ) {
-		foreach( $ht_team_terms as $term ) {
-			$ht_team_options[$term->slug] = $term->name;
-		}
-	}
-	else {
-		$ht_team_options = null;
-	}
+
 	$options = array(
 		'theme_elements'   => array(
 			'title'  => __( 'Theme Elements', 'responsive-mobile' ),
@@ -478,7 +470,7 @@ function responsive_mobile_theme_options_set()
 					'id'          => 'team_val',
 					'description' => '',
 					'placeholder' => '',
-					'options'     => Responsive_Options::responsive_pro_categorylist_validate()
+					'options'     => Responsive_Options::responsive_mobile_categorylist_validate()
 			)
 			)
 		)

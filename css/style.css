@@ -2748,9 +2748,9 @@ table.cart td.actions .coupon .input-text {
 }
 
 /*============ our team =============*/
-#ht_team_inner_div {
+#team_inner_div {
   margin-top: 5%; }
-  .ht_team_single_row {
+  .team_single_row {
     display: -moz-box;
     display: flex;
     display: -webkit-flex;
@@ -2759,7 +2759,7 @@ table.cart td.actions .coupon .input-text {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
-    .ht_team_single_row > [class*='col-'] {
+    .team_single_row > [class*='col-'] {
       display: -moz-box;
       display: flex;
       display: -webkit-flex;
@@ -2772,9 +2772,9 @@ table.cart td.actions .coupon .input-text {
               flex-direction: column;
       -webkit-flex-direction: column;
       -ms-flex-direction: column; }
-    .ht_team_single_row .ht_team_img {
+    .team_single_row .team_img {
       padding: 0; }
-	.ht_team_single_row .ht_team_img .fa {
+	.team_single_row .team_img .fa {
         position: absolute;
         bottom: 0px;
         right: 0px;
@@ -2783,19 +2783,19 @@ table.cart td.actions .coupon .input-text {
         color: #e14c3d;
         font-size: 20px;
         visibility: hidden; }
-    .ht_team_single_row .ht_team_data {
+    .team_single_row .team_data {
       background: #f6f6f6;
       padding: 0px 4%; }
-      .ht_team_single_row .ht_team_data .team_member {
+      .team_single_row .team_data .team_member {
         margin-top: 20%;
         font-weight: 600;
         font-size: 1.125em;
         color: #202020; }
-      .ht_team_single_row .ht_team_data .team_designation {
+      .team_single_row .team_data .team_designation {
         font-weight: 500;
         color: #2e2e2e;
         margin: 5px 0px; }
-      .ht_team_single_row .ht_team_data .team_desc {
+      .team_single_row .team_data .team_desc {
         color: #2e2e2e;
         margin: 5px 0px; }
   .arrow-left {
@@ -2829,13 +2829,13 @@ table.cart td.actions .coupon .input-text {
     -o-transition: all .8s;
     -moz-transition: all .8s;
     transition: all .8s; }
-  .ht_team_img:hover .entry_hover {
+  .team_img:hover .entry_hover {
     background-color: #e14c3d;
     display: block;
     opacity: .85;
     visibility: visible;
     cursor: pointer; }
-  .ht_team_img:hover .fa {
+  .team_img:hover .fa {
     visibility: visible;
     cursor: pointer; }
   .modal-content {
@@ -2873,18 +2873,18 @@ table.cart td.actions .coupon .input-text {
           height: 25px; }
 
 @media all and (max-width: 480px) {
-  .ht_team_single_row .ht_team_img,
-  .ht_team_single_row .ht_team_data {
+  .team_single_row .team_img,
+  .team_single_row .team_data {
     width: 85%;
     margin: 0px auto;
     display: block; }
-  .ht_team_single_row .ht_team_data .team_member {
+  .team_single_row .team_data .team_member {
     margin-top: 10px; }
-  .ht_team_single_row {
+  .team_single_row {
     margin-bottom: 30px; }
-  .ht_team_single_row .ht_team_data .team_member {
+  .team_single_row .team_data .team_member {
     margin-top: 0; }
-  .ht_team_single_row .ht_team_data {
+  .team_single_row .team_data {
     padding-top: 10px;
     padding-bottom: 10px; }
   .arrow-right{
@@ -2904,7 +2904,7 @@ table.cart td.actions .coupon .input-text {
     left: 50%; } }
 
 @media all and (min-width: 481px) and (max-width: 991px) {
-  .ht_team_single_row {
+  .team_single_row {
     margin-bottom: 30px; }
   .arrow-right {
     border-top: 10px solid transparent;
@@ -2922,7 +2922,7 @@ table.cart td.actions .coupon .input-text {
 .col-md-5{
     width:50%; }
 
-.ht_team_first_row .ht_team_single_row{
+.team_first_row .team_single_row{
     padding:0; }
 
 .section_title{

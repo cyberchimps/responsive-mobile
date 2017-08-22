@@ -180,6 +180,18 @@ function responsive_mobile_customize_register( $wp_customize ) {
 		'selector' => '#home_widget_3',
 	) );
 
+	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[team_title]', array(
+		'selector' => '.section_title span',
+	) );
+	
+	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[team_val]', array(
+		'selector' => '.team_first_row',
+	) );	
+
+	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[team]', array(
+		'selector' => '#team_inner_div',
+	) );	
+
 }
 
 add_action( 'customize_register', 'responsive_mobile_customize_register' );

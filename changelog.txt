@@ -7,7 +7,7 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(23/08/17) - Improvements - Version 1.4
+(22/08/17) - Improvements - Version 1.4
 
 [+] - Added team element for homepage
 

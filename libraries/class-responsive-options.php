@@ -691,7 +691,7 @@ Class Responsive_Options {
 		return $input;
 	}
 
-	public static function responsive_pro_categorylist_validate( ) {
+	public static function responsive_mobile_categorylist_validate( ) {
 		// An array of valid results
 		$args = array(
 				'type'         => 'post',
