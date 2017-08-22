@@ -71,6 +71,38 @@ function responsive_customize_register( $wp_customize ) {
 		'type'                  => 'text'
 	) );
 
+	$wp_customize->add_setting( 'responsive_mobile_theme_options[team]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
+	$wp_customize->add_control( 'res_team_seaction_toggle', array(
+		'label'                 => __( 'Enable Team Section(on homepage)', 'responsive' ),
+		'section'               => 'theme_elements',
+		'settings'              => 'responsive_mobile_theme_options[team]',
+		'type'                  => 'checkbox'
+	) );
+
+	$wp_customize->add_setting( 'responsive_mobile_theme_options[team_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'type' => 'option' ) );
+	$wp_customize->add_control( 'res_team_title_text', array(
+		'label'                 => __( 'Title Text', 'responsive' ),
+		'section'               => 'theme_elements',
+		'settings'              => 'responsive_mobile_theme_options[team_title]',
+		'type'                  => 'text'
+	) );
+	
+	$option_categories = array();
+	$category_lists = get_categories( $args );
+	$option_categories[''] = esc_html(__( 'Choose Category', 'responsive' ));
+	foreach( $category_lists as $category ){
+		$option_categories[$category->term_id] = $category->name;
+	}
+	
+	$wp_customize->add_setting( 'responsive_mobile_theme_options[team_val]', array( 'sanitize_callback' => 'responsive_sanitize_default_layouts', 'type' => 'option' ) );
+	$wp_customize->add_control( 'res_default_category_team', array(
+		'label'                 => __( 'Select posts category', 'responsive' ),
+		'section'               => 'theme_elements',
+		'settings'              => 'responsive_mobile_theme_options[team_val]',
+		'type'                  => 'select',
+		'description'           => __( 'The featured image, title and content from the posts with category Team will be used. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
+		'choices'               => $option_categories
+	) );
 
 /*--------------------------------------------------------------
 	// Home Page

@@ -102,6 +102,12 @@
 			$( '#callout_content' ).css( 'background','url(' + to + ')' );
 		} );
 	} );
+	
+	wp.customize( 'responsive_mobile_theme_options[team]', function( value ) {
+		value.bind( function( to ) {
+			$( '#team_inner_div' ).toggle();
+		} );
+	} );
 
 } )( jQuery );
 
