@@ -442,7 +442,7 @@ function responsive_mobile_theme_options_set()
 			)
 		),
 		'Team Section'          => array(
-			'title'  => __( 'Team Section', 'responsive-mobile' ),
+			'title'  => __( 'Team Section for the homepage', 'responsive-mobile' ),
 			'fields' => array(
 			array(
 					'title'       => __( 'Enable Team Section', 'responsive-mobile' ),
@@ -450,7 +450,7 @@ function responsive_mobile_theme_options_set()
 					'heading'     => '',
 					'type'        => 'checkbox',
 					'id'          => 'team',
-					'description' => __( 'The featured image, title and content from the posts with category Team will be used. Recommended image size for the featured images: 164 x 164px', 'responsive-mobile' ),
+					'description' => __( 'The featured image, title and content from the selected post category will be used. Recommended image size for the featured images: 164 x 164px', 'responsive-mobile' ),
 					'placeholder' => ''
 			),
 			array(
