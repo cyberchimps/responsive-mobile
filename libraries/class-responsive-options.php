@@ -883,7 +883,7 @@ Class Responsive_Options {
 
 		$defaults = array();
 		foreach ( $options as $option ) {
-			$defaults[$option['id']] = isset($option['default']);
+			$defaults[$option['id']] = $option['default'];
 		}
 
 		return $defaults;
