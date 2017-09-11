@@ -7,6 +7,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(14/09/17) - Improvements - Version 1.5
+
+[+] - Header drag and drop issue resolved
+
 (22/08/17) - Improvements - Version 1.4
 
 [+] - Added team element for homepage
