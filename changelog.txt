@@ -7,9 +7,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(14/09/17) - Improvements - Version 1.5
+(14/09/17) - Bug fix - Version 1.5
 
-[+] - Bug fixes
+[!] - Header drag and drop issue resolved
 
 (22/08/17) - Improvements - Version 1.4
 
