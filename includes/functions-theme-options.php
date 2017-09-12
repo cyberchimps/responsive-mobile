@@ -450,6 +450,7 @@ function responsive_mobile_theme_options_set()
 					'heading'     => '',
 					'type'        => 'checkbox',
 					'id'          => 'team',
+					'default'     => '',
 					'description' => __( 'The featured image, title and content from the selected post category will be used. Recommended image size for the featured images: 164 x 164px', 'responsive-mobile' ),
 					'placeholder' => ''
 			),
@@ -459,6 +460,7 @@ function responsive_mobile_theme_options_set()
 					'heading'     => '',
 					'type'        => 'text',
 					'id'          => 'team_title',
+					'default'     => '',
 					'description' => __( 'Enter your team title', 'responsive-mobile' ),
 					'placeholder' => __( 'Team', 'responsive-mobile' )
 			),
@@ -468,6 +470,7 @@ function responsive_mobile_theme_options_set()
 					'heading'     => '',
 					'type'        => 'select',
 					'id'          => 'team_val',
+					'default'     => '',
 					'description' => '',
 					'placeholder' => '',
 					'options'     => Responsive_Options::responsive_mobile_categorylist_validate()

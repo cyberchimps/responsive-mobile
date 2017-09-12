@@ -478,32 +478,6 @@ if (!($wp_version >= 4.7))
 		'type'                  => 'textarea'
 	) );
 
-/*------------------------------------------------------------------
-	// Copyright Text
--------------------------------------------------------------------*/
-
-$wp_customize->add_section( 'footer_section', array(
-		'title'                 => __( 'Footer Settings', 'responsive' ),
-		'priority'              => 30
-	) );
-	$wp_customize->add_setting( 'responsive_mobile_theme_options[copyright_textbox]',array( 'default' => __('Default copyright text','responsive'),'sanitize_callback' => 'wp_filter_nohtml_kses', 'type' => 'option' ) );
-
-	$wp_customize->add_control( 'res_copyright_textbox', array(
-		'label'                 => __( 'Copyright text', 'responsive' ),
-		'section'               => 'footer_section',
-		'settings'              => 'responsive_mobile_theme_options[copyright_textbox]',
-		'type'                  => 'text'
-	) );
-
-	$wp_customize->add_setting( 'responsive_mobile_theme_options[poweredby_link]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
-	$wp_customize->add_control( 'res_poweredby_link', array(
-		'label'                 => __( 'Display Powered By WordPress Link', 'responsive' ),
-		'section'               => 'footer_section',
-		'settings'              => 'responsive_mobile_theme_options[poweredby_link]',
-		'type'                  => 'checkbox'
-	) );
-
-
 }
 add_action( 'customize_register', 'responsive_customize_register' );
 
