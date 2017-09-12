@@ -9,7 +9,7 @@ Changelog Legend:
 
 (14/09/17) - Improvements - Version 1.5
 
-[+] - Header drag and drop issue resolved
+[+] - Bug fixes
 
 (22/08/17) - Improvements - Version 1.4
 
