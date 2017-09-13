@@ -121,6 +121,13 @@ function responsive_mobile_theme_options_set()
 					'id'          => 'logo_upload_desc',
 					'description' => __( 'Need to replace or remove default logo?', 'responsive-mobile' ) . ' <a href="' . admin_url( 'themes.php?page=custom-header' ) . '">' . __( 'Click here', 'responsive-mobile' ) . '</a>',
 					'default'     => ''
+				),
+                            array(
+					'title'       => __( 'Sticky Header', 'responsive-mobile' ),
+					'type'        => 'checkbox',
+					'id'          => 'sticky_header',
+					'description' => __( 'Check to enable', 'responsive-mobile' ),
+					'default'     => false
 				)
 			)
 		),

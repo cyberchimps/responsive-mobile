@@ -2931,3 +2931,36 @@ table.cart td.actions .coupon .input-text {
 {
 	margin:10px 0;
 }
+/*   ================= Sticky Header ====================== */
+
+/*================Sticky header option ==================*/
+.sticky-header
+{
+	position: fixed;
+	top: 0;
+	left: 0px;
+	z-index: 200;
+	width: 100%;
+	background-color: #fff;
+	margin: 0 !important;
+	opacity:0.9;
+	
+	-webkit-transition: all 0.8s ease-in-out 0s;
+	-moz-transition: all 0.8s ease-in-out 0s;
+	-o-transition: all 0.8s ease-in-out 0s;
+	transition: all 0.8s ease-in-out 0s;
+}
+.admin-bar .sticky-header
+{
+	top:46px;
+}
+@media screen and (min-width: 783px) {
+  .admin-bar .sticky-header {
+    top: 32px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .admin-bar .sticky-header {
+    top: 0;
+  }
+}

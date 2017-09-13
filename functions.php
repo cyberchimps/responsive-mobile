@@ -235,3 +235,30 @@ function responsive_get_attachment_id_from_url( $attachment_url = '' ) {
 	return $attachment_id;
 }
 endif;
+/* ================= Sticky Header Setting  ===========================  */
+
+add_action( 'wp_footer', 'cyberchimps_fixed_menu_onscroll' );
+function cyberchimps_fixed_menu_onscroll()
+{
+    $responsive_options = responsive_mobile_get_options();
+  
+	if($responsive_options['sticky_header'] == 1){
+            
+	?>
+		<script type="text/javascript">
+		jQuery(document).ready(function($){
+			$(window).scroll(function()  {
+			if ($(this).scrollTop() > 0) {
+			$('#header_section').addClass("sticky-header");
+                       
+			}
+			else{
+			$('#header_section').removeClass("sticky-header");
+                       
+			}
+			});
+		});
+		</script>
+	<?php
+	}
+}
