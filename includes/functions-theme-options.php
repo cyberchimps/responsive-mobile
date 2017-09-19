@@ -492,7 +492,7 @@ function responsive_mobile_theme_options_set()
 					'subtitle'    => '',
 					'heading'     => '',
 					'type'        => 'checkbox',
-					'id'          => 'contact',
+					'id'          => 'enable_contact',
 					'default'     => '',
 					'description' => __( 'Check to enable', 'responsive-mobile' ),
 					'placeholder' => ''

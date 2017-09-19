@@ -231,8 +231,14 @@ $responsive_options = responsive_mobile_get_options();
 
 <?php }
 }
-?>
+/* =================== Include contact us template ================    */
 
+if($responsive_options['enable_contact'] == "1")
+{
+    load_template(get_template_directory().'/contact-us.php');
+}
+
+?>
 
 <footer id="footer" class="site-footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
 	<?php responsive_mobile_footer_top(); ?>

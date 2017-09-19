@@ -2188,12 +2188,12 @@ main#main.sitemap .sitemap-widgets:after {
 /*--------------------------------------------------------------
 13.0 - Footer
 --------------------------------------------------------------*/
+
 #footer {
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
-  margin-top: 40px;
   padding-top: 20px;
   background-color: #333333;
   color: #999999;
@@ -2749,7 +2749,9 @@ table.cart td.actions .coupon .input-text {
 
 /*============ our team =============*/
 #team_inner_div {
-  margin-top: 3%; }
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
   .team_single_row {
     display: -moz-box;
     display: flex;
@@ -2963,4 +2965,39 @@ table.cart td.actions .coupon .input-text {
   .admin-bar .sticky-header {
     top: 0;
   }
+}
+/* ====== Contact Us Section ================ */
+.contact_content{
+    padding: 0 15px;
+    color: #fff;
+}
+#contact_us_wrapper{
+    padding: 3% 1%;
+}
+.section_title
+{
+    margin-bottom: 3%;
+}
+.contact_address,.contact_number, .contact_email{
+    padding-bottom: 2%;
+}
+.fa.fa-map-marker, .fa.fa-phone, .fa.fa-envelope{
+    font-size: 25px;
+}
+.wpcf7-form input[type="submit"]{
+    background-color: #0d4c82;
+    border-color: #0b3e6b;
+    border-radius: 0;
+    color: #fff;
+    font-size: 20px;
+    line-height: 24px;
+    padding: 10px 30px;
+    display: table;
+    margin: 0 auto;
+}
+@media screen and (max-width: 992px)
+{
+    .contact_info_right{
+        text-align: center;
+    }
 }
