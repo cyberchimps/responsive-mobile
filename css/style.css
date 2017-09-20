@@ -2966,6 +2966,30 @@ table.cart td.actions .coupon .input-text {
     top: 0;
   }
 }
+/* ====== Services Section ================ */
+#services_section{
+    margin: 3% 0;
+}
+.services-block-list{
+    position: relative;
+    padding: 20px 0 20px 100px;
+}
+.services-icon{
+    position: absolute;
+    left: 0;
+}
+.services_featured
+{
+padding: 2% 0 0 10% !important;
+}
+@media all and (max-width: 769px)
+{
+    .services_featured
+    {
+        text-align: center;
+        padding: 10px !important;
+    } 
+}
 /* ====== Contact Us Section ================ */
 .contact_content{
     padding: 0 15px;

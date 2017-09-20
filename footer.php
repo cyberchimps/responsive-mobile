@@ -24,13 +24,11 @@ if ( ! defined( 'WPINC' ) ) {
 <?php responsive_mobile_wrapper_end(); // after wrapper hook ?>
 </div><!-- end of #container -->
 <?php responsive_mobile_container_bottom();?>
-
-
-
 <?php
 if(is_front_page()){
 $responsive_options = responsive_mobile_get_options();
-	wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/css/font-awesome.min.css', false, '4.7.0');
+wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/css/font-awesome.min.css', false, '4.7.0');
+
 
  if ( isset( $responsive_options['team']) && $responsive_options['team'] == '1') { ?>
 <div class="container" id="team_inner_div">
@@ -230,13 +228,9 @@ $responsive_options = responsive_mobile_get_options();
     </div>
 
 <?php }
+    
 }
-/* =================== Include contact us template ================    */
 
-if($responsive_options['enable_contact'] == "1")
-{
-    load_template(get_template_directory().'/contact-us.php');
-}
 
 ?>
 

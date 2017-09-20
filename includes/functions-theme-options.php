@@ -200,6 +200,43 @@ function responsive_mobile_theme_options_set()
 					'default'     => '',
 					'validate'    => 'editor'
 				),
+                                /*  ================= Services Options =================== */
+                                array(
+					'title'       => __( 'Enable Services Section', 'responsive-mobile' ),
+					'type'        => 'checkbox',
+					'id'          => 'services_toggle_btn',
+					'description' => '',
+					'default'     => '',
+					'validate'    => 'checkbox'
+				),
+                                array(
+					'title'       => __( 'Sevices Section Title', 'responsive-mobile' ),
+					'type'        => 'text',
+					'id'          => 'services_title',
+					'description' => '',
+					'placeholder' => '',
+					'default'     => 'Our Services',
+					
+				),
+                                array(
+					'title'       => __( 'Select Category for Services', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'select',
+					'id'          => 'services_cat',
+					'default'     => '',
+					'description' => '',
+					'placeholder' => '',
+					'options'     => Responsive_Options::responsive_mobile_categorylist_validate()
+                                    ),
+                                array(
+					'title'       => __( 'Services Featured Image', 'responsive-mobile' ),
+					'type'        => 'upload',
+					'description' => 'Recommended Image size is 1366px X 273px.',
+					'id'          => 'services_featured_image',
+					'default'     => '',
+					'button'      => 'Browse'
+				),
 				array(
 					'title'       => __( 'Enable Callout element', 'responsive-mobile' ),
 					'type'        => 'checkbox',
@@ -277,7 +314,68 @@ function responsive_mobile_theme_options_set()
 					'id'          => 'callout_featured_content',
 					'default'     => '',
 					'button'      => 'Browse'
-				)
+				),
+                            /* ============= Contact Us Options ================= */
+                            array(
+					'title'       => __( 'Enable Contact Section', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'checkbox',
+					'id'          => 'enable_contact',
+					'default'     => '',
+					'description' => __( 'Check to enable', 'responsive-mobile' ),
+					'placeholder' => ''
+			),
+			array(
+					'title'       => __( 'Contact Section Title', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_title',
+					'default'     => '',
+					'description' => __( 'Enter contact section title', 'responsive-mobile' ),
+					'placeholder' => __( 'Get In Touch', 'responsive-mobile' )
+			),
+                        array(
+					'title'       => __( 'Contact Address', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_address',
+					'default'     => '',
+					'description' => __( '', 'responsive-mobile' ),
+					'placeholder' => __( 'Sollicitudin Accumsa, hendrerit finibus, Jnibus- 45, Suscipit eleifend. ', 'responsive-mobile' )
+			),
+                            array(
+					'title'       => __( 'Contact Number', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_number',
+					'default'     => '',
+					'description' => __( '', 'responsive-mobile' ),
+					'placeholder' => __( '+1 212 555 1234', 'responsive-mobile' )
+			),
+                             array(
+					'title'       => __( 'Contact Email', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_email',
+					'default'     => '',
+					'description' => __( '', 'responsive-mobile' ),
+					'placeholder' => __( 'hello@yourdomain', 'responsive-mobile' )
+			),
+                             array(
+					'title'       => __( 'Additional Data', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_form',
+					'default'     => '',
+					'description' => __( 'Recommended: Contact Form', 'responsive-mobile' ),
+					'placeholder' => __( '', 'responsive-mobile' )
+			)
 			)
 		),
 		'layouts'          => array(
@@ -448,6 +546,7 @@ function responsive_mobile_theme_options_set()
 				)
 			)
 		),
+            
 		'Team Section'          => array(
 			'title'  => __( 'Team Section for the homepage', 'responsive-mobile' ),
 			'fields' => array(
@@ -484,72 +583,7 @@ function responsive_mobile_theme_options_set()
 			)
 			)
 		),
-            'Contact Section'          => array(
-			'title'  => __( 'Contact Section for the homepage', 'responsive-mobile' ),
-			'fields' => array(
-			array(
-					'title'       => __( 'Enable Contact Section', 'responsive-mobile' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'checkbox',
-					'id'          => 'enable_contact',
-					'default'     => '',
-					'description' => __( 'Check to enable', 'responsive-mobile' ),
-					'placeholder' => ''
-			),
-			array(
-					'title'       => __( 'Contact Section Title', 'responsive-mobile' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'text',
-					'id'          => 'contact_title',
-					'default'     => '',
-					'description' => __( 'Enter contact section title', 'responsive-mobile' ),
-					'placeholder' => __( 'Get In Touch', 'responsive-mobile' )
-			),
-                        array(
-					'title'       => __( 'Contact Address', 'responsive-mobile' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'text',
-					'id'          => 'contact_address',
-					'default'     => '',
-					'description' => __( '', 'responsive-mobile' ),
-					'placeholder' => __( 'Sollicitudin Accumsa, hendrerit finibus, Jnibus- 45, Suscipit eleifend. ', 'responsive-mobile' )
-			),
-                            array(
-					'title'       => __( 'Contact Number', 'responsive-mobile' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'text',
-					'id'          => 'contact_number',
-					'default'     => '',
-					'description' => __( '', 'responsive-mobile' ),
-					'placeholder' => __( '+1 212 555 1234', 'responsive-mobile' )
-			),
-                             array(
-					'title'       => __( 'Contact Email', 'responsive-mobile' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'text',
-					'id'          => 'contact_email',
-					'default'     => '',
-					'description' => __( '', 'responsive-mobile' ),
-					'placeholder' => __( 'hello@yourdomain', 'responsive-mobile' )
-			),
-                             array(
-					'title'       => __( 'Additional Data', 'responsive-mobile' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'text',
-					'id'          => 'contact_form',
-					'default'     => '',
-					'description' => __( 'Recommended: Contact Form', 'responsive-mobile' ),
-					'placeholder' => __( '', 'responsive-mobile' )
-			),
-			
-			)
-		)
+            
 
 	);
 
