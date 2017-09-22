@@ -4,7 +4,7 @@ $responsive_options = responsive_mobile_get_options();
     {
 ?>
 
-<div id="services_section">
+<div id="testimonial_section">
     <div id="services_wrapper" class="container">
         <div class="services_content row">
             <div class="contact_form col-md-12">
@@ -12,7 +12,7 @@ $responsive_options = responsive_mobile_get_options();
             $responsive_testimonial_title = isset( $responsive_options['testimonial_title']) ?  $responsive_options['testimonial_title'] : 'Testimonial';
                 if($responsive_testimonial_title){
                ?>
-               <h2 class="service_section_title"> 
+               <h2 class="testimonial_section_title"> 
                            <?php echo esc_html($responsive_testimonial_title); ?>
                </h2>
                 <?php 

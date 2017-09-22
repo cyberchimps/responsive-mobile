@@ -2967,10 +2967,10 @@ table.cart td.actions .coupon .input-text {
   }
 }
 /* ====== Services Section ================ */
-.service_section_title{
+.service_section_title, .testimonial_section_title,.contact_section_title{
     text-align: center;
 }
-#services_section{
+#services_section, #testimonial_section{
     margin: 3% 0;
 }
 .services-block-list{

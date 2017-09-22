@@ -71,21 +71,6 @@ function responsive_customize_register( $wp_customize ) {
 		'type'                  => 'text'
 	) );
 
-	$wp_customize->add_setting( 'responsive_mobile_theme_options[team]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
-	$wp_customize->add_control( 'res_team_seaction_toggle', array(
-		'label'                 => __( 'Enable Team Section(on homepage)', 'responsive' ),
-		'section'               => 'theme_elements',
-		'settings'              => 'responsive_mobile_theme_options[team]',
-		'type'                  => 'checkbox'
-	) );
-
-	$wp_customize->add_setting( 'responsive_mobile_theme_options[team_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'type' => 'option' ) );
-	$wp_customize->add_control( 'res_team_title_text', array(
-		'label'                 => __( 'Title Text', 'responsive' ),
-		'section'               => 'theme_elements',
-		'settings'              => 'responsive_mobile_theme_options[team_title]',
-		'type'                  => 'text'
-	) );
 	
 	$option_categories = array();
 	$category_lists = get_categories();
@@ -94,15 +79,7 @@ function responsive_customize_register( $wp_customize ) {
 		$option_categories[$category->term_id] = $category->name;
 	}
 	
-	$wp_customize->add_setting( 'responsive_mobile_theme_options[team_val]', array( 'sanitize_callback' => 'responsive_sanitize_default_layouts', 'type' => 'option' ) );
-	$wp_customize->add_control( 'res_default_category_team', array(
-		'label'                 => __( 'Select posts category', 'responsive' ),
-		'section'               => 'theme_elements',
-		'settings'              => 'responsive_mobile_theme_options[team_val]',
-		'type'                  => 'select',
-		'description'           => __( 'The featured image, title and content from the selected post caategory will be used. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
-		'choices'               => $option_categories
-	) );
+	
 
 /*--------------------------------------------------------------
 	// Home Page
@@ -175,13 +152,14 @@ function responsive_customize_register( $wp_customize ) {
 		'settings'              => 'responsive_mobile_theme_options[services_toggle_btn]',
 		'type'                  => 'checkbox'
 	) );
-        $wp_customize->add_setting( 'responsive_mobile_theme_options[services_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'type' => 'option' ) );
+        $wp_customize->add_setting( 'responsive_mobile_theme_options[services_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'Our Services', 'responsive' ), 'type' => 'option' ));
 	$wp_customize->add_control( 'res_services_title_text', array(
 		'label'                 => __( 'Services Section Title', 'responsive' ),
 		'section'               => 'home_page',
 		'settings'              => 'responsive_mobile_theme_options[services_title]',
 		'type'                  => 'text'
 	) );
+
         $wp_customize->add_setting( 'responsive_mobile_theme_options[services_cat]', array( 'sanitize_callback' => 'responsive_sanitize_default_layouts', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_default_category_services', array(
 		'label'                 => __( 'Select posts category', 'responsive' ),
@@ -191,7 +169,7 @@ function responsive_customize_register( $wp_customize ) {
 		'description'           => __( 'The featured image, title and content from the selected post caategory will be used. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
 		'choices'               => $option_categories
 	) );
-        $wp_customize->add_setting( 'responsive_mobile_theme_options[callout_featured_content]', array( 'sanitize_callback' => 'esc_url_raw','transport' => 'postMessage', 'type' => 'option' ) );
+        $wp_customize->add_setting( 'responsive_mobile_theme_options[services_featured_image]', array( 'sanitize_callback' => 'esc_url_raw','transport' => 'postMessage', 'type' => 'option' ) );
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'responsive_mobile_theme_options[callout_featured_content]', array(
         'label'    => __( 'Callout background', 'responsive-mobile' ),
         'description' => 'Recommended Image size is 1366px X 273px.',
@@ -297,7 +275,8 @@ function responsive_customize_register( $wp_customize ) {
         'section'  => 'home_page',
         'settings' => 'responsive_mobile_theme_options[callout_featured_content]',
         ) ) );
-        /************************  Testimonial Section  ******************************/
+         
+/************************   Testimonial  ******************************/
         $wp_customize->add_setting( 'responsive_mobile_theme_options[testimonial_toggle_btn]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'transport' => 'postMessage', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_testimonial_toggle_btn', array(
 		'label'                 => __( 'Enable Testimonial Section', 'responsive-mobile' ),
@@ -305,15 +284,16 @@ function responsive_customize_register( $wp_customize ) {
 		'settings'              => 'responsive_mobile_theme_options[testimonial_toggle_btn]',
 		'type'                  => 'checkbox'
 	) );
-        $wp_customize->add_setting( 'responsive_mobile_theme_options[testimonial_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'type' => 'option' ) );
-	$wp_customize->add_control( 'res_testimonial_title_text', array(
+        $wp_customize->add_setting( 'responsive_mobile_theme_options[testimonial_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'Testimonial', 'responsive' ), 'type' => 'option' ));
+	$wp_customize->add_control( 'res_testimonial_title', array(
 		'label'                 => __( 'Testimonial Section Title', 'responsive' ),
 		'section'               => 'home_page',
 		'settings'              => 'responsive_mobile_theme_options[testimonial_title]',
 		'type'                  => 'text'
 	) );
+
         $wp_customize->add_setting( 'responsive_mobile_theme_options[testimonial_cat]', array( 'sanitize_callback' => 'responsive_sanitize_default_layouts', 'type' => 'option' ) );
-	$wp_customize->add_control( 'res_default_category_testimonial', array(
+	$wp_customize->add_control( 'res_testimonial_cat', array(
 		'label'                 => __( 'Select posts category', 'responsive' ),
 		'section'               => 'home_page',
 		'settings'              => 'responsive_mobile_theme_options[testimonial_cat]',
@@ -322,9 +302,76 @@ function responsive_customize_register( $wp_customize ) {
 		'choices'               => $option_categories
 	) );
        
+    /************************   Team Section  ******************************/    
+        
+	$wp_customize->add_setting( 'responsive_mobile_theme_options[team]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
+	$wp_customize->add_control( 'res_team_seaction_toggle', array(
+		'label'                 => __( 'Enable Team Section(on homepage)', 'responsive' ),
+		'section'               => 'home_page',
+		'settings'              => 'responsive_mobile_theme_options[team]',
+		'type'                  => 'checkbox'
+	) );
 
-
-
+	$wp_customize->add_setting( 'responsive_mobile_theme_options[team_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'type' => 'option' ) );
+	$wp_customize->add_control( 'res_team_title_text', array(
+		'label'                 => __( 'Title Text', 'responsive' ),
+		'section'               => 'home_page',
+		'settings'              => 'responsive_mobile_theme_options[team_title]',
+		'type'                  => 'text'
+	) );
+         $wp_customize->add_setting( 'responsive_mobile_theme_options[team_val]', array( 'sanitize_callback' => 'responsive_sanitize_default_layouts', 'type' => 'option' ) );
+	$wp_customize->add_control( 'res_default_category_team', array(
+		'label'                 => __( 'Select posts category', 'responsive' ),
+		'section'               => 'home_page',
+		'settings'              => 'responsive_mobile_theme_options[team_val]',
+		'type'                  => 'select',
+		'description'           => __( 'The featured image, title and content from the selected post caategory will be used. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
+		'choices'               => $option_categories
+	) );
+        
+/************************   Contact Us Section  ******************************/
+$wp_customize->add_setting( 'responsive_mobile_theme_options[enable_contact]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'transport' => 'postMessage', 'type' => 'option' ) );
+	$wp_customize->add_control( 'res_enable_contact', array(
+		'label'                 => __( 'Enable Contact Section', 'responsive-mobile' ),
+		'section'               => 'home_page',
+		'settings'              => 'responsive_mobile_theme_options[enable_contact]',
+		'type'                  => 'checkbox'
+	) );
+        $wp_customize->add_setting( 'responsive_mobile_theme_options[contact_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'Get In Touch', 'responsive' ), 'type' => 'option' ));
+	$wp_customize->add_control( 'res_contact_title', array(
+		'label'                 => __( 'Contact Section Title', 'responsive' ),
+		'section'               => 'home_page',
+		'settings'              => 'responsive_mobile_theme_options[contact_title]',
+		'type'                  => 'text'
+	) );
+        $wp_customize->add_setting( 'responsive_mobile_theme_options[contact_address]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','type' => 'option' ));
+	$wp_customize->add_control( 'res_contact_address', array(
+		'label'                 => __( 'Contact Address', 'responsive' ),
+		'section'               => 'home_page',
+		'settings'              => 'responsive_mobile_theme_options[contact_address]',
+		'type'                  => 'text'
+	) );
+        $wp_customize->add_setting( 'responsive_mobile_theme_options[contact_number]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage', 'type' => 'option' ));
+	$wp_customize->add_control( 'res_contact_number', array(
+		'label'                 => __( 'Contact Number', 'responsive' ),
+		'section'               => 'home_page',
+		'settings'              => 'responsive_mobile_theme_options[contact_number]',
+		'type'                  => 'text'
+	) );
+        $wp_customize->add_setting( 'responsive_mobile_theme_options[contact_email]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage', 'type' => 'option' ));
+	$wp_customize->add_control( 'res_contact_email', array(
+		'label'                 => __( 'Contact Email', 'responsive' ),
+		'section'               => 'home_page',
+		'settings'              => 'responsive_mobile_theme_options[contact_email]',
+		'type'                  => 'text'
+	) );
+        $wp_customize->add_setting( 'responsive_mobile_theme_options[contact_form]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','type' => 'option' ));
+	$wp_customize->add_control( 'res_contact_form', array(
+		'label'                 => __( 'Additional Data', 'responsive' ),
+		'section'               => 'home_page',
+		'settings'              => 'responsive_mobile_theme_options[contact_form]',
+		'type'                  => 'text'
+	) );
 
 /*--------------------------------------------------------------
 	// Default Layouts

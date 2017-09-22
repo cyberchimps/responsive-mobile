@@ -44,7 +44,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_mobile_options['fro
         get_template_part( 'template-parts/services', apply_filters( 'responsive_mobile_filter_services_layout', '' ) );
 	get_template_part( 'template-parts/callout', apply_filters( 'responsive_mobile_filter_callout_layout', '' ) );
         get_template_part( 'template-parts/testimonial', apply_filters( 'responsive_mobile_filter_testimonial_layout', '' ) );
-        
+        get_template_part( 'template-parts/team', apply_filters( 'responsive_mobile_filter_team_layout', '' ) );
 
 	get_sidebar( 'home' );
         get_template_part( 'template-parts/contact-us', apply_filters( 'responsive_mobile_filter_contact_layout', '' ) );

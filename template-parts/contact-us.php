@@ -13,8 +13,8 @@ $responsive_options = responsive_mobile_get_options();
             $responsive_contact_title = isset( $responsive_options['contact_title']) ?  $responsive_options['contact_title'] : 'Get In Touch';
              if($responsive_contact_title){
             ?>
-            <h2 class="section_title"> 
-			<span><?php echo esc_html($responsive_contact_title); ?></span>
+            <h2 class="contact_section_title"> 
+			<?php echo esc_html($responsive_contact_title); ?>
             </h2>
              <?php } ?>
             <div class="contact_form col-lg-6 col-md-6">
@@ -29,7 +29,7 @@ $responsive_options = responsive_mobile_get_options();
                                 <div class="col-lg-1 col-md-1 col-sm-12">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                 </div>
-                                <div class="col-lg-10 col-md-10 col-sm-12">
+                                <div class="col-lg-10 col-md-10 col-sm-12 contact_adr">
                                   <?php echo $responsive_options['contact_address'];?>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@ $responsive_options = responsive_mobile_get_options();
                                 <div class="col-lg-1 col-md-1 col-sm-12">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                 </div>
-                                <div class="col-lg-10 col-md-10 col-sm-12">
+                                <div class="col-lg-10 col-md-10 col-sm-12 contact_no">
                                   <?php echo $responsive_options['contact_number']; ?>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@ $responsive_options = responsive_mobile_get_options();
                                 <div class="col-lg-1 col-md-1 col-sm-12">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                 </div>
-                                <div class="col-lg-10 col-md-10 col-sm-12">
+                                <div class="col-lg-10 col-md-10 col-sm-12 contact_emailid">
                                   <?php echo $responsive_options['contact_email']; ?>
                                 </div>
                             </div>
