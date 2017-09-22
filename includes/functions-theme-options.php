@@ -109,6 +109,13 @@ function responsive_mobile_theme_options_set()
 					'description' => __( 'Check to disable', 'responsive-mobile' ),
 					'default'     => false,
 					'validate'    => 'checkbox'
+				),
+                             array(
+					'title'       => __( 'Sticky Header', 'responsive-mobile' ),
+					'type'        => 'checkbox',
+					'id'          => 'sticky_header',
+					'description' => __( 'Check to enable', 'responsive-mobile' ),
+					'default'     => false
 				)
 			)
 		),
@@ -121,14 +128,8 @@ function responsive_mobile_theme_options_set()
 					'id'          => 'logo_upload_desc',
 					'description' => __( 'Need to replace or remove default logo?', 'responsive-mobile' ) . ' <a href="' . admin_url( 'themes.php?page=custom-header' ) . '">' . __( 'Click here', 'responsive-mobile' ) . '</a>',
 					'default'     => ''
-				),
-                            array(
-					'title'       => __( 'Sticky Header', 'responsive-mobile' ),
-					'type'        => 'checkbox',
-					'id'          => 'sticky_header',
-					'description' => __( 'Check to enable', 'responsive-mobile' ),
-					'default'     => false
 				)
+                           
 			)
 		),
 		'home_page'        => array(
@@ -315,6 +316,35 @@ function responsive_mobile_theme_options_set()
 					'default'     => '',
 					'button'      => 'Browse'
 				),
+                            /*  ================= Testimonial Options =================== */
+                                array(
+					'title'       => __( 'Enable Testimonial Section', 'responsive-mobile' ),
+					'type'        => 'checkbox',
+					'id'          => 'testimonial_toggle_btn',
+					'description' => '',
+					'default'     => '',
+					'validate'    => 'checkbox'
+				),
+                                array(
+					'title'       => __( 'Testimonial Section Title', 'responsive-mobile' ),
+					'type'        => 'text',
+					'id'          => 'testimonial_title',
+					'description' => '',
+					'placeholder' => '',
+					'default'     => 'What Our Clients Say',
+					
+				),
+                                array(
+					'title'       => __('Select Category for Testimonial', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'select',
+					'id'          => 'testimonial_cat',
+					'default'     => '',
+					'description' => '',
+					'placeholder' => '',
+					'options'     => Responsive_Options::responsive_mobile_categorylist_validate()
+                                    ),
                             /* ============= Contact Us Options ================= */
                             array(
 					'title'       => __( 'Enable Contact Section', 'responsive-mobile' ),

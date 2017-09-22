@@ -2967,6 +2967,9 @@ table.cart td.actions .coupon .input-text {
   }
 }
 /* ====== Services Section ================ */
+.service_section_title{
+    text-align: center;
+}
 #services_section{
     margin: 3% 0;
 }
@@ -2990,6 +2993,45 @@ padding: 2% 0 0 10% !important;
         padding: 10px !important;
     } 
 }
+/* ====== Testimonial Section ================ */
+#testimonial
+{
+    padding-bottom: 0;
+}
+.card-up {
+    height: 120px;
+}
+.testimonial_top_color {
+    background-color: #0079c0;
+}
+
+.testimonial_img img {
+    width: 100%;
+}
+.testimonial_img {
+    border: 5px solid #fff;
+    border-radius: 50%;
+    height: 150px;
+    margin: -65px auto 0;
+    overflow: hidden;
+    width: 150px;
+}
+.card-block {
+    padding: 20px;
+}
+.card.testimonial-card {
+border: 1px solid #cfcfcf;
+}
+
+.fa.fa-quote-left {
+    padding: 5px;
+    color: #0d4c82;
+}
+.carousel-control.left,
+.carousel-control.right {
+    background-image: none !important;
+}
+
 /* ====== Contact Us Section ================ */
 .contact_content{
     padding: 0 15px;

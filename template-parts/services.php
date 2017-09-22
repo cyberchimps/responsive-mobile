@@ -1,8 +1,6 @@
 <?php
 $responsive_options = responsive_mobile_get_options();
-/* =================== Include contact us template ================    */
-
-    if($responsive_options['services_toggle_btn'] == "1")
+   if($responsive_options['services_toggle_btn'] == "1")
     {
 ?>
 
@@ -14,14 +12,17 @@ $responsive_options = responsive_mobile_get_options();
             $responsive_services_title = isset( $responsive_options['services_title']) ?  $responsive_options['services_title'] : 'Our Services';
                 if($responsive_services_title){
                ?>
-               <h2 class="section_title"> 
-                           <span><?php echo esc_html($responsive_services_title); ?></span>
+               <h2 class="service_section_title"> 
+                           <?php echo esc_html($responsive_services_title); ?>
                </h2>
                 <?php 
 
                 } ?>
                 <?php
                     $responsive_services_category = $responsive_options['services_cat'];
+                    $services_featured_img = ( ! empty( $responsive_options['services_featured_image'] ) ) ? $responsive_options['services_featured_image'] : get_template_directory_uri().'/images/featured-image.png';
+                   
+                   
                     if(!empty($responsive_services_category))
                     {
                             $cat_obj_services  = get_term( $responsive_services_category, 'category' );
@@ -67,9 +68,10 @@ $responsive_options = responsive_mobile_get_options();
                         
                     </div>
                     <div class="col-md-6">
+                        
                         <div class="res_column-inner col-md-12 services_featured">
                             
-                                <img src="http://localhost/wordpress4.7.5/wp-content/uploads/2017/09/services-img.png" />  
+                                <img src=<?php echo esc_url($services_featured_img); ?> />  
                            
                         </div> 
                     </div>

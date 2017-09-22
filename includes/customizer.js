@@ -48,6 +48,17 @@
 			$( '.call-to-action > a' ).text( to );
 		} );
 	} );
+        /*  Services */
+        wp.customize( 'responsive_mobile_theme_options[services_toggle_btn]', function( value ) {
+		value.bind( function( to ) {
+			$( '#services_section' ).toggle();
+		} );
+	} );
+        wp.customize( 'responsive_mobile_theme_options[services_title]', function( value ) {
+		value.bind( function( to ) {
+			$( '.service_section_title' ).text( to );
+		} );
+	} );
 
 /* Callout */
 	wp.customize( 'responsive_mobile_theme_options[callout_toggle_btn]', function( value ) {
