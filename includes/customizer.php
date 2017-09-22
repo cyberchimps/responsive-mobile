@@ -70,6 +70,13 @@ function responsive_customize_register( $wp_customize ) {
 		'settings'              => 'responsive_mobile_theme_options[blog_post_title_text]',
 		'type'                  => 'text'
 	) );
+        $wp_customize->add_setting( 'responsive_mobile_theme_options[sticky_header]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
+	$wp_customize->add_control( 'res_sticky_header', array(
+		'label'                 => __( 'Enable Sticky Header', 'responsive' ),
+		'section'               => 'theme_elements',
+		'settings'              => 'responsive_mobile_theme_options[sticky_header]',
+		'type'                  => 'checkbox'
+	) );
 
 	
 	$option_categories = array();
@@ -160,7 +167,7 @@ function responsive_customize_register( $wp_customize ) {
 		'type'                  => 'text'
 	) );
 
-        $wp_customize->add_setting( 'responsive_mobile_theme_options[services_cat]', array( 'sanitize_callback' => 'responsive_sanitize_default_layouts', 'type' => 'option' ) );
+        /* $wp_customize->add_setting( 'responsive_mobile_theme_options[services_cat]', array( 'sanitize_callback' => 'responsive_sanitize_default_layouts', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_default_category_services', array(
 		'label'                 => __( 'Select posts category', 'responsive' ),
 		'section'               => 'home_page',
@@ -168,6 +175,16 @@ function responsive_customize_register( $wp_customize ) {
 		'type'                  => 'select',
 		'description'           => __( 'The featured image, title and content from the selected post caategory will be used. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
 		'choices'               => $option_categories
+	) ); */
+        $wp_customize->add_setting( 'responsive_theme_options[services_cat]', array( 'sanitize_callback' => 'responsive_pro_categorylist_validate', 'type' => 'option' ) );
+	$wp_customize->add_control( 'services_cat', array(
+			'label'                 => __( 'Select Category', 'responsive' ),
+			'section'               => 'static_front_page',
+			'settings'              => 'responsive_theme_options[services_cat]',
+			'description'           => __( 'The featured image, title and content from the posts will be used to display the client testimonials. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
+			'type'                  => 'select',
+			'choices'               => $option_categories,
+			'priority' => 35
 	) );
         $wp_customize->add_setting( 'responsive_mobile_theme_options[services_featured_image]', array( 'sanitize_callback' => 'esc_url_raw','transport' => 'postMessage', 'type' => 'option' ) );
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'responsive_mobile_theme_options[callout_featured_content]', array(
