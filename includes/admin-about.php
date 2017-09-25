@@ -57,7 +57,7 @@ function cyberchimps_display_about() {
 
 			?>
 			<span><img src="<?php echo $directory_uri ?>/images/logo.png"></span>
-			<?php printf(  '<p> Responsive ii is an HTML Mobile-first responsive WordPress theme that looks classy on any device like iPad, tablet, Desktop, iPhone etc. It has a new light framework. This Free WordPress theme comes with simple but powerful theme options for full CMS control.'
+			<?php printf(  '<p> Responsive II (codename Responsive Mobile) is an HTML Mobile-first responsive WordPress theme that looks classy on any device like iPad, tablet, Desktop, iPhone etc. It has a new light framework. This Free WordPress theme comes with simple but powerful theme options for full CMS control.'
 			); ?>
 		</div>
 
@@ -70,7 +70,7 @@ function cyberchimps_display_about() {
 				<th>Pro Features Plugin</th>
 			</tr>
 			<tr>
-			<td class="feature">Responsive layout <p>Works on every device</p></td>
+			<td class="feature">Responsive layout</td>
 			<td class="featureyes"><span class='dashicons-before dashicons-yes'></span></td>
 			<td class="featureyes"><span class='dashicons-before dashicons-yes'></span></td>
 			</tr>
@@ -81,8 +81,14 @@ function cyberchimps_display_about() {
 			<td class="featureyes"><span class='dashicons-before dashicons-yes'></span></td>
 			</tr>
 
-			<tr>
+                        <tr>
 			<td class="feature">Ready-to-use Color Schemes (Skins)</td>
+			<td class="featureyes"><span class="dashicons-before dashicons-no-alt"></span></td>
+			<td class="featureno"><span class='dashicons-before dashicons-yes'></span></td>
+			</tr>
+                        
+			<tr>
+			<td class="feature">Change the background image for Contact Form Area</td>
 			<td class="featureyes"><span class="dashicons-before dashicons-no-alt"></span></td>
 			<td class="featureno"><span class='dashicons-before dashicons-yes'></span></td>
 			</tr>
@@ -100,7 +106,7 @@ function cyberchimps_display_about() {
 
 			<tr>
 			<td class="feature">Typography & Fonts
-			<p>(Supports Google Fonts , option available for changing header & text font)</p></td>
+			</td>
 			<td class="featureyes"><span class="dashicons-before dashicons-no-alt"></span></td>
 			<td class="featureno"><span class='dashicons-before dashicons-yes'></span></td>
 			</tr>

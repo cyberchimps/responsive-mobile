@@ -6,7 +6,7 @@ $responsive_options = responsive_mobile_get_options();
     {
 ?>
 
-<div id="contact_us_section" style="background-image: url(<?php echo get_template_directory_uri().'/images/contact_bg.jpg'?>)">
+<div id="contact_us_section" style="background-size: cover; background-repeat: no-repeat;background-image: url(<?php echo get_template_directory_uri().'/images/contact_bg.jpg'?>);">
     <div id="contact_us_wrapper" class="container">
         <div class="contact_content row">
             <?php
