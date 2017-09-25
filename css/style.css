@@ -2188,12 +2188,12 @@ main#main.sitemap .sitemap-widgets:after {
 /*--------------------------------------------------------------
 13.0 - Footer
 --------------------------------------------------------------*/
+
 #footer {
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
-  margin-top: 40px;
   padding-top: 20px;
   background-color: #333333;
   color: #999999;
@@ -2749,7 +2749,9 @@ table.cart td.actions .coupon .input-text {
 
 /*============ our team =============*/
 #team_inner_div {
-  margin-top: 3%; }
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
   .team_single_row {
     display: -moz-box;
     display: flex;
@@ -2930,4 +2932,138 @@ table.cart td.actions .coupon .input-text {
 .portfolio-modal .modal-content .modal-body p
 {
 	margin:10px 0;
+}
+/*   ================= Sticky Header ====================== */
+
+/*================Sticky header option ==================*/
+.sticky-header
+{
+	position: fixed;
+	top: 0;
+	left: 0px;
+	z-index: 200;
+	width: 100%;
+	background-color: #fff;
+	margin: 0 !important;
+	opacity:0.9;
+	
+	-webkit-transition: all 0.8s ease-in-out 0s;
+	-moz-transition: all 0.8s ease-in-out 0s;
+	-o-transition: all 0.8s ease-in-out 0s;
+	transition: all 0.8s ease-in-out 0s;
+}
+.admin-bar .sticky-header
+{
+	top:46px;
+}
+@media screen and (min-width: 783px) {
+  .admin-bar .sticky-header {
+    top: 32px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .admin-bar .sticky-header {
+    top: 0;
+  }
+}
+/* ====== Services Section ================ */
+.service_section_title, .testimonial_section_title,.contact_section_title{
+    text-align: center;
+}
+#services_section, #testimonial_section{
+    margin: 3% 0;
+}
+.services-block-list{
+    position: relative;
+    padding: 20px 0 20px 100px;
+}
+.services-icon{
+    position: absolute;
+    left: 0;
+}
+.services_featured
+{
+padding: 2% 0 0 10% !important;
+}
+@media all and (max-width: 769px)
+{
+    .services_featured
+    {
+        text-align: center;
+        padding: 10px !important;
+    } 
+}
+/* ====== Testimonial Section ================ */
+#testimonial
+{
+    padding-bottom: 0;
+}
+.card-up {
+    height: 120px;
+}
+.testimonial_top_color {
+    background-color: #0079c0;
+}
+
+.testimonial_img img {
+    width: 100%;
+}
+.testimonial_img {
+    border: 5px solid #fff;
+    border-radius: 50%;
+    height: 150px;
+    margin: -65px auto 0;
+    overflow: hidden;
+    width: 150px;
+}
+.card-block {
+    padding: 20px;
+}
+.card.testimonial-card {
+border: 1px solid #cfcfcf;
+}
+
+.fa.fa-quote-left {
+    padding: 5px;
+    color: #0d4c82;
+}
+.carousel-control.left,
+.carousel-control.right {
+    background-image: none !important;
+}
+
+/* ====== Contact Us Section ================ */
+.contact_content{
+    padding: 0 15px;
+    color: #fff;
+}
+#contact_us_wrapper{
+    padding: 3% 1%;
+}
+.section_title
+{
+    margin-bottom: 3%;
+}
+.contact_address,.contact_number, .contact_email{
+    padding-bottom: 2%;
+}
+.fa.fa-map-marker, .fa.fa-phone, .fa.fa-envelope{
+    font-size: 25px;
+}
+.wpcf7-form input[type="submit"]{
+    background-color: #0d4c82;
+    border-color: #0b3e6b;
+    border-radius: 0;
+    color: #fff;
+    font-size: 20px;
+    line-height: 24px;
+    padding: 10px 30px;
+    display: table;
+    margin: 0 auto;
+}
+@media screen and (max-width: 992px)
+{
+    .contact_info_right{
+        text-align: center;
+    }
 }

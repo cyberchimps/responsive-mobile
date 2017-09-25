@@ -109,6 +109,13 @@ function responsive_mobile_theme_options_set()
 					'description' => __( 'Check to disable', 'responsive-mobile' ),
 					'default'     => false,
 					'validate'    => 'checkbox'
+				),
+                             array(
+					'title'       => __( 'Sticky Header', 'responsive-mobile' ),
+					'type'        => 'checkbox',
+					'id'          => 'sticky_header',
+					'description' => __( 'Check to enable', 'responsive-mobile' ),
+					'default'     => false
 				)
 			)
 		),
@@ -122,6 +129,7 @@ function responsive_mobile_theme_options_set()
 					'description' => __( 'Need to replace or remove default logo?', 'responsive-mobile' ) . ' <a href="' . admin_url( 'themes.php?page=custom-header' ) . '">' . __( 'Click here', 'responsive-mobile' ) . '</a>',
 					'default'     => ''
 				)
+                           
 			)
 		),
 		'home_page'        => array(
@@ -192,6 +200,43 @@ function responsive_mobile_theme_options_set()
 					'placeholder' => '<img class="aligncenter" src="' . get_template_directory_uri() . '"/core/images/featured-image.png" width="440" height="300" alt="" />',
 					'default'     => '',
 					'validate'    => 'editor'
+				),
+                                /*  ================= Services Options =================== */
+                                array(
+					'title'       => __( 'Enable Services Section', 'responsive-mobile' ),
+					'type'        => 'checkbox',
+					'id'          => 'services_toggle_btn',
+					'description' => '',
+					'default'     => '',
+					'validate'    => 'checkbox'
+				),
+                                array(
+					'title'       => __( 'Sevices Section Title', 'responsive-mobile' ),
+					'type'        => 'text',
+					'id'          => 'services_title',
+					'description' => '',
+					'placeholder' => '',
+					'default'     => 'Our Services',
+					
+				),
+                                array(
+					'title'       => __( 'Select Category for Services', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'select',
+					'id'          => 'services_cat',
+					'default'     => '',
+					'description' => '',
+					'placeholder' => '',
+					'options'     => Responsive_Options::responsive_mobile_categorylist_validate()
+                                    ),
+                                array(
+					'title'       => __( 'Services Featured Image', 'responsive-mobile' ),
+					'type'        => 'upload',
+					'description' => 'Recommended Image size is 1366px X 273px.',
+					'id'          => 'services_featured_image',
+					'default'     => '',
+					'button'      => 'Browse'
 				),
 				array(
 					'title'       => __( 'Enable Callout element', 'responsive-mobile' ),
@@ -270,7 +315,128 @@ function responsive_mobile_theme_options_set()
 					'id'          => 'callout_featured_content',
 					'default'     => '',
 					'button'      => 'Browse'
-				)
+				),
+                            /*  ================= Testimonial Options =================== */
+                                array(
+					'title'       => __( 'Enable Testimonial Section', 'responsive-mobile' ),
+					'type'        => 'checkbox',
+					'id'          => 'testimonial_toggle_btn',
+					'description' => '',
+					'default'     => '',
+					'validate'    => 'checkbox'
+				),
+                                array(
+					'title'       => __( 'Testimonial Section Title', 'responsive-mobile' ),
+					'type'        => 'text',
+					'id'          => 'testimonial_title',
+					'description' => '',
+					'placeholder' => '',
+					'default'     => 'What Our Clients Say',
+					
+				),
+                                array(
+					'title'       => __('Select Category for Testimonial', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'select',
+					'id'          => 'testimonial_cat',
+					'default'     => '',
+					'description' => '',
+					'placeholder' => '',
+					'options'     => Responsive_Options::responsive_mobile_categorylist_validate()
+                                    ),
+                            array(
+					'title'       => __( 'Enable Team Section', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'checkbox',
+					'id'          => 'team',
+					'default'     => '',
+					'description' => __( 'The featured image, title and content from the selected post category will be used. Recommended image size for the featured images: 164 x 164px', 'responsive-mobile' ),
+					'placeholder' => ''
+			),
+			array(
+					'title'       => __( 'Team Title', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'team_title',
+					'default'     => '',
+					'description' => __( 'Enter your team title', 'responsive-mobile' ),
+					'placeholder' => __( 'Team', 'responsive-mobile' )
+			),
+			array(
+					'title'       => __( 'Select Category for team', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'select',
+					'id'          => 'team_val',
+					'default'     => '',
+					'description' => '',
+					'placeholder' => '',
+					'options'     => Responsive_Options::responsive_mobile_categorylist_validate()
+			),
+                            /* ============= Contact Us Options ================= */
+                            array(
+					'title'       => __( 'Enable Contact Section', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'checkbox',
+					'id'          => 'enable_contact',
+					'default'     => '',
+					'description' => __( 'Check to enable', 'responsive-mobile' ),
+					'placeholder' => ''
+			),
+			array(
+					'title'       => __( 'Contact Section Title', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_title',
+					'default'     => '',
+					'description' => __( 'Enter contact section title', 'responsive-mobile' ),
+					'placeholder' => __( 'Get In Touch', 'responsive-mobile' )
+			),
+                        array(
+					'title'       => __( 'Contact Address', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_address',
+					'default'     => '',
+					'description' => __( '', 'responsive-mobile' ),
+					'placeholder' => __( 'Sollicitudin Accumsa, hendrerit finibus, Jnibus- 45, Suscipit eleifend. ', 'responsive-mobile' )
+			),
+                            array(
+					'title'       => __( 'Contact Number', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_number',
+					'default'     => '',
+					'description' => __( '', 'responsive-mobile' ),
+					'placeholder' => __( '+1 212 555 1234', 'responsive-mobile' )
+			),
+                             array(
+					'title'       => __( 'Contact Email', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_email',
+					'default'     => '',
+					'description' => __( '', 'responsive-mobile' ),
+					'placeholder' => __( 'hello@yourdomain', 'responsive-mobile' )
+			),
+                             array(
+					'title'       => __( 'Additional Data', 'responsive-mobile' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_form',
+					'default'     => '',
+					'description' => __( 'Recommended: Contact Form', 'responsive-mobile' ),
+					'placeholder' => __( '', 'responsive-mobile' )
+			)
 			)
 		),
 		'layouts'          => array(
@@ -441,42 +607,8 @@ function responsive_mobile_theme_options_set()
 				)
 			)
 		),
-		'Team Section'          => array(
-			'title'  => __( 'Team Section for the homepage', 'responsive-mobile' ),
-			'fields' => array(
-			array(
-					'title'       => __( 'Enable Team Section', 'responsive-mobile' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'checkbox',
-					'id'          => 'team',
-					'default'     => '',
-					'description' => __( 'The featured image, title and content from the selected post category will be used. Recommended image size for the featured images: 164 x 164px', 'responsive-mobile' ),
-					'placeholder' => ''
-			),
-			array(
-					'title'       => __( 'Team Title', 'responsive-mobile' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'text',
-					'id'          => 'team_title',
-					'default'     => '',
-					'description' => __( 'Enter your team title', 'responsive-mobile' ),
-					'placeholder' => __( 'Team', 'responsive-mobile' )
-			),
-			array(
-					'title'       => __( 'Select Category for team', 'responsive-mobile' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'select',
-					'id'          => 'team_val',
-					'default'     => '',
-					'description' => '',
-					'placeholder' => '',
-					'options'     => Responsive_Options::responsive_mobile_categorylist_validate()
-			)
-			)
-		)
+            
+            
 
 	);
 

@@ -7,6 +7,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(25/09/17) - Improvements - Version 1.6
+
+[+] - Added Sticky Header option
+[+] - Added Services Section for Home Page
+[+] - Added Testimonial Section for Home Page
+[+] - Added Contact Us Section for Home Page
+
 (14/09/17) - Bug fix - Version 1.5
 
 [!] - Header drag and drop issue resolved

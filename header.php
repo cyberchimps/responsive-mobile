@@ -63,6 +63,7 @@ if ( ! defined( 'WPINC' ) ) {
 	</div><!-- top menu container -->
 <?php } ?>
 <?php responsive_mobile_header_before(); ?>
+        <div id="header_section">
 	<header id="header" class="container-full-width site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
 		<?php responsive_mobile_header_top(); ?>
 		<div class="container">
@@ -110,6 +111,7 @@ if ( ! defined( 'WPINC' ) ) {
 			</nav><!-- #site-navigation -->
 		</div><!-- #sub-menu -->
 	</div><!-- #sub-menu-container -->
+        </div>
 <?php responsive_mobile_wrapper(); // before wrapper container hook ?>
 	<div id="wrapper" class="site-content container-full-width">
 <?php responsive_mobile_wrapper_top(); // before wrapper content hook ?>
