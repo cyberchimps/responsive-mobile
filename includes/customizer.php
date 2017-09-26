@@ -176,7 +176,7 @@ function responsive_customize_register( $wp_customize ) {
 		'description'           => __( 'The featured image, title and content from the selected post caategory will be used. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
 		'choices'               => $option_categories
 	) ); */
-        $wp_customize->add_setting( 'responsive_theme_options[services_cat]', array( 'sanitize_callback' => 'responsive_pro_categorylist_validate', 'type' => 'option' ) );
+        $wp_customize->add_setting( 'responsive_theme_options[services_cat]', array( 'sanitize_callback' => 'responsive_sanitize_default_layouts', 'type' => 'option' ) );
 	$wp_customize->add_control( 'services_cat', array(
 			'label'                 => __( 'Select Category', 'responsive' ),
 			'section'               => 'home_page',
@@ -309,7 +309,7 @@ function responsive_customize_register( $wp_customize ) {
 		'type'                  => 'text'
 	) );
 
-        $wp_customize->add_setting( 'responsive_mobile_theme_options[testimonial_cat]', array( 'sanitize_callback' => '', 'type' => 'option' ) );
+        $wp_customize->add_setting( 'responsive_mobile_theme_options[testimonial_cat]', array( 'sanitize_callback' => 'responsive_sanitize_default_layouts', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_testimonial_cat', array(
 		'label'                 => __( 'Select posts category', 'responsive' ),
 		'section'               => 'home_page',
@@ -336,7 +336,7 @@ function responsive_customize_register( $wp_customize ) {
 		'settings'              => 'responsive_mobile_theme_options[team_title]',
 		'type'                  => 'text'
 	) );
-         $wp_customize->add_setting( 'responsive_mobile_theme_options[team_val]', array( 'sanitize_callback' => '', 'type' => 'option' ) );
+         $wp_customize->add_setting( 'responsive_mobile_theme_options[team_val]', array( 'sanitize_callback' => 'responsive_sanitize_default_layouts', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_default_category_team', array(
 		'label'                 => __( 'Select posts category', 'responsive' ),
 		'section'               => 'home_page',
