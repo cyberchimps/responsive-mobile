@@ -3031,6 +3031,17 @@ border: 1px solid #cfcfcf;
 .carousel-control.right {
     background-image: none !important;
 }
+.glyphicon.glyphicon-chevron-left, .glyphicon.glyphicon-chevron-right
+{
+    color: #cfcfcf;
+    text-shadow: none;
+}
+@media screen and (max-width: 992px)
+{
+    .testimonial-card{
+        margin-bottom: 4%;
+    }
+}
 
 /* ====== Contact Us Section ================ */
 .contact_content{

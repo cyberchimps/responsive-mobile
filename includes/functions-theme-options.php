@@ -206,7 +206,7 @@ function responsive_mobile_theme_options_set()
 					'title'       => __( 'Enable Services Section', 'responsive-mobile' ),
 					'type'        => 'checkbox',
 					'id'          => 'services_toggle_btn',
-					'description' => '',
+					'description' => __( 'The featured image, title and content from the selected post category will be used. Recommended image size for the featured images: 64 x 64px', 'responsive-mobile' ),
 					'default'     => '',
 					'validate'    => 'checkbox'
 				),
@@ -235,7 +235,7 @@ function responsive_mobile_theme_options_set()
 					'type'        => 'upload',
 					'description' => 'Recommended Image size is 1366px X 273px.',
 					'id'          => 'services_featured_image',
-					'default'     => '',
+					'default'     => get_template_directory_uri().'/images/services_featured.png',
 					'button'      => 'Browse'
 				),
 				array(
@@ -321,7 +321,7 @@ function responsive_mobile_theme_options_set()
 					'title'       => __( 'Enable Testimonial Section', 'responsive-mobile' ),
 					'type'        => 'checkbox',
 					'id'          => 'testimonial_toggle_btn',
-					'description' => '',
+					'description' => __( 'The featured image, title and content from the selected post category will be used. Recommended image size for the featured images: 200 x 200px', 'responsive-mobile' ),
 					'default'     => '',
 					'validate'    => 'checkbox'
 				),
@@ -377,7 +377,8 @@ function responsive_mobile_theme_options_set()
 					'options'     => Responsive_Options::responsive_mobile_categorylist_validate()
 			),
                             /* ============= Contact Us Options ================= */
-                            array(
+                          // Code commented by Manju as contact section is alreasy there in Pro Features plugin
+                         /*  array(
 					'title'       => __( 'Enable Contact Section', 'responsive-mobile' ),
 					'subtitle'    => '',
 					'heading'     => '',
@@ -436,7 +437,7 @@ function responsive_mobile_theme_options_set()
 					'default'     => '',
 					'description' => __( 'Recommended: Contact Form', 'responsive-mobile' ),
 					'placeholder' => __( '', 'responsive-mobile' )
-			)
+			) */
 			)
 		),
 		'layouts'          => array(

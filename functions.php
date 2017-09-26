@@ -242,7 +242,7 @@ function cyberchimps_fixed_menu_onscroll()
 {
     $responsive_options = responsive_mobile_get_options();
   
-	if($responsive_options['sticky_header'] == 1){
+	if(isset($responsive_options['sticky_header']) == 1){
             
 	?>
 		<script type="text/javascript">
@@ -356,7 +356,7 @@ function my_admin_notice(){
 	{
 	?>
 		<div class="notice notice-success is-dismissible">
-				<b><p>Liked this theme? <a href="https://wordpress.org/support/theme/iribbon/reviews/#new-post" target="_blank">Leave us</a> a ***** rating. Thank you! </p></b>
+				<b><p>Liked this theme? <a href="https://wordpress.org/support/theme/responsive-mobile/reviews/#new-post" target="_blank">Leave us</a> a ***** rating. Thank you! </p></b>
 		</div>
 		<?php
 	}

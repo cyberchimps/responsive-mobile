@@ -347,7 +347,9 @@ function responsive_customize_register( $wp_customize ) {
 	) );
         
 /************************   Contact Us Section  ******************************/
-$wp_customize->add_setting( 'responsive_mobile_theme_options[enable_contact]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'transport' => 'postMessage', 'type' => 'option' ) );
+// Code commented by Manju as contact section is alreasy there in Pro Features plugin
+        
+        /* $wp_customize->add_setting( 'responsive_mobile_theme_options[enable_contact]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'transport' => 'postMessage', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_enable_contact', array(
 		'label'                 => __( 'Enable Contact Section', 'responsive-mobile' ),
 		'section'               => 'home_page',
@@ -388,7 +390,7 @@ $wp_customize->add_setting( 'responsive_mobile_theme_options[enable_contact]', a
 		'section'               => 'home_page',
 		'settings'              => 'responsive_mobile_theme_options[contact_form]',
 		'type'                  => 'text'
-	) );
+	) ); */
 
 /*--------------------------------------------------------------
 	// Default Layouts

@@ -47,6 +47,6 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_mobile_options['fro
         get_template_part( 'template-parts/team', apply_filters( 'responsive_mobile_filter_team_layout', '' ) );
 
 	get_sidebar( 'home' );
-        get_template_part( 'template-parts/contact-us', apply_filters( 'responsive_mobile_filter_contact_layout', '' ) );
+       // get_template_part( 'template-parts/contact-us', apply_filters( 'responsive_mobile_filter_contact_layout', '' ) );
 	get_footer();
 }
