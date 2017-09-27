@@ -241,8 +241,8 @@ add_action( 'wp_footer', 'cyberchimps_fixed_menu_onscroll' );
 function cyberchimps_fixed_menu_onscroll()
 {
     $responsive_options = responsive_mobile_get_options();
-  
-	if(isset($responsive_options['sticky_header']) == 1){
+    if ( isset( $responsive_options['sticky_header']) && $responsive_options['sticky_header'] == '1') { 
+	
             
 	?>
 		<script type="text/javascript">

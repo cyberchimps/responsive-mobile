@@ -21,7 +21,7 @@ $responsive_options = responsive_mobile_get_options();
                 } ?>
                 <?php
                     $responsive_services_category = $responsive_options['services_cat'];
-                    $services_featured_img = ( ! empty( $responsive_options['services_featured_image'] ) ) ? $responsive_options['services_featured_image'] : get_template_directory_uri().'/images/featured-image.png';
+                    $services_featured_img = ( ! empty( $responsive_options['services_featured_image'] ) ) ? $responsive_options['services_featured_image'] : get_template_directory_uri().'/images/services_featured.png';
                    
                    
                     if(!empty($responsive_services_category))
