@@ -3027,9 +3027,20 @@ border: 1px solid #cfcfcf;
     padding: 5px;
     color: #0d4c82;
 }
-.carousel-control.left,
-.carousel-control.right {
-    background-image: none !important;
+#testimonial_wrapper .carousel-control
+ {
+    background-image: none;
+}
+.glyphicon.glyphicon-chevron-left, .glyphicon.glyphicon-chevron-right
+{
+    color: #cfcfcf;
+    text-shadow: none;
+}
+@media screen and (max-width: 992px)
+{
+    .testimonial-card{
+        margin-bottom: 4%;
+    }
 }
 
 /* ====== Contact Us Section ================ */

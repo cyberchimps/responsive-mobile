@@ -1,13 +1,14 @@
 <?php
 $responsive_options = responsive_mobile_get_options();
-   if($responsive_options['testimonial_toggle_btn'] == "1")
-    {
+   
+       if ( isset( $responsive_options['testimonial_toggle_btn']) && $responsive_options['testimonial_toggle_btn'] == '1') { 
+    
 ?>
 
 <div id="testimonial_section">
-    <div id="services_wrapper" class="container">
+    <div id="testimonial_wrapper" class="container">
         <div class="services_content row">
-            <div class="contact_form col-md-12">
+            <div class="col-md-12">
             <?php
             $responsive_testimonial_title = isset( $responsive_options['testimonial_title']) ?  $responsive_options['testimonial_title'] : 'Testimonial';
                 if($responsive_testimonial_title){
@@ -47,6 +48,7 @@ $responsive_options = responsive_mobile_get_options();
                             <div class="testimonial_main_div item active">
                               <?php
                               $slide_counter1 = 0;
+                              if(isset($testimonial_posts)){
                               foreach ($testimonial_posts as $testimonial)
                               {
                                   // Getting  ID of the current post;
@@ -78,7 +80,7 @@ $responsive_options = responsive_mobile_get_options();
                                           <h4 class="card-title"><?php echo esc_html($so_testimonial_title);?></h4>
                                           <hr>
                                           <!--Quotation-->
-                                          <p class="text-muted"><i class="fa fa-quote-left"></i><?php echo esc_html($so_testimonial_text); ?></p>
+                                          <p class="text-muted"><i class="fa fa-quote-left"></i><?php echo $so_testimonial_text; ?></p>
                                           </div>
                                       </div>
                                   </div>
@@ -86,15 +88,26 @@ $responsive_options = responsive_mobile_get_options();
                               <?php 
 
                               $slide_counter1++;
-                                 } ?>
+                                 } 
+                                }  
+                            ?>
                           </div>
                           </div>
+                            <?php
+                           if(isset($testimonial_posts)){
+                            if(count($testimonial_posts) > 3)
+                            {
+                            ?>
                             <a class="left carousel-control" href="#carousel-testimonial" role="button" data-slide="prev">
                                   <span class="glyphicon glyphicon-chevron-left"></span>
                               </a>
                               <a class="right carousel-control" href="#carousel-testimonial" role="button" data-slide="next">
                                   <span class="glyphicon glyphicon-chevron-right"></span>
                               </a>
+                            <?php
+                              }
+                            }
+                            ?>
                           </div><!-- corousal main div ends -->
                     </div>
               

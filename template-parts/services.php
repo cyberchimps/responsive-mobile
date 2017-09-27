@@ -1,13 +1,14 @@
 <?php
 $responsive_options = responsive_mobile_get_options();
-   if($responsive_options['services_toggle_btn'] == "1")
-    {
+   
+    if ( isset( $responsive_options['services_toggle_btn']) && $responsive_options['services_toggle_btn'] == '1') { 
+    
 ?>
 
 <div id="services_section">
     <div id="services_wrapper" class="container">
         <div class="services_content row">
-            <div class="contact_form col-md-12">
+            <div class="col-md-12">
             <?php
             $responsive_services_title = isset( $responsive_options['services_title']) ?  $responsive_options['services_title'] : 'Our Services';
                 if($responsive_services_title){
@@ -45,6 +46,7 @@ $responsive_options = responsive_mobile_get_options();
                     <div class="col-md-6">
                         <div class="res_column-inner col-md-12">
                             <?php 
+                            if(isset($services_posts)){
                             foreach($services_posts as $services)
                             {
                                 $post_id = $services->ID;
@@ -54,16 +56,21 @@ $responsive_options = responsive_mobile_get_options();
                             ?>
                                     <div class="services-block-list">
                                         <div class="services-icon">
-                                            <img src=<?php echo esc_url($services_img); ?> /> 
+                                            <?php if($services_img){
+                                                ?>
+                                            <img src=<?php echo esc_url($services_img); ?> />
+                                            <?php } ?>
                                         </div>
                                         <h4><?php echo esc_html($services_title);?></h4>
                                         <div class="services-content">
                                             <span>
-                                                <?php echo esc_html($services_text);?>
+                                                <?php echo $services_text;?>
                                             </span>
                                         </div>
                                     </div>
-                            <?php } ?>
+                            <?php } 
+                                }
+                            ?>
                         </div>
                         
                     </div>
