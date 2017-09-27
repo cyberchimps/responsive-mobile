@@ -2985,6 +2985,9 @@ table.cart td.actions .coupon .input-text {
 {
 padding: 2% 0 0 10% !important;
 }
+.services-block-list > h4{
+    margin-top: 0;
+}
 @media all and (max-width: 769px)
 {
     .services_featured
@@ -3035,6 +3038,9 @@ border: 1px solid #cfcfcf;
 {
     color: #cfcfcf;
     text-shadow: none;
+}
+.testimonial_section_title{
+    margin-bottom: 2%;
 }
 @media screen and (max-width: 992px)
 {
