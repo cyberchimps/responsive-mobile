@@ -6,7 +6,7 @@ $responsive_options = responsive_mobile_get_options();
 ?>
 
 <div id="testimonial_section">
-    <div id="services_wrapper" class="container">
+    <div id="testimonial_wrapper" class="container">
         <div class="services_content row">
             <div class="col-md-12">
             <?php
