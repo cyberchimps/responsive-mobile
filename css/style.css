@@ -3027,9 +3027,9 @@ border: 1px solid #cfcfcf;
     padding: 5px;
     color: #0d4c82;
 }
-.carousel-control.left,
-.carousel-control.right {
-    background-image: none !important;
+#services_wrapper .carousel-control
+ {
+    background-image: none;
 }
 .glyphicon.glyphicon-chevron-left, .glyphicon.glyphicon-chevron-right
 {

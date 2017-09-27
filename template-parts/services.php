@@ -1,7 +1,8 @@
 <?php
 $responsive_options = responsive_mobile_get_options();
-   if(isset($responsive_options['services_toggle_btn']) == "1")
-    {
+   
+    if ( isset( $responsive_options['services_toggle_btn']) && $responsive_options['services_toggle_btn'] == '1') { 
+    
 ?>
 
 <div id="services_section">
