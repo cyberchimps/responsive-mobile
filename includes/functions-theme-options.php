@@ -56,6 +56,24 @@ function responsive_mobile_valid_layouts()
 }
 
 /**
+ * Get valid layouts for blogs
+ */
+function responsive_mobile_valid_blog_layouts()
+{
+	$layouts = array(
+		'default'                   => __( 'Default', 'responsive-mobile' ),
+		'content-sidebar-page'      => __( 'Content/Sidebar', 'responsive-mobile' ),
+		'sidebar-content-page'      => __( 'Sidebar/Content', 'responsive-mobile' ),
+		'content-sidebar-half-page' => __( 'Content/Sidebar Half Page', 'responsive-mobile' ),
+		'sidebar-content-half-page' => __( 'Sidebar/Content Half Page', 'responsive-mobile' ),
+		'full-width-page'           => __( 'Full Width Page (no sidebar)', 'responsive-mobile' ),
+		'three-column-posts'	    => __( 'Three Column Posts', 'responsive-mobile' )
+	);
+
+	return apply_filters( 'responsive_mobile_valid_blog_layouts', $layouts );
+}
+
+/**
  * Set Theme Options
  */
 function responsive_mobile_theme_options_set()
@@ -463,7 +481,7 @@ function responsive_mobile_theme_options_set()
 					'title'    => __( 'Default Blog Posts Index Layout', 'responsive-mobile' ),
 					'type'     => 'select',
 					'id'       => 'blog_posts_index_layout_default',
-					'options'  => responsive_mobile_valid_layouts(),
+					'options'  => responsive_mobile_valid_blog_layouts(),
 					'default'  => 'default',
 					'validate' => 'select'
 				)

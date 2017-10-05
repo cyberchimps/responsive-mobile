@@ -107,7 +107,7 @@ add_action( 'after_setup_theme', 'responsive_mobile_setup' );
  */
 function responsive_mobile_content_width() {
 	global $content_width;
-	$full_width = is_page_template( 'full-width-page.php' ) || is_404() || 'full-width-page' == responsive_mobile_get_layout();
+	$full_width = is_page_template( 'full-width-page.php' ) || is_404() || 'full-width-page' == responsive_mobile_get_layout()  || 'three-column-posts' == responsive_mobile_get_layout();
 	if ( $full_width ) {
 		$content_width = 1140;
 	}

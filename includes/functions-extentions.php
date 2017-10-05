@@ -255,7 +255,7 @@ function responsive_mobile_get_social_icons() {
  */
 function responsive_mobile_gallery_atts( $out, $pairs, $atts ) {
 
-	$full_width = is_page_template( 'full-width-page.php' ) || is_page_template( 'landing-page.php' );
+	$full_width = is_page_template( 'full-width-page.php' ) || is_page_template( 'landing-page.php' ) || is_page_template( 'three-column-posts.php' );
 
 	// Check if the size attribute has been set, if so use it and skip the responsive sizes
 	if ( array_key_exists( 'size', $atts ) ) {
