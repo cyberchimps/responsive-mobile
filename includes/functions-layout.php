@@ -30,7 +30,6 @@ function responsive_mobile_get_layout() {
 	$layout = '';
 	$responsive_mobile_options = responsive_mobile_get_options();
 	$valid_layouts      = responsive_mobile_valid_layouts();
-
 	/* For singular pages, get post meta */
 	if ( is_singular() ) {
 		global $post;
@@ -83,7 +82,6 @@ function responsive_mobile_get_layout() {
 	}
 
 	$layout = apply_filters( 'responsive_mobile_get_layout', $layout );
-
 	return esc_attr( $layout );
 }
 

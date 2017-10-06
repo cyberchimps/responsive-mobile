@@ -3084,3 +3084,26 @@ border: 1px solid #cfcfcf;
         text-align: center;
     }
 }
+
+
+.three-column-posts #main article :: before {
+  clear: both;
+}
+
+.three-column-posts main#main, .page-template-page-templateslanding-page-php main#main, .page-template-page-templatessitemap-php main#main {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width:100%;
+}
+@media (min-width: 980px) {
+  .three-column-posts #main article {
+    display: inline-block;
+    width: 33%;
+    padding-right:20px;
+    padding-left:20px;
+    vertical-align:top;
+    border-bottom:none;
+  }
+}

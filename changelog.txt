@@ -7,6 +7,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(06/10/17) = Improvements - Version 1.7
+
+[+] - Added new template for blog posts page
+
 (27/09/17) - Improvements - Version 1.6
 
 [+] - Added Sticky Header option

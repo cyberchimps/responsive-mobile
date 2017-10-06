@@ -44,6 +44,10 @@ switch ( $layout ) {
 	case 'full-width-page':
 		return;
 		break;
+
+	case 'three-column-posts':
+		return;
+		break;
 }
 ?>
 
