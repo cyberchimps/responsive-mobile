@@ -3151,3 +3151,10 @@ border: 1px solid #cfcfcf;
 	margin-top:15px;
 }
 
+.three-column-posts #main article .post-data {
+    margin-bottom: 10px;
+}
+
+.three-column-posts .blog-title {
+    text-align: center;
+}
