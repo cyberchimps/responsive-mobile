@@ -18,7 +18,19 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 ?>
-
+<?php
+$responsive_options = responsive_mobile_get_options();
+		if($responsive_options['blog_posts_index_layout_default']=="three-column-posts" && ! is_single() )
+		{
+					// Added filter to get featured_image option working.
+					$featured_image = apply_filters( 'responsive_mobile_featured_image', '1' );
+					if ( has_post_thumbnail() && $featured_image ) : ?>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+							<?php the_post_thumbnail(); ?>
+						</a>
+					<?php endif;
+		}			 ?>
+		
 <header class="entry-header">
 	<?php if( is_single() ) {
 		the_title( '<h1 class="entry-title post-title">', '</h1>' );
@@ -44,3 +56,5 @@ if ( ! defined( 'WPINC' ) ) {
 	<?php endif; ?>
 
 </header><!-- .entry-header -->
+
+
