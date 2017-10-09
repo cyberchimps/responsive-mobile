@@ -3158,3 +3158,7 @@ border: 1px solid #cfcfcf;
 .three-column-posts .blog-title {
     text-align: center;
 }
+
+.three-column-posts article .post-data .tags-links {
+    float: none;
+}
