@@ -3107,3 +3107,47 @@ border: 1px solid #cfcfcf;
     border-bottom:none;
   }
 }
+
+@media (min-width: 750px) {
+  .three-column-posts #main article {
+    display: inline-block;
+    width: 32%;
+    padding-right:20px;
+    padding-left:20px;
+    vertical-align:top;
+    border-bottom:none;
+  }
+}
+
+.three-column-posts .read-more .meta-nav
+{
+	display:none;
+}
+
+.three-column-posts #main article
+{
+	text-align:center;
+}
+
+.three-column-posts #main article .read-more a
+{
+    text-transform:uppercase;
+    background: #3071a9;
+    color: #ffffff;
+    text-align: center;
+    padding:8px 15px;
+    
+}
+
+.three-column-posts article .post-data, .three-column-posts article .entry-header
+{
+	margin-top:0;
+	margin-bottom:0;
+}
+
+
+.three-column-posts article a img
+{
+	margin-top:15px;
+}
+

@@ -24,6 +24,13 @@ responsive_mobile_entry_before(); ?>
 		<?php do_action( 'responsive_mobile_post_format_icon' ); ?>
 
 		<?php get_template_part( 'template-parts/post-meta' ); ?>
+		<?php 
+		$responsive_options = responsive_mobile_get_options();
+		if($responsive_options['blog_posts_index_layout_default']=="three-column-posts")
+		{
+			get_template_part( 'template-parts/post-data' );
+		}
+		?>
 
 		<div class="post-entry">
 			<?php if ( is_search() ) : // Only display Excerpts for Search ?>
@@ -33,6 +40,8 @@ responsive_mobile_entry_before(); ?>
 			<?php else : ?>
 				<div class="entry-content">
 					<?php
+		if($responsive_options['blog_posts_index_layout_default']!=="three-column-posts")
+		{
 					// Added filter to get featured_image option working.
 					$featured_image = apply_filters( 'responsive_mobile_featured_image', '1' );
 
@@ -40,7 +49,8 @@ responsive_mobile_entry_before(); ?>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 							<?php the_post_thumbnail(); ?>
 						</a>
-					<?php endif; ?>
+					<?php endif;
+		} ?>
 
 					<?php
 						// Adding filter to get excpert toggle option working.
@@ -62,8 +72,20 @@ responsive_mobile_entry_before(); ?>
 			<?php endif; ?>
 		</div><!-- .post-entry -->
 
-		<?php get_template_part( 'template-parts/post-data' ); ?>
-
+		<?php
+		if($responsive_options['blog_posts_index_layout_default']!=="three-column-posts")
+		{
+			get_template_part( 'template-parts/post-data' );
+		}
+		?>
+	<?php 
+		if($responsive_options['blog_posts_index_layout_default']=="three-column-posts")
+		{
+	?>
+	<div class="entry-meta">
+		<?php edit_post_link( __( 'Edit', 'responsive-mobile' ), '<span class="post-edit">', '</span>' ); ?>
+	</div><!-- .entry-meta -->
+	<?php	}	?>
 		<?php responsive_mobile_entry_bottom(); ?>
 	</article><!-- #post-## -->
 <?php responsive_mobile_entry_after(); ?>

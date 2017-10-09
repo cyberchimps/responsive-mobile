@@ -422,7 +422,7 @@ function responsive_customize_register( $wp_customize ) {
 		'section'               => 'default_layouts',
 		'settings'              => 'responsive_mobile_theme_options[blog_posts_index_layout_default]',
 		'type'                  => 'select',
-		'choices'               => responsive_mobile_valid_layouts()
+		'choices'               => responsive_mobile_valid_blog_layouts()
 	) );
 
 /*--------------------------------------------------------------
