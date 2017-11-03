@@ -29,8 +29,8 @@ function cyberchimps_demodata_style() {
 
 function cyberchimps_add_demodata() {
 	$page = add_theme_page(
-			'Request Demo Data',
-			'Request Demo Data',
+			'Theme Demo Data',
+			'Theme Demo Data',
 			'administrator',
 			'responsive-demodata',
 			'cyberchimps_display_email'
@@ -74,13 +74,13 @@ function cyberchimps_display_email() {
 	
 		
 		?>					
-				<div class="panel-heading"><h3 class="panel-title" style="line-height: 20px;"><?php echo "Feature Request";?></h3></div>				
+				<div class="panel-heading"><h3 class="panel-title" style="line-height: 20px;"><?php echo "Demo Data Request";?></h3></div>				
 				<div class="panel panel-primary">
 				<?php if ($strResponseMessage != '' ) { ?> 
 					<span class="updateres"> <?php echo $strResponseMessage; ?></span>
 				<?php } else { ?>	
 				
-<span class="ccinfo"><?php _e("Please enter your email ID and click on Send to receive the demo data.",'responsive-mobile') ?></span>
+<span class="ccinfo"><?php _e("Please enter your email ID and click on Send to receive the demo data for Responsive Mobile (Responsive ii).",'responsive-mobile') ?></span>
 		
 					
 				      <div class="panel-body">
