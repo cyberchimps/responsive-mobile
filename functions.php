@@ -49,12 +49,13 @@ require $template_directory . '/includes/functions-template-tags.php';
  * Support THA Theme hooks through Responsives own functions.
  */
 require $template_directory . '/core/tha-theme-hooks.php';
+require $template_directory . '/core/functions-demodata.php';
 require $template_directory . '/includes/responsive-hooks.php';
 
 /**
  * Theme Upsell
  */
-require $template_directory . '/core/functions-theme-upsell.php';
+//require $template_directory . '/core/functions-theme-upsell.php';
 
 /**
  * Create header items that hook into header.php
@@ -197,6 +198,10 @@ function responsive_mobile_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'responsive_mobile_customize_register' );
 add_theme_support( 'customize-selective-refresh-widgets' );
 
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+if ( !is_plugin_active( 'cyberchimpsoptions/cc-pro-features.php' ) )
+	add_action( 'customize_controls_print_footer_scripts', 'responsive_mobile_add_upgrade_button' );
+
 function responsive_mobile_add_upgrade_button() {
 
 	// Get the upgrade link.
@@ -231,7 +236,6 @@ function responsive_mobile_add_upgrade_button() {
 	</style>
 	<?php
 }
-add_action( 'customize_controls_print_footer_scripts', 'responsive_mobile_add_upgrade_button' );
 
 add_action( 'admin_notices', 'responsive_mobile_rating_notice' );
 function responsive_mobile_rating_notice()

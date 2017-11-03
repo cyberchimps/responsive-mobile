@@ -57,7 +57,7 @@ function responsive_mobile_theme_support() {
 			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/guides/r-free/' ); ?>" title="<?php esc_attr_e( 'Guides', 'responsive-mobile' ); ?>" target="_blank">
 				<?php _e( 'Instructions', 'responsive-mobile' ); ?></a>
 
-			<a class="button button-primary" href="<?php echo esc_url( 'http://cyberchimps.com/forum/free/responsive-ii/' ); ?>" title="<?php esc_attr_e( 'Help', 'responsive-mobile' ); ?>" target="_blank">
+			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/forum/free/responsive-ii/' ); ?>" title="<?php esc_attr_e( 'Help', 'responsive-mobile' ); ?>" target="_blank">
 				<?php _e( 'Help', 'responsive-mobile' ); ?></a>
 
 			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/showcase/' ); ?>" title="<?php esc_attr_e( 'Showcase', 'responsive-mobile' ); ?>" target="_blank">
@@ -68,7 +68,7 @@ function responsive_mobile_theme_support() {
 
 				<a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/plus/' ); ?>" title="<?php esc_attr_e( 'Need Customization?', 'responsive-mobile' ); ?>" target="_blank">
 				<?php _e( 'Need Customization?', 'responsive-mobile' ); ?></a>
-				<a class="button green-button" href="<?php echo esc_url( 'https://wordpress.org/support/theme/responsive/reviews/#new-post' ); ?>" title="<?php esc_attr_e( 'Leave a star rating', 'responsive-mobile' ); ?>" target="_blank">
+				<a class="button button-primary" href="<?php echo esc_url( 'https://wordpress.org/support/theme/responsive-mobile/reviews/#new-post' ); ?>" title="<?php esc_attr_e( 'Leave a star rating', 'responsive-mobile' ); ?>" target="_blank">
 				<?php _e( 'Leave a star rating', 'responsive-mobile' ); ?></a>
 
 		</div>
