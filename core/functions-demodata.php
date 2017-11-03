@@ -51,7 +51,7 @@ function responsive_mail_name ($sent_from)
 }
 function cyberchimps_display_email() {
 	$strResponseMessage ='';
-	$to = 'hello@cyberchimps.com';
+	$to = 'support@cyberchimps.com';
 	if (isset($_POST['ccSubmitBtn']))
 	{
 		//Send mail
@@ -59,15 +59,15 @@ function cyberchimps_display_email() {
 		{
 			$subject = "Demo Data Request for Responsive Mobile";
 			$headers = 'From: '.'<'.$_POST['ccemail'].'>'. "\r\n";			
-			$feature = '';
+			
 			
 			add_filter( 'wp_mail_from', 'responsive_sender_email' );
 			add_filter( 'wp_mail_from_name', 'responsive_mail_name' );
 			
-			if(wp_mail($to, $subject, $feature, $headers)) {
-				$strResponseMessage = "Thanks, your note is on its way to us now. Be sure to whitelist our mail id hello@cyberchimps.com so that our reply doesn't end up in your spam folder. Have a lovely day ahead !";
+			if(wp_mail($to, $subject, $headers)) {
+				$strResponseMessage = "Thanks, your note is on its way to us now. Be sure to whitelist our mail id support@cyberchimps.com so that our reply doesn't end up in your spam folder. Have a lovely day ahead !";
 			} else {
-				$strResponseMessage = "There was some issue sending mail. Please try again";
+				$strResponseMessage = "Error Sending Mail. Please try submitting the form again.";
 			}
 		}
 	}
