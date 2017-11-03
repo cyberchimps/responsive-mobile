@@ -7,6 +7,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/03/17) = Added - Version 1.8
+
+[+] - Added option to to filter categories from Blog page (Customize -> Blog Page Settings)
+
 (09/10/17) = Improvements - Version 1.7
 
 [+] - Added 3-Column Grid Layout For Blog Posts ( Theme Options -> Default Layouts -> Default Blog Posts Index Layout )

@@ -197,6 +197,42 @@ function responsive_mobile_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'responsive_mobile_customize_register' );
 add_theme_support( 'customize-selective-refresh-widgets' );
 
+function responsive_mobile_add_upgrade_button() {
+
+	// Get the upgrade link.
+	$upgrade_link = esc_url_raw( 'https://cyberchimps.com/store/pro-features/' );
+	?>
+	<script type="text/javascript">
+		jQuery( document ).ready( function( $ ) {
+			jQuery( '#customize-info .accordion-section-title' ).append( '<a target="_blank" class="button btn-upgrade" href="<?php echo esc_url( $upgrade_link ); ?>"><?php esc_html_e( 'Upgrade To Pro', 'responsive-mobile' ); ?></a>' );
+			jQuery( '#customize-info .btn-upgrade' ).click( function( event ) {
+				event.stopPropagation();
+			} );
+		} );
+	</script>
+	<style>
+		.wp-core-ui .btn-upgrade {
+			color: #fff;
+			background: none repeat scroll 0 0 #5BC0DE;
+			border-color: #CCCCCC;
+			box-shadow: 0 1px 0 #5BC0DE inset, 0 1px 0 rgba(0, 0, 0, 0.08);
+			float: right;
+			margin-top: -23px;
+		}
+		.wp-core-ui .btn-upgrade:hover {
+			color: #fff;
+			background: none repeat scroll 0 0 #39B3D7;
+			box-shadow: 0 1px 0 #39B3D7 inset, 0 1px 0 rgba(0, 0, 0, 0.08);
+		}
+		.wp-core-ui #customize-info .theme-name{
+					word-break: break-all;
+					padding-right: 120px;
+		}
+	</style>
+	<?php
+}
+add_action( 'customize_controls_print_footer_scripts', 'responsive_mobile_add_upgrade_button' );
+
 add_action( 'admin_notices', 'responsive_mobile_rating_notice' );
 function responsive_mobile_rating_notice()
 {
@@ -262,106 +298,53 @@ function cyberchimps_fixed_menu_onscroll()
 	<?php
 	}
 }
-// wp forms plugin
-add_action( 'admin_notices', 'my_admin_notice' );
-function my_admin_notice(){
+if( !function_exists('responsive_exclude_post_cat') ) : 	
+function responsive_exclude_post_cat( $query ){
+	$cat = get_theme_mod( 'responsive_mobile_exclude_post_cat' );
 
-	$admin_check_screen = get_admin_page_title();
-        if( !class_exists('SlideDeckPlugin') )
-	{
-	$plugin='slidedeck/slidedeck.php';
-	$slug = 'slidedeck';
-	$installed_plugins = get_plugins();
-
-	 if ( $admin_check_screen == 'Manage Themes' || $admin_check_screen == 'Theme Options Page' )
-	{
-		?>
-		<div class="notice notice-info is-dismissible" style="margin-top:15px;">
-		<p>
-			<?php if( isset( $installed_plugins[$plugin] ) )
-			{
-			?>
-				 <a href="<?php echo admin_url( 'plugins.php' ); ?>">Activate the SlideDeck Lite plugin</a>
-			 <?php
-			}
-			else
-			{
-			 ?>
-			 <a href="<?php echo wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $slug ), 'install-plugin_' . $slug ); ?>">Install the SlideDeck Lite plugin</a>
-			 <?php } ?>
-
-		</p>
-		</div>
-		<?php
+	if( $cat && ! is_admin() && $query->is_main_query() ){
+		$cat = array_diff( array_unique( $cat ), array('') ); 		
+		if( $query->is_home() || $query->is_archive() ) {
+			$query->set( 'category__not_in', $cat );
+			//$query->set( 'cat', '-5,-6,-65,-66' );
+		}
 	}
-	}
-	if( !class_exists('WPForms') )
-	{
-	$plugin = 'wpforms-lite/wpforms.php';
-	$slug = 'wpforms-lite';
-	$installed_plugins = get_plugins();
-	 if ( $admin_check_screen == 'Manage Themes' || $admin_check_screen == 'Theme Options Page' )
-	{
-		?>
-		<div class="notice notice-info is-dismissible" style="margin-top:15px;">
-		<p>
-			<?php if( isset( $installed_plugins[$plugin] ) )
-			{
-			?>
-				 <a href="<?php echo admin_url( 'plugins.php' ); ?>">Activate the WPForms Lite plugin</a>
-			 <?php
-			}
-			else
-			{
-			 ?>
-	 		 <a href="<?php echo wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $slug ), 'install-plugin_' . $slug ); ?>">Install the WP Forms Lite plugin</a>
-			 <?php 
-                         
-                        } ?>
-		</p>
-		</div>
-		<?php
-	}
-	}
-        // wp legal pages plugin
-        if( !class_exists('WP_Legal_Pages') )
-	{
-	$plugin = 'wplegalpages/legal-pages.php';
-	$slug = 'wplegalpages';
-	$installed_plugins = get_plugins();
-	 if ( $admin_check_screen == 'Manage Themes' || $admin_check_screen == 'Mobile First Options' )
-	{
-		?>
-		<div class="notice notice-info is-dismissible" style="margin-top:15px;">
-		<p>
-			<?php if( isset( $installed_plugins[$plugin] ) )
-			{
-			?>
-				 <a href="<?php echo admin_url( 'plugins.php' ); ?>">Activate the WP Legal Pages plugin</a>
-			 <?php
-			}
-			else
-			{
-			 ?>
-	 		 <a href="<?php echo wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $slug ), 'install-plugin_' . $slug ); ?>">Install the WP Legal Pages plugin</a>
-			 <?php } ?>
-		</p>
-		</div>
-		<?php
-	}
-	}
-
-
-	if ( $admin_check_screen == 'Manage Themes' || $admin_check_screen == 'Theme Options Page' )
-	{
-	?>
-		<div class="notice notice-success is-dismissible">
-				<b><p>Liked this theme? <a href="https://wordpress.org/support/theme/responsive-mobile/reviews/#new-post" target="_blank">Leave us</a> a ***** rating. Thank you! </p></b>
-		</div>
-		<?php
-	}
-	
 }
+endif;	
+add_filter( 'pre_get_posts', 'responsive_exclude_post_cat' );
+function responsive_custom_category_widget( $arg ) {
+	$cat = get_theme_mod( 'exclude_post_cat' );
+
+	if( $cat ){
+		$cat = array_diff( array_unique( $cat ), array('') );
+		$arg["exclude"] = $cat;
+	}
+	return $arg;
+}
+add_filter( "widget_categories_args", "responsive_custom_category_widget" );
+add_filter( "widget_categories_dropdown_args", "responsive_custom_category_widget" );
+
+function responsive_exclude_post_cat_recentpost_widget(){
+	$s = '';
+	$i = 1;
+	$cat = get_theme_mod( 'exclude_post_cat' );
+
+	if( $cat ){
+		$cat = array_diff( array_unique( $cat ), array('') );
+		foreach( $cat as $c ){
+			$i++;
+			$s .= '-'.$c;
+			if( count($cat) >= $i )
+				$s .= ', ';
+		}
+	}
+
+	$exclude = array( 'cat' => $s );
+
+	return $exclude;
+}
+add_filter( "widget_posts_args", "responsive_exclude_post_cat_recentpost_widget" );
+
 function responsive_pro_categorylist_validate( ) {
 		// An array of valid results
 		$args = array(

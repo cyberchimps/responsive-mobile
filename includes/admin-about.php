@@ -49,18 +49,22 @@ function cyberchimps_display_about() {
 	$theme      = wp_get_theme();
 	?>
 	<div class="about-container">
+		<div>
+		<h1 class="heading"><?php echo "Responsive Mobile - ".$theme['Version'] ?></h1>
+		<a href='https://wordpress.org/support/theme/responsive/reviews/#new-post' target="_blank" class="button button-primary"><?php _e('Leave a star rating')?></a>
 
-		<div class="about-info">
-			<h1><?php echo "Responsive Mobile - ".$theme['Version'] ?></h1>
-			<?php
-				$directory_uri = get_template_directory_uri();
+		<?php
+			$directory_uri = get_template_directory_uri();
 
-			?>
+		?>
+		</div>
+
+		<div class="about-info">	
 			<span><img src="<?php echo $directory_uri ?>/images/logo.png"></span>
 			<?php printf(  '<p> Responsive II (codename Responsive Mobile) is an HTML Mobile-first responsive WordPress theme that looks classy on any device like iPad, tablet, Desktop, iPhone etc. It has a new light framework. This Free WordPress theme comes with simple but powerful theme options for full CMS control.'
 			); ?>
-		</div>
-
+</div>
+		
 		<div class="features">
 			<table class="features-table">
 			<thead>

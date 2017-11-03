@@ -10,6 +10,13 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
+
+function responsive_mobile_load_customize_controls() {
+
+    require_once( trailingslashit( get_template_directory() ) . 'core/control-checkbox-multiple.php' );
+}
+add_action( 'customize_register', 'responsive_mobile_load_customize_controls', 0 );
+
 function responsive_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
@@ -86,7 +93,10 @@ function responsive_customize_register( $wp_customize ) {
 		$option_categories[$category->term_id] = $category->name;
 	}
 	
-	
+	$option_all_post_cat = array();
+	foreach( $category_lists as $category ){
+		$option_all_post_cat[$category->term_id] = $category->name;
+	}	
 
 /*--------------------------------------------------------------
 	// Home Page
@@ -395,7 +405,26 @@ function responsive_customize_register( $wp_customize ) {
 /*--------------------------------------------------------------
 	// Default Layouts
 --------------------------------------------------------------*/
-
+	
+	$wp_customize->add_section( 'blog_page', array(
+			'title'    => __( 'Blog page Settings', 'responsive' ),
+			'priority'              => 30
+	) );
+	$wp_customize->add_setting( 'responsive_mobile_exclude_post_cat', array( 'sanitize_callback' => 'responsive_sanitize_multiple_checkboxes') );
+	$wp_customize->add_control(
+			new responsive_mobile_Customize_Control_Checkbox_Multiple(
+					$wp_customize,
+					'responsive_mobile_exclude_post_cat',
+					array(
+							'section'       => 'blog_page',
+							'label'         => __( 'Exclude Categories from Blog page', 'responsive' ),
+							'description'   => __( 'Please choose the post categories that should not be displayed on the blog page', 'compact-one' ),
+							'settings'      => 'responsive_mobile_exclude_post_cat',
+							'choices'       => $option_all_post_cat
+					)
+			)
+	);
+	
 	$wp_customize->add_section( 'default_layouts', array(
 		'title'                 => __( 'Default Layouts', 'responsive' ),
 		'priority'              => 30
@@ -634,7 +663,12 @@ function responsive_sanitize_default_layouts( $input ) {
 	}	
 	return $output;
 }
+function responsive_sanitize_multiple_checkboxes( $values ) {
 
+	$multi_values = !is_array( $values ) ? explode( ',', $values ) : $values;	
+	
+	return !empty( $multi_values ) ? array_map( 'sanitize_text_field', $multi_values ) : array();
+}
 function responsive_sanitize_blog_layouts( $input ) {
 	$output = '';	
 	$option = responsive_mobile_valid_blog_layouts();

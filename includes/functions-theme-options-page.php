@@ -38,24 +38,7 @@ function responsive_mobile_upgrade_bar() {
 			}
 			?>
 		</p>
-
-		<div class="social-container">
-			<div class="social">
-				<a href="https://twitter.com/cyberchimps" class="twitter-follow-button" data-show-count="false" data-size="small">Follow @cyberchimps</a>
-				<script>!function (d, s, id) {
-						var js, fjs = d.getElementsByTagName(s)[0];
-						if (!d.getElementById(id)) {
-							js = d.createElement(s);
-							js.id = id;
-							js.src = "//platform.twitter.com/widgets.js";
-							fjs.parentNode.insertBefore(js, fjs);
-						}
-					}(document, "script", "twitter-wjs");</script>
-			</div>
-			<div class="social">
-				<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcyberchimps.com%2F&amp;send=false&amp;layout=button_count&amp;width=200&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:21px;" allowTransparency="true"></iframe>
-			</div>
-		</div>
+		
 	</div>
 
 <?php
@@ -74,17 +57,19 @@ function responsive_mobile_theme_support() {
 			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/guides/r-free/' ); ?>" title="<?php esc_attr_e( 'Guides', 'responsive-mobile' ); ?>" target="_blank">
 				<?php _e( 'Instructions', 'responsive-mobile' ); ?></a>
 
-			<a class="button button-primary" href="<?php echo esc_url( 'http://cyberchimps.com/forum/free/responsive/' ); ?>" title="<?php esc_attr_e( 'Help', 'responsive-mobile' ); ?>" target="_blank">
+			<a class="button button-primary" href="<?php echo esc_url( 'http://cyberchimps.com/forum/free/responsive-ii/' ); ?>" title="<?php esc_attr_e( 'Help', 'responsive-mobile' ); ?>" target="_blank">
 				<?php _e( 'Help', 'responsive-mobile' ); ?></a>
-
-			<a class="button" href="<?php echo esc_url( 'https://webtranslateit.com/en/projects/3598-Responsive-Theme' ); ?>" title="<?php esc_attr_e( 'Translate', 'responsive-mobile' ); ?>" target="_blank">
-				<?php _e( 'Translate', 'responsive-mobile' ); ?></a>
 
 			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/showcase/' ); ?>" title="<?php esc_attr_e( 'Showcase', 'responsive-mobile' ); ?>" target="_blank">
 				<?php _e( 'Showcase', 'responsive-mobile' ); ?></a>
 
 			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/store/' ); ?>" title="<?php esc_attr_e( 'More Themes', 'responsive-mobile' ); ?>" target="_blank">
 				<?php _e( 'More Themes', 'responsive-mobile' ); ?></a>
+
+				<a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/plus/' ); ?>" title="<?php esc_attr_e( 'Need Customization?', 'responsive-mobile' ); ?>" target="_blank">
+				<?php _e( 'Need Customization?', 'responsive-mobile' ); ?></a>
+				<a class="button green-button" href="<?php echo esc_url( 'https://wordpress.org/support/theme/responsive/reviews/#new-post' ); ?>" title="<?php esc_attr_e( 'Leave a star rating', 'responsive-mobile' ); ?>" target="_blank">
+				<?php _e( 'Leave a star rating', 'responsive-mobile' ); ?></a>
 
 		</div>
 	</div>

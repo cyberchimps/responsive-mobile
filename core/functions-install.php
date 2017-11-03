@@ -100,19 +100,19 @@ function responsive_mobile_plugin_notice() {
 		// Set array of plugins to be suggested.
 		$plugins = array(
 			array(
-				'name' => 'Clef', // Name of the plugin.
-				'slug' => 'wpclef', // The plugin slug (typically the folder name)
-				'uri'  => 'http://wordpress.org/extend/plugins/wpclef' // plugin url ( http://wordpress.org/plugins/plugin_slug )
+				'name' => 'Slidedeck', // Name of the plugin.
+				'slug' => 'slidedeck', // The plugin slug (typically the folder name)
+				'uri'  => 'https://wordpress.org/plugins/slidedeck' // plugin url ( http://wordpress.org/plugins/plugin_slug )
 			),
 			array(
-				'name'     => 'Wp Product Review', // The plugin name
-				'slug'     => 'wp-product-review', // The plugin slug (typically the folder name)
-				'uri'  => 'http://wordpress.org/extend/plugins/wp-product-review'
+				'name'     => 'WP Forms', // The plugin name
+				'slug'     => 'wpforms-lite', // The plugin slug (typically the folder name)
+				'uri'  => 'https://wordpress.org/plugins/wpforms-lite'
 			),
 			array(
-				'name'     => 'Tweet Old Post', // The plugin name
-				'slug'     => 'tweet-old-post', // The plugin slug (typically the folder name)
-				'uri'  => 'http://wordpress.org/extend/plugins/tweet-old-post'
+				'name'     => 'WPLegalPages', // The plugin name
+				'slug'     => 'wplegalpages', // The plugin slug (typically the folder name)
+				'uri'  => 'https://wordpress.org/plugins/wplegalpages/'
 			)
 			
 		);
