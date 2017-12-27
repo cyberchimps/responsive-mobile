@@ -418,7 +418,7 @@ function responsive_customize_register( $wp_customize ) {
 					array(
 							'section'       => 'blog_page',
 							'label'         => __( 'Exclude Categories from Blog page', 'responsive' ),
-							'description'   => __( 'Please choose the post categories that should not be displayed on the blog page', 'compact-one' ),
+							'description'   => __( 'Please choose the post categories that should not be displayed on the blog page', 'responsive' ),
 							'settings'      => 'responsive_mobile_exclude_post_cat',
 							'choices'       => $option_all_post_cat
 					)
