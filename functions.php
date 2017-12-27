@@ -49,7 +49,7 @@ require $template_directory . '/includes/functions-template-tags.php';
  * Support THA Theme hooks through Responsives own functions.
  */
 require $template_directory . '/core/tha-theme-hooks.php';
-require $template_directory . '/core/functions-demodata.php';
+//require $template_directory . '/core/functions-demodata.php';
 require $template_directory . '/includes/responsive-hooks.php';
 
 /**
@@ -222,7 +222,11 @@ function responsive_mobile_add_upgrade_button() {
 			border-color: #CCCCCC;
 			box-shadow: 0 1px 0 #5BC0DE inset, 0 1px 0 rgba(0, 0, 0, 0.08);
 			float: right;
-			margin-top: -23px;
+			//margin-top: -23px;
+			margin-top: 15px;
+			font-size: 14px;
+			height: 30px;
+			margin-bottom: 15px;
 		}
 		.wp-core-ui .btn-upgrade:hover {
 			color: #fff;
@@ -233,6 +237,7 @@ function responsive_mobile_add_upgrade_button() {
 					word-break: break-all;
 					padding-right: 120px;
 		}
+		.wp-full-overlay-sidebar-content #customize-info {background-color: #fff;}
 	</style>
 	<?php
 }

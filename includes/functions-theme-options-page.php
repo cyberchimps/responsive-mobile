@@ -66,10 +66,15 @@ function responsive_mobile_theme_support() {
 			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/store/' ); ?>" title="<?php esc_attr_e( 'More Themes', 'responsive-mobile' ); ?>" target="_blank">
 				<?php _e( 'More Themes', 'responsive-mobile' ); ?></a>
 
-				<a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/plus/' ); ?>" title="<?php esc_attr_e( 'Need Customization?', 'responsive-mobile' ); ?>" target="_blank">
+				<a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/contact/' ); ?>" title="<?php esc_attr_e( 'Need Customization?', 'responsive-mobile' ); ?>" target="_blank">
 				<?php _e( 'Need Customization?', 'responsive-mobile' ); ?></a>
 				<a class="button button-primary" href="<?php echo esc_url( 'https://wordpress.org/support/theme/responsive-mobile/reviews/#new-post' ); ?>" title="<?php esc_attr_e( 'Leave a star rating', 'responsive-mobile' ); ?>" target="_blank">
 				<?php _e( 'Leave a star rating', 'responsive-mobile' ); ?></a>
+				
+			<a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/checkout/?add-to-cart=280534' ); ?>" title="<?php esc_attr_e( 'Theme Demo Data', 'responsive-mobile' ); ?>" target="_blank">
+				<?php _e( 'Theme Demo Data', 'responsive-mobile' ); ?></a>				
+			<a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/store/pro-features/#whygopro' ); ?>" title="<?php esc_attr_e('Why Go Pro?', 'responsive-mobile' ); ?>" target="_blank">	
+				<?php _e( 'Why Go Pro?', 'responsive-mobile' ); ?></a>	
 
 		</div>
 	</div>

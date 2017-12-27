@@ -66,6 +66,7 @@ function cyberchimps_display_about() {
 </div>
 		
 		<div class="features">
+			<h2>Why upgrade to Pro?</h2>
 			<table class="features-table">
 			<thead>
 			<tr>
