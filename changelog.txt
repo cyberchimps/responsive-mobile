@@ -7,10 +7,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(12/28/17) = Added - Version 1.10
-[*] 
+(12/28/17) = Changed - Version 1.10
+[*] Improved navigation for Testimonial section  
 
-(12/27/17) = Added - Version 1.9
+(12/27/17) = Bug fix and updates - Version 1.9
 [*] - Visual Improvements to the Admin Dashboard
 [!] - Fixed Recent posts widget issue (No of posts not working)
 
