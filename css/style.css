@@ -1578,6 +1578,13 @@ main #featured-content, main #featured-image {
     float: left;
     width: 50%;
   }
+  #full-width #featured-content, #full-width #featured-image{
+  	float: none;
+  	width: 100%;
+  }
+  #full-width .featured-text{
+  	padding: 0px 40px;
+  }
   #callout_content main #featured-content {
    float: left;
    width: 65%;
@@ -1601,6 +1608,11 @@ main #featured-content .call-to-action, main #featured-image .call-to-action {
   text-align: center;
   margin-top: 30px;
 }
+#full-width #featured-image
+#full-width #featured-content .call-to-action, #full-width #featured-image .call-to-action {
+	margin-top: 10px;
+}
+#full-width #featured-image { padding-top: 0px;}
 main #featured-content .call-to-action .cta-button, main #featured-image .call-to-action .cta-button {
   color: #fff;
   background-color: #0D4C82;

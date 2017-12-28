@@ -7,6 +7,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(12/28/17) = Added - Version 1.10
+[*] 
+
 (12/27/17) = Added - Version 1.9
 [*] - Visual Improvements to the Admin Dashboard
 [!] - Fixed Recent posts widget issue (No of posts not working)
