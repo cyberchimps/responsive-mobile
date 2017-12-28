@@ -19,7 +19,7 @@ $emtpy_cta = ( empty( $responsive_mobile_options['cta_text'] ) ) ? false : true;
 		<?php 	if(is_plugin_active('cyberchimpsoptions/cc-pro-features.php')) {
 					if ( isset( $responsive_mobile_options['responsive_featured_arealayout'] ) ) 
 						$featured_layout=$responsive_mobile_options['responsive_featured_arealayout'];
-					if( is_plugin_active('cyberchimpsoptions/cc-pro-features.php' && $featured_layout != '' && $featured_layout == 'full-width')){  
+					if( is_plugin_active('cyberchimpsoptions/cc-pro-features.php' && isset($featured_layout) && $featured_layout == 'full-width')){  
 		?>
 					<div id="full-width">
 					<div id="featured-content">
