@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  font-family: "'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif";
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
   color: #333333;
@@ -1444,11 +1444,14 @@ border-color:#5dfeb6;
 .info-box .button {
 	background-color: #fff;
 	box-shadow:none;
+	font-size: 14px;
 }
 .info-box .button-primary {
 	background: #0085ba;
 }
+.settings-row {font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
 .info-box {
+	font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	background-color: #e4e4e4;	
 	border: 1px solid #dedede;	
 }
