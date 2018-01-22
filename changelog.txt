@@ -7,6 +7,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(01/23/18) = Changed - Version 1.11
+[*] Admin look & feel changes
+
 (12/28/17) = Changed - Version 1.10
 [*] Improved navigation for Testimonial section  
 

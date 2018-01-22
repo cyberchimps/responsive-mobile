@@ -43,7 +43,7 @@ function responsive_mobile_upgrade_bar() {
 
 <?php
 }
-add_action( 'responsive_mobile_theme_options', 'responsive_mobile_upgrade_bar', 1 );
+//add_action( 'responsive_mobile_theme_options', 'responsive_mobile_upgrade_bar', 1 );
 
 /**
  * Theme Options Support and Information

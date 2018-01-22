@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif";
   font-size: 14px;
   line-height: 1.42857;
   color: #333333;
@@ -1025,7 +1025,7 @@ body {
 
 .col-md-4,
 .col-md-8 {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 h3.rwd-toggle {
@@ -1039,7 +1039,7 @@ h3.rwd-toggle {
   box-shadow: inset 0 1px 0 #ffffff;
   padding: 0;
   margin: 20px 0 0 0;
-  border: 3px solid #dfdfdf;
+  border: 2px solid #dfdfdf;
   background: #f5f5f5;
   background-image: -webkit-gradient(linear, left bottom, left top, from(#f5f5f5), to(#f9f9f9));
   background-image: -webkit-linear-gradient(bottom, #f5f5f5, #f9f9f9);
@@ -1125,9 +1125,9 @@ h4.sub-title {
   border-bottom-left-radius: 3px;
   margin: 0;
   padding: 20px 0 0 0;
-  border: 3px solid #dfdfdf;
+  border: 2px solid #dfdfdf;
   border-top: none;
-  background: #fcfcfc;
+  background: #fff;
   overflow: hidden;
   font-size: 12px;
   clear: both;
@@ -1424,4 +1424,31 @@ ul.error-list {
 .green-button {
 background:#5dfeb6;
 border-color:#5dfeb6;
+}
+.settings-row .col-md-4 h4 ,.settings-row .col-md-4 p {
+	margin-top: 0px;
+}
+.settings-row .col-md-4 h4 {
+	font-size: 1.1em;
+	font-weight: normal;
+}
+.rwd-toggle a:focus {
+	outline: none;
+	box-shadow:none;
+}
+.settings-row .description {
+	cursor: unset;
+	font-style: italic;
+	padding-top: 2px;
+}
+.info-box .button {
+	background-color: #fff;
+	box-shadow:none;
+}
+.info-box .button-primary {
+	background: #0085ba;
+}
+.info-box {
+	background-color: #e4e4e4;	
+	border: 1px solid #dedede;	
 }
