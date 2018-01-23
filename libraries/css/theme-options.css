@@ -1455,3 +1455,6 @@ border-color:#5dfeb6;
 	background-color: #e4e4e4;	
 	border: 1px solid #dedede;	
 }
+.wp-color-result::after{
+	line-height: 20px;	
+}
