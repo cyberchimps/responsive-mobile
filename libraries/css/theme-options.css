@@ -1265,9 +1265,9 @@ h4.sub-title {
 }
 
 .notice {
-  background-color: #fbf9e9;
-  border: 1px solid #e3cf57;
-  color: #212121;
+  background-color: #e4e4e4;
+  border: 1px solid #dedede;
+  color: #555;
 }
 
 .success {
