@@ -148,12 +148,12 @@ function responsive_mobile_footer_widget_param( $params )
 {
 	global $footer_widget_counter_rm;
 	$responsive_mobile_options = responsive_mobile_get_options();
-
-	$footer_widget_layout = $responsive_mobile_options['footer_widget_layout'];
-	if(isset($footer_widget_layout) && $footer_widget_layout != '')
-		$layout = $footer_widget_layout;
+	
+	if (isset($responsive_mobile_options['footer_widget_layout']))
+		$layout = $responsive_mobile_options['footer_widget_layout'];
 	else
 		$layout = '';
+	
 
 	//Check if we are displaying "Footer Sidebar"
 	if ( $params[0]['id'] == 'footer-widget' ) {
