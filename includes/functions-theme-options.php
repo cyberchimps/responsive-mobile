@@ -55,6 +55,16 @@ function responsive_mobile_valid_layouts()
 	return apply_filters( 'responsive_mobile_valid_layouts', $layouts );
 }
 
+function responsive_mobile_footer_layouts()
+{
+	$layouts = array(
+			'footer-3-col'                   => __( 'Footer 3 column', 'responsive-mobile' ),
+			'footer-2-col'      => __( 'Footer 2 column', 'responsive-mobile' )
+			
+	);
+	
+	return apply_filters( 'responsive_mobile_footer_layouts', $layouts );
+}
 /**
  * Get valid layouts for blogs
  */
@@ -134,6 +144,14 @@ function responsive_mobile_theme_options_set()
 					'id'          => 'sticky_header',
 					'description' => __( 'Check to enable', 'responsive-mobile' ),
 					'default'     => false
+				),
+				array(
+						'title'    => __( 'Choose footer Widget Layout', 'responsive-mobile' ),
+						'type'     => 'select',
+						'id'       => 'footer_widget_layout',
+						'options'  => responsive_mobile_footer_layouts(),
+						'default'  => 'footer-3-col',
+						'validate' => 'select'
 				)
 			)
 		),

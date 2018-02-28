@@ -7,6 +7,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(02/28/18) = Changed - Version 1.12
+[+] Added 2 column footer widget layout
+
 (01/23/18) = Changed - Version 1.11
 [*] Admin look & feel changes
 

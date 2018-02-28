@@ -2254,6 +2254,9 @@ main#main.sitemap .sitemap-widgets:after {
     float: left;
     width: 33.33333%;
   }
+  #footer-widget .footer-widget-2col {    
+    width: 50%;
+  }
 }
 #footer-widget .footer-widget .widget-title {
   color: #999999;

@@ -84,6 +84,15 @@ function responsive_customize_register( $wp_customize ) {
 		'settings'              => 'responsive_mobile_theme_options[sticky_header]',
 		'type'                  => 'checkbox'
 	) );
+	$wp_customize->add_setting( 'responsive_mobile_theme_options[footer_widget_layout]', array( 'sanitize_callback' => 'responsive_sanitize_default_footer_layouts', 'type' => 'option' ) );
+	$wp_customize->add_control( 'res_static_page_footer_layout_default', array(
+			'label'                 => __( 'Choose footer Widget Layout', 'responsive' ),
+			'section'               => 'theme_elements',
+			'settings'              => 'responsive_mobile_theme_options[footer_widget_layout]',
+			'type'                  => 'select',
+			'choices'               => responsive_mobile_footer_layouts()
+	) );
+	
 
 	
 	$option_categories = array();
@@ -661,6 +670,14 @@ function responsive_sanitize_default_layouts( $input ) {
 	if ( array_key_exists( $input, $option ) ) {	
 		$output = $input;	
 	}	
+	return $output;
+}
+function responsive_sanitize_default_footer_layouts( $input ) {
+	$output = '';
+	$option = responsive_mobile_footer_layouts();
+	if ( array_key_exists( $input, $option ) ) {
+		$output = $input;
+	}
 	return $output;
 }
 function responsive_sanitize_multiple_checkboxes( $values ) {

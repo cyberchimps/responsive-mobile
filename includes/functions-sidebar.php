@@ -143,3 +143,32 @@ function responsive_mobile_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'responsive_mobile_widgets_init' );
+
+function responsive_mobile_footer_widget_param( $params )
+{
+	global $footer_widget_counter_rm;
+	$responsive_mobile_options = responsive_mobile_get_options();
+
+	$footer_widget_layout = $responsive_mobile_options['footer_widget_layout'];
+	if(isset($footer_widget_layout) && $footer_widget_layout != '')
+		$layout = $footer_widget_layout;
+	else
+		$layout = '';
+
+	//Check if we are displaying "Footer Sidebar"
+	if ( $params[0]['id'] == 'footer-widget' ) {
+
+		//Check which footer layout is selcted
+
+		if ($layout == 'footer-2-col')
+		{			
+			$class                      = 'class="footer-widget-2col ';			
+			$params[0]['before_widget'] = preg_replace('/class="/', $class, $params[0]['before_widget'],1 );
+
+		}
+		
+	}
+
+	return $params;
+}
+add_filter( 'dynamic_sidebar_params', 'responsive_mobile_footer_widget_param' );
