@@ -110,6 +110,11 @@ function responsive_mobile_plugin_notice() {
 				'uri'  => 'https://wordpress.org/plugins/wpforms-lite'
 			),
 			array(
+				'name' => 'Elementor', // Name of the plugin.
+				'slug' => 'elementor', // The plugin slug (typically the folder name)
+				'uri'  => 'https://wordpress.org/plugins/elementor/' // plugin url ( http://wordpress.org/plugins/plugin_slug )
+			),
+			array(
 				'name'     => 'WPLegalPages', // The plugin name
 				'slug'     => 'wplegalpages', // The plugin slug (typically the folder name)
 				'uri'  => 'https://wordpress.org/plugins/wplegalpages/'

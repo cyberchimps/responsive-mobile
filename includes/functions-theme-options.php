@@ -59,7 +59,8 @@ function responsive_mobile_footer_layouts()
 {
 	$layouts = array(
 			'footer-3-col'                   => __( 'Footer 3 column', 'responsive-mobile' ),
-			'footer-2-col'      => __( 'Footer 2 column', 'responsive-mobile' )
+			'footer-2-col'      => __( 'Footer 2 column', 'responsive-mobile' ),
+			'footer-1-col' 					=> __( 'Footer 1 column', 'responsive-mobile' ),
 			
 	);
 	
@@ -146,7 +147,7 @@ function responsive_mobile_theme_options_set()
 					'default'     => false
 				),
 				array(
-						'title'    => __( 'Choose footer Widget Layout', 'responsive-mobile' ),
+						'title'    => __( 'Choose Footer Widget Layout', 'responsive-mobile' ),
 						'type'     => 'select',
 						'id'       => 'footer_widget_layout',
 						'options'  => responsive_mobile_footer_layouts(),

@@ -7,6 +7,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/29/18) = Added - Version 1.13
+[+] Added 1 column footer widget layout
+
 (02/28/18) = Changed - Version 1.12
 [+] Added 2 column footer widget layout
 

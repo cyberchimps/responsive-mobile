@@ -105,6 +105,10 @@ require $template_directory . '/core/functions-install.php';
  */
 require $template_directory . '/core/functions-admin.php';
 
+if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
+	define( 'ELEMENTOR_PARTNER_ID', 2126 );
+}
+
 // enabling theme support for title tag
 function responsivemobile_title_setup()
 {

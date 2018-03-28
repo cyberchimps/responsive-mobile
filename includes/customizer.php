@@ -86,7 +86,7 @@ function responsive_customize_register( $wp_customize ) {
 	) );
 	$wp_customize->add_setting( 'responsive_mobile_theme_options[footer_widget_layout]', array( 'sanitize_callback' => 'responsive_sanitize_default_footer_layouts', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_static_page_footer_layout_default', array(
-			'label'                 => __( 'Choose footer Widget Layout', 'responsive' ),
+			'label'                 => __( 'Choose Footer Widget Layout', 'responsive' ),
 			'section'               => 'theme_elements',
 			'settings'              => 'responsive_mobile_theme_options[footer_widget_layout]',
 			'type'                  => 'select',

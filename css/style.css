@@ -2257,6 +2257,9 @@ main#main.sitemap .sitemap-widgets:after {
   #footer-widget .footer-widget-2col {    
     width: 50%;
   }
+  #footer-widget .footer-widget-1col {    
+    width: 100%;
+  }
 }
 #footer-widget .footer-widget .widget-title {
   color: #999999;

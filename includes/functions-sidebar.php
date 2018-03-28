@@ -166,6 +166,12 @@ function responsive_mobile_footer_widget_param( $params )
 			$params[0]['before_widget'] = preg_replace('/class="/', $class, $params[0]['before_widget'],1 );
 
 		}
+		else if ($layout == 'footer-1-col')
+		{			
+			$class                      = 'class="footer-widget-1col ';			
+			$params[0]['before_widget'] = preg_replace('/class="/', $class, $params[0]['before_widget'],1 );
+
+		}
 		
 	}
 
