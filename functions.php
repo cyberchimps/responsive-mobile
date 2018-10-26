@@ -113,6 +113,9 @@ if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 function responsivemobile_title_setup()
 {
 	add_theme_support( 'title-tag' );
+
+	// Add support for full and wide align images.
+	add_theme_support( 'align-wide' );
 }
 add_action( 'after_setup_theme', 'responsivemobile_title_setup' );
 
@@ -188,14 +191,14 @@ function responsive_mobile_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[team_title]', array(
 		'selector' => '.section_title span',
 	) );
-	
+
 	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[team_val]', array(
 		'selector' => '.team_first_row',
-	) );	
+	) );
 
 	$wp_customize->selective_refresh->add_partial( 'responsive_mobile_theme_options[team]', array(
 		'selector' => '#team_inner_div',
-	) );	
+	) );
 
 }
 
@@ -254,7 +257,7 @@ function responsive_mobile_rating_notice()
 	if ( $check_screen == 'Theme Options' )
 	{
 	?>
-	
+
     <div class="notice notice-success is-dismissible">
         <b><p>Liked this theme? <a href="https://wordpress.org/support/theme/responsive-mobile/reviews/#new-post" target="_blank">Leave us</a> a ***** rating. Thank you! </p></b>
     </div>
@@ -290,20 +293,20 @@ add_action( 'wp_footer', 'cyberchimps_fixed_menu_onscroll' );
 function cyberchimps_fixed_menu_onscroll()
 {
     $responsive_options = responsive_mobile_get_options();
-    if ( isset( $responsive_options['sticky_header']) && $responsive_options['sticky_header'] == '1') { 
-	
-            
+    if ( isset( $responsive_options['sticky_header']) && $responsive_options['sticky_header'] == '1') {
+
+
 	?>
 		<script type="text/javascript">
 		jQuery(document).ready(function($){
 			$(window).scroll(function()  {
 			if ($(this).scrollTop() > 0) {
 			$('#header_section').addClass("sticky-header");
-                       
+
 			}
 			else{
 			$('#header_section').removeClass("sticky-header");
-                       
+
 			}
 			});
 		});
@@ -311,19 +314,19 @@ function cyberchimps_fixed_menu_onscroll()
 	<?php
 	}
 }
-if( !function_exists('responsive_exclude_post_cat') ) : 	
+if( !function_exists('responsive_exclude_post_cat') ) :
 function responsive_exclude_post_cat( $query ){
 	$cat = get_theme_mod( 'responsive_mobile_exclude_post_cat' );
 
 	if( $cat && ! is_admin() && $query->is_main_query() ){
-		$cat = array_diff( array_unique( $cat ), array('') ); 		
+		$cat = array_diff( array_unique( $cat ), array('') );
 		if( $query->is_home() || $query->is_archive() ) {
 			$query->set( 'category__not_in', $cat );
 			//$query->set( 'cat', '-5,-6,-65,-66' );
 		}
 	}
 }
-endif;	
+endif;
 add_filter( 'pre_get_posts', 'responsive_exclude_post_cat' );
 function responsive_custom_category_widget( $arg ) {
 	$cat = get_theme_mod( 'exclude_post_cat' );
@@ -370,9 +373,16 @@ function responsive_pro_categorylist_validate( ) {
 		);
 		$option_categories = array();
 		$category_lists = get_categories( $args );
-		$option_categories[''] = esc_html(__( 'Choose Category', 'responsive' ));
+		$option_categories[''] = esc_html(__( 'Choose Category', 'responsive-mobile' ));
 		foreach( $category_lists as $category ){
 			$option_categories[$category->term_id] = $category->name;
 		}
-		return $option_categories;		
+		return $option_categories;
 	}
+	/**
+	 *  Enqueue block styles  in editor
+	 */
+	function responsive_mobile_block_styles() {
+		wp_enqueue_style( 'rm-gutenberg-blocks', get_stylesheet_directory_uri() . '/css/gutenberg-blocks.css', array(), '1.0' );
+	}
+	add_action( 'enqueue_block_editor_assets', 'responsive_mobile_block_styles' );

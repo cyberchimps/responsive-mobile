@@ -206,26 +206,26 @@ function responsive_team_meta_box_cb()
 
 	wp_nonce_field( 'responsive_meta_box_nonce', 'meta_box_nonce' );
 	?>
-	<p><?php echo esc_html(__("To use this post for front page's team section, please enter below details:",'responsive')); ?>
+	<p><?php echo esc_html(__("To use this post for front page's team section, please enter below details:",'responsive-mobile')); ?>
     </p>
 	<p>
-        <label for="responsive_meta_box_designation"><?php echo esc_html(__('Member designation','responsive')); ?></label>
+        <label for="responsive_meta_box_designation"><?php echo esc_html(__('Member designation','responsive-mobile')); ?></label>
         <input type="text" name="responsive_meta_box_designation" id="responsive_meta_box_designationion" value="<?php echo $responsive_meta_box_designation; ?>" />
     </p> 
 	<p>
-        <label for="responsive_meta_box_facebook"><?php echo esc_html(__('Facebook Link','responsive')); ?></label>
+        <label for="responsive_meta_box_facebook"><?php echo esc_html(__('Facebook Link','responsive-mobile')); ?></label>
         <input type="text" name="responsive_meta_box_facebook" id="responsive_meta_box_facebook" value="<?php echo $responsive_meta_box_facebook; ?>" />
     </p> 
 	<p>
-        <label for="responsive_meta_box_twitter"><?php echo esc_html(__('Twitter Link','responsive')); ?></label>
+        <label for="responsive_meta_box_twitter"><?php echo esc_html(__('Twitter Link','responsive-mobile')); ?></label>
         <input type="text" name="responsive_meta_box_twitter" id="responsive_meta_box_twitter" value="<?php echo $responsive_meta_box_twitter; ?>" />
     </p> 
 	<p>
-        <label for="responsive_meta_box_googleplus"><?php echo esc_html(__('GooglePlus Link','responsive')); ?></label>
+        <label for="responsive_meta_box_googleplus"><?php echo esc_html(__('GooglePlus Link','responsive-mobile')); ?></label>
         <input type="text" name="responsive_meta_box_googleplus" id="responsive_meta_box_googleplus" value="<?php echo $responsive_meta_box_googleplus; ?>" />
     </p> 
 	<p>
-        <label for="responsive_meta_box_text_linkedin"><?php echo esc_html(__('LinkedIn Link','responsive')); ?></label>
+        <label for="responsive_meta_box_text_linkedin"><?php echo esc_html(__('LinkedIn Link','responsive-mobile')); ?></label>
         <input type="text" name="responsive_meta_box_text_linkedin" id="responsive_meta_box_text_linkedin" value="<?php echo $responsive_meta_box_linkedin; ?>" />
     </p> 
   

@@ -1790,7 +1790,7 @@ blockquote cite {
  8.8 - Breadcrumbs
 --------------------------------------------------------------*/
 .breadcrumb-list {
-  padding-top: 15px;
+	line-height: 2em;
 }
 
 article .post-data {
@@ -2254,10 +2254,10 @@ main#main.sitemap .sitemap-widgets:after {
     float: left;
     width: 33.33333%;
   }
-  #footer-widget .footer-widget-2col {    
+  #footer-widget .footer-widget-2col {
     width: 50%;
   }
-  #footer-widget .footer-widget-1col {    
+  #footer-widget .footer-widget-1col {
     width: 100%;
   }
 }
@@ -2626,7 +2626,6 @@ main#main.sitemap .sitemap-widgets:after {
 .aligncenter {
   display: block;
   clear: both;
-  margin: 0 auto;
 }
 
 /*--------------------------------------------------------------
@@ -2941,7 +2940,7 @@ table.cart td.actions .coupon .input-text {
 
 .section_title{
     text-align:center; }
-    
+
 .portfolio-modal .modal-content .modal-body
 {
 	padding:0;
@@ -2964,7 +2963,7 @@ table.cart td.actions .coupon .input-text {
 	background-color: #fff;
 	margin: 0 !important;
 	opacity:0.9;
-	
+
 	-webkit-transition: all 0.8s ease-in-out 0s;
 	-moz-transition: all 0.8s ease-in-out 0s;
 	-o-transition: all 0.8s ease-in-out 0s;
@@ -3012,7 +3011,7 @@ padding: 2% 0 0 10% !important;
     {
         text-align: center;
         padding: 10px !important;
-    } 
+    }
 }
 /* ====== Testimonial Section ================ */
 #testimonial
@@ -3154,7 +3153,7 @@ border: 1px solid #cfcfcf;
     color: #ffffff;
     text-align: center;
     padding:8px 15px;
-    
+
 }
 
 .three-column-posts article .post-data, .three-column-posts article .entry-header
@@ -3179,4 +3178,37 @@ border: 1px solid #cfcfcf;
 
 .three-column-posts article .post-data .tags-links {
     float: none;
+}
+
+audio, canvas, video {
+    display: inline-block;
+    width: 100%;
+}
+
+.wp-block-column p {
+    padding: 0 14px;
+}
+
+div .wp-block-cover-image-text{
+ 	position: absolute;
+    color: #fff;
+    font-size: 2em;
+    line-height: 1.25;
+    margin-bottom: 0;
+    max-width: 610px;
+    padding: 14px;
+    text-align: center;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+	width: 100%;
+
+}
+
+.wp-block-image {
+    margin-bottom: 20px;
+}
+.post-entry dd{
+	margin-left: 1.5em;
 }

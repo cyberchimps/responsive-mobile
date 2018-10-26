@@ -42,19 +42,21 @@ function responsive_mobile_custom_header_setup() {
 add_action( 'after_setup_theme', 'responsive_mobile_custom_header_setup' );
 
 if ( ! function_exists( 'responsive_mobile_header_style' ) ) {
-/**
- * Styles the header image and text displayed on the blog
- *
- * @see responsive_mobile_custom_header_setup().
- */
-function responsive_mobile_header_style() {
-	$header_text_color = get_header_textcolor();
+	/**
+	 * Styles the header image and text displayed on the blog
+	 *
+	 * @see responsive_mobile_custom_header_setup().
+	 */
+	function responsive_mobile_header_style() {
+		$header_text_color = get_header_textcolor();
 
-	// If no custom options for text are set, let's bail
-	// get_header_textcolor() options: HEADER_TEXTCOLOR is default, hide text (returns 'blank') or any hex value
-	if ( HEADER_TEXTCOLOR == $header_text_color ) {
-		return;
-	}
+		/*
+		* If no custom options for text are set, let's bail.
+		* get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_theme_support( 'custom-header' ).
+		*/
+		if ( get_theme_support( 'custom-header', 'default-text-color' ) === $header_text_color ) {
+			return;
+		}
 
 	// If we get this far, we have custom styles. Let's do this.
 	?>
@@ -72,7 +74,7 @@ function responsive_mobile_header_style() {
 		// If the user has set a custom color for the text use that
 		else :
 	?>
-		.site-title a,
+		#site-branding .site-name a,
 		.site-description {
 			color: #<?php echo $header_text_color; ?>;
 		}
