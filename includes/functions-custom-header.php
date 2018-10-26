@@ -74,7 +74,7 @@ if ( ! function_exists( 'responsive_mobile_header_style' ) ) {
 		// If the user has set a custom color for the text use that
 		else :
 	?>
-		.site-title a,
+		#site-branding .site-name a,
 		.site-description {
 			color: #<?php echo $header_text_color; ?>;
 		}
