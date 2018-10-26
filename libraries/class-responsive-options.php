@@ -703,7 +703,7 @@ Class Responsive_Options {
 		);
 		$option_categories = array();
 		$category_lists = get_categories( $args );
-		$option_categories[''] = esc_html(__( 'Choose Category', 'responsive' ));
+		$option_categories[''] = esc_html(__( 'Choose Category', 'responsive-mobile' ));
 		foreach( $category_lists as $category ){
 			$option_categories[$category->term_id] = $category->name;
 		}

@@ -7,6 +7,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/26/18) = Added - Version 1.14
+[+] Added Gutenberg Compatability
+
 (03/29/18) = Added - Version 1.13
 [+] Added 1 column footer widget layout
 
@@ -17,7 +20,7 @@ Changelog Legend:
 [*] Admin look & feel changes
 
 (12/28/17) = Changed - Version 1.10
-[*] Improved navigation for Testimonial section  
+[*] Improved navigation for Testimonial section
 
 (12/27/17) = Bug fix and updates - Version 1.9
 [*] - Visual Improvements to the Admin Dashboard
@@ -51,11 +54,11 @@ Changelog Legend:
 
 (21/06/17) - Improvements - Version 1.2
 
-[+] - Added callout element 
+[+] - Added callout element
 
 (07/12/16) - Improvements - Version 1.1
 
-[!] - Fixed customizer issue for widget 
+[!] - Fixed customizer issue for widget
 
 (26/10/16) - Improvements - Version 1.0
 
