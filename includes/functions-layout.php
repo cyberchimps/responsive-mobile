@@ -72,7 +72,7 @@ function responsive_mobile_get_layout() {
 
 	} else {
 		/* Posts index */
-		if ( is_home() || is_archive() || is_search() ) {
+		if ( ! empty( $responsive_mobile_options['blog_posts_index_layout_default'] ) && ( is_home() || is_archive() || is_search() ) ) {
 			$layout = $responsive_mobile_options['blog_posts_index_layout_default'];
 		} /* Fallback */
 		else {

@@ -9,28 +9,27 @@ $responsive_mobile_options = responsive_mobile_get_options();
 //test for first install no database
 $db = get_option( 'responsive_mobile_theme_options' );
 //test if all options are empty so we can display default text if they are
-$empty = ( empty( $responsive_mobile_options['callout_headline'] ) && empty( $responsive_mobile_options['callout_subheadline'] ) && empty( $responsive_mobile_options['callout_content_area'] ) ) ? false : true;
-$emtpy_cta = ( empty( $responsive_mobile_options['callout_cta_text'] ) ) ? false : true;
 
-$callout_text_color=$responsive_mobile_options['callout_text_color'];
-$callout_btn_text_color=$responsive_mobile_options['callout_btn_text_color'];
-$callout_btn_back_color=$responsive_mobile_options['callout_btn_back_color'];
-
-$callout_img = $responsive_mobile_options['callout_featured_content'];
-
+$empty                  = ( empty( $responsive_mobile_options['callout_headline'] ) && empty( $responsive_mobile_options['callout_subheadline'] ) && empty( $responsive_mobile_options['callout_content_area'] ) ) ? false : true;
+$emtpy_cta              = ( empty( $responsive_mobile_options['callout_cta_text'] ) ) ? false : true;
+$callout_text_color     = ! empty( $responsive_mobile_options['callout_text_color'] ) ? $responsive_mobile_options['callout_text_color'] : '';
+$callout_btn_text_color = ! empty( $responsive_mobile_options['callout_btn_text_color'] ) ? $responsive_mobile_options['callout_btn_text_color'] : '';
+$callout_btn_back_color = ! empty( $responsive_mobile_options['callout_btn_back_color'] ) ? $responsive_mobile_options['callout_btn_back_color'] : '';
+$callout_img            = ! empty( $responsive_mobile_options['callout_featured_content'] ) ? $responsive_mobile_options['callout_featured_content'] : '';
+$callout_cta_text       = ! empty( $responsive_mobile_options['callout_cta_text'] ) ? $responsive_mobile_options['callout_cta_text'] : '';
 
 if($responsive_mobile_options['callout_toggle_btn'] == 1)
 {
 ?>
 <style>
-<?php if(strlen($responsive_mobile_options['callout_cta_text']) > 30) 
+<?php if(strlen($callout_cta_text) > 30)
 	{
 ?>
 #callout_content main #featured-content .call-to-action .cta-button, #callout_content main #featured-image .call-to-action .cta-button
 {
 	font-size:14px;
 }
-<?php	
+<?php
 	}
 ?>
 #callout_content
@@ -62,7 +61,7 @@ if($responsive_mobile_options['callout_toggle_btn'] == 1)
 				?>
 			</p>
 
-				
+
 
 
 
@@ -70,8 +69,8 @@ if($responsive_mobile_options['callout_toggle_btn'] == 1)
 
 		<div id="featured-image">
 <div class="call-to-action callout_button" id="callout-cta">
-
-					<a href="<?php echo esc_url( $responsive_mobile_options['callout_cta_url'] ); ?>" class="btn cta-button" style="color:<?php echo $callout_btn_text_color; ?>; background:<?php echo $callout_btn_back_color; ?>;">
+					<?php $callout_cta_url = ! empty( $responsive_mobile_options['callout_cta_url'] ) ? $responsive_mobile_options['callout_cta_url'] : ''; ?>
+					<a href="<?php echo esc_url( $callout_cta_url ); ?>" class="btn cta-button" style="color:<?php echo $callout_btn_text_color; ?>; background:<?php echo $callout_btn_back_color; ?>;">
 						<?php
 						if ( isset( $responsive_mobile_options['callout_cta_text'] ) && $db && $emtpy_cta ) {
 							echo esc_html( $responsive_mobile_options['callout_cta_text'] );
