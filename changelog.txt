@@ -7,9 +7,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(03/05/19) = Added - Version 1.15
+(03/07/19) = Added - Version 1.15
 [*] Fixed notices
-[*] Fixed customizer not saving issue
+[*] Fixed home page option in customizer not getting saved issue
 
 (10/26/18) = Added - Version 1.14
 [+] Added Gutenberg Compatability
