@@ -2894,7 +2894,6 @@ table.cart td.actions .coupon .input-text {
 @media all and (max-width: 480px) {
   .team_single_row .team_img,
   .team_single_row .team_data {
-    width: 100%;
     margin: 0px auto;
     display: block; }
   .team_single_row .team_data .team_member {
