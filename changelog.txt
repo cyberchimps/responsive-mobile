@@ -7,6 +7,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(05/03/19) = Added - Version 1.16
+[*] Fixed team data css for Mobile view
+
 (03/07/19) = Added - Version 1.15
 [*] Fixed notices
 [*] Fixed home page option in customizer not getting saved issue
