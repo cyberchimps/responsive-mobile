@@ -7,7 +7,7 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(05/03/19) = Added - Version 1.16
+(05/03/19) = Added - Version 1.15.1
 [*] Fixed team data css for Mobile view
 
 (03/07/19) = Added - Version 1.15
