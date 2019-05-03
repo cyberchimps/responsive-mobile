@@ -8,7 +8,7 @@ Changelog Legend:
 [!] = Bugs
 
 (04/03/19) = Added - Version 1.16
-[*] Fixed team_data css in Mobile view for
+[*] Fixed team data css for Mobile view 
 
 (03/07/19) = Added - Version 1.15
 [*] Fixed notices
