@@ -48,63 +48,69 @@ function responsive_mobile_get_breadcrumb_lists() {
  */
 if ( !function_exists( 'responsive_mobile_breadcrumb_lists' ) ) {
 
+	/**
+	 * Breadcrumb Lists
+	 * Allows visitors to quickly navigate back to a previous section or the root page.
+	 */
 	function responsive_mobile_breadcrumb_lists() {
 
 		/* === OPTIONS === */
-		$text['home']     = __( 'Home', 'responsive-mobile' ); // text for the 'Home' link
-		$text['category'] = __( 'Archive for %s', 'responsive-mobile' ); // text for a category page
-		$text['search']   = __( 'Search results for: %s', 'responsive-mobile' ); // text for a search results page
-		$text['tag']      = __( 'Posts tagged %s', 'responsive-mobile' ); // text for a tag page
-		$text['author']   = __( 'View all posts by %s', 'responsive-mobile' ); // text for an author page
-		$text['404']      = __( 'Error 404', 'responsive-mobile' ); // text for the 404 page
+		$text['home'] = _x( 'Home', 'Text for Home link Breadcrumb', 'responsive-mobile' ); // text for the 'Home' link.
+		/* translators: %s: Categories */
+		$text['category'] = _x( 'Archive for %s', 'Text for a Category page Breadcrumb', 'responsive-mobile' ); // text for a category page.
+		/* translators: %s: Search result page */
+		$text['search'] = _x( 'Search results for: %s', 'Text for a Serch Results Breadcrumb', 'responsive-mobile' ); // text for a search results page.
+		/* translators: %s: Post Pages */
+		$text['tag'] = _x( 'Posts tagged %s', 'Text for a Tag page Breadcrumb', 'responsive-mobile' ); // text for a tag page.
+		/* translators: %s: Author pages */
+		$text['author'] = _x( 'View all posts by %s', 'Text for an Author page Breadcrumb', 'responsive-mobile' ); // text for an author page.
+		$text['404']    = _x( 'Error 404', 'Text for a 404 page Breadcrumb', 'responsive-mobile' ); // text for the 404 page.
 
-		$show['current'] = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
-		$show['home']    = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
-		$show['search']  = 0; // 1 - show breadcrumbs on the search page, 0 - don't show
+		$show['current'] = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show.
+		$show['home']    = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show.
 
-		$delimiter    = ' <span class="chevron">&#8250;</span> '; // delimiter between crumbs
-		$before       = '<span class="breadcrumb-current">'; // tag before the current crumb
-		$after        = '</span>'; // tag after the current crumb
+		$delimiter = ' <span class="chevron">&#8250;</span> '; // delimiter between crumbs.
+		$before    = '<span class="breadcrumb-current">'; // tag before the current crumb.
+		$after     = '</span>'; // t    ag after the current crumb.
 		/* === END OF OPTIONS === */
 
 		$home_link   = home_url( '/' );
-		$before_link = '<span class="breadcrumb" typeof="v:Breadcrumb">';
+		$before_link = '<span class="breadcrumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
 		$after_link  = '</span>';
-		$link_att    = ' rel="v:url" property="v:title"';
-		$link        = $before_link . '<a' . $link_att . ' href="%1$s">%2$s</a>' . $after_link;
+		$link_att    = '';
+		$link        = $before_link . '<a itemprop="item"' . $link_att . ' href="%1$s"><span itemprop="name">%2$s</span></a>' . $after_link;
 
-		$post        = get_queried_object();
-		$parent_id   = isset( $post->post_parent ) ? $post->post_parent : '';
+		$post      = get_queried_object();
+		$parent_id = isset( $post->post_parent ) ? $post->post_parent : '';
 
 		$html_output = '';
 
 		if ( is_front_page() ) {
 			if ( 1 == $show['home'] ) {
-				$html_output .= '<div class="breadcrumb-list"><a href="' . $home_link . '">' . $text['home'] . '</a></div>';
+				$html_output .= '<div class="breadcrumb-list"><a itemprop="item" href="' . $home_link . '"><span itemprop="name">' . $text['home'] . '</span></a></div>';
 			}
-
 		} else {
-			$html_output .= '<div class="breadcrumb-list" xmlns:v="http://rdf.data-vocabulary.org/#">' . sprintf( $link, $home_link, $text['home'] ) . $delimiter;
+			$html_output .= '<div class="breadcrumb-list">' . sprintf( $link, $home_link, $text['home'] ) . $delimiter;
 
 			if ( is_home() ) {
 				if ( 1 == $show['current'] ) {
 					$html_output .= $before . get_the_title( get_option( 'page_for_posts', true ) ) . $after;
 				}
-
 			} elseif ( is_category() ) {
 				$this_cat = get_category( get_query_var( 'cat' ), false );
 				if ( 0 != $this_cat->parent ) {
-					$cats = get_category_parents( $this_cat->parent, true, $delimiter );
-					$cats = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
-					$cats = str_replace( '</a>', '</a>' . $after_link, $cats );
+					$parent       = get_category( $this_cat->parent );
+					$cats         = get_category_parents( $this_cat->parent, true, $delimiter );
+					$cats         = str_replace( '<a', $before_link . '<a itemprop="item"' . $link_att, $cats );
+					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
+					$cats         = str_replace( $parent->name, '<span itemprop="name">' . $parent->name . '</span>' . $after_link, $cats );
 					$html_output .= $cats;
+
 				}
 				$html_output .= $before . sprintf( $text['category'], single_cat_title( '', false ) ) . $after;
 
 			} elseif ( is_search() ) {
-				if ( 1 == $show['search'] ) {
-					$html_output .= $before . sprintf( $text['search'], get_search_query() ) . $after;
-				}
+				$html_output .= $before . sprintf( $text['search'], get_search_query() ) . $after;
 
 			} elseif ( is_day() ) {
 				$html_output .= sprintf( $link, get_year_link( get_the_time( 'Y' ) ), get_the_time( 'Y' ) ) . $delimiter;
@@ -118,12 +124,12 @@ if ( !function_exists( 'responsive_mobile_breadcrumb_lists' ) ) {
 			} elseif ( is_year() ) {
 				$html_output .= $before . get_the_time( 'Y' ) . $after;
 
-			} elseif ( is_single() && !is_attachment() ) {
+			} elseif ( is_single() && ! is_attachment() ) {
 				if ( 'post' != get_post_type() ) {
 					$post_type    = get_post_type_object( get_post_type() );
 					$archive_link = get_post_type_archive_link( $post_type->name );
 					$html_output .= sprintf( $link, $archive_link, $post_type->labels->singular_name );
-					if( 1 == $show['current'] ) {
+					if ( 1 == $show['current'] ) {
 						$html_output .= $delimiter . $before . get_the_title() . $after;
 					}
 				} else {
@@ -131,32 +137,33 @@ if ( !function_exists( 'responsive_mobile_breadcrumb_lists' ) ) {
 					$cat  = $cat[0];
 					$cats = get_category_parents( $cat, true, $delimiter );
 					if ( 0 == $show['current'] ) {
-						$cats = preg_replace( "#^(.+)$delimiter$#", "$1", $cats );
+						$cats = preg_replace( "#^(.+)$delimiter$#", '$1', $cats );
 					}
-					$cats = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
-					$cats = str_replace( '</a>', '</a>' . $after_link, $cats );
+					$cats         = str_replace( '<a', $before_link . '<a itemprop="item"' . $link_att, $cats );
+					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
+					$cats         = str_replace( $cat->name, '<span itemprop="name">' . $cat->name . '</span>' . $after_link, $cats );
 					$html_output .= $cats;
 					if ( 1 == $show['current'] ) {
 						$html_output .= $before . get_the_title() . $after;
 					}
 				}
-
-			} elseif ( !is_single() && !is_page() && !is_404() && 'post' != get_post_type() ) {
-				$post_type = get_post_type_object( get_post_type() );
+			} elseif ( ! is_single() && ! is_page() && ! is_404() && 'post' != get_post_type() ) {
+				$post_type    = get_post_type_object( get_post_type() );
 				$html_output .= $before . $post_type->labels->singular_name . $after;
 
 			} elseif ( is_attachment() ) {
 				$parent = get_post( $parent_id );
 				$cat    = get_the_category( $parent->ID );
 
-				if( isset( $cat[0] ) ) {
+				if ( isset( $cat[0] ) ) {
 					$cat = $cat[0];
 				}
 
 				if ( $cat ) {
-					$cats = get_category_parents( $cat, true, $delimiter );
-					$cats = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
-					$cats = str_replace( '</a>', '</a>' . $after_link, $cats );
+					$cats         = get_category_parents( $cat, true, $delimiter );
+					$cats         = str_replace( '<a', $before_link . '<a itemprop="item"' . $link_att, $cats );
+					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
+					$cats         = str_replace( $cat->name, '<span itemprop="name">' . $cat->name . '</span>' . $after_link, $cats );
 					$html_output .= $cats;
 				}
 
@@ -164,36 +171,33 @@ if ( !function_exists( 'responsive_mobile_breadcrumb_lists' ) ) {
 				if ( 1 == $show['current'] ) {
 					$html_output .= $delimiter . $before . get_the_title() . $after;
 				}
-
-			} elseif ( is_page() && !$parent_id ) {
-				if( 1 == $show['current'] ) {
-					$html_output .=  $before . get_the_title() . $after;
+			} elseif ( is_page() && ! $parent_id ) {
+				if ( 1 == $show['current'] ) {
+					$html_output .= $before . get_the_title() . $after;
 				}
-
 			} elseif ( is_page() && $parent_id ) {
 				$breadcrumbs = array();
-				while( $parent_id ) {
-					$page_child    = get_page( $parent_id );
+				while ( $parent_id ) {
+					$page_child    = get_post( $parent_id );
 					$breadcrumbs[] = sprintf( $link, get_permalink( $page_child->ID ), get_the_title( $page_child->ID ) );
 					$parent_id     = $page_child->post_parent;
 				}
 				$breadcrumbs = array_reverse( $breadcrumbs );
-				for( $i = 0; $i < count( $breadcrumbs ); $i++ ) {
-					$html_output .= $breadcrumbs[$i];
-					if( $i != count( $breadcrumbs ) - 1 ) {
+				for ( $i = 0; $i < count( $breadcrumbs ); $i++ ) {
+					$html_output .= $breadcrumbs[ $i ];
+					if ( $i != count( $breadcrumbs ) - 1 ) {
 						$html_output .= $delimiter;
 					}
 				}
-				if( 1 == $show['current'] ) {
+				if ( 1 == $show['current'] ) {
 					$html_output .= $delimiter . $before . get_the_title() . $after;
 				}
-
 			} elseif ( is_tag() ) {
 				$html_output .= $before . sprintf( $text['tag'], single_tag_title( '', false ) ) . $after;
 
 			} elseif ( is_author() ) {
-				$user_id = get_query_var( 'author' );
-				$userdata = get_the_author_meta( 'display_name', $user_id );
+				$user_id      = get_query_var( 'author' );
+				$userdata     = get_the_author_meta( 'display_name', $user_id );
 				$html_output .= $before . sprintf( $text['author'], $userdata ) . $after;
 
 			} elseif ( is_404() ) {
@@ -203,18 +207,32 @@ if ( !function_exists( 'responsive_mobile_breadcrumb_lists' ) ) {
 
 			if ( get_query_var( 'paged' ) || get_query_var( 'page' ) ) {
 				$page_num = get_query_var( 'page' ) ? get_query_var( 'page' ) : get_query_var( 'paged' );
-				$html_output .= $delimiter . sprintf( __( 'Page %s', 'responsive-mobile' ), $page_num );
+				/* translators: %s: Page Number */
+				$html_output .= $delimiter . sprintf( _x( 'Page %s', 'Text for a page Breadcrumb', 'responsive-mobile' ), $page_num );
 
 			}
 
 			$html_output .= '</div>';
 
 		}
+		libxml_use_internal_errors( true );
+		$doc = new DOMDocument();
+		$doc->loadHTML( '<?xml encoding="UTF-8">' . $html_output );
+		$finder    = new DomXPath( $doc );
+		$classname = 'breadcrumb';
+		$nodes     = $finder->query( "//span[contains(@class, '$classname')]" );
+		$position  = 1;
+		foreach ( $nodes as $node ) {
+			if ( $position != $nodes->length ) {
+				$fragment = $doc->createDocumentFragment();
+				$fragment->appendXML( '<meta itemprop="position" content="' . $position . '" />' );
+				$node->appendChild( $fragment );
+				$position++;
+			}
+		}
+        echo $doc->saveHTML(); // phpcs:ignore
 
-		echo $html_output;
-
-	} // end responsive_mobile_breadcrumb_lists
-
+	} // End responsive_mobile_breadcrumb_lists.
 }
 
 function responsive_mobile_get_social_icons() {
