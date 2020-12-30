@@ -32,7 +32,7 @@ function responsive_mobile_get_breadcrumb_lists() {
 		bcn_display();
 	} elseif ( function_exists( 'breadcrumb_trail' ) ) {
 		breadcrumb_trail();
-	} elseif ( function_exists( 'yoast_breadcrumb' ) && true === $yoast_options['breadcrumbs-enable'] ) {
+	} elseif ( function_exists( 'yoast_breadcrumb' )) {
 		yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
 	} elseif ( ! is_search() ) {
 		responsive_mobile_breadcrumb_lists();
